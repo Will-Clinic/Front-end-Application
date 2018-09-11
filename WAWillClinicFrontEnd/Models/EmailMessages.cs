@@ -14,6 +14,12 @@ namespace WAWillClinicFrontEnd.Models
     public class EmailMessages
     {
         /// <summary>
+        /// Properties that are used for our email subject headings
+        /// </summary>
+        public static string Thanks { get; } = "WA Vets Will Clinic - Thank you!";
+        public static string Request { get; } = "Information Request - WA Vets Will Clinic";
+
+        /// <summary>
         /// Message that is sent to the requestor from the Contact page.
         /// </summary>
         /// <param name="contact">Takes in a Razor Page Object to grab the needed properties</param>
@@ -35,7 +41,7 @@ namespace WAWillClinicFrontEnd.Models
         /// <param name="contact">Takes in a Razor Page Object to grab the needed properties</param>
         /// <returns></returns>
         public static string ContactUsRequest(ContactModel contact)
-        { 
+        {
             StringBuilder message = new StringBuilder();
 
 

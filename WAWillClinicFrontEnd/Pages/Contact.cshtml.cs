@@ -32,7 +32,12 @@ namespace WAWillClinicFrontEnd.Pages
         {
 
         }
-
+        /// <summary>
+        /// our Post method that captures the information from the user
+        /// and sends the object into the EmailMessages class to appropriate
+        /// create the needed email messages
+        /// </summary>
+        /// <returns>A Page</returns>
         public async Task<IActionResult> OnPost()
         {
             //Work around to prevent empty selection
@@ -40,8 +45,8 @@ namespace WAWillClinicFrontEnd.Pages
 
             if(ModelState.IsValid)
             {
-                await _emailSender.SendEmailAsync(Email, 
-                       "WA Vets Will Clinic - Thank you!", 
+                await _emailSender.SendEmailAsync(Email,
+                       EmailMessages.Thanks, 
                        EmailMessages.ContactUsReply(this));
                 return RedirectToPage("/");
             }
