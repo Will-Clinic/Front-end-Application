@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WAWillClinicFrontEnd.Models;
 
 namespace WAWillClinicFrontEnd
 {
@@ -25,6 +27,8 @@ namespace WAWillClinicFrontEnd
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddScoped<IEmailSender, EmailSender>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
