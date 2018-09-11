@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/signup">Sign-up</a></li>
+                <li><a href="/FAQs">FAQs</a></li>
+                <li><a href="/volunteer">Volunteer</a></li>
+                <li><a href="/contact">Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        <p>This text is from the shared _layout</p>
+        @RenderBody()
+    </div>
+</body>
+</html>
