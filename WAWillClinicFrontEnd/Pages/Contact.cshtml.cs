@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using WAWillClinicFrontEnd.Models;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +18,8 @@ namespace WAWillClinicFrontEnd.Pages
         public string LastName { get; set; }
         public string Email { get; set; }
         public long Phone { get; set; }
-        public ContactType Reason { get; set; }
+        public EmailMessages.ContactType Reason { get; set; }
+        public string AdditionalRemarks { get; set; }
 
         private IEmailSender _emailSender;
 
@@ -31,30 +33,20 @@ namespace WAWillClinicFrontEnd.Pages
 
         }
 
-        public async void OnPost()
+        public async Task<IActionResult> OnPost()
         {
+            //Work around to prevent empty selection
+            if (Reason == EmailMessages.ContactType.Empty) return Page();
+
             if(ModelState.IsValid)
             {
-                await _emailSender.SendEmailAsync(Email, "Test Email!", "<p>Ya did it</p>");
-                RedirectToAction("/");
+                await _emailSender.SendEmailAsync(Email, 
+                       "WA Vets Will Clinic - Thank you!", 
+                       EmailMessages.ContactUsReply(this));
+                return RedirectToPage("/");
             }
-
+            //equiv to return View();
+            return Page();
         }
-
-        /// <summary>
-        /// Used to create a reason select box that is easier to add or remove
-        /// future reasons
-        /// </summary>
-        public enum ContactType
-        {
-            [Display(Name = "I have a question about an upcoming clinc")]
-            Upcoming,
-            [Display(Name = "I'd like to donate")]
-            Donate,
-            [Display(Name = "I am with the media and have questions")]
-            Media,
-            [Display(Name = "other")]
-            Other
-        };
     }
 }

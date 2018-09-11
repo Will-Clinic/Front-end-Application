@@ -24,9 +24,11 @@
     <br />
     <input type="tel" name="phone" placeholder="Phone Number" />
     <br />
-    <select name="reason" asp-items="Html.GetEnumSelectList<WAWillClinicFrontEnd.Pages.ContactModel.ContactType>()">
-        <option selected="selected" value=""></option>
+    <select name="reason" asp-items="Html.GetEnumSelectList<WAWillClinicFrontEnd.Models.EmailMessages.ContactType>()">
+    
     </select>
+    <br />
+    <textarea name="additionalRemarks" ></textarea>
     <br />
     <input type="submit" />
     <br />
