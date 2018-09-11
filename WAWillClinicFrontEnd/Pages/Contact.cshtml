@@ -4,4 +4,39 @@
     Layout = "_Layout";
 }
 
-Contact us page
+<section>
+    <h2>Contact Us</h2>
+    <h4>
+        If you would like to volunteer for the WA Vets Will Clinic, please navigate to our "Volunteer" page and sign up there.
+    </h4>
+</section>
+<form method="post">
+    <p>Fill out the form below to contact our organization</p>
+    <p>
+        Please do not submit confidential information. No attorney client privilege is
+        created by contacting our organization, nor can we guarantee service of any kind.
+    </p>
+    <input type="text" name="firstName" placeholder="First Name" />
+    <br />
+    <input type="text" name="lastName" placeholder="Last Name" />
+    <br />
+    <input type="text" name="email" placeholder="Email Address" />
+    <br />
+    <input type="tel" name="phone" placeholder="Phone Number" />
+    <br />
+    <select name="reason" asp-items="Html.GetEnumSelectList<WAWillClinicFrontEnd.Pages.ContactModel.ContactType>()">
+        <option selected="selected" value=""></option>
+    </select>
+    <br />
+    <input type="submit" />
+    <br />
+
+</form>
+<section>
+    <p>
+        This form and any other contact means provided on this website are provided without guarantee of service of any 
+        kind or that you will receive a response to your question(s). No attorney-client relationship is established by use of 
+        the above contact information, nor is there any obligation for any of the WA Vets Will Clinic or its affiliates to respond or 
+        provide services.
+    </p>
+</section>
