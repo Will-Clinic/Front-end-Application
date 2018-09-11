@@ -20,7 +20,7 @@ namespace WAWillClinicFrontEnd.Models
 
         public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
-            var client = new SendGridClient(_configuration["SendGridAPIKey"]);
+            var client = new SendGridClient(_configuration["SendGridAPI"]);
             var msg = new SendGridMessage();
 
             msg.SetFrom("test@email.com", "Test Email");

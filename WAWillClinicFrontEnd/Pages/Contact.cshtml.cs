@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -18,13 +19,25 @@ namespace WAWillClinicFrontEnd.Pages
         public long Phone { get; set; }
         public ContactType Reason { get; set; }
 
+        private IEmailSender _emailSender;
+
+        public ContactModel(IEmailSender emailSender)
+        {
+            _emailSender = emailSender;
+        }
+
         public void OnGet()
         {
 
         }
 
-        public void OnPost()
+        public async void OnPost()
         {
+            if(ModelState.IsValid)
+            {
+                await _emailSender.SendEmailAsync(Email, "Test Email!", "<p>Ya did it</p>");
+                RedirectToAction("/");
+            }
 
         }
 
