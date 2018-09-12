@@ -20,15 +20,16 @@ namespace WAWillClinicFrontEnd.Models
 
         public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
-            var client = new SendGridClient(_configuration["SendGridAPIKey"]);
+            var client = new SendGridClient(_configuration["SendGridAPI"]);
             var msg = new SendGridMessage();
 
-            msg.SetFrom("test@email.com", "Test Email");
+            msg.SetFrom("test@email.com", "WA Vets Will Clinic");
             msg.AddTo(email);
             msg.SetSubject(subject);
             msg.AddContent(MimeType.Html, htmlMessage);
 
             var response =  await client.SendEmailAsync(msg);
         }
+
     }
 }
