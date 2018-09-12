@@ -45,6 +45,10 @@ namespace WAWillClinicFrontEnd.Pages
 
             if(ModelState.IsValid)
             {
+                await _emailSender.SendEmailAsync("developing.email.test@gmail.com",
+                               EmailMessages.Request,
+                               EmailMessages.ContactUsRequest(this));
+
                 await _emailSender.SendEmailAsync(Email,
                        EmailMessages.Thanks, 
                        EmailMessages.ContactUsReply(this));

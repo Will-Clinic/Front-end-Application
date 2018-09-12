@@ -44,11 +44,17 @@ namespace WAWillClinicFrontEnd.Models
         {
             StringBuilder message = new StringBuilder();
 
-
+            message.Append("<h3>The following information has been requested: </h3>");
+            message.Append($"<p>&nbsp;Reason: {contact.Reason}</p>");
+            message.Append($"<p>&nbsp;Name: {contact.FirstName} {contact.LastName}</p>");
+            message.Append($"<p>&nbsp;Email: {contact.Email}</p>");
+            message.Append($"<p>&nbsp;Phone Number: {contact.Phone}</p>");
+            message.Append("<br />");
+            message.Append("<h3>Additional Information/Remarks</h3>");
+            message.Append($"<p>&nbsp;{contact.AdditionalRemarks}</p>");
 
             return message.ToString();
         }
-
         /// <summary>
         /// Used to create a reason select box that is easier to add or remove
         /// future reasons
@@ -58,7 +64,7 @@ namespace WAWillClinicFrontEnd.Models
             [Display(Name = "")]
             Empty,
             [Display(Name = "I have a question about an upcoming clinc")]
-            Upcoming,
+            UpcomingEvents,
             [Display(Name = "I'd like to donate")]
             Donate,
             [Display(Name = "I am with the media and have questions")]

@@ -30,5 +30,6 @@ namespace WAWillClinicFrontEnd.Models
 
             var response =  await client.SendEmailAsync(msg);
         }
+
     }
 }
