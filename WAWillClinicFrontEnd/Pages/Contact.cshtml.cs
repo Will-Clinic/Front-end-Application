@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Moq;
 
 namespace WAWillClinicFrontEnd.Pages
 {
@@ -27,13 +28,12 @@ namespace WAWillClinicFrontEnd.Pages
         {
             _emailSender = emailSender;
         }
-
-        public void OnGet()
-        {
-
-        }
         /// <summary>
-        /// our Post method that captures the information from the user
+        ///Get action to grab the Contact Us Page
+        /// </summary>
+        public void OnGet() { }
+        /// <summary>
+        /// our Post action that captures the information from the user
         /// and sends the object into the EmailMessages class to appropriate
         /// create the needed email messages
         /// </summary>
@@ -42,15 +42,14 @@ namespace WAWillClinicFrontEnd.Pages
         {
             //Work around to prevent empty selection
             if (Reason == EmailMessages.ContactType.Empty) return Page();
-
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 await _emailSender.SendEmailAsync("developing.email.test@gmail.com",
                                EmailMessages.Request,
                                EmailMessages.ContactUsRequest(this));
 
                 await _emailSender.SendEmailAsync(Email,
-                       EmailMessages.Thanks, 
+                       EmailMessages.Thanks,
                        EmailMessages.ContactUsReply(this));
                 return RedirectToPage("/");
             }
