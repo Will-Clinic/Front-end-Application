@@ -82,29 +82,11 @@ namespace FrontEndTests
 
             ContactModel contact = new ContactModel(EmailSender);
 
-            Assert.Equal(EmailMessages.ContactType.Empty, contact.Reason);
+            Assert.Equal(EmailMessages.ContactType.UpcomingEvents, contact.Reason);
 
             contact.Reason = EmailMessages.ContactType.Donate;
 
             Assert.Equal(EmailMessages.ContactType.Donate, contact.Reason);
-        }
-        [Fact]
-        public void ContactModelOnPostEnumCatchAndReturnsPage()
-        {
-            var EmailSender = new MockEmailSender();
-
-            ContactModel contact = new ContactModel(EmailSender)
-            {
-                FirstName = "Test",
-                LastName = "Name",
-                Email = "abc@123.com",
-                Phone = 1234567890,
-                Reason = EmailMessages.ContactType.Empty,
-                AdditionalRemarks = "Additional Remarks"
-            };
-
-            var result = contact.OnPost().Result;
-            Assert.IsType<PageResult>(result);
         }
         [Fact]
         public void ContactModelOnPostValidModelState()

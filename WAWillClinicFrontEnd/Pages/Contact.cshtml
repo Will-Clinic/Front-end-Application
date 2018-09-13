@@ -24,8 +24,8 @@
     <br />
     <input type="tel" name="phone" required autofocus placeholder="Phone Number" pattern="[0-9]{10}" title="Please enter a valid phone number"/>
     <br />
-    <select name="reason" asp-items="Html.GetEnumSelectList<WAWillClinicFrontEnd.Models.EmailMessages.ContactType>()">
-    
+    <select name="reason" required title="Please select a reason" asp-items="Html.GetEnumSelectList<WAWillClinicFrontEnd.Models.EmailMessages.ContactType>()">
+    <option value=""></option>
     </select>
     <br />
     <textarea name="additionalRemarks" ></textarea>
