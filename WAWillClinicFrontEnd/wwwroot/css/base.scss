@@ -2,8 +2,18 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro:700');
 
 $colors: (
-	
+	primary: #006CFF,//light blue
+	primary-dark: #0C3BEC, //darker blue
+	primary-light: #F8FCFF, //looks white, but is slightly blue
+	//add black text color
 );
 
-body {
+@function color($color-name){
+	@return map-get($colors, $color-name)
 }
+
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	margin: 0;
+}
+
