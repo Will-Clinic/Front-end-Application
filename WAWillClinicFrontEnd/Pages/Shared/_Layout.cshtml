@@ -3,11 +3,17 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/css/reset.css" />
+    <link rel="stylesheet" href="~/css/base.css" />
+    <link rel="stylesheet" href="~/css/layout.css" />
+    <link rel="stylesheet" href="~/css/module.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <title>@ViewBag.Title</title>
 </head>
 <body>
     <header>
-        <nav>
+        <nav>                
+            <h1><a href="/">The Will Clinic</a><i onclick="hideDropdown()" class="fas fa-times"></i></h1>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/signup">Sign-up</a></li>
@@ -16,10 +22,33 @@
                 <li><a href="/contact">Contact us</a></li>
             </ul>
         </nav>
+        <p>
+            WA Vets Will Clinic <strong>would like to thank</strong> the following organizations and people
+            for their participation and/or sponsorship:
+        </p>
+        <div>
+            <ul>
+                <li>Etter, McMahon, Lamberson, Clary & Oreskovich, P.C.</li>
+                <li>Garco Construction, Inc.</li>
+                <li>Pepsi Beverages Co.</li>
+                <li>The Wake-Up Call Fine Coffee & Espresso</li>
+                <li>Witherspoon Kelley</li>
+            </ul>
+        </div>
     </header>
     <div>
-        <p>This text is from the shared _layout</p>
         @RenderBody()
     </div>
+    <script>
+        function hideDropdown() {
+            var y = document.getElementsByTagName("header");
+            var x = y[0];
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+} 
+    </script>
 </body>
 </html>
