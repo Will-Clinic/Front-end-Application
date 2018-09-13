@@ -3,7 +3,7 @@
 
 $colors: (
 	nav-main: #006CFF,// blue
-	nav-dark: #0C3BEC, //darker blue
+	nav-dark: #1F02C6, //darker blue
 	nav-light: #F8FCFF, //looks white, but is slightly blue
 	primary: #EEEEEE,//light gray
 	primary-dark: #282828, //dark gray
@@ -20,19 +20,55 @@ body, html {
 	padding: 0;
 }
 
-//layout
+//layout - styling the nav bar
 header {
-	width: 100%;
-	background-color: color(nav-main); //get this function to work: color(nav-main);
+    width: 100%;
+    background-color: color(nav-main); //get this function to work: color(nav-main);
+    h1 {
+        font-size: 2em;
+        color: color(primary);
+        padding: 2.5vh 0 5.5vh 8.5vw;
+    }
 
-	ul {
-		text-decoration: none;
-		list-style-type: none;
-		text-transform: uppercase;
-	}
+    a {
+        color: color(nav-light);
+        text-decoration: none;
 
-	a:visited {
-		color: color(nav-light);
-		text-decoration: none;
-	}
+        &:hover, &:active {
+            color: #ff0000;
+        }
+    }
+
+    nav {
+
+        ul {
+            text-decoration: none;
+            list-style-type: none;
+            text-transform: uppercase;
+            width: 80%;
+            margin: 0 auto;
+
+            li {
+                margin: 1.5rem 0;
+                //padding-bottom:5vh;
+                & > a {
+                    border-left: 5px solid white;
+                    //line-height: 1.5rem;
+                    padding-left: 2rem;
+                    padding-top: .5rem;
+                    padding-bottom: .5rem;
+                    //margin-bottom:2rem;
+                    //padding:.5rem, .5rem, .5rem, 55.5rem;
+                }
+            }
+        }
+    }
+    p {
+        color: color(nav-dark);
+        text-transform:uppercase;
+        font-family:'Fjalla One', serif;
+        strong {
+            color: color(nav-light);
+        }
+    }
 }

@@ -7,11 +7,32 @@ body, html {
 header {
   width: 100%;
   background-color: #006CFF; }
-  header ul {
-    text-decoration: none;
-    list-style-type: none;
-    text-transform: uppercase; }
-  header a:visited {
+  header h1 {
+    font-size: 2em;
+    color: #EEEEEE;
+    padding: 2.5vh 0 5.5vh 8.5vw; }
+  header a {
     color: #F8FCFF;
     text-decoration: none; }
+    header a:hover, header a:active {
+      color: #ff0000; }
+  header nav ul {
+    text-decoration: none;
+    list-style-type: none;
+    text-transform: uppercase;
+    width: 80%;
+    margin: 0 auto; }
+    header nav ul li {
+      margin: 1.5rem 0; }
+      header nav ul li > a {
+        border-left: 5px solid white;
+        padding-left: 2rem;
+        padding-top: .5rem;
+        padding-bottom: .5rem; }
+  header p {
+    color: #1F02C6;
+    text-transform: uppercase;
+    font-family: 'Fjalla One', serif; }
+    header p strong {
+      color: #F8FCFF; }
 
