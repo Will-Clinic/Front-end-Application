@@ -14,7 +14,7 @@ namespace WAWillClinicFrontEnd.Models
 
     public static class ApplicationRoles
     {
-        public const string Member = "Memeber";
+        public const string Member = "Member";
         public const string Admin = "Admin";
     }
 }

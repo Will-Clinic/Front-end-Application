@@ -16,13 +16,13 @@
         Please do not submit confidential information. No attorney client privilege is
         created by contacting our organization, nor can we guarantee service of any kind.
     </p>
-    <input type="text" name="firstName" placeholder="First Name" />
+    <input type="text" name="firstName" required autofocus placeholder="First Name" title="Please enter your first name."/>
     <br />
-    <input type="text" name="lastName" placeholder="Last Name" />
+    <input type="text" name="lastName" required autofocus placeholder="Last Name" title="Please enter your last name."/>
     <br />
-    <input type="text" name="email" placeholder="Email Address" />
+    <input type="text" name="email" required autofocus placeholder="Email Address" pattern="^[a-zA-Z0-9]{2,}@("@")[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,}" title="Please enter a valid email address"/>
     <br />
-    <input type="tel" name="phone" placeholder="Phone Number" />
+    <input type="tel" name="phone" required autofocus placeholder="Phone Number" pattern="[0-9]{10}" title="Please enter a valid phone number"/>
     <br />
     <select name="reason" asp-items="Html.GetEnumSelectList<WAWillClinicFrontEnd.Models.EmailMessages.ContactType>()">
     
