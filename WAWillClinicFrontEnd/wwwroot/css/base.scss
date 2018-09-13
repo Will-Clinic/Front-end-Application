@@ -14,8 +14,25 @@ $colors: (
 	@return map-get($colors, $color-name)
 }
 
-body {
+body, html {
 	font-family: 'Source Sans Pro', sans-serif;
 	margin: 0;
 	padding: 0;
+}
+
+//layout
+header {
+	width: 100%;
+	background-color: color(nav-main); //get this function to work: color(nav-main);
+
+	ul {
+		text-decoration: none;
+		list-style-type: none;
+		text-transform: uppercase;
+	}
+
+	a:visited {
+		color: color(nav-light);
+		text-decoration: none;
+	}
 }
