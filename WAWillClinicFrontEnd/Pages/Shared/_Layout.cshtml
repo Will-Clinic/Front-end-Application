@@ -12,8 +12,8 @@
 </head>
 <body>
     <header>
-        <nav>                
-            <h1><a href="/">The Will Clinic</a><i onclick="hideDropdown()" class="fas fa-times"></i></h1>
+        <nav>
+            <h1 id="blue-head"><a href="/">The Will Clinic</a><i onclick="hideDropdown()" class="fas fa-times"></i></h1>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/signup">Sign-up</a></li>
@@ -36,6 +36,8 @@
             </ul>
         </div>
     </header>
+    <h1 id="white-head"><a href="/">The Will Clinic</a><i class="fas fa-bars" onclick="showDropdown()"></i></h1>
+
     <div>
         @RenderBody()
     </div>
@@ -43,12 +45,28 @@
         function hideDropdown() {
             var y = document.getElementsByTagName("header");
             var x = y[0];
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-} 
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        //function openNav() {
+        //} document.getElementsByTagName("header")[0].style.height = "100%";
+
+        function showDropdown() {
+            var y = document.getElementsByTagName("header");
+            var x = y[0];
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+        //function closeNav() {
+        //    document.getElementById("blue-head").style.height = "0%";
+        //}
     </script>
 </body>
 </html>

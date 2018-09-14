@@ -25,9 +25,11 @@ body, html {
 //layout - styling the nav bar
 header {
     padding-bottom: $vert-padding*5;
-    position:fixed;
+    position: absolute;
     width: 100%;
     background-color: color(nav-main); //get this function to work: color(nav-main);
+    overflow-y: hidden;
+
     h1 {
         font-size: 2em;
         color: color(primary);
@@ -73,7 +75,8 @@ header {
         text-transform: uppercase;
         font-family: 'Fjalla One', serif;
         padding-left: $left-padding;
-        line-height:1.25em;
+        line-height: 1.25em;
+
         strong {
             color: color(nav-light);
         }
@@ -86,8 +89,8 @@ header {
         width: 70%;
 
         ul > li {
-            list-style-type:disc;
-            padding-left:.25em;
+            list-style-type: disc;
+            padding-left: .25em;
         }
     }
 }
