@@ -40,8 +40,6 @@ namespace WAWillClinicFrontEnd.Pages
         /// <returns>A Page</returns>
         public async Task<IActionResult> OnPost()
         {
-            //Work around to prevent empty selection
-            if (Reason == EmailMessages.ContactType.Empty) return Page();
             if (ModelState.IsValid)
             {
                 await _emailSender.SendEmailAsync("developing.email.test@gmail.com",

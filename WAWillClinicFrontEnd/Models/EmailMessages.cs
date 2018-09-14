@@ -61,8 +61,6 @@ namespace WAWillClinicFrontEnd.Models
         /// </summary>
         public enum ContactType
         {
-            [Display(Name = "")]
-            Empty,
             [Display(Name = "I have a question about an upcoming clinc")]
             UpcomingEvents,
             [Display(Name = "I'd like to donate")]
