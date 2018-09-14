@@ -1,14 +1,15 @@
 ﻿@import "../css/theme.scss";
 
 body, html {
-	font-family: 'Source Sans Pro', sans-serif;
-	margin: 0;
-	padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: color(primary);
 }
 
 //layout - styling the nav bar
 header {
-	display:none;
+    display:none;
     padding-bottom: $vert-padding*5;
     position: absolute;
     width: 100%;
@@ -22,7 +23,7 @@ header {
     }
 
     a {
-        color: color(nav-light);
+        color: color(white);
         text-decoration: none;
 
         &:hover, &:active {
@@ -59,7 +60,7 @@ header {
         line-height: 1.25em;
 
         strong {
-            color: color(nav-light);
+            color: color(white);
         }
     }
 
@@ -74,18 +75,4 @@ header {
             padding-left: .25em;
         }
     }
-}
-
-section {
-	margin: 10rem;
-	outline: 10px dashed red;
-	background-color: red;
-
-	.fa-bars {
-		color: color(nav-main);
-		font-size: 1em;
-		line-height: 40px;
-		float: right;
-		padding-right: 1em;
-	}
 }
