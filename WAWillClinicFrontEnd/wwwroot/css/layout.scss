@@ -1,3 +1,78 @@
-﻿@import url("base.css");
+﻿@import "../css/base.scss";
 
+//layout - styling the nav bar
+#blue-head {
+    padding-bottom: $vert-padding*5;
+    //height: 0%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    background: color(nav-main);
+    overflow-y: hidden;
+    transition: 0.5s;
+    display:none;
+    //get this function to work: color(nav-main);
+    h1 {
+        font-size: 2em;
+        color: color(primary);
+        padding: $vert-padding 0 5.5vh $left-padding;
+    }
 
+    a {
+        color: color(nav-light);
+        text-decoration: none;
+
+        &:hover, &:active {
+            color: #ff0000;
+        }
+    }
+
+    nav {
+
+        ul {
+            text-decoration: none;
+            list-style-type: none;
+            text-transform: uppercase;
+            margin: 0 auto;
+            padding-bottom: $vert-padding * 4;
+
+            li {
+                margin: 1.5rem 0;
+                //padding-bottom:5vh;
+                & > a {
+                    border-left: 5px solid white;
+                    //line-height: 1.5rem;
+                    padding-left: $left-padding/2.75;
+                    padding-top: .5rem;
+                    padding-bottom: .5rem;
+                    //margin-bottom:2rem;
+                    //padding:.5rem, .5rem, .5rem, 55.5rem;
+                }
+            }
+        }
+    }
+
+    p, ul > li {
+        color: color(nav-dark);
+        text-transform: uppercase;
+        font-family: 'Fjalla One', serif;
+        padding-left: $left-padding;
+        line-height: 1.25em;
+
+        strong {
+            color: color(nav-light);
+        }
+    }
+
+    div {
+        border: .5px color(nav-dark) solid;
+        margin: 1rem auto;
+        padding: 2rem;
+        width: 70%;
+
+        ul > li {
+            list-style-type: disc;
+            padding-left: .25em;
+        }
+    }
+}

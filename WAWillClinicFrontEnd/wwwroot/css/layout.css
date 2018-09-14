@@ -1,2 +1,55 @@
-﻿@import url("base.css");
+﻿@import url("https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro:700");
+body, html {
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #EEEEEE; }
+
+#blue-head {
+  padding-bottom: 12.5vh;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  background: #007AFF;
+  overflow-y: hidden;
+  transition: 0.5s;
+  display: none; }
+  #blue-head h1 {
+    font-size: 2em;
+    color: #EEEEEE;
+    padding: 2.5vh 0 5.5vh 8.5vw; }
+  #blue-head a {
+    color: #FFFFFF;
+    text-decoration: none; }
+    #blue-head a:hover, #blue-head a:active {
+      color: #ff0000; }
+  #blue-head nav ul {
+    text-decoration: none;
+    list-style-type: none;
+    text-transform: uppercase;
+    margin: 0 auto;
+    padding-bottom: 10vh; }
+    #blue-head nav ul li {
+      margin: 1.5rem 0; }
+      #blue-head nav ul li > a {
+        border-left: 5px solid white;
+        padding-left: 3.09091vw;
+        padding-top: .5rem;
+        padding-bottom: .5rem; }
+  #blue-head p, #blue-head ul > li {
+    color: #081ABC;
+    text-transform: uppercase;
+    font-family: 'Fjalla One', serif;
+    padding-left: 8.5vw;
+    line-height: 1.25em; }
+    #blue-head p strong, #blue-head ul > li strong {
+      color: #FFFFFF; }
+  #blue-head div {
+    border: 0.5px #081ABC solid;
+    margin: 1rem auto;
+    padding: 2rem;
+    width: 70%; }
+    #blue-head div ul > li {
+      list-style-type: disc;
+      padding-left: .25em; }
 

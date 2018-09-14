@@ -11,9 +11,9 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <header>
+    <header id="blue-head">
         <nav>
-            <h1 id="blue-head"><a href="/">The Will Clinic</a><i onclick="hideDropdown()" class="fas fa-times"></i></h1>
+            <h1><a href="/">The Will Clinic</a><i onclick="hideDropdown()" class="fas fa-times"></i></h1>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/signup">Sign-up</a></li>
@@ -52,21 +52,21 @@
             }
         }
 
-        //function openNav() {
-        //} document.getElementsByTagName("header")[0].style.height = "100%";
-
+        function openNav() {
+            document.getElementsById("blue-head").style.height = "100%";
+        }
         function showDropdown() {
             var y = document.getElementsByTagName("header");
             var x = y[0];
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
+            if (x.style.display === "block") {
                 x.style.display = "none";
+            } else {
+                x.style.display = "block";
             }
         }
-        //function closeNav() {
-        //    document.getElementById("blue-head").style.height = "0%";
-        //}
+        function closeNav() {
+            document.getElementById("blue-head").style.height = "0%";
+        }
     </script>
 </body>
 </html>

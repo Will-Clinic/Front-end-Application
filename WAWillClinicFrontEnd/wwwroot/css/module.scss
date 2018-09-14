@@ -1,1 +1,36 @@
-﻿
+﻿@import "../css/base.scss";
+
+.side-lines {
+    h1, h3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        font-family: 'Fjalla One', serif;
+        letter-spacing: 3px;
+    }
+
+    h1:after, h1:before, h3:after, h3:before {
+        content: '';
+        width: 150px;
+        height: 2px;
+        background: color(dark-gray);
+        margin: 0 10px;
+    }
+}
+
+.fa-times {
+    font-size: 1em;
+    color: color(nav-light);
+    line-height: 40px;
+    float: right;
+    padding-right: 1em;
+}
+
+.fa-bars {
+    font-size: 2em;
+    color: color(nav-main);
+    float:right;
+    padding-top:0.5em;
+    padding-right:1em;
+}
