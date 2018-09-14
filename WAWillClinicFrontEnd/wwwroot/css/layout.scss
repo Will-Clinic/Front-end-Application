@@ -1,12 +1,11 @@
-﻿@import "../css/base.scss";
-@import "../css/theme.scss";
+﻿@import "../css/theme.scss";
 
 #logo {
     background-color: color(white);
 
     h1 {
         font-size: 2em;
-        padding: $vert-padding 0 5.5vh $left-padding;
+        padding: $vert-padding 0 $vert-padding $left-padding;
     }
 
     a {

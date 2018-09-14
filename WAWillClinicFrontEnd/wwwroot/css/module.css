@@ -1,8 +1,57 @@
-﻿@import url(base.css);
+﻿@import url("https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro:700");
 .fa-times {
   font-size: 1em;
-  color: color(white);
+  color: #FFFFFF;
   line-height: 40px;
   float: right;
   padding-right: 1em; }
+
+main {
+  text-transform: uppercase;
+  color: #282828; }
+  main h2 {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 2em;
+    text-align: center;
+    margin: 1em 0.5em 0; }
+  main .link-div {
+    text-align: center;
+    margin: 2.2em auto; }
+  main a {
+    text-decoration: none;
+    outline: 1px solid #282828;
+    padding: .5em 1em; }
+    main a:hover {
+      background-color: #007AFF;
+      color: #FFFFFF; }
+  main .side-lines h3 {
+    color: #007AFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-family: "Fjalla One", serif;
+    margin-bottom: 2em; }
+  main .side-lines h3:after, main .side-lines h3:before {
+    content: '';
+    width: 20vw;
+    height: 2px;
+    background: #282828;
+    margin: 0 1em; }
+  main p {
+    text-transform: none;
+    text-align: center; }
+  main section {
+    text-align: center;
+    margin-top: 1em; }
+  main .qual-rec {
+    font-family: "Fjalla One", serif;
+    border: #828282 solid 0.5px;
+    border-left: #007AFF solid 5px;
+    display: inline-block;
+    width: 80%;
+    background-color: #FFFFFF;
+    margin: 0.5em auto;
+    padding: 1em;
+    color: #828282; }
 

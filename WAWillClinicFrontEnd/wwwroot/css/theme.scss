@@ -10,8 +10,14 @@ $colors: (
     white: #FFFFFF, //white
 );
 
+$big-gut: 2em;
+$small-gut: $big-gut/2;
+
 $left-padding: 8.5vw;
 $vert-padding: 2.5vh;
+
+$main-font: 'Source Sans Pro', sans-serif;
+$secondary-font: 'Fjalla One', serif;
 
 @function color($color-name) {
 	@return map-get($colors, $color-name)

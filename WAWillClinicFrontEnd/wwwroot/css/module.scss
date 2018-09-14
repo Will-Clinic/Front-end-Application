@@ -1,9 +1,81 @@
-﻿@import "../css/base.css";
+﻿@import "../css/theme.scss";
 
+//Close Nav bar
 .fa-times {
     font-size: 1em;
     color: color(white);
     line-height:40px;
     float:right;
     padding-right:1em;
+}
+
+//index title
+main {
+    text-transform: uppercase;
+    color: color(primary-dark);
+
+    h2 {
+        font-family: $main-font;
+        font-size: 2em;
+        text-align: center;
+        margin: $small-gut $small-gut/2 0;
+    }
+
+    .link-div {
+        text-align: center;
+        margin: $big-gut*1.1 auto;
+    }
+
+    a {
+        text-decoration:none;
+        outline: 1px solid color(primary-dark);
+        padding: .5em 1em;
+
+        &:hover {
+            background-color: color(nav-main);
+            color: color(white);
+        }
+    }
+
+    .side-lines {
+        h3 {
+            color: color(nav-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            font-family: $secondary-font;
+            margin-bottom: $big-gut;
+        }
+
+        h3:after, h3:before {
+            content: '';
+            width: 20vw;
+            height: 2px;
+            background: color(primary-dark);
+            margin: 0 1em;
+        }
+    }
+
+    p {
+        text-transform: none;
+        text-align: center;
+    }
+
+    section {
+        text-align: center;
+        margin-top: $small-gut;
+    }
+
+    .qual-rec {
+        font-family: $secondary-font;
+        border: color(main-grey) solid 0.5px;
+        border-left: color(nav-main) solid 5px;
+        display: inline-block;
+        width: 80%;
+        background-color: color(white);
+        margin: $small-gut/2 auto;
+        padding: $small-gut;
+        color: color(main-grey);
+    }
 }

@@ -1,7 +1,7 @@
 ﻿@import "../css/theme.scss";
 
 body, html {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: $main-font;
     margin: 0;
     padding: 0;
     background-color: color(primary);
@@ -9,7 +9,7 @@ body, html {
 
 //layout - styling the nav bar
 header {
-    display:none;
+    display: none;
     padding-bottom: $vert-padding*5;
     position: absolute;
     width: 100%;
@@ -38,10 +38,11 @@ header {
             list-style-type: none;
             text-transform: uppercase;
             margin: 0 auto;
-            padding-bottom: $vert-padding * 4;
+            padding-bottom: $vert-padding * 2;
 
             li {
                 margin: 1.5rem 0;
+
                 & > a {
                     border-left: 5px solid white;
                     padding-left: $left-padding/2.75;
@@ -55,8 +56,9 @@ header {
     p, ul > li {
         color: color(nav-dark);
         text-transform: uppercase;
-        font-family: 'Fjalla One', serif;
+        font-family: $secondary-font;
         padding-left: $left-padding;
+        padding-right: $left-padding;
         line-height: 1.25em;
 
         strong {
