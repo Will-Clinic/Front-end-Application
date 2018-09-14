@@ -1,0 +1,19 @@
+﻿//Source Sans Pro for main text and menus, Fjalla for smaller text
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro:700');
+
+$colors: ( 
+nav-main: #006CFF, // blue
+nav-dark: #1F02C6, //darker blue
+nav-light: #F8FCFF, //looks white, but is slightly blue
+primary: #EEEEEE, //light gray
+primary-dark: #282828, //dark gray
+primary-accent: #006CFF //blue
+white: #FFF;
+);
+
+$left-padding: 8.5vw;
+$vert-padding: 2.5vh;
+
+@function color($color-name) {
+	@return map-get($colors, $color-name)
+}

@@ -1,3 +1,15 @@
-﻿@import url("base.css");
+﻿@import "../css/base.css";
 
+#logo {
+	margin: 10rem;
+	outline: 10px dashed red;
+	background-color:red;
 
+	.fa-bars {
+		color: color(nav-main);
+		font-size: 1em;
+		line-height: 40px;
+		float: right;
+		padding-right: 1em;
+	}
+}

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/css/reset.css" />
     <link rel="stylesheet" href="~/css/base.css" />
-    <link rel="stylesheet" href="~/css/layout.css" />
+    @*<link rel="stylesheet" href="~/css/layout.css" />*@
     <link rel="stylesheet" href="~/css/module.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <title>@ViewBag.Title</title>
@@ -36,41 +36,17 @@
             </ul>
         </div>
     </header>
-    <h1 id="white-head"><a href="/">The Will Clinic</a><i class="fas fa-bars"></i></h1>
+    <section id="logo">
+		<h1><a href="/">The Will Clinic</a><i class="fas fa-bars"></i></h1>
+	</section>
 
-    <div>
+    <main>
         @RenderBody()
-    </div>
+    </main>
 	<script src="https://code.jquery.com/jquery-3.3.1.js"
 			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 			crossorigin="anonymous"></script>
 	<script src="~/js/app.js"></script>
-    @*<script>
-        function hideDropdown() {
-            var y = document.getElementsByTagName("header");
-            var x = y[0];
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
 
-        //function openNav() {
-        //} document.getElementsByTagName("header")[0].style.height = "100%";
-
-        function showDropdown() {
-            var y = document.getElementsByTagName("header");
-            var x = y[0];
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-        //function closeNav() {
-        //    document.getElementById("blue-head").style.height = "0%";
-        //}
-    </script>*@
 </body>
 </html>

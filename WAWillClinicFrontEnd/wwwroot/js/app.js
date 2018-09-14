@@ -6,6 +6,6 @@ $(document).ready(() => {
 	});
 
 	$('.fa-times').on('click', () => {
-		$('header').hide();
+		$('header').slideUp();
 	});
 })

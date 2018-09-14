@@ -1,20 +1,4 @@
-﻿//Source Sans Pro for main text and menus, Fjalla for smaller text
-@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro:700');
-
-$colors: (
-	nav-main: #006CFF,// blue
-	nav-dark: #1F02C6, //darker blue
-	nav-light: #F8FCFF, //looks white, but is slightly blue
-	primary: #EEEEEE,//light gray
-	primary-dark: #282828, //dark gray
-	primary-accent: #006CFF //blue
-);
-
-$left-padding: 8.5vw;
-$vert-padding: 2.5vh;
-@function color($color-name){
-	@return map-get($colors, $color-name)
-}
+﻿@import "../css/theme.scss";
 
 body, html {
 	font-family: 'Source Sans Pro', sans-serif;
@@ -57,15 +41,11 @@ header {
 
             li {
                 margin: 1.5rem 0;
-                //padding-bottom:5vh;
                 & > a {
                     border-left: 5px solid white;
-                    //line-height: 1.5rem;
                     padding-left: $left-padding/2.75;
                     padding-top: .5rem;
                     padding-bottom: .5rem;
-                    //margin-bottom:2rem;
-                    //padding:.5rem, .5rem, .5rem, 55.5rem;
                 }
             }
         }
@@ -96,10 +76,16 @@ header {
     }
 }
 
-.fa-times {
-    font-size: 1em;
-    color: color(nav-light);
-    line-height:40px;
-    float:right;
-    padding-right:1em;
+section {
+	margin: 10rem;
+	outline: 10px dashed red;
+	background-color: red;
+
+	.fa-bars {
+		color: color(nav-main);
+		font-size: 1em;
+		line-height: 40px;
+		float: right;
+		padding-right: 1em;
+	}
 }
