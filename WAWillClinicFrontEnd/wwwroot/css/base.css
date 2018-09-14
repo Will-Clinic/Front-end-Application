@@ -5,6 +5,7 @@ body, html {
   padding: 0; }
 
 header {
+  display: none;
   padding-bottom: 12.5vh;
   position: absolute;
   width: 100%;
