@@ -1,5 +1,5 @@
 ﻿@import "../css/theme.scss";
-$desktop: 840px;
+$desktop: 880px;
 $big-desktop: 1300px;
 
 @mixin big-desktop {
@@ -104,7 +104,7 @@ main {
 
     h2 {
         font-family: $main-font;
-        font-size: 2.666em;
+        font-size: 2em;
         text-align: center;
         margin: $small-gut $big-gut;
     }
@@ -117,7 +117,8 @@ main {
 
     @include desktop {
         h2 {
-            margin: $small-gut $big-gut*3;
+            font-size: 2.666em;
+            margin: $small-gut $big-gut*2;
         }
     }
 
@@ -209,8 +210,12 @@ main {
     p#qual-descript {
         text-transform: none;
         text-align: center;
-        font-size: 1.75em;
+        font-size: 1.35em;
         padding: $small-gut/2 $big-gut;
+
+        @include desktop {
+            font-size: 1.75em;
+        }
     }
 
     section.index {
@@ -239,9 +244,9 @@ main {
         color: color(main-grey);
 
         @include desktop {
-            width: 85%;
+            width: 88%;
             text-align: left;
-            padding: $big-gut $small-gut*1.5;
+            padding: $small-gut;
             font-size: 1.25em;
         }
     }
