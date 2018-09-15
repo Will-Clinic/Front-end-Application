@@ -26,7 +26,27 @@ $desktop: 840px;
     margin-top: -2em;*/
 }
 
-.desktop-nav {
+//add desktop media query
+#logo{
+	ul{
+		list-style-type:none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+
+		li{
+			float: left;
+			a{
+				display: block;
+				color: color(primary-dark);
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+			}			
+		}
+	}
+}
+/*.desktop-nav {
     list-style: none;
     margin: 0;
     display: -webkit-box;
@@ -41,7 +61,7 @@ $desktop: 840px;
     ul > li > a {
         display: block;
     }
-}
+}*/
 
 /*@media all and (max-width:$desktop) {
     .desktop-nav {
@@ -53,6 +73,7 @@ $desktop: 840px;
 h1#title {
     float:left;
 }
+
 //index title
 main {
     text-transform: uppercase;
@@ -144,3 +165,4 @@ main {
         }
     }
 }
+
