@@ -98,13 +98,13 @@ main {
         font-family: $main-font;
         font-size: 2em;
         text-align: center;
-        margin: $small-gut $small-gut/2 0;
-		padding: 1em	
+        margin: $small-gut/10 $small-gut;
+		padding: $small-gut 0 $small-gut/3 0;	
     }
 
     .link-div {
         text-align: center;
-        margin: $big-gut*1.1 auto;
+        margin: $small-gut auto $big-gut*1.35 auto;
     }
 
     a {
@@ -130,15 +130,15 @@ main {
             justify-content: center;
             text-transform: uppercase;
             font-family: $secondary-font;
-            margin-bottom: $big-gut;
+            margin: $small-gut auto;
         }
 
         h3:after, h3:before {
             content: '';
-            width: 20vw;
+            width: 25vw;
             height: .5px;
             background: color(primary-dark);
-            margin: 0 1em;
+            margin: 0 2em;
         }
     }
 
@@ -146,7 +146,7 @@ main {
         text-transform: none;
         text-align: center;
         font-size: 1.25em;
-
+		padding: $small-gut/2 $big-gut;
     }
 
     section.index {
@@ -170,7 +170,7 @@ main {
         width: 80%;
         background-color: color(white);
         margin: $small-gut/2 auto;
-        //padding: $small-gut;
+        padding: $small-gut $small-gut/2;
         color: color(main-grey);
 
         @include desktop {

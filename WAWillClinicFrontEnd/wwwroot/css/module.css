@@ -65,11 +65,11 @@ main {
     font-family: "Source Sans Pro", sans-serif;
     font-size: 2em;
     text-align: center;
-    margin: 1em 0.5em 0;
-    padding: 1em; }
+    margin: 0.1em 1em;
+    padding: 1em 0 0.33333em 0; }
   main .link-div {
     text-align: center;
-    margin: 2.2em auto; }
+    margin: 1em auto 2.7em auto; }
   main a {
     text-decoration: none;
     outline: 1px solid #282828;
@@ -85,17 +85,18 @@ main {
     justify-content: center;
     text-transform: uppercase;
     font-family: "Fjalla One", serif;
-    margin-bottom: 2em; }
+    margin: 1em auto; }
   main .side-lines h3:after, main .side-lines h3:before {
     content: '';
-    width: 20vw;
+    width: 25vw;
     height: .5px;
     background: #282828;
-    margin: 0 1em; }
+    margin: 0 2em; }
   main p#qual-descript {
     text-transform: none;
     text-align: center;
-    font-size: 1.25em; }
+    font-size: 1.25em;
+    padding: 0.5em 2em; }
   main section.index {
     text-align: center;
     margin-top: 1em; }
@@ -114,6 +115,7 @@ main {
     width: 80%;
     background-color: #FFFFFF;
     margin: 0.5em auto;
+    padding: 1em 0.5em;
     color: #828282; }
     @media (min-width: 840px) {
       main .qual-rec {
