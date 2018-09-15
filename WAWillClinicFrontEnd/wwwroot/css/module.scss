@@ -1,4 +1,11 @@
 ﻿@import "../css/theme.scss";
+$desktop: 840px;
+
+@mixin desktop {
+    @media(min-width:#{$desktop}) {
+        @content;
+    }
+}
 
 //Close Nav bar
 .fa-times {
@@ -7,6 +14,16 @@
     line-height:40px;
     float:right;
     padding-right:1em;
+}
+
+.fa-bars {
+    color: color(nav-main);
+    font-size: 1.1em;
+    line-height: 40px;
+    float: right;
+    padding-right: 1.2em;
+    //margin-bottom:.5em;
+    margin-top: -2em;
 }
 
 //index title
@@ -27,13 +44,17 @@ main {
     }
 
     a {
-        text-decoration:none;
+        text-decoration: none;
         outline: 1px solid color(primary-dark);
         padding: .5em 1em;
+        color: color(primary-dark);
 
         &:hover {
             background-color: color(nav-main);
             color: color(white);
+        }
+
+        &:visited {
         }
     }
 
@@ -51,20 +72,29 @@ main {
         h3:after, h3:before {
             content: '';
             width: 20vw;
-            height: 2px;
+            height: .5px;
             background: color(primary-dark);
             margin: 0 1em;
         }
     }
 
-    p {
+    p#qual-descript {
         text-transform: none;
         text-align: center;
+        font-size: 1.25em;
+
     }
 
-    section {
+    section.index {
         text-align: center;
         margin-top: $small-gut;
+        
+        @include desktop {
+            display: grid;
+            grid-template-columns: 50% auto;
+            grid-template-areas: "left-qual right-qual";
+            padding:0 1em;
+        }
     }
 
     .qual-rec {
@@ -77,5 +107,13 @@ main {
         margin: $small-gut/2 auto;
         padding: $small-gut;
         color: color(main-grey);
+
+        @include desktop {
+            width: 90%;
+            text-align: left;
+            padding: $big-gut $small-gut;
+            font-size:1em;
+
+        }
     }
 }

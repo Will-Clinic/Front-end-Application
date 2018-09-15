@@ -7,6 +7,12 @@ body, html {
     background-color: color(primary);
 }
 
+body, #logo {
+    min-width:350px;
+}
+main {
+    padding-top:10vh;
+}
 //layout - styling the nav bar
 header {
     display: none;
@@ -15,6 +21,7 @@ header {
     width: 100%;
     background-color: color(nav-main); //get this function to work: color(nav-main);
     overflow-y: hidden;
+    z-index: 1;
 
     h1 {
         font-size: 2em;

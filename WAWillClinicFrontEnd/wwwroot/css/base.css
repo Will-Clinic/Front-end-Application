@@ -5,13 +5,20 @@ body, html {
   padding: 0;
   background-color: #EEEEEE; }
 
+body, #logo {
+  min-width: 350px; }
+
+main {
+  padding-top: 10vh; }
+
 header {
   display: none;
   padding-bottom: 12.5vh;
   position: absolute;
   width: 100%;
   background-color: #007AFF;
-  overflow-y: hidden; }
+  overflow-y: hidden;
+  z-index: 1; }
   header h1 {
     font-size: 2em;
     color: #EEEEEE;

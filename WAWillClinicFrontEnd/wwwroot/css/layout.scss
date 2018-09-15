@@ -2,9 +2,11 @@
 
 #logo {
     background-color: color(white);
+    position: fixed;
+    width:100%;
 
     h1 {
-        font-size: 2em;
+        font-size: 1.5em;
         padding: $vert-padding 0 $vert-padding $left-padding;
     }
 
@@ -17,11 +19,4 @@
         }
     }
 
-    .fa-bars {
-        color: color(nav-main);
-        font-size: 1em;
-        line-height: 40px;
-        float: right;
-        padding-right: 1em;
-    }
 }
