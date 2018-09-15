@@ -10,9 +10,32 @@
   color: #007AFF;
   font-size: 1.1em;
   line-height: 40px;
-  float: right;
-  padding-right: 1.2em;
-  margin-top: -2em; }
+  /*//float: right;
+    padding-right: 1.2em;
+    //margin-bottom:.5em;
+    margin-top: -2em;*/ }
+
+.desktop-nav {
+  list-style: none;
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  justify-content: flex-start; }
+  .desktop-nav ul > li > a {
+    display: block; }
+
+/*@media all and (max-width:$desktop) {
+    .desktop-nav {
+        justify-content: space-around;
+    }
+}*/
+h1#title {
+  float: left; }
 
 main {
   text-transform: uppercase;
