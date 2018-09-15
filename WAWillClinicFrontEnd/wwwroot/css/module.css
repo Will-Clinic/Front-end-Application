@@ -66,7 +66,7 @@ main {
     font-size: 2em;
     text-align: center;
     margin: 0.1em 1em;
-    padding: 1em 0 0.33333em 0; }
+    padding: 1em 0; }
   main .link-div {
     text-align: center;
     margin: 1em auto 2.7em auto; }
@@ -74,24 +74,54 @@ main {
     text-decoration: none;
     outline: 1px solid #282828;
     padding: .5em 1em;
-    color: #282828; }
+    color: #282828;
+    font-family: "Fjalla One", serif; }
     main a:hover {
       background-color: #007AFF;
-      color: #FFFFFF; }
-  main .side-lines h3 {
-    color: #007AFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-transform: uppercase;
-    font-family: "Fjalla One", serif;
-    margin: 1em auto; }
-  main .side-lines h3:after, main .side-lines h3:before {
-    content: '';
-    width: 25vw;
-    height: .5px;
-    background: #282828;
-    margin: 0 2em; }
+      color: #FFFFFF;
+      transition: all 0.15s ease 0s; }
+  main .side-lines {
+    /*h3 {
+            color: color(nav-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            font-family: $secondary-font;
+            margin: $small-gut auto;
+        }
+
+        h3:after, h3:before {
+            content: '';
+            width: 25vw;
+            height: .5px;
+            background: color(primary-dark);
+            margin: 0 2em;
+        }*/ }
+    main .side-lines h3 {
+      width: 80%;
+      text-align: center;
+      font-family: "Fjalla One", serif;
+      border-bottom: 0.1px solid #828282;
+      line-height: 0.1em;
+      margin: 1em auto; }
+    main .side-lines h3.blue {
+      color: #007AFF; }
+    main .side-lines h3 span {
+      background: #EEEEEE;
+      padding: 0 2em; }
+    main .side-lines h3.grey {
+      display: none; }
+    @media (min-width: 840px) {
+      main .side-lines h3.grey {
+        display: block;
+        font-size: 1.5em;
+        letter-spacing: 2px; }
+      main .side-lines h3.grey span {
+        display: inline;
+        padding: 0 2.75em; }
+      main .side-lines h3 {
+        width: 50%; } }
   main p#qual-descript {
     text-transform: none;
     text-align: center;
@@ -108,8 +138,8 @@ main {
         padding: 0 1em; } }
   main .qual-rec {
     font-family: "Fjalla One", serif;
+    box-shadow: 0 0 0.15rem 0.015rem rgba(0, 0, 0, 0.15);
     letter-spacing: 1px;
-    border: #828282 solid 0.5px;
     border-left: #007AFF solid 5px;
     display: inline-block;
     width: 80%;

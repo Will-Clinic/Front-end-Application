@@ -99,7 +99,7 @@ main {
         font-size: 2em;
         text-align: center;
         margin: $small-gut/10 $small-gut;
-		padding: $small-gut 0 $small-gut/3 0;	
+        padding: $small-gut 0;
     }
 
     .link-div {
@@ -112,10 +112,12 @@ main {
         outline: 1px solid color(primary-dark);
         padding: .5em 1em;
         color: color(primary-dark);
+        font-family: $secondary-font;
 
         &:hover {
             background-color: color(nav-main);
             color: color(white);
+            transition: all 0.15s ease 0s;
         }
 
         &:visited {
@@ -123,7 +125,7 @@ main {
     }
 
     .side-lines {
-        h3 {
+        /*h3 {
             color: color(nav-main);
             display: flex;
             align-items: center;
@@ -139,6 +141,45 @@ main {
             height: .5px;
             background: color(primary-dark);
             margin: 0 2em;
+        }*/
+        h3 {
+            width: 80%;
+            text-align: center;
+            font-family: $secondary-font;
+            border-bottom: .1px solid color(main-grey);
+            line-height: 0.1em;
+            margin: $small-gut auto;
+        }
+
+
+        h3.blue {
+            color: color(nav-main);
+        }
+
+        h3 span {
+            background: color(primary);
+            padding: 0 2em;
+        }
+
+        h3.grey {
+            display: none;
+        }
+
+        @include desktop {
+            h3.grey {
+                display: block;
+                font-size: 1.5em;
+                letter-spacing: 2px;
+            }
+
+            h3.grey span {
+                display: inline;
+                padding: 0 2.75em;
+            }
+
+            h3 {
+                width: 50%;
+            }
         }
     }
 
@@ -146,25 +187,25 @@ main {
         text-transform: none;
         text-align: center;
         font-size: 1.25em;
-		padding: $small-gut/2 $big-gut;
+        padding: $small-gut/2 $big-gut;
     }
 
     section.index {
         text-align: center;
         margin-top: $small-gut;
-        
+
         @include desktop {
             display: grid;
             grid-template-columns: 50% auto;
             grid-template-areas: "left-qual right-qual";
-            padding:0 1em;
+            padding: 0 1em;
         }
     }
 
     .qual-rec {
         font-family: $secondary-font;
-		letter-spacing: 1px;
-        border: color(main-grey) solid 0.5px;
+        box-shadow: 0 0 .15rem .015rem rgba( 0, 0, 0, .15 );
+        letter-spacing: 1px;
         border-left: color(nav-main) solid 5px;
         display: inline-block;
         width: 80%;
@@ -177,8 +218,7 @@ main {
             width: 90%;
             text-align: left;
             padding: $big-gut $small-gut;
-            font-size:1em;
-
+            font-size: 1em;
         }
     }
 }
