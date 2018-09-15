@@ -7,7 +7,8 @@
 
     h1 {
         font-size: 1.5em;
-        padding: $vert-padding 0 $vert-padding $left-padding;
+        padding: $vert-padding $left-padding/2;
+		float: left;
     }
 
     a {

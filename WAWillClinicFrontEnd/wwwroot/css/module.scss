@@ -7,6 +7,12 @@ $desktop: 840px;
     }
 }
 
+@mixin mobile {
+	@media(max-width:#{$desktop}) {
+		@content;
+	}
+}
+
 //Close Nav bar
 .fa-times {
     font-size: 1em;
@@ -18,31 +24,45 @@ $desktop: 840px;
 
 .fa-bars {
     color: color(nav-main);
-    font-size: 1.1em;
-    line-height: 40px;
-    /*//float: right;
+    font-size: 1.75em;
+    float: right;
     padding-right: 1.2em;
-    //margin-bottom:.5em;
-    margin-top: -2em;*/
+    margin-top: 1em;
 }
 
 //add desktop media query
-#logo{
-	ul{
-		list-style-type:none;
-		margin: 0;
-		padding: 0;
-		overflow: hidden;
+#logo {
+	@include mobile {
+		ul {
+			display: none;
+		}
+	}
 
-		li{
-			float: left;
-			a{
-				display: block;
-				color: color(primary-dark);
-				text-align: center;
-				padding: 14px 16px;
-				text-decoration: none;
-			}			
+	@include desktop {
+		.fa-bars{
+			display: none;
+		}
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 1em 0 1em 1em;
+			overflow: hidden;
+
+			li {
+				float: left;
+
+				a {
+					text-decoration: none;
+					text-transform:uppercase;
+					font-family:$secondary-font;
+					display: block;
+					color: color(primary-dark);
+					text-align: center;
+					font-size: 1em;
+					padding: $vert-padding $left-padding/2;
+
+				}
+			}
 		}
 	}
 }
@@ -69,11 +89,6 @@ $desktop: 840px;
     }
 }*/
 
-
-h1#title {
-    float:left;
-}
-
 //index title
 main {
     text-transform: uppercase;
@@ -84,6 +99,7 @@ main {
         font-size: 2em;
         text-align: center;
         margin: $small-gut $small-gut/2 0;
+		padding: 1em	
     }
 
     .link-div {
@@ -147,13 +163,14 @@ main {
 
     .qual-rec {
         font-family: $secondary-font;
+		letter-spacing: 1px;
         border: color(main-grey) solid 0.5px;
         border-left: color(nav-main) solid 5px;
         display: inline-block;
         width: 80%;
         background-color: color(white);
         margin: $small-gut/2 auto;
-        padding: $small-gut;
+        //padding: $small-gut;
         color: color(main-grey);
 
         @include desktop {

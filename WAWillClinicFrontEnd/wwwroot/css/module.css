@@ -8,26 +8,34 @@
 
 .fa-bars {
   color: #007AFF;
-  font-size: 1.1em;
-  line-height: 40px;
-  /*//float: right;
-    padding-right: 1.2em;
-    //margin-bottom:.5em;
-    margin-top: -2em;*/ }
+  font-size: 1.75em;
+  float: right;
+  padding-right: 1.2em;
+  margin-top: 1em; }
 
-#logo ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden; }
-  #logo ul li {
-    float: left; }
-    #logo ul li a {
-      display: block;
-      color: #282828;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none; }
+@media (max-width: 840px) {
+  #logo ul {
+    display: none; } }
+
+@media (min-width: 840px) {
+  #logo .fa-bars {
+    display: none; }
+  #logo ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 1em 0 1em 1em;
+    overflow: hidden; }
+    #logo ul li {
+      float: left; }
+      #logo ul li a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: "Fjalla One", serif;
+        display: block;
+        color: #282828;
+        text-align: center;
+        font-size: 1em;
+        padding: 2.5vh 4.25vw; } }
 
 /*.desktop-nav {
     list-style: none;
@@ -50,9 +58,6 @@
         justify-content: space-around;
     }
 }*/
-h1#title {
-  float: left; }
-
 main {
   text-transform: uppercase;
   color: #282828; }
@@ -60,7 +65,8 @@ main {
     font-family: "Source Sans Pro", sans-serif;
     font-size: 2em;
     text-align: center;
-    margin: 1em 0.5em 0; }
+    margin: 1em 0.5em 0;
+    padding: 1em; }
   main .link-div {
     text-align: center;
     margin: 2.2em auto; }
@@ -101,13 +107,13 @@ main {
         padding: 0 1em; } }
   main .qual-rec {
     font-family: "Fjalla One", serif;
+    letter-spacing: 1px;
     border: #828282 solid 0.5px;
     border-left: #007AFF solid 5px;
     display: inline-block;
     width: 80%;
     background-color: #FFFFFF;
     margin: 0.5em auto;
-    padding: 1em;
     color: #828282; }
     @media (min-width: 840px) {
       main .qual-rec {
