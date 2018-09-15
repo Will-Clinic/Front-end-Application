@@ -1,11 +1,19 @@
 ﻿@import "../css/theme.scss";
 $desktop: 840px;
+$big-desktop: 1300px;
+
+@mixin big-desktop {
+    @media(min-width:#{$big-desktop}) {
+        @content;
+    }
+}
 
 @mixin desktop {
     @media(min-width:#{$desktop}) {
         @content;
     }
 }
+
 
 @mixin mobile {
 	@media(max-width:#{$desktop}) {
@@ -96,10 +104,21 @@ main {
 
     h2 {
         font-family: $main-font;
-        font-size: 2em;
+        font-size: 2.666em;
         text-align: center;
-        margin: $small-gut/10 $small-gut;
-        padding: $small-gut 0;
+        margin: $small-gut $big-gut;
+    }
+
+    @include big-desktop {
+        h2 {
+            margin: $small-gut $big-gut*5;
+        }
+    }
+
+    @include desktop {
+        h2 {
+            margin: $small-gut $big-gut*3;
+        }
     }
 
     .link-div {
@@ -109,14 +128,15 @@ main {
 
     a {
         text-decoration: none;
-        outline: 1px solid color(primary-dark);
-        padding: .5em 1em;
+        outline: 1px solid color(main-grey);
+        padding: .75em 2em;
         color: color(primary-dark);
         font-family: $secondary-font;
 
         &:hover {
             background-color: color(nav-main);
             color: color(white);
+            outline: none;
             transition: all 0.15s ease 0s;
         }
 
@@ -148,12 +168,15 @@ main {
             font-family: $secondary-font;
             border-bottom: .1px solid color(main-grey);
             line-height: 0.1em;
-            margin: $small-gut auto;
+            margin: $small-gut*1.25 auto;
         }
 
 
         h3.blue {
             color: color(nav-main);
+            font-size: 1.1em;
+            letter-spacing: .5px;
+            margin-top: $big-gut*1.5;
         }
 
         h3 span {
@@ -169,7 +192,7 @@ main {
             h3.grey {
                 display: block;
                 font-size: 1.5em;
-                letter-spacing: 2px;
+                letter-spacing: 4px;
             }
 
             h3.grey span {
@@ -186,13 +209,14 @@ main {
     p#qual-descript {
         text-transform: none;
         text-align: center;
-        font-size: 1.25em;
+        font-size: 1.75em;
         padding: $small-gut/2 $big-gut;
     }
 
     section.index {
         text-align: center;
         margin-top: $small-gut;
+        margin-bottom: $big-gut;
 
         @include desktop {
             display: grid;
@@ -215,10 +239,10 @@ main {
         color: color(main-grey);
 
         @include desktop {
-            width: 90%;
+            width: 85%;
             text-align: left;
-            padding: $big-gut $small-gut;
-            font-size: 1em;
+            padding: $big-gut $small-gut*1.5;
+            font-size: 1.25em;
         }
     }
 }
