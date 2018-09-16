@@ -22,19 +22,29 @@ $big-desktop: 1300px;
 
 //Close Nav bar
 .fa-times {
-    font-size: 1em;
-    color: color(white);
-    line-height:40px;
-    float:right;
-    padding-right:1em;
+	font-size: 1em;
+	color: color(white);
+	line-height: 40px;
+	float: right;
+	padding-right: 1em;
+
+	&:hover, &:active {
+		color: color(nav-dark);
+		cursor:pointer;
+	}
 }
 
 .fa-bars {
-    color: color(nav-main);
-    font-size: 1.75em;
-    float: right;
-    padding-right: 1.2em;
-    margin-top: 1em;
+	color: color(nav-main);
+	font-size: 1.75em;
+	float: right;
+	padding-right: 1.2em;	
+	margin-top: 1em;
+
+	&:hover, &:active {
+		color: color(nav-dark);
+		cursor: pointer;
+	}
 }
 
 //add desktop media query
@@ -68,6 +78,10 @@ $big-desktop: 1300px;
 					text-align: center;
 					font-size: 1em;
 					padding: $vert-padding $vert-padding*2;
+
+					@include big-desktop {
+						padding: $vert-padding $vert-padding*8;
+					}
 				}
 			}
 		}

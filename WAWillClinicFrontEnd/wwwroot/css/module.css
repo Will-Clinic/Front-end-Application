@@ -5,6 +5,9 @@
   line-height: 40px;
   float: right;
   padding-right: 1em; }
+  .fa-times:hover, .fa-times:active {
+    color: #081ABC;
+    cursor: pointer; }
 
 .fa-bars {
   color: #007AFF;
@@ -12,6 +15,9 @@
   float: right;
   padding-right: 1.2em;
   margin-top: 1em; }
+  .fa-bars:hover, .fa-bars:active {
+    color: #081ABC;
+    cursor: pointer; }
 
 @media (max-width: 880px) {
   #logo ul {
@@ -36,6 +42,9 @@
         text-align: center;
         font-size: 1em;
         padding: 2.5vh 5vh; } }
+      @media (min-width: 880px) and (min-width: 1300px) {
+        #logo ul li a {
+          padding: 2.5vh 20vh; } }
 
 main {
   text-transform: uppercase;
