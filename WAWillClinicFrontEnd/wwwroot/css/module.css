@@ -123,7 +123,24 @@ main {
     cursor: pointer; }
 
 main {
-  color: #282828; }
+  color: #282828;
+  /*#left-qual, #right-qual {
+            a {
+                text-decoration: none;
+
+                &:hover, &:active {
+                    color: color(white);
+                    outline: none;
+                    transition: all 0.15s ease 0s;
+                    color: #007AFF;
+                    cursor: pointer;
+                }
+
+                &:visited {
+                    color: color(main-grey);
+                }
+            }
+        }*/ }
   main .uppercase {
     text-transform: uppercase; }
   main h2 {
@@ -213,17 +230,22 @@ main {
     background-color: #FFFFFF;
     margin: 0.5em auto;
     padding: 1em 0.5em;
-    color: #828282; }
-    main .qual-rec a {
-      text-decoration: none; }
-      main .qual-rec a:hover, main .qual-rec a:active {
-        background-color: #FFFFFF;
-        outline: none;
-        transition: all 0.15s ease 0s;
-        color: #007AFF;
-        cursor: pointer; }
-      main .qual-rec a:visited {
-        color: #828282; }
+    color: #828282;
+    /*a {
+			text-decoration: none;
+
+			&:hover, &:active {
+				color: color(white);
+				outline: none;
+				transition: all 0.15s ease 0s;
+				color: #007AFF;
+				cursor: pointer;
+			}
+
+			&:visited {
+				color: color(main-grey);
+			}
+		}*/ }
     @media (min-width: 1040px) {
       main .qual-rec {
         width: 88%;
