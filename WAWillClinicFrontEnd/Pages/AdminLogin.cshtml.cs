@@ -42,7 +42,7 @@ namespace WAWillClinicFrontEnd.Pages
                     var user = await _userManager.FindByEmailAsync(Email);
                     if(await _userManager.IsInRoleAsync(user, ApplicationRoles.Admin))
                     {
-                        return RedirectToPage("/dashboard");
+                        return RedirectToPage("/Dashboard");
                     }
                     return RedirectToPage("/");
                 }

@@ -1,0 +1,26 @@
+﻿@page
+@model WAWillClinicFrontEnd.Pages.DetailsModel
+@{
+    Layout = "_Layout";
+}
+<section>
+    <h2>Edit user</h2>
+</section>
+
+<section>
+    <form method="post">
+        <input type="text" name="FirstName" value="@Model.FirstName" required title="Please input a first name" />
+        <br />
+        <input type="text" name="LastName" value="@Model.LastName" required title="Please input a last name" />
+        <br />
+        <input type="email" name="Email" value="@Model.Email" required title="Please input an email address" />
+        <br />
+        <input type="tel" name="Phone" value="@Model.Phone" required title="Please input a phone number" />
+        <br />
+        <input type="submit" value="Update User" />
+    </form>
+    <form method="post" asp-page-handler="delete">
+        <input type="hidden" name="Email" value="@Model.Email" />
+        <input type="submit" value="Delete User" />
+    </form>
+</section>
