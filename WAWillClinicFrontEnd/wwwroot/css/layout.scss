@@ -1,24 +1,15 @@
 ﻿@import "../css/theme.scss";
 @import "../css/module.scss";
 
-#logo {
-    background-color: color(white);
-    position: fixed;
-    width:100%;
+.content{
+	margin: auto 2em;
+	font-family:$secondary-font;
+	line-height: 1.25em;
+	text-align: center;
 
-    h1 {
-        font-size: 1.5em;
-        padding: $vert-padding $left-padding/2;
-		float: left;
-    }
-
-    a {
-        color: color(primary-dark);
-        text-decoration: none;
-
-        &:hover, &:active {
-            color: color(nav-main);
-        }
-    }
+	p{
+		margin:$small-gut;
+		text-align:left;
+	}
 
 }

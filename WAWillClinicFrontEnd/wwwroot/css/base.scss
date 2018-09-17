@@ -1,4 +1,24 @@
 ﻿@import "../css/theme.scss";
+$desktop: 1040px;
+$big-desktop: 1300px;
+
+@mixin big-desktop {
+    @media(min-width:#{$big-desktop}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media(min-width:#{$desktop}) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media(max-width:#{$desktop}) {
+        @content;
+    }
+}
 
 body, html {
     font-family: $main-font;
@@ -7,20 +27,81 @@ body, html {
     background-color: color(primary);
 }
 
-body, #logo {
-    min-width:350px;
+body, #white-head {
+    min-width:320px;
 }
 main {
     padding-top:11.5vh;
 }
 
+//add desktop media query
+#white-head {
+    background-color: color(white);
+    position: fixed;
+    width: 100%;
+
+    h1 {
+        font-size: 1.5em;
+        padding: $vert-padding $left-padding/2;
+        float: left;
+    }
+
+    a {
+        color: color(primary-dark);
+        text-decoration: none;
+
+        &:hover, &:active {
+            color: color(nav-main);
+        }
+    }
+
+    @include mobile {
+        ul {
+            display: none;
+        }
+    }
+
+    @include desktop {
+        .fa-bars {
+            display: none;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 1em 0 1em 1em;
+            overflow: hidden;
+
+            li {
+                float: left;
+
+                a {
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-family: $main-font;
+                    display: block;
+                    color: color(primary-dark);
+                    text-align: center;
+                    font-size: 1em;
+                    padding: $vert-padding $vert-padding*2;
+
+                    @include big-desktop {
+                        padding: $vert-padding $vert-padding*3.5;
+                    }
+                }
+            }
+        }
+    }
+}
+
 //dropdown menu
-header {
+#blue-head {
     display: none;
     padding-bottom: $vert-padding*5;
 	letter-spacing: 1px;
     position: absolute;
     width: 100%;
+    height: 120vh;
     background-color: color(nav-main);
     overflow-y: hidden;
     z-index: 1;
