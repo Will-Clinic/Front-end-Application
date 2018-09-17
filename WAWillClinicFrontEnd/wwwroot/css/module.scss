@@ -1,24 +1,5 @@
 ﻿@import "../css/theme.scss";
-$desktop: 880px;
-$big-desktop: 1300px;
-
-@mixin big-desktop {
-    @media(min-width:#{$big-desktop}) {
-        @content;
-    }
-}
-
-@mixin desktop {
-    @media(min-width:#{$desktop}) {
-        @content;
-    }
-}
-
-@mixin mobile {
-	@media(max-width:#{$desktop}) {
-		@content;
-	}
-}
+@import "../css/base.scss";
 
 //Close Nav bar
 .fa-times {
@@ -47,46 +28,6 @@ $big-desktop: 1300px;
 	}
 }
 
-//add desktop media query
-#logo {
-	@include mobile {
-		ul {
-			display: none;
-		}
-	}
-
-	@include desktop {
-		.fa-bars {
-			display: none;
-		}
-
-		ul {
-			list-style-type: none;
-			margin: 0;
-			padding: 1em 0 1em 1em;
-			overflow: hidden;
-
-			li {
-				float: left;
-
-				a {
-					text-decoration: none;
-					text-transform: uppercase;
-					font-family: $main-font;
-					display: block;
-					color: color(primary-dark);
-					text-align: center;
-					font-size: 1em;
-					padding: $vert-padding $vert-padding*2;
-
-					@include big-desktop {
-						padding: $vert-padding $vert-padding*8;
-					}
-				}
-			}
-		}
-	}
-}
 
 //index title
 main {
@@ -168,7 +109,7 @@ main {
                 display: block;
                 font-size: 1.5em;
                 letter-spacing: 4px;
-				padding-top: 1em;
+                padding-top: 1em;
             }
 
             h3.grey span {
@@ -186,10 +127,11 @@ main {
         text-transform: none;
         text-align: center;
         font-size: 1.35em;
-        padding: $small-gut/2 $big-gut*3.5;
+        padding: $small-gut/2 $big-gut;
 
         @include desktop {
             font-size: 1.75em;
+            padding: $small-gut/2 $big-gut*3.5;
         }
     }
 

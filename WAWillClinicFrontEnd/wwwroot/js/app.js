@@ -2,10 +2,12 @@
 
 $(document).ready(() => {
 	$('.fa-bars').on('click', () => {
-		$('header').slideDown();
+        $('#blue-head').slideDown();
+        $('main').hide();
 	});
 
 	$('.fa-times').on('click', () => {
-		$('header').slideUp();
+        $('#blue-head').slideUp();
+        $('main').show();
 	});
 })

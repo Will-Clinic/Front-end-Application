@@ -13,44 +13,45 @@
 <body>
 	@*mobile nav*@
     <header>
-        <nav>
-            <h1 id="blue-head"><a href="/">The Will Clinic</a><i class="fas fa-times"></i></h1>
-			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="/signup">Sign-up</a></li>
-				<li><a href="/volunteer">Volunteer</a></li>
-				<li><a href="#">Who We Are</a></li>
-				<li><a href="/FAQs">FAQs</a></li>
-				<li><a href="/contact">Contact us</a></li>
-			</ul>
-        </nav>
-        <p>
-            WA Vets Will Clinic <strong>would like to thank</strong> the following organizations and people
-            for their participation and/or sponsorship:
-        </p>
-        <div>
-            <ul>
-                <li>Etter, McMahon, Lamberson, Clary & Oreskovich, P.C.</li>
-                <li>Garco Construction, Inc.</li>
-                <li>Pepsi Beverages Co.</li>
-                <li>The Wake-Up Call Fine Coffee & Espresso</li>
-                <li>Witherspoon Kelley</li>
+        <div id="blue-head">
+            <nav>
+                <h1><a href="/">The Will Clinic</a><i class="fas fa-times"></i></h1>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/signup">Sign-up</a></li>
+                    <li><a href="/volunteer">Volunteer</a></li>
+                    <li><a href="#">Who We Are</a></li>
+                    <li><a href="/FAQs">FAQs</a></li>
+                    <li><a href="/contact">Contact us</a></li>
+                </ul>
+            </nav>
+            <p>
+                WA Vets Will Clinic <strong>would like to thank</strong> the following organizations and people
+                for their participation and/or sponsorship:
+            </p>
+            <div>
+                <ul>
+                    <li>Etter, McMahon, Lamberson, Clary & Oreskovich, P.C.</li>
+                    <li>Garco Construction, Inc.</li>
+                    <li>Pepsi Beverages Co.</li>
+                    <li>The Wake-Up Call Fine Coffee & Espresso</li>
+                    <li>Witherspoon Kelley</li>
+                </ul>
+            </div>
+        </div>
+        @*desktop nav*@
+        <div id="white-head">
+            <h1 id="title"><a href="/">The <br />Will Clinic</a></h1>
+            <ul class="desktop-nav">
+                <li><a href="#">Sign Up</a></li>
+                <li><a href="#">Volunteer</a></li>
+                <li><a href="#">Who we are</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Contact Us</a></li>
             </ul>
+            <i class="fas fa-bars"></i>
         </div>
     </header>
-
-	@*desktop nav*@
-    <section id="logo">
-        <h1 id="title"><a href="/">The <br />Will Clinic</a></h1>
-        <ul class="desktop-nav">
-            <li><a href="#">Sign Up</a></li>
-            <li><a href="#">Volunteer</a></li>
-            <li><a href="#">Who we are</a></li>
-            <li><a href="#">FAQs</a></li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
-        <i class="fas fa-bars"></i>
-	</section>
 
     <main>
         @RenderBody()
