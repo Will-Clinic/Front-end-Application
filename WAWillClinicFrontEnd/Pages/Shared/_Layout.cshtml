@@ -11,16 +11,18 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
+	@*mobile nav*@
     <header>
-        <nav>                
-            <h1><a href="/">The Will Clinic</a><i onclick="hideDropdown()" class="fas fa-times"></i></h1>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/signup">Sign-up</a></li>
-                <li><a href="/FAQs">FAQs</a></li>
-                <li><a href="/volunteer">Volunteer</a></li>
-                <li><a href="/contact">Contact us</a></li>
-            </ul>
+        <nav>
+            <h1 id="blue-head"><a href="/">The Will Clinic</a><i class="fas fa-times"></i></h1>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/signup">Sign-up</a></li>
+				<li><a href="/volunteer">Volunteer</a></li>
+				<li><a href="#">Who We Are</a></li>
+				<li><a href="/FAQs">FAQs</a></li>
+				<li><a href="/contact">Contact us</a></li>
+			</ul>
         </nav>
         <p>
             WA Vets Will Clinic <strong>would like to thank</strong> the following organizations and people
@@ -36,19 +38,27 @@
             </ul>
         </div>
     </header>
-    <div>
+
+	@*desktop nav*@
+    <section id="logo">
+        <h1 id="title"><a href="/">The <br />Will Clinic</a></h1>
+        <ul class="desktop-nav">
+            <li><a href="#">Sign Up</a></li>
+            <li><a href="#">Volunteer</a></li>
+            <li><a href="#">Who we are</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+        <i class="fas fa-bars"></i>
+	</section>
+
+    <main>
         @RenderBody()
-    </div>
-    <script>
-        function hideDropdown() {
-            var y = document.getElementsByTagName("header");
-            var x = y[0];
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-} 
-    </script>
+    </main>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"
+			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			crossorigin="anonymous"></script>
+	<script src="~/js/app.js"></script>
+
 </body>
 </html>

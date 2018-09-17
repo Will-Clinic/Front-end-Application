@@ -1,5 +1,4 @@
 ﻿@import url("https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro:700");
-@import url("https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro:700");
 .fa-times {
   font-size: 1em;
   color: #FFFFFF;
@@ -139,18 +138,4 @@ main {
         text-align: left;
         padding: 1em;
         font-size: 1.25em; } }
-
-#logo {
-  background-color: #FFFFFF;
-  position: fixed;
-  width: 100%; }
-  #logo h1 {
-    font-size: 1.5em;
-    padding: 2.5vh 4.25vw;
-    float: left; }
-  #logo a {
-    color: #282828;
-    text-decoration: none; }
-    #logo a:hover, #logo a:active {
-      color: #007AFF; }
 

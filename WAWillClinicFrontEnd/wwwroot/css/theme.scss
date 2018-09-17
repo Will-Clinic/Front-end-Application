@@ -1,0 +1,24 @@
+﻿//Source Sans Pro for main text and menus, Fjalla for smaller text
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro:700');
+
+$colors: ( 
+    nav-main: #007AFF, // main blue
+    nav-dark: #081ABC, //dark blue
+    primary: #EEEEEE, //light grey
+    primary-dark: #282828, //dark grey
+    main-grey: #828282, //main grey
+    white: #FFFFFF
+);
+
+$big-gut: 2em;
+$small-gut: $big-gut/2;
+
+$left-padding: 8.5vw;
+$vert-padding: 2.5vh;
+
+$main-font: 'Source Sans Pro', sans-serif;
+$secondary-font: 'Fjalla One', serif;
+
+@function color($color-name) {
+	@return map-get($colors, $color-name)
+}

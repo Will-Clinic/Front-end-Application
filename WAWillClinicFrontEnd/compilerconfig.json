@@ -1,10 +1,18 @@
 ﻿[
   {
-    "outputFile": "wwwroot/css/base.css",
-    "inputFile": "wwwroot/css/base.scss"
-  },
-  {
     "outputFile": "wwwroot/css/layout.css",
     "inputFile": "wwwroot/css/layout.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/module.css",
+    "inputFile": "wwwroot/css/module.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/theme.css",
+    "inputFile": "wwwroot/css/theme.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/base.css",
+    "inputFile": "wwwroot/css/base.scss"
   }
 ]

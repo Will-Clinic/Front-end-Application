@@ -1,1 +1,229 @@
-﻿
+﻿@import "../css/theme.scss";
+$desktop: 880px;
+$big-desktop: 1300px;
+
+@mixin big-desktop {
+    @media(min-width:#{$big-desktop}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media(min-width:#{$desktop}) {
+        @content;
+    }
+}
+
+@mixin mobile {
+	@media(max-width:#{$desktop}) {
+		@content;
+	}
+}
+
+//Close Nav bar
+.fa-times {
+	font-size: 1em;
+	color: color(white);
+	line-height: 40px;
+	float: right;
+	padding-right: 1em;
+
+	&:hover, &:active {
+		color: color(nav-dark);
+		cursor:pointer;
+	}
+}
+
+.fa-bars {
+	color: color(nav-main);
+	font-size: 1.75em;
+	float: right;
+	padding-right: 1.2em;	
+	margin-top: 1em;
+
+	&:hover, &:active {
+		color: color(nav-dark);
+		cursor: pointer;
+	}
+}
+
+//add desktop media query
+#logo {
+	@include mobile {
+		ul {
+			display: none;
+		}
+	}
+
+	@include desktop {
+		.fa-bars {
+			display: none;
+		}
+
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 1em 0 1em 1em;
+			overflow: hidden;
+
+			li {
+				float: left;
+
+				a {
+					text-decoration: none;
+					text-transform: uppercase;
+					font-family: $main-font;
+					display: block;
+					color: color(primary-dark);
+					text-align: center;
+					font-size: 1em;
+					padding: $vert-padding $vert-padding*2;
+
+					@include big-desktop {
+						padding: $vert-padding $vert-padding*8;
+					}
+				}
+			}
+		}
+	}
+}
+
+//index title
+main {
+    text-transform: uppercase;
+    color: color(primary-dark);
+
+    h2 {
+        font-family: $main-font;
+        font-size: 2em;
+        text-align: center;
+        margin: $small-gut $big-gut;
+    }
+
+    @include big-desktop {
+        h2 {
+            margin: $small-gut $big-gut*5;
+        }
+    }
+
+    @include desktop {
+        h2 {
+            font-size: 2.666em;
+            margin: $small-gut $big-gut*2;
+        }
+    }
+
+    .link-div {
+        text-align: center;
+        margin: $small-gut auto $big-gut*1.35 auto;
+    }
+
+    a {
+        text-decoration: none;
+        outline: 1px solid color(main-grey);
+        padding: .75em 2em;
+        color: color(primary-dark);
+        font-family: $secondary-font;
+
+        &:hover {
+            background-color: color(nav-main);
+            color: color(white);
+            outline: none;
+            transition: all 0.15s ease 0s;
+        }
+
+        &:visited {
+        }
+    }
+
+    .side-lines {
+        h3 {
+            width: 80%;
+            text-align: center;
+            font-family: $secondary-font;
+            border-bottom: .1px solid color(main-grey);
+            line-height: 0.1em;
+            margin: $small-gut*1.25 auto;
+        }
+
+
+        h3.blue {
+            color: color(nav-main);
+            font-size: 1.1em;
+            letter-spacing: .5px;
+            margin-top: $big-gut*1.5;
+        }
+
+        h3 span {
+            background: color(primary);
+            padding: 0 2em;
+        }
+
+        h3.grey {
+            display: none;
+        }
+
+        @include desktop {
+            h3.grey {
+                display: block;
+                font-size: 1.5em;
+                letter-spacing: 4px;
+				padding-top: 1em;
+            }
+
+            h3.grey span {
+                display: inline;
+                padding: 0 2.75em;
+            }
+
+            h3 {
+                width: 50%;
+            }
+        }
+    }
+
+    p#qual-descript {
+        text-transform: none;
+        text-align: center;
+        font-size: 1.35em;
+        padding: $small-gut/2 $big-gut*3.5;
+
+        @include desktop {
+            font-size: 1.75em;
+        }
+    }
+
+    section.index {
+        text-align: center;
+        margin-top: $small-gut;
+        margin-bottom: $big-gut;
+
+        @include desktop {
+            display: grid;
+            grid-template-columns: 50% auto;
+            grid-template-areas: "left-qual right-qual";
+            padding: 0 1em;
+        }
+    }
+
+    .qual-rec {
+        font-family: $secondary-font;
+        box-shadow: 0 0 .15rem .015rem rgba( 0, 0, 0, .15 );
+        letter-spacing: 1px;
+        border-left: color(nav-main) solid 5px;
+        display: inline-block;
+        width: 80%;
+        background-color: color(white);
+        margin: $small-gut/2 auto;
+        padding: $small-gut $small-gut/2;
+        color: color(main-grey);
+
+        @include desktop {
+            width: 88%;
+            text-align: left;
+            padding: $small-gut;
+            font-size: 1.25em;
+        }
+    }
+}
+

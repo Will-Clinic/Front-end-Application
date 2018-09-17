@@ -1,33 +1,31 @@
-﻿//Source Sans Pro for main text and menus, Fjalla for smaller text
-@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro:700');
-
-$colors: (
-	nav-main: #006CFF,// blue
-	nav-dark: #1F02C6, //darker blue
-	nav-light: #F8FCFF, //looks white, but is slightly blue
-	primary: #EEEEEE,//light gray
-	primary-dark: #282828, //dark gray
-	primary-accent: #006CFF //blue
-);
-
-$left-padding: 8.5vw;
-$vert-padding: 2.5vh;
-@function color($color-name){
-	@return map-get($colors, $color-name)
-}
+﻿@import "../css/theme.scss";
 
 body, html {
-	font-family: 'Source Sans Pro', sans-serif;
-	margin: 0;
-	padding: 0;
+    font-family: $main-font;
+    margin: 0;
+    padding: 0;
+    background-color: color(primary);
 }
 
-//layout - styling the nav bar
+body, #logo {
+    min-width:350px;
+}
+main {
+    padding-top:11.5vh;
+}
+
+//dropdown menu
 header {
+    display: none;
     padding-bottom: $vert-padding*5;
-    position:fixed;
+	letter-spacing: 1px;
+    position: absolute;
     width: 100%;
-    background-color: color(nav-main); //get this function to work: color(nav-main);
+    background-color: color(nav-main);
+    overflow-y: hidden;
+    z-index: 1;
+	font-family: $main-font;
+
     h1 {
         font-size: 2em;
         color: color(primary);
@@ -35,11 +33,11 @@ header {
     }
 
     a {
-        color: color(nav-light);
+        color: color(white);
         text-decoration: none;
 
         &:hover, &:active {
-            color: #ff0000;
+            color: color(primary-dark);
         }
     }
 
@@ -50,19 +48,16 @@ header {
             list-style-type: none;
             text-transform: uppercase;
             margin: 0 auto;
-            padding-bottom: $vert-padding * 4;
+            padding-bottom: $vert-padding * 2;
 
             li {
                 margin: 1.5rem 0;
-                //padding-bottom:5vh;
+
                 & > a {
                     border-left: 5px solid white;
-                    //line-height: 1.5rem;
-                    padding-left: $left-padding/2.75;
+                    padding-left: $left-padding/2;
                     padding-top: .5rem;
                     padding-bottom: .5rem;
-                    //margin-bottom:2rem;
-                    //padding:.5rem, .5rem, .5rem, 55.5rem;
                 }
             }
         }
@@ -71,11 +66,13 @@ header {
     p, ul > li {
         color: color(nav-dark);
         text-transform: uppercase;
-        font-family: 'Fjalla One', serif;
+        font-family: $secondary-font;
         padding-left: $left-padding;
-        line-height:1.25em;
+        padding-right: $left-padding;
+        line-height: 1.25em;
+
         strong {
-            color: color(nav-light);
+            color: color(white);
         }
     }
 
@@ -86,16 +83,8 @@ header {
         width: 70%;
 
         ul > li {
-            list-style-type:disc;
-            padding-left:.25em;
+            list-style-type: disc;
+            padding-left: .25em;
         }
     }
-}
-
-.fa-times {
-    font-size: 1em;
-    color: color(nav-light);
-    line-height:40px;
-    float:right;
-    padding-right:1em;
 }
