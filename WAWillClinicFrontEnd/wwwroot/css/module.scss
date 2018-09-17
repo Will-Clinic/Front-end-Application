@@ -31,143 +31,167 @@
 
 //index title
 main {
-    color: color(primary-dark);
+	color: color(primary-dark);
 
-	.uppercase{
+	.uppercase {
 		text-transform: uppercase;
 	}
 
-    h2 {
-        font-family: $main-font;
-        font-size: 2em;
-        text-align: center;
-        margin: $small-gut $big-gut;
-    }
+	h2 {
+		font-family: $main-font;
+		font-size: 2em;
+		text-align: center;
+		margin: $small-gut $big-gut;
+	}
 
-    @include big-desktop {
-        h2 {
-            margin: $small-gut $big-gut*5;
-        }
-    }
+	@include big-desktop {
+		h2 {
+			margin: $small-gut $big-gut*5;
+		}
+	}
 
-    @include desktop {
-        h2 {
-            font-size: 2.666em;
-            margin: $small-gut $big-gut*2;
-        }
-    }
+	@include desktop {
+		h2 {
+			font-size: 2.666em;
+			margin: $small-gut $big-gut*2;
+		}
+	}
 
-    .link-div {
-        text-align: center;
-        margin: $small-gut auto $big-gut*1.35 auto;
-    }
+	.link-div {
+		text-align: center;
+		margin: $small-gut auto $big-gut*1.35 auto;
 
-    a {
-        text-decoration: none;
-        outline: 1px solid color(main-grey);
-        padding: .75em 2em;
-        color: color(primary-dark);
-        font-family: $secondary-font;
+		a {
+			text-decoration: none;
+			outline: 1px solid color(main-grey);
+			font-size: 1.333em;
+			padding: .5em 1.5em;
+			color: color(primary-dark);
+			font-family: $secondary-font;
 
-        &:hover {
-            background-color: color(nav-main);
-            color: color(white);
-            outline: none;
-            transition: all 0.15s ease 0s;
-        }
+			&:hover {
+				background-color: color(nav-main);
+				color: color(white);
+				outline: none;
+				transition: all 0.15s ease 0s;
+			}
 
-        &:visited {
-        }
-    }
-
-    .side-lines {
-        h3 {
-            width: 80%;
-            text-align: center;
-            font-family: $secondary-font;
-            border-bottom: .1px solid color(main-grey);
-            line-height: 0.1em;
-            margin: $small-gut*1.25 auto;
-        }
+			&:visited {
+			}
+		}
+	}
 
 
-        h3.blue {
-            color: color(nav-main);
-            font-size: 1.1em;
-            letter-spacing: .5px;
-            margin-top: $big-gut*1.5;
-        }
+	.side-lines {
+		h2, h3 {
+			width: 80%;
+			text-align: center;
+			font-family: $secondary-font;
+			border-bottom: .1px solid color(main-grey);
+			line-height: 0.1em;
+			margin: $small-gut*1.25 auto;
+		}
 
-        h3 span {
-            background: color(primary);
-            padding: 0 2em;
-        }
+		h2 {
+			font-size: 1.666em;
+		}
 
-        h3.grey {
-            display: none;
-        }
+		h3 {
+			font-size: 1.333em;
+		}
 
-        @include desktop {
-            h3.grey {
-                display: block;
-                font-size: 1.5em;
-                letter-spacing: 4px;
-                padding-top: 1em;
-            }
+		.blue {
+			color: color(nav-main);
+			letter-spacing: .5px;
+			margin-top: $big-gut*1.5;
+		}
 
-            h3.grey span {
-                display: inline;
-                padding: 0 2.75em;
-            }
+		span {
+			background: color(primary);
+			padding: 0 2em;
+		}
 
-            h3 {
-                width: 50%;
-            }
-        }
-    }
+		.grey {
+			display: none;
+		}
 
-    p#qual-descript {
-        text-transform: none;
-        text-align: center;
-        font-size: 1.35em;
-        padding: $small-gut/2 $big-gut;
+		@include desktop {
+			h3.grey {
+				display: block;
+				font-size: 1.5em;
+				letter-spacing: 4px;
+				padding-top: 1em;
+			}
 
-        @include desktop {
-            font-size: 1.75em;
-            padding: $small-gut/2 $big-gut*3.5;
-        }
-    }
+			h3.grey span {
+				display: inline;
+				padding: 0 2.75em;
+			}
 
-    section.index {
-        text-align: center;
-        margin-top: $small-gut;
-        margin-bottom: $big-gut;
+			h3 {
+				width: 50%;
+			}
+		}
+	}
 
-        @include desktop {
-            display: grid;
-            grid-template-columns: 50% auto;
-            grid-template-areas: "left-qual right-qual";
-            padding: 0 1em;
-        }
-    }
+	p#qual-descript {
+		text-transform: none;
+		text-align: center;
+		font-size: 1.35em;
+		padding: $small-gut/2 $big-gut;
 
-    .qual-rec {
-        font-family: $secondary-font;
-        box-shadow: 0 0 .15rem .015rem rgba( 0, 0, 0, .15 );
-        letter-spacing: 1px;
-        border-left: color(nav-main) solid 5px;
-        display: inline-block;
-        width: 80%;
-        background-color: color(white);
-        margin: $small-gut/2 auto;
-        padding: $small-gut $small-gut/2;
-        color: color(main-grey);
+		@include desktop {
+			font-size: 1.75em;
+			padding: $small-gut/2 $big-gut*3.5;
+		}
+	}
 
-        @include desktop {
-            width: 88%;
-            text-align: left;
-            padding: $small-gut;
-            font-size: 1.25em;
-        }
-    }
+	section.index {
+		text-align: center;
+		margin-top: $small-gut;
+		margin-bottom: $big-gut;
+
+		@include desktop {
+			display: grid;
+			grid-template-columns: 50% auto;
+			grid-template-areas: "left-qual right-qual";
+			padding: 0 1em;
+		}
+	}
+
+	.qual-rec {
+		font-family: $secondary-font;
+		box-shadow: 0 0 .15rem .015rem rgba( 0, 0, 0, .15 );
+		letter-spacing: 1px;
+		border-left: color(nav-main) solid 5px;
+		display: inline-block;
+		width: 80%;
+		background-color: color(white);
+		margin: $small-gut/2 auto;
+		padding: $small-gut $small-gut/2;
+		color: color(main-grey);
+
+		a {
+			text-decoration: none;
+
+			&:hover, &:active {
+				background-color: color(white);
+				outline: none;
+				transition: all 0.15s ease 0s;
+				color: #007AFF;
+				cursor: pointer;
+			}
+
+			&:visited {
+				color: color(main-grey);
+			}
+		}
+
+		@include desktop {
+			width: 88%;
+			text-align: left;
+			padding: $small-gut;
+			font-size: 1.25em;
+		}
+	}
 }

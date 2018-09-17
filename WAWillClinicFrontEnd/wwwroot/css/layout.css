@@ -142,33 +142,37 @@ main {
   main .link-div {
     text-align: center;
     margin: 1em auto 2.7em auto; }
-  main a {
-    text-decoration: none;
-    outline: 1px solid #828282;
-    padding: .75em 2em;
-    color: #282828;
-    font-family: "Fjalla One", serif; }
-    main a:hover {
-      background-color: #007AFF;
-      color: #FFFFFF;
-      outline: none;
-      transition: all 0.15s ease 0s; }
-  main .side-lines h3 {
+    main .link-div a {
+      text-decoration: none;
+      outline: 1px solid #828282;
+      font-size: 1.333em;
+      padding: .5em 1.5em;
+      color: #282828;
+      font-family: "Fjalla One", serif; }
+      main .link-div a:hover {
+        background-color: #007AFF;
+        color: #FFFFFF;
+        outline: none;
+        transition: all 0.15s ease 0s; }
+  main .side-lines h2, main .side-lines h3 {
     width: 80%;
     text-align: center;
     font-family: "Fjalla One", serif;
     border-bottom: 0.1px solid #828282;
     line-height: 0.1em;
     margin: 1.25em auto; }
-  main .side-lines h3.blue {
+  main .side-lines h2 {
+    font-size: 1.666em; }
+  main .side-lines h3 {
+    font-size: 1.333em; }
+  main .side-lines .blue {
     color: #007AFF;
-    font-size: 1.1em;
     letter-spacing: .5px;
     margin-top: 3em; }
-  main .side-lines h3 span {
+  main .side-lines span {
     background: #EEEEEE;
     padding: 0 2em; }
-  main .side-lines h3.grey {
+  main .side-lines .grey {
     display: none; }
   @media (min-width: 1040px) {
     main .side-lines h3.grey {
@@ -211,6 +215,16 @@ main {
     margin: 0.5em auto;
     padding: 1em 0.5em;
     color: #828282; }
+    main .qual-rec a {
+      text-decoration: none; }
+      main .qual-rec a:hover, main .qual-rec a:active {
+        background-color: #FFFFFF;
+        outline: none;
+        transition: all 0.15s ease 0s;
+        color: #007AFF;
+        cursor: pointer; }
+      main .qual-rec a:visited {
+        color: #828282; }
     @media (min-width: 1040px) {
       main .qual-rec {
         width: 88%;
