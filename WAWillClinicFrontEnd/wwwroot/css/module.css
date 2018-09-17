@@ -123,8 +123,9 @@ main {
     cursor: pointer; }
 
 main {
-  text-transform: uppercase;
   color: #282828; }
+  main .uppercase {
+    text-transform: uppercase; }
   main h2 {
     font-family: "Source Sans Pro", sans-serif;
     font-size: 2em;

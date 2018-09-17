@@ -31,8 +31,11 @@
 
 //index title
 main {
-    text-transform: uppercase;
     color: color(primary-dark);
+
+	.uppercase{
+		text-transform: uppercase;
+	}
 
     h2 {
         font-family: $main-font;
@@ -168,4 +171,3 @@ main {
         }
     }
 }
-
