@@ -38,6 +38,12 @@ namespace WAWillClinicFrontEnd
                     .AddEntityFrameworkStores<ApplicationDbContext>()
                     .AddDefaultTokenProviders();
 
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Admin", policy => policy.RequireRole(ApplicationRoles.Admin));
+                options.AddPolicy("Member", policy => policy.RequireRole(ApplicationRoles.Member));
+            });
+
             services.AddScoped<IEmailSender, EmailSender>();
         }
 
@@ -48,7 +54,7 @@ namespace WAWillClinicFrontEnd
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseAuthentication();
+            app.UseAuthentication();
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
 
