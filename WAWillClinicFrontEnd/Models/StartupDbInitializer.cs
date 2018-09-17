@@ -43,10 +43,10 @@ namespace WAWillClinicFrontEnd.Models
                 var passwordHasher = new PasswordHasher<ApplicationUser>();
                 var user = new ApplicationUser
                 {
-                    UserName = "superadmin@wawillclinic",
-                    Email = "superadmin@wawillclinic"
+                    UserName = "fdsafsdfdasn@wawillclinic",
+                    Email = "fdsfasdsfddsfsfad@wawillclinic"
                 };
-                user.PasswordHash = passwordHasher.HashPassword(user, "Abcdefg1!");
+                user.PasswordHash = passwordHasher.HashPassword(user, "sadfasdfasdfasdfasdf");
                 await userManager.CreateAsync(user);
                 await userManager.AddToRoleAsync(user, ApplicationRoles.Admin);
                 return true;
