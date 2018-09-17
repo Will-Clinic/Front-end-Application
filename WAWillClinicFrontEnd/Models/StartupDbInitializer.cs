@@ -13,12 +13,18 @@ namespace WAWillClinicFrontEnd.Models
     {
         private static readonly List<IdentityRole> Roles = new List<IdentityRole>()
         {
-            new IdentityRole { Name = ApplicationRoles.Admin,
-                               NormalizedName = ApplicationRoles.Admin.ToUpper(),
-                               ConcurrencyStamp = Guid.NewGuid().ToString()},
-            new IdentityRole { Name = ApplicationRoles.Member,
-                               NormalizedName = ApplicationRoles.Member.ToUpper(),
-                               ConcurrencyStamp = Guid.NewGuid().ToString()}
+            new IdentityRole
+            {
+                Name = ApplicationRoles.Admin,
+                NormalizedName = ApplicationRoles.Admin.ToUpper(),
+                ConcurrencyStamp = Guid.NewGuid().ToString()
+            },
+            new IdentityRole
+            {
+                Name = ApplicationRoles.Member,
+                NormalizedName = ApplicationRoles.Member.ToUpper(),
+                ConcurrencyStamp = Guid.NewGuid().ToString()
+            }
         };
 
         public static void SeedData(IServiceProvider serviceProvider, UserManager<ApplicationUser> userManager)
@@ -27,20 +33,35 @@ namespace WAWillClinicFrontEnd.Models
             {
                 dbContext.Database.EnsureCreated();
                 AddRoles(dbContext);
+                Task.Run(async () => { await CreateUser(dbContext, userManager); }).Wait();
             };
         }
-
+        public static async Task<bool> CreateUser(ApplicationDbContext dbContext, UserManager<ApplicationUser> userManager)
+        {
+            if (!dbContext.Users.Any(u => u.UserName == "SuperAdmin"))
+            {
+                var passwordHasher = new PasswordHasher<ApplicationUser>();
+                var user = new ApplicationUser
+                {
+                    UserName = "superadmin@wawillclinic",
+                    Email = "superadmin@wawillclinic"
+                };
+                user.PasswordHash = passwordHasher.HashPassword(user, "Abcdefg1!");
+                await userManager.CreateAsync(user);
+                await userManager.AddToRoleAsync(user, ApplicationRoles.Admin);
+                return true;
+            }
+            return false;
+        }
         private static void AddRoles(ApplicationDbContext dbContext)
         {
-            if (!dbContext.Roles.Any())
-            {
-                foreach (var role in Roles)
-                {
-                    dbContext.Roles.AddAsync(role);
-                    dbContext.SaveChangesAsync();
-                }
-            }
+            if (dbContext.Roles.Any()) return;
 
+            foreach (var role in Roles)
+            {
+                dbContext.Roles.Add(role);
+                dbContext.SaveChanges();
+            }
         }
     }
 }
