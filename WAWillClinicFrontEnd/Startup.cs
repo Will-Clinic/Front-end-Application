@@ -48,7 +48,7 @@ namespace WAWillClinicFrontEnd
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseAuthentication();
+            app.UseAuthentication();
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
 
