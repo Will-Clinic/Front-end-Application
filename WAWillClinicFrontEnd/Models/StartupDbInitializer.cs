@@ -34,6 +34,7 @@ namespace WAWillClinicFrontEnd.Models
                 dbContext.Database.EnsureCreated();
                 AddRoles(dbContext);
                 //Task.Run(async () => { await CreateUser(dbContext, userManager); }).Wait();
+                //test commit
             };
         }
 
