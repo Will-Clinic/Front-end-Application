@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using WAWillClinicFrontEnd.Data;
 using WAWillClinicFrontEnd.Models;
 
 namespace WAWillClinicFrontEnd.Pages
@@ -14,18 +15,16 @@ namespace WAWillClinicFrontEnd.Pages
     [BindProperties]
     public class DetailsModel : PageModel
     {
-        UserManager<ApplicationUser> _userManager;
-        SignInManager<ApplicationUser> _signInManager;
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        private UserDbContext _context;
+
+        public int ID { get; set; }
+        public string Name { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
 
-        public DetailsModel(UserManager<ApplicationUser> userManager,
-                            SignInManager<ApplicationUser> signInManager)
+        public DetailsModel(UserDbContext context)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
+            _context = context;
         }
         /// <summary>
         /// Our Get Action that checks if the given id is null or empty.
@@ -34,17 +33,18 @@ namespace WAWillClinicFrontEnd.Pages
         /// </summary>
         /// <param name="id">Identity id</param>
         /// <returns>Page or Redirect</returns>
-        public async Task OnGet(string id)
+        public void OnGet(int? id)
         {
-            if(!string.IsNullOrEmpty(id))
+            if(id.HasValue)
             {
-                var user = await _userManager.FindByIdAsync(id);
+                var user = _context.Users.FirstOrDefault(i => i.ID == id);
+
                 if (user == null) RedirectToPage("/Dashboard");
-                FirstName = user.FirstName;
-                LastName = user.LastName;
+                Name = user.Name;
                 Phone = user.PhoneNumber;
                 Email = user.Email;
             }
+            RedirectToPage("/Dashboard");
         }
         /// <summary>
         /// Our Action that allows admins to update the specific
@@ -53,15 +53,15 @@ namespace WAWillClinicFrontEnd.Pages
         /// <returns>Page or Redirect</returns>
         public async Task<IActionResult> OnPost()
         {
-            var user = await _userManager.FindByEmailAsync(Email);
-            if(ModelState.IsValid)
+            var user = _context.Users.FirstOrDefault(i => i.ID == ID);
+            if (ModelState.IsValid)
             {
-                user.FirstName = FirstName;
-                user.LastName = LastName;
+                user.Name = Name;
                 user.PhoneNumber = Phone;
                 user.Email = Email;
 
-                await _userManager.UpdateAsync(user);
+                _context.Users.Update(user);
+                await _context.SaveChangesAsync();
                 return RedirectToPage("/Dashboard");
             }
             return Page();
@@ -72,10 +72,11 @@ namespace WAWillClinicFrontEnd.Pages
         /// <returns>Page</returns>
         public async Task<IActionResult> OnPostDeleteAsync()
         {
-            var user = await _userManager.FindByEmailAsync(Email);
-            if(user != null)
+            var user = _context.Users.FirstOrDefault(e => e.Email == Email);
+            if (user != null)
             {
-                await _userManager.DeleteAsync(user);
+                _context.Users.Remove(user);
+                await _context.SaveChangesAsync();
                 return RedirectToPage("/Dashboard");
             }
             return Page();
