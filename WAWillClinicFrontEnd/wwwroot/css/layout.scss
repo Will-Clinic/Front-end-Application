@@ -11,13 +11,17 @@ section {
 }    
 
 .content {
-        margin: auto 2em;
+        margin: auto $small-gut;
         font-family: $secondary-font;
         line-height: 1.25em;
         text-align: center;
 
         @include desktop {
-            margin: auto 4em;
+            margin: auto $big-gut*2;
+        }
+
+        @include big-desktop {
+            margin: auto $big-gut*4;
         }
 
         p {
@@ -37,8 +41,4 @@ section {
                 line-height: 1.25em;
             }
         }
-    }
-
-    ul li {
-        margin: 1em;
     }
