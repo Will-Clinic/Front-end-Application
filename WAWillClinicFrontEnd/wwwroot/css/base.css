@@ -17,17 +17,17 @@ main {
   width: 100%; }
   #white-head h1 {
     font-size: 1.5em;
-    padding: 2.5vh 4.25vw;
+    padding: 1vh 4.25vw;
     float: left; }
   #white-head a {
     color: #282828;
     text-decoration: none; }
     #white-head a:hover, #white-head a:active {
       color: #007AFF; }
-  @media (max-width: 1040px) {
+  @media (max-width: 1066px) {
     #white-head ul {
       display: none; } }
-  @media (min-width: 1040px) {
+  @media (min-width: 1066px) {
     #white-head .fa-bars {
       display: none; }
     #white-head ul {
@@ -45,14 +45,14 @@ main {
           color: #282828;
           text-align: center;
           font-size: 1em;
-          padding: 2.5vh 5vh; } }
-      @media (min-width: 1040px) and (min-width: 1300px) {
+          padding: 1vh 2vh; } }
+      @media (min-width: 1066px) and (min-width: 1300px) {
         #white-head ul li a {
-          padding: 2.5vh 8.75vh; } }
+          padding: 1vh 3.5vh; } }
 
 #blue-head {
   display: none;
-  padding-bottom: 12.5vh;
+  padding-bottom: 5vh;
   letter-spacing: 1px;
   position: absolute;
   width: 100%;
@@ -64,7 +64,7 @@ main {
   #blue-head h1 {
     font-size: 2em;
     color: #EEEEEE;
-    padding: 2.5vh 0 5.5vh 8.5vw; }
+    padding: 1vh 0 5.5vh 8.5vw; }
   #blue-head a {
     color: #FFFFFF;
     text-decoration: none; }
@@ -75,7 +75,7 @@ main {
     list-style-type: none;
     text-transform: uppercase;
     margin: 0 auto;
-    padding-bottom: 5vh; }
+    padding-bottom: 2vh; }
     #blue-head nav ul li {
       margin: 1.5rem 0; }
       #blue-head nav ul li > a {

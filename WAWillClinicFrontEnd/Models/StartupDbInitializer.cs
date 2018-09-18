@@ -46,7 +46,7 @@ namespace WAWillClinicFrontEnd.Models
                     UserName = "superadmin@wawillclinic",
                     Email = "superadmin@wawillclinic"
                 };
-                user.PasswordHash = passwordHasher.HashPassword(user, "Abcdefg1!");
+                user.PasswordHash = passwordHasher.HashPassword(user, "1two3four!");
                 await userManager.CreateAsync(user);
                 await userManager.AddToRoleAsync(user, ApplicationRoles.Admin);
                 return true;
@@ -65,3 +65,4 @@ namespace WAWillClinicFrontEnd.Models
         }
     }
 }
+
