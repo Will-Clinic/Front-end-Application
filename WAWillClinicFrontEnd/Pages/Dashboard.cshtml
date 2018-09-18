@@ -1,0 +1,23 @@
+﻿@page
+@model WAWillClinicFrontEnd.Pages.DashboardModel
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "_Layout";
+}
+
+<h2>Dashboard</h2>
+
+<section>
+<a asp-page="/add_user">Add user</a>
+</section>
+<section>
+@foreach(var user in Model.Users)
+{
+    <div>
+        <p>
+            @user.Name @user.Email @user.PhoneNumber <a asp-page="details" asp-route-id="@user.ID">edit</a>
+        </p>
+    </div>
+}
+</section>
+

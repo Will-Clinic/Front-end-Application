@@ -32,11 +32,20 @@ namespace WAWillClinicFrontEnd
             services.AddMvc();
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlServer(Configuration["ConnectionStrings:DefaultIdentityConnection"]));
+                    options.UseSqlServer(Configuration["ConnectionStrings:ProdIdentityConnection"]));
+
+            services.AddDbContext<UserDbContext>(options =>
+                    options.UseSqlServer(Configuration["ConnectionStrings:ProdConnection"]));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                     .AddEntityFrameworkStores<ApplicationDbContext>()
                     .AddDefaultTokenProviders();
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Admin", policy => policy.RequireRole(ApplicationRoles.Admin));
+                options.AddPolicy("Member", policy => policy.RequireRole(ApplicationRoles.Member));
+            });
 
             services.AddScoped<IEmailSender, EmailSender>();
         }
@@ -48,7 +57,7 @@ namespace WAWillClinicFrontEnd
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseAuthentication();
+            app.UseAuthentication();
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
 
