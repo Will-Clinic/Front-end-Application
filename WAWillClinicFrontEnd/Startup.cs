@@ -34,6 +34,9 @@ namespace WAWillClinicFrontEnd
             services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(Configuration["ConnectionStrings:DefaultIdentityConnection"]));
 
+            services.AddDbContext<UserDbContext>(options =>
+                    options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+
             services.AddIdentity<ApplicationUser, IdentityRole>()
                     .AddEntityFrameworkStores<ApplicationDbContext>()
                     .AddDefaultTokenProviders();

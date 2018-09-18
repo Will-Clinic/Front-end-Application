@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using WAWillClinicFrontEnd.Data;
 using WAWillClinicFrontEnd.Models;
 
 namespace WAWillClinicFrontEnd.Pages
@@ -14,15 +16,12 @@ namespace WAWillClinicFrontEnd.Pages
     [BindProperties]
     public class DashboardModel : PageModel
     {
-        private UserManager<ApplicationUser> _userManager;
-        private SignInManager<ApplicationUser> _signInManager;
-        public IList<ApplicationUser> Users { get; set; }
+        private UserDbContext _context;
+        public List<RSVPUser> Users { get; set; } = new List<RSVPUser>();
 
-        public DashboardModel(UserManager<ApplicationUser> userManager,
-                              SignInManager<ApplicationUser> signInManager)
+        public DashboardModel(UserDbContext context)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
+            _context = context;
         }
         /// <summary>
         /// Action that grabs all of our registered users within the
@@ -31,7 +30,7 @@ namespace WAWillClinicFrontEnd.Pages
         /// <returns>Page</returns>
         public async Task OnGet()
         {
-            Users = await _userManager.GetUsersInRoleAsync(ApplicationRoles.Member);
+            Users = await _context.Users.ToListAsync();
         }
     }
 }

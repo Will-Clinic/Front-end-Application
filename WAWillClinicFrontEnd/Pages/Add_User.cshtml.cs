@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using WAWillClinicFrontEnd.Data;
 using WAWillClinicFrontEnd.Models;
 
 namespace WAWillClinicFrontEnd.Pages
@@ -14,18 +15,15 @@ namespace WAWillClinicFrontEnd.Pages
     [BindProperties]
     public class Add_UserModel : PageModel
     {
-        private UserManager<ApplicationUser> _userManager;
-        private SignInManager<ApplicationUser> _signInManager;
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public long Phone { get; set; }
+        private UserDbContext _context;
 
-        public Add_UserModel(UserManager<ApplicationUser> userManager,
-                             SignInManager<ApplicationUser> signInManager)
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+
+        public Add_UserModel(UserDbContext context)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
+            _context = context;
         }
 
         public void OnGet() { }
@@ -34,23 +32,17 @@ namespace WAWillClinicFrontEnd.Pages
         {
             if(ModelState.IsValid)
             {
-                Guid password = Guid.NewGuid();
-                var user = new ApplicationUser()
+
+                RSVPUser user = new RSVPUser()
                 {
-                    UserName = Email,
+                    Name = Name,
                     Email = Email,
-                    FirstName = FirstName,
-                    LastName = LastName,
-                    PhoneNumber = Phone.ToString()
+                    PhoneNumber = Phone
                 };
 
-                var result = await _userManager.CreateAsync(user, password.ToString()+"A");
-                if(result.Succeeded)
-                {
-                    await _userManager.AddToRoleAsync(user, ApplicationRoles.Member);
-                    return RedirectToPage("/Dashboard");
-                }
-                return Page();
+                await _context.Users.AddAsync(user);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("/Dashboard");
             }
             return Page();
         }
