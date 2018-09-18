@@ -32,10 +32,10 @@ namespace WAWillClinicFrontEnd
             services.AddMvc();
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlServer(Configuration["ConnectionStrings:ProdIdentityConnection"]));
+                    options.UseSqlServer(Configuration["ConnectionStrings:DefaultIdentityConnection"]));
 
             services.AddDbContext<UserDbContext>(options =>
-                    options.UseSqlServer(Configuration["ConnectionStrings:ProdConnection"]));
+                    options.UseSqlServer(Configuration["ConnectionStrings:DefaultIdentityConnection"]));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                     .AddEntityFrameworkStores<ApplicationDbContext>()

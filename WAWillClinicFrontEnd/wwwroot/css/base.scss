@@ -1,4 +1,5 @@
 ﻿@import "../css/theme.scss";
+$tablet: 885px;
 $desktop: 1066px;
 $big-desktop: 1300px;
 
@@ -14,6 +15,11 @@ $big-desktop: 1300px;
     }
 }
 
+@mixin tablet {
+    @media(min-width:#{$tablet}) {
+        @content;
+    }
+}
 @mixin mobile {
     @media(max-width:#{$desktop}) {
         @content;
@@ -31,7 +37,19 @@ body, #white-head {
     min-width:320px;
 }
 main {
-    padding-top:11.5vh;
+    padding: 11.5vh $small-gut/4;
+
+    @include tablet {
+        padding: 11.5vh $small-gut;
+    }
+
+    @include desktop {
+        padding: 11.5vh $big-gut;
+    }
+
+    @include big-desktop {
+        padding: 11.5vh $big-gut*2;
+    }
 }
 
 //add desktop media query

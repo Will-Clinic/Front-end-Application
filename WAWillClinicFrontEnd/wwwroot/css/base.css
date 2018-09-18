@@ -9,7 +9,16 @@ body, #white-head {
   min-width: 320px; }
 
 main {
-  padding-top: 11.5vh; }
+  padding: 11.5vh 0.25em; }
+  @media (min-width: 885px) {
+    main {
+      padding: 11.5vh 1em; } }
+  @media (min-width: 1066px) {
+    main {
+      padding: 11.5vh 2em; } }
+  @media (min-width: 1300px) {
+    main {
+      padding: 11.5vh 4em; } }
 
 #white-head {
   background-color: #FFFFFF;
@@ -17,7 +26,7 @@ main {
   width: 100%; }
   #white-head h1 {
     font-size: 1.5em;
-    padding: 1vh 4.25vw;
+    padding: 2vh 4.25vw;
     float: left; }
   #white-head a {
     color: #282828;
@@ -45,14 +54,14 @@ main {
           color: #282828;
           text-align: center;
           font-size: 1em;
-          padding: 1vh 2vh; } }
+          padding: 2vh 4vh; } }
       @media (min-width: 1066px) and (min-width: 1300px) {
         #white-head ul li a {
-          padding: 1vh 3.5vh; } }
+          padding: 2vh 7vh; } }
 
 #blue-head {
   display: none;
-  padding-bottom: 5vh;
+  padding-bottom: 10vh;
   letter-spacing: 1px;
   position: absolute;
   width: 100%;
@@ -64,7 +73,7 @@ main {
   #blue-head h1 {
     font-size: 2em;
     color: #EEEEEE;
-    padding: 1vh 0 5.5vh 8.5vw; }
+    padding: 2vh 0 5.5vh 8.5vw; }
   #blue-head a {
     color: #FFFFFF;
     text-decoration: none; }
@@ -75,7 +84,7 @@ main {
     list-style-type: none;
     text-transform: uppercase;
     margin: 0 auto;
-    padding-bottom: 2vh; }
+    padding-bottom: 4vh; }
     #blue-head nav ul li {
       margin: 1.5rem 0; }
       #blue-head nav ul li > a {
