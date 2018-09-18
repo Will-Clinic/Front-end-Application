@@ -35,7 +35,7 @@ namespace WAWillClinicFrontEnd
                     options.UseSqlServer(Configuration["ConnectionStrings:DefaultIdentityConnection"]));
 
             services.AddDbContext<UserDbContext>(options =>
-                    options.UseSqlServer(Configuration["ConnectionStrings:DefaultIdentityConnection"]));
+                    options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                     .AddEntityFrameworkStores<ApplicationDbContext>()
