@@ -19,6 +19,10 @@ $vert-padding: 2vh;
 $main-font: 'Source Sans Pro', sans-serif;
 $secondary-font: 'Fjalla One', serif;
 
+$tablet: 885px;
+$desktop: 1066px;
+$big-desktop: 1300px;
+
 @function color($color-name) {
 	@return map-get($colors, $color-name)
 }
