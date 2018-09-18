@@ -3,5 +3,16 @@
 @{
     Layout = "_Layout";
 }
+Signup page
 
-Sign up page
+<form method="post">
+
+    <input type="text" name="Name" required placeholder="Full Name" title="Please input a last name" />
+    <br />
+    <input type="email" name="Email" required placeholder="Email Address" title="Please input an email address" />
+    <br />
+    <input type="tel" name="Phone" required pattern="[0-9]{10}" placeholder="Phone Number" title="Please input a phone number" />
+    <br />
+    <input type="submit" value="Add User" />
+
+</form>

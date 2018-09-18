@@ -1,0 +1,17 @@
+﻿@page
+@model WAWillClinicFrontEnd.Pages.AdminLoginModel
+@{
+    Layout = "_Layout";
+}
+
+<section>
+    <h2>AdminLogin</h2>
+    <p>Unauthorized access is strictly prohibited.</p>
+</section>
+<form method="post">
+    <input type="text" name="email" required placeholder="Email Address" title="Please enter an email address"/>
+    <br/>
+    <input type="password" name="password" required placeholder="Password" title="Please enter a password" />
+    <br/>
+    <input type="submit"/>
+</form>

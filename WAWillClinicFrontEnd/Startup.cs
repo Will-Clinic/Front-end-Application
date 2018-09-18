@@ -5,8 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WAWillClinicFrontEnd.Data;
+using WAWillClinicFrontEnd.Models;
 
 namespace WAWillClinicFrontEnd
 {
@@ -25,6 +30,24 @@ namespace WAWillClinicFrontEnd
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+                    options.UseSqlServer(Configuration["ConnectionStrings:ProdIdentityConnection"]));
+
+            services.AddDbContext<UserDbContext>(options =>
+                    options.UseSqlServer(Configuration["ConnectionStrings:ProdConnection"]));
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                    .AddEntityFrameworkStores<ApplicationDbContext>()
+                    .AddDefaultTokenProviders();
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Admin", policy => policy.RequireRole(ApplicationRoles.Admin));
+                options.AddPolicy("Member", policy => policy.RequireRole(ApplicationRoles.Member));
+            });
+
+            services.AddScoped<IEmailSender, EmailSender>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -34,7 +57,7 @@ namespace WAWillClinicFrontEnd
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseAuthentication();
+            app.UseAuthentication();
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
 
