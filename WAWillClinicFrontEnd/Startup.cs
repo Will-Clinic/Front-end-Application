@@ -47,6 +47,8 @@ namespace WAWillClinicFrontEnd
                 options.AddPolicy("Member", policy => policy.RequireRole(ApplicationRoles.Member));
             });
 
+            services.ConfigureApplicationCookie(options => options.LoginPath = "/AdminLogin");
+
             services.AddScoped<IEmailSender, EmailSender>();
         }
 
