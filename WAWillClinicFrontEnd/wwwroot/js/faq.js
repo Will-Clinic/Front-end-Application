@@ -23,14 +23,4 @@ $(document).ready(() => {
 			$cell.not($thisCell).removeClass('is-inactive');
 		}
 	});
-
-	//close card when click on cross
-	$cell.find('.js-collapser').click(function () {
-
-		var $thisCell = $(this).closest('.card');
-
-		$thisCell.removeClass('is-expanded').addClass('is-collapsed');
-		$cell.not($thisCell).removeClass('is-inactive');
-
-	});
 });

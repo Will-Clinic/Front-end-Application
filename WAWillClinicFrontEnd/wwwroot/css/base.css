@@ -28,18 +28,18 @@ main {
     font-size: 1.5em;
     padding: 2vh 4.25vw;
     float: left; }
+  #white-head ul {
+    display: none; }
   #white-head a {
     color: #282828;
     text-decoration: none; }
     #white-head a:hover, #white-head a:active {
       color: #007AFF; }
-  @media (max-width: 1066px) {
-    #white-head ul {
-      display: none; } }
   @media (min-width: 1066px) {
     #white-head .fa-bars {
       display: none; }
     #white-head ul {
+      display: block;
       list-style-type: none;
       margin: 0;
       padding: 1em 0 1em 1em;

@@ -1,23 +1,5 @@
 ﻿@import "../css/theme.scss";
 
-@mixin big-desktop {
-    @media(max-width:#{$big-desktop}) {
-        @content;
-    }
-}
-
-@mixin desktop {
-    @media(max-width:#{$desktop}) {
-        @content;
-    }
-}
-
-@mixin tablet {
-    @media(max-width:#{$tablet}) {
-        @content;
-    }
-}
-
 body, html {
     font-family: $main-font;
     margin: 0;
@@ -56,6 +38,10 @@ main {
         float: left;
     }
 
+    ul{
+        display:none;
+    }
+
     a {
         color: color(primary-dark);
         text-decoration: none;
@@ -65,18 +51,13 @@ main {
         }
     }
 
-    @include mobile {
-        ul {
-            display: none;
-        }
-    }
-
     @include desktop {
         .fa-bars {
             display: none;
         }
 
         ul {
+            display:block;
             list-style-type: none;
             margin: 0;
             padding: 1em 0 1em 1em;

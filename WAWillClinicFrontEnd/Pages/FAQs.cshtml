@@ -1,17 +1,7 @@
 ﻿@page
 @model WAWillClinicFrontEnd.Pages.faqsModel
 @{
-	//Layout = "_Layout";
-	//Layout = "_faq";
 }
-
-@*cards class needs to wrap index, so that the cards are side by side on desktop view*@
-@*<meta name="viewport" content="width=device-width" />
-	<link rel="stylesheet" href="~/css/reset.css" />
-	<link rel="stylesheet" href="~/css/base.css" />
-	<link rel="stylesheet" href="~/css/layout.css" />
-	<link rel="stylesheet" href="~/css/module.css" />
-	<link rel="stylesheet" href="~/css/faq.css" />*@
 
 <!DOCTYPE html>
 
@@ -26,7 +16,6 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<title>@ViewBag.Title</title>
 </head>
-<main>
 
 <body>
 	<header>
@@ -71,119 +60,27 @@
 		</div>
 	</header>
 
+    <main>
+	    <h2>FAQs</h2>
+	    <div class="wrapper">
 
-	<h2>FAQs</h2>
-	<div class="wrapper">
+		    <div class="cards">
 
-		<div class="header">
-			<h1 class="header__title">Expanding Card Grid</h1>
-			<h2 class="header__subtitle">with Flexbox</h2>
-		</div>
+			    <div class=" card [ is-collapsed ] ">
+				    <div class="card__inner [ js-expander ]">
+					    <span>Card</span>
+				    </div>
+				    <div class="card__expander">
+					    <i class="fa fa-close [ js-collapser ]"></i>
+					    Expander
+				    </div>
+			    </div>
 
-		<div class="cards">
+		    </div>
 
-			<div class=" card [ is-collapsed ] ">
-				<div class="card__inner [ js-expander ]">
-					<span>Card</span>
-					<i class="fa fa-folder-o"></i>
-				</div>
-				<div class="card__expander">
-					<i class="fa fa-close [ js-collapser ]"></i>
-					Expander
-				</div>
-			</div>
+	    </div>
 
-			<div class=" card [ is-collapsed ] ">
-				<div class="card__inner [ js-expander ]">
-					<span>Card</span>
-					<i class="fa fa-folder-o"></i>
-				</div>
-				<div class="card__expander">
-					<i class="fa fa-close [ js-collapser ]"></i>
-					Expander
-				</div>
-			</div>
-
-			<div class=" card [ is-collapsed ] ">
-				<div class="card__inner [ js-expander ]">
-					<span>Card</span>
-					<i class="fa fa-folder-o"></i>
-				</div>
-				<div class="card__expander">
-					<i class="fa fa-close [ js-collapser ]"></i>
-					Expander
-				</div>
-			</div>
-
-			<div class=" card [ is-collapsed ] ">
-				<div class="card__inner [ js-expander ]">
-					<span>Card</span>
-					<i class="fa fa-folder-o"></i>
-				</div>
-				<div class="card__expander">
-					<i class="fa fa-close [ js-collapser ]"></i>
-					Expander
-				</div>
-			</div>
-
-			<div class=" card [ is-collapsed ] ">
-				<div class="card__inner [ js-expander ]">
-					<span>Card</span>
-					<i class="fa fa-folder-o"></i>
-				</div>
-				<div class="card__expander">
-					<i class="fa fa-close [ js-collapser ]"></i>
-					Expander
-				</div>
-			</div>
-
-			<div class=" card [ is-collapsed ] ">
-				<div class="card__inner [ js-expander ]">
-					<span>Card</span>
-					<i class="fa fa-folder-o"></i>
-				</div>
-				<div class="card__expander">
-					<i class="fa fa-close [ js-collapser ]"></i>
-					Expander
-				</div>
-			</div>
-
-			<div class=" card [ is-collapsed ] ">
-				<div class="card__inner [ js-expander ]">
-					<span>Card</span>
-					<i class="fa fa-folder-o"></i>
-				</div>
-				<div class="card__expander">
-					<i class="fa fa-close [ js-collapser ]"></i>
-					Expander
-				</div>
-			</div>
-
-			<div class=" card [ is-collapsed ] ">
-				<div class="card__inner [ js-expander ]">
-					<span>Card</span>
-					<i class="fa fa-folder-o"></i>
-				</div>
-				<div class="card__expander">
-					<i class="fa fa-close [ js-collapser ]"></i>
-					Expander
-				</div>
-			</div>
-
-			<div class=" card [ is-collapsed ] ">
-				<div class="card__inner [ js-expander ]">
-					<span>Card</span>
-					<i class="fa fa-folder-o"></i>
-				</div>
-				<div class="card__expander">
-					<i class="fa fa-close [ js-collapser ]"></i>
-					Expander
-				</div>
-			</div>
-
-		</div>
-
-	</div>
+    </main>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.js"
 			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -192,7 +89,6 @@
 	<script src="~/js/faq.js"></script>
 
 </body>
-</main>
 </html>
 
 
