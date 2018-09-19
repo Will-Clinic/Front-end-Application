@@ -138,6 +138,7 @@ main {
         text-transform: none;
         text-align: center;
         font-size: 1.35em;
+        font-family:$secondary-font;
         padding: $small-gut/2 $big-gut;
 
         @include desktop {

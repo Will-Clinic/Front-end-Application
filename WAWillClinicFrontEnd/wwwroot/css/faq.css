@@ -1,11 +1,12 @@
-﻿* {
+﻿@import url("https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro:700");
+* {
   box-sizing: border-box; }
 
-body {
-  background: #eceef1;
-  font-family: 'Slabo 27px', serif;
-  color: #333a45; }
-
+/*body {
+	background: $light-gray;
+	font-family: $secondary-font;
+	color: $slate;
+}*/
 .wrapper {
   margin: 5em auto;
   max-width: 1000px;
@@ -52,8 +53,9 @@ body {
     padding: 30px;
     position: relative;
     cursor: pointer;
-    background-color: #949fb0;
-    color: #eceef1;
+    box-shadow: 0 0 0.15rem 0.015rem rgba(0, 0, 0, 0.15);
+    background-color: #FFFFFF;
+    color: #828282;
     font-size: 1.5em;
     text-transform: uppercase;
     text-align: center;
@@ -73,7 +75,8 @@ body {
     align-items: center;
     text-transform: uppercase;
     color: #eceef1;
-    font-size: 1.5em; }
+    font-size: 1.5em;
+    padding: 1em; }
     .card__expander .fa {
       font-size: 0.75em;
       position: absolute;
