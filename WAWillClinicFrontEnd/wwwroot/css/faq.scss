@@ -10,6 +10,7 @@
 .card {
     margin: 0 auto;
     outline: solid 1px red;
+    /*height:20vh;*/
     width: 90%;
     text-align: center;
 
@@ -42,7 +43,7 @@
         padding: 1em;
         box-shadow: 0 0 .15rem .015rem rgba( 0, 0, 0, .15 );
         border-left: color(nav-main) solid 5px;
-        margin: .5rem;
+        margin: 1rem .5rem;
 
         @include desktop {
             margin: 1.5rem;
@@ -67,10 +68,10 @@
         /*border: 1px solid color(nav-main);*/
         font-size: 1.111em;
         line-height: 1.666em;
-        width: 100%;
-        /*@include desktop {
-            width: calc(200% + 30px);
-        }*/
+
+        @include desktop {
+            width: calc(300%);
+        }
     }
 
     &.is-collapsed {
@@ -93,7 +94,7 @@
     }
 
     &.is-expanded {
-
+       
         .card__inner {
             background-color: color(nav-main);
 
@@ -123,6 +124,10 @@
             margin-top: 30px;
             opacity: 1;
             padding: 1em;
+
+            .card-text {
+                margin: 0 auto;
+            }
             /*@include desktop {
                 width: calc(200% + 30px);
 
@@ -164,7 +169,7 @@
     }
 
     .card:nth-of-type(3n+3) .card__expander {
-        margin-left: calc(-200% - 60px);
+        margin-left: calc(-200% - 30px);
     }
 
     .card:nth-of-type(3n+4) {
@@ -172,7 +177,7 @@
     }
 
     .card__expander {
-        width: calc(300% + 60px);
+        width: calc(300% - 30px);
     }
 }
 /*$light-gray: #eceef1;
