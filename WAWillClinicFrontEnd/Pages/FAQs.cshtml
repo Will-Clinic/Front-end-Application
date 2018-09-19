@@ -1,8 +1,227 @@
 ﻿@page
 @model WAWillClinicFrontEnd.Pages.faqsModel
 @{
-    Layout = "_Layout";
+	//Layout = "_Layout";
+	//Layout = "_faq";
 }
 
-<h2>FAQs</h2>
+@*cards class needs to wrap index, so that the cards are side by side on desktop view*@
+@*<meta name="viewport" content="width=device-width" />
+	<link rel="stylesheet" href="~/css/reset.css" />
+	<link rel="stylesheet" href="~/css/base.css" />
+	<link rel="stylesheet" href="~/css/layout.css" />
+	<link rel="stylesheet" href="~/css/module.css" />
+	<link rel="stylesheet" href="~/css/faq.css" />*@
 
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<link rel="stylesheet" href="~/css/reset.css" />
+	<link rel="stylesheet" href="~/css/base.css" />
+	<link rel="stylesheet" href="~/css/layout.css" />
+	<link rel="stylesheet" href="~/css/module.css" />
+	<link rel="stylesheet" href="~/css/faq.css" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<title>@ViewBag.Title</title>
+</head>
+<main>
+
+<body>
+	<header>
+		@*mobile nav*@
+		<div id="blue-head">
+			<nav>
+				<h1><a href="/">The Will Clinic</a><i class="fas fa-times"></i></h1>
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/signup">Sign-up</a></li>
+					<li><a href="/volunteer">Volunteer</a></li>
+					<li><a href="/about">Who We Are</a></li>
+					<li><a href="/FAQs">FAQs</a></li>
+					<li><a href="/contact">Contact us</a></li>
+				</ul>
+			</nav>
+			<p>
+				WA Vets Will Clinic <strong>would like to thank</strong> the following organizations and people
+				for their participation and/or sponsorship:
+			</p>
+			<div>
+				<ul>
+					<li>Etter, McMahon, Lamberson, Clary & Oreskovich, P.C.</li>
+					<li>Garco Construction, Inc.</li>
+					<li>Pepsi Beverages Co.</li>
+					<li>The Wake-Up Call Fine Coffee & Espresso</li>
+					<li>Witherspoon Kelley</li>
+				</ul>
+			</div>
+		</div>
+		@*desktop nav*@
+		<div id="white-head">
+			<h1 id="title"><a href="/">The <br />Will Clinic</a></h1>
+			<ul class="desktop-nav">
+				<li><a href="/signup">Sign Up</a></li>
+				<li><a href="/volunteer">Volunteer</a></li>
+				<li><a href="/about">Who we are</a></li>
+				<li><a href="/faqs">FAQs</a></li>
+				<li><a href="/contact">Contact Us</a></li>
+			</ul>
+			<i class="fas fa-bars"></i>
+		</div>
+	</header>
+
+
+	<h2>FAQs</h2>
+	<div class="wrapper">
+
+		<div class="header">
+			<h1 class="header__title">Expanding Card Grid</h1>
+			<h2 class="header__subtitle">with Flexbox</h2>
+		</div>
+
+		<div class="cards">
+
+			<div class=" card [ is-collapsed ] ">
+				<div class="card__inner [ js-expander ]">
+					<span>Card</span>
+					<i class="fa fa-folder-o"></i>
+				</div>
+				<div class="card__expander">
+					<i class="fa fa-close [ js-collapser ]"></i>
+					Expander
+				</div>
+			</div>
+
+			<div class=" card [ is-collapsed ] ">
+				<div class="card__inner [ js-expander ]">
+					<span>Card</span>
+					<i class="fa fa-folder-o"></i>
+				</div>
+				<div class="card__expander">
+					<i class="fa fa-close [ js-collapser ]"></i>
+					Expander
+				</div>
+			</div>
+
+			<div class=" card [ is-collapsed ] ">
+				<div class="card__inner [ js-expander ]">
+					<span>Card</span>
+					<i class="fa fa-folder-o"></i>
+				</div>
+				<div class="card__expander">
+					<i class="fa fa-close [ js-collapser ]"></i>
+					Expander
+				</div>
+			</div>
+
+			<div class=" card [ is-collapsed ] ">
+				<div class="card__inner [ js-expander ]">
+					<span>Card</span>
+					<i class="fa fa-folder-o"></i>
+				</div>
+				<div class="card__expander">
+					<i class="fa fa-close [ js-collapser ]"></i>
+					Expander
+				</div>
+			</div>
+
+			<div class=" card [ is-collapsed ] ">
+				<div class="card__inner [ js-expander ]">
+					<span>Card</span>
+					<i class="fa fa-folder-o"></i>
+				</div>
+				<div class="card__expander">
+					<i class="fa fa-close [ js-collapser ]"></i>
+					Expander
+				</div>
+			</div>
+
+			<div class=" card [ is-collapsed ] ">
+				<div class="card__inner [ js-expander ]">
+					<span>Card</span>
+					<i class="fa fa-folder-o"></i>
+				</div>
+				<div class="card__expander">
+					<i class="fa fa-close [ js-collapser ]"></i>
+					Expander
+				</div>
+			</div>
+
+			<div class=" card [ is-collapsed ] ">
+				<div class="card__inner [ js-expander ]">
+					<span>Card</span>
+					<i class="fa fa-folder-o"></i>
+				</div>
+				<div class="card__expander">
+					<i class="fa fa-close [ js-collapser ]"></i>
+					Expander
+				</div>
+			</div>
+
+			<div class=" card [ is-collapsed ] ">
+				<div class="card__inner [ js-expander ]">
+					<span>Card</span>
+					<i class="fa fa-folder-o"></i>
+				</div>
+				<div class="card__expander">
+					<i class="fa fa-close [ js-collapser ]"></i>
+					Expander
+				</div>
+			</div>
+
+			<div class=" card [ is-collapsed ] ">
+				<div class="card__inner [ js-expander ]">
+					<span>Card</span>
+					<i class="fa fa-folder-o"></i>
+				</div>
+				<div class="card__expander">
+					<i class="fa fa-close [ js-collapser ]"></i>
+					Expander
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.js"
+			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			crossorigin="anonymous"></script>
+	<script src="~/js/app.js"></script>
+	<script src="~/js/faq.js"></script>
+
+</body>
+</main>
+</html>
+
+
+
+@*<script src="https://code.jquery.com/jquery-3.3.1.js"
+			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			crossorigin="anonymous"></script>
+	<script src="~/js/app.js"></script>
+	<script src="~/js/faq.js"></script>*@
+
+@*<div class="cards">
+		<section class="index">
+
+				<div class=" card [ is-collapsed ] ">
+					<div class="card__inner [ js-expander ]">
+						<div>What is the WA Vets Will Clinic</div>
+						<div class="card__expander">
+							<i class="fa fa-bars [ js-collapser ]"></i>
+							Founded in 2012, WA Vets Will Clinic is a collaboration between Army OneSource, Gonzaga University School of Law, Red Cross - Inland Northwest Region, Spokane County Bar Association Young Lawyers Division, Vet Center (U.S. Department of Veterans Affairs), and  Washington State Department of Veterans Affairs.
+							The sole purpose of the WA Vets Will Clinic is to provide free estate planning documents to eligible veterans of the U.S. Armed Forces.
+						</div>
+					</div>
+
+					<div>Who is eligible for the WA Vets Will Clinic?</div>
+					<div>How do I sign up?</div>
+				</div>
+
+				<div>When is the next WA Vets Will Clinic event?</div>
+				<div>Where can I find out about other Veteran's services?</div>
+
+		</section>
+	</div>*@
