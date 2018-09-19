@@ -22,6 +22,7 @@ $secondary-font: 'Fjalla One', serif;
 $tablet: 885px;
 $desktop: 1066px;
 $big-desktop: 1300px;
+$degrees: 180deg;
 
 @function color($color-name) {
 	@return map-get($colors, $color-name)
@@ -43,4 +44,12 @@ $big-desktop: 1300px;
     @media(min-width:#{$tablet}) {
         @content;
     }
+}
+
+@mixin rotate($degrees) {
+    -webkit-transform: rotate($degrees);
+    -moz-transform: rotate($degrees);
+    -ms-transform: rotate($degrees);
+    -o-transform: rotate($degrees);
+    transform: rotate($degrees);
 }

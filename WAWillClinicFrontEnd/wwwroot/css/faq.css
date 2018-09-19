@@ -123,8 +123,6 @@ main {
   text-align: center; }
   .card .arrow-container {
     margin-top: 1em; }
-  .card .fa-chevron-up {
-    display: none; }
   @media (min-width: 1066px) {
     .card {
       width: calc((100% / 3) - 30px); } }
@@ -180,6 +178,12 @@ main {
     opacity: 0; }
   .card.is-expanded .card__inner {
     background-color: #007AFF; }
+    .card.is-expanded .card__inner .fa-chevron-down {
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      transform: rotate(180deg); }
     .card.is-expanded .card__inner:after {
       content: "";
       opacity: 1;

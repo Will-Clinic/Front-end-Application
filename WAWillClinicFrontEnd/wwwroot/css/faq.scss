@@ -17,10 +17,6 @@
         margin-top: $small-gut;
     }
 
-    .fa-chevron-up {
-        display: none;
-    }
-
     @include desktop {
         width: calc((100% / 3) - 30px);
     }
@@ -50,7 +46,6 @@
 
         @include desktop {
             margin: 1.5rem;
-
         }
 
         &:after {
@@ -102,6 +97,10 @@
         .card__inner {
             background-color: color(nav-main);
 
+            .fa-chevron-down {
+                @include rotate($degrees);
+            }
+            
             &:after {
                 content: "";
                 opacity: 1;
@@ -124,7 +123,6 @@
             margin-top: 30px;
             opacity: 1;
             padding: 1em;
-
             /*@include desktop {
                 width: calc(200% + 30px);
 
