@@ -1,4 +1,5 @@
 ﻿@import "../css/theme.scss";
+@import "../css/base.scss";
 
 .cards {
 
@@ -9,43 +10,72 @@
 .card {
     margin: 0 auto;
     outline: solid 1px red;
-    width: 80%;
+    width: 90%;
     text-align: center;
+
+    .arrow-container {
+        margin-top: $small-gut;
+    }
+
+    .fa-chevron-up {
+        display: none;
+    }
+
+    @include desktop {
+        width: calc((100% / 3) - 30px);
+    }
 
     &:hover {
         .card__inner {
             color: color(white);
             background-color: color(nav-main);
             transform: scale(1.05);
+            border-left: color(white) solid 5px;
         }
     }
 
     &__inner {
         position: relative;
         cursor: pointer;
-        background-color: color(primary);
+        background-color: color(white);
         color: color(primary-dark);
         font-size: 1.5em;
         text-transform: uppercase;
         text-align: center;
         transition: all 0.2s ease-in-out;
+        padding: 1em;
+        box-shadow: 0 0 .15rem .015rem rgba( 0, 0, 0, .15 );
+        border-left: color(nav-main) solid 5px;
+        margin: .5rem;
+
+        @include desktop {
+            margin: 1.5rem;
+
+        }
 
         &:after {
             transition: all 0.3s ease-in-out;
         }
     }
-
     //Expander
     &__expander {
         transition: all 0.2s ease-in-out;
-        background-color: color(nav-main);
+        background-color: color(white);
         position: relative;
         display: flex;
+        box-shadow: 0 0 .15rem .015rem rgba( 0, 0, 0, .15 );
         /*justify-content: center;
         align-items: center;*/
-        text-transform: uppercase;
-        color: color(white);
-        font-size: 1.5em;
+        //text-transform: uppercase;
+        font-family: $secondary-font;
+        color: color(primary-dark);
+        /*border: 1px solid color(nav-main);*/
+        font-size: 1.111em;
+        line-height: 1.666em;
+        width: 100%;
+        /*@include desktop {
+            width: calc(200% + 30px);
+        }*/
     }
 
     &.is-collapsed {
@@ -54,7 +84,7 @@
             &:after {
                 content: "";
                 opacity: 0;
-				color: color(nav-main);
+                color: color(nav-main);
             }
         }
 
@@ -93,6 +123,19 @@
             overflow: visible;
             margin-top: 30px;
             opacity: 1;
+            padding: 1em;
+
+            /*@include desktop {
+                width: calc(200% + 30px);
+
+                .card:nth-of-type(2n+2) .card__expander {
+                    margin-left: calc(-100% - 30px);
+                }
+
+                .card:nth-of-type(2n+3) {
+                    clear: left;
+                }
+            }*/
         }
 
         &:hover {
@@ -117,6 +160,23 @@
     }
 }
 
+@include desktop {
+    .card:nth-of-type(3n+2) .card__expander {
+        margin-left: calc(-100% - 30px);
+    }
+
+    .card:nth-of-type(3n+3) .card__expander {
+        margin-left: calc(-200% - 60px);
+    }
+
+    .card:nth-of-type(3n+4) {
+        clear: left;
+    }
+
+    .card__expander {
+        width: calc(300% + 60px);
+    }
+}
 /*$light-gray: #eceef1;
 $gray: darken(#eceef1, 30%);
 $slate: darken(#eceef1, 70%);

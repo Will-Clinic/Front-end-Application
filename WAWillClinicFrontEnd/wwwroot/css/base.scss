@@ -31,7 +31,7 @@ main {
     background-color: color(white);
     position: fixed;
     width: 100%;
-
+    z-index: 1;
     h1 {
         font-size: 1.5em;
         padding: $vert-padding $left-padding/2;
@@ -95,7 +95,7 @@ main {
     height: 120vh;
     background-color: color(nav-main);
     overflow-y: hidden;
-    z-index: 1;
+    z-index: 2;
 	font-family: $main-font;
 
     h1 {
