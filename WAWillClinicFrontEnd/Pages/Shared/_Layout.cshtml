@@ -1,4 +1,10 @@
 ﻿<!DOCTYPE html>
+@using Microsoft.AspNetCore.Identity;
+@using System.Security.Claims;
+@using WAWillClinicFrontEnd.Models;
+
+@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
 
 <html>
 <head>
@@ -11,7 +17,7 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-	@*mobile nav*@
+    @*mobile nav*@
     <header>
         <div id="blue-head">
             <nav>
@@ -41,14 +47,32 @@
         </div>
         @*desktop nav*@
         <div id="white-head">
-            <h1 id="title"><a href="/">The <br />Will Clinic</a></h1>
-            <ul class="desktop-nav">
-                <li><a href="/signup">Sign Up</a></li>
-                <li><a href="/volunteer">Volunteer</a></li>
-                <li><a href="/about">Who we are</a></li>
-                <li><a href="/faqs">FAQs</a></li>
-                <li><a href="/contact">Contact Us</a></li>
-            </ul>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <h1 id="title"><a href="/">The <br />Will Clinic</a></h1>
+                <ul class="desktop-nav">
+
+                    <li><a href="/Dashboard">Dashboard</a></li>
+                    <li><a href="/signup">Sign Up</a></li>
+                    <li><a href="/volunteer">Volunteer</a></li>
+                    <li><a href="/about">Who we are</a></li>
+                    <li><a href="/faqs">FAQs</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+                <p id="identity_user">@User.Identity.Name, &nbsp;<span id="logout"><a href="/logout">logout?</a></span></p>
+            }
+            else
+            {
+                <h1 id="title"><a href="/">The <br />Will Clinic</a></h1>
+                <ul class="desktop-nav">
+
+                    <li><a href="/signup">Sign Up</a></li>
+                    <li><a href="/volunteer">Volunteer</a></li>
+                    <li><a href="/about">Who we are</a></li>
+                    <li><a href="/faqs">FAQs</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            }
             <i class="fas fa-bars"></i>
         </div>
     </header>
@@ -56,10 +80,10 @@
     <main>
         @RenderBody()
     </main>
-	<script src="https://code.jquery.com/jquery-3.3.1.js"
-			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-			crossorigin="anonymous"></script>
-	<script src="~/js/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <script src="~/js/app.js"></script>
 
 </body>
 </html>
