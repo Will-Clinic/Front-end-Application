@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -16,9 +17,11 @@ namespace WAWillClinicFrontEnd.Pages
     public class Add_UserModel : PageModel
     {
         private UserDbContext _context;
-
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Email { get; set; }
+        [Required]
         public string Phone { get; set; }
 
         public Add_UserModel(UserDbContext context)
@@ -39,6 +42,7 @@ namespace WAWillClinicFrontEnd.Pages
                     Email = Email,
                     PhoneNumber = Phone
                 };
+                
 
                 await _context.Users.AddAsync(user);
                 await _context.SaveChangesAsync();

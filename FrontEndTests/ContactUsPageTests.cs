@@ -1,7 +1,7 @@
 using System;
 using WAWillClinicFrontEnd.Models;
 using WAWillClinicFrontEnd.Pages;
-using FrontEndTests.Helpers;
+using FrontEndTests.Utilities;
 using Xunit;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc;
@@ -103,10 +103,31 @@ namespace FrontEndTests
                 AdditionalRemarks = "Additional Remarks"
             };
 
+            //Check validity of the model
+            MockValidation.CheckValidation(contact);
             var result = contact.OnPost().Result;
             RedirectToPageResult check = (RedirectToPageResult)result;
            
             Assert.Equal("/",check.PageName);
+        }
+        [Fact]
+        public void ContactModelOnPostInvalidModelState()
+        {
+            var EmailSender = new MockEmailSender();
+
+            ContactModel contact = new ContactModel(EmailSender)
+            {
+                FirstName = "Test",
+                LastName = "Name",
+                Phone = 1234567890,
+                Reason = EmailMessages.ContactType.Donate,
+                AdditionalRemarks = "Additional Remarks"
+            };
+
+            //Check validity of the model
+            MockValidation.CheckValidation(contact);
+            var result = contact.OnPost().Result;
+            Assert.IsType<PageResult>(result);
         }
     }
 }
