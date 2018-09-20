@@ -216,6 +216,10 @@ main {
             }*/ }
     .card.is-expanded .card__expander .card-text {
       margin: 0 auto; }
+      .card.is-expanded .card__expander .card-text img {
+        width: 100px;
+        height: 100px;
+        object-fit: scale-down; }
   .card.is-expanded:hover .card__inner {
     transform: scale(1); }
   .card.is-inactive .card__inner {

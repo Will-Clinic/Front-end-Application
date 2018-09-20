@@ -127,6 +127,11 @@
 
             .card-text {
                 margin: 0 auto;
+				img{
+					width: 100px;
+					height: 100px;
+					object-fit:scale-down;
+				}
             }
             /*@include desktop {
                 width: calc(200% + 30px);
