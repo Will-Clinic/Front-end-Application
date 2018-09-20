@@ -31,157 +31,154 @@
 
 //index title
 main {
-    color: color(primary-dark);
+	color: color(primary-dark);
 
-    .uppercase {
-        text-transform: uppercase;
-    }
+	.uppercase {
+		text-transform: uppercase;
+	}
 
-    h2 {
-        font-family: $main-font;
-        font-size: 2em;
-        text-align: center;
-        margin: $small-gut $big-gut;
-    }
+	h2 {
+		font-family: $main-font;
+		font-size: 2em;
+		text-align: center;
+		margin: $small-gut $big-gut;
+	}
 
-    @include big-desktop {
-        h2 {
-            margin: $small-gut $big-gut*5;
-        }
-    }
+	@include big-desktop {
+		h2 {
+			margin: $small-gut $big-gut*5;
+		}
+	}
 
-    @include desktop {
-        h2 {
-            font-size: 2.666em;
-            margin: $small-gut $big-gut*2;
-        }
-    }
+	@include desktop {
+		h2 {
+			font-size: 2.666em;
+			margin: $small-gut $big-gut*2;
+		}
+	}
 
-    .link-div {
-        text-align: center;
-        margin: $small-gut auto $big-gut*1.35 auto;
+	.link-div {
+		text-align: center;
+		margin: $small-gut auto $big-gut*1.35 auto;
 
-        a {
-            text-decoration: none;
-            outline: 1px solid color(main-grey);
-            font-size: 1.333em;
-            padding: .5em 1.5em;
-            color: color(primary-dark);
-            font-family: $secondary-font;
+		a {
+			text-decoration: none;
+			outline: 1px solid color(main-grey);
+			font-size: 1.333em;
+			padding: .5em 1.5em;
+			color: color(primary-dark);
+			font-family: $secondary-font;
 
-            &:hover {
-                background-color: color(nav-main);
-                color: color(white);
-                outline: none;
-                transition: all 0.15s ease 0s;
-            }
-
-            &:visited {
-            }
-        }
-    }
+			&:hover {
+				background-color: color(nav-main);
+				color: color(white);
+				outline: none;
+				transition: all 0.15s ease 0s;
+			}
+		}
+	}
 
 
-    .side-lines {
-        h2, h3 {
-            width: 80%;
-            text-align: center;
-            font-family: $secondary-font;
-            border-bottom: .1px solid color(main-grey);
-            line-height: 0.1em;
-            margin: $small-gut*1.25 auto;
-        }
+	.side-lines {
+		h2, h3 {
+			width: 80%;
+			text-align: center;
+			font-family: $secondary-font;
+			border-bottom: .1px solid color(main-grey);
+			line-height: 0.1em;
+			margin: $small-gut*1.25 auto;
+		}
 
-        h2 {
-            font-size: 1.666em;
-        }
+		h2 {
+			font-size: 1.666em;
+		}
 
-        h3 {
-            font-size: 1.333em;
-        }
+		h3 {
+			font-size: 1.333em;
+		}
 
-        .blue {
-            color: color(nav-main);
-            letter-spacing: .5px;
-            margin-top: $big-gut*1.5;
-        }
+		.blue {
+			color: color(nav-main);
+			letter-spacing: .5px;
+			margin-top: $big-gut*1.5;
+		}
 
-        span {
-            background: color(primary);
-            padding: 0 2em;
-        }
+		span {
+			background: color(primary);
+			padding: 0 2em;
+		}
 
-        .grey {
-            display: none;
-        }
+		.grey {
+			display: none;
+		}
 
-        @include desktop {
-            h3.grey {
-                display: block;
-                font-size: 1.5em;
-                letter-spacing: 4px;
-                padding-top: 1em;
-            }
+		@include desktop {
+			h3.grey {
+				display: block;
+				font-size: 1.5em;
+				letter-spacing: 4px;
+				padding-top: 1em;
+			}
 
-            h3.grey span {
-                display: inline;
-                padding: 0 2.75em;
-            }
+			h3.grey span {
+				display: inline;
+				padding: 0 2.75em;
+			}
 
-            h3 {
-                width: 50%;
-            }
-        }
-    }
+			h3 {
+				width: 50%;
+			}
+		}
+	}
 
-    p#qual-descript {
-        text-transform: none;
-        text-align: center;
-        font-size: 1.35em;
-        padding: $small-gut/2 $big-gut;
+	p#qual-descript {
+		text-transform: none;
+		text-align: center;
+		font-size: 1.35em;
+		padding: $small-gut/2 $big-gut;
 
-        @include desktop {
-            font-size: 1.75em;
-            padding: $small-gut/2 $big-gut*3.5;
-        }
-    }
+		@include desktop {
+			font-size: 1.75em;
+			padding: $small-gut/2 $big-gut*3.5;
+		}
+	}
 
-    section.index {
-        text-align: center;
-        margin-top: $small-gut;
-        margin-bottom: $big-gut;
+	section.index {
+		text-align: center;
+		margin-top: $small-gut;
+		margin-bottom: $big-gut;
 
-        @include desktop {
-            display: grid;
-            grid-template-columns: 50% auto;
-            grid-template-areas: "left-qual right-qual";
-            padding: 0 1em;
-        }
-    }
+		@include desktop {
+			display: grid;
+			grid-template-columns: 50% auto;
+			grid-template-areas: "left-qual right-qual";
+			padding: 0 1em;
+		}
+	}
 
-    .qual-rec {
-        font-family: $secondary-font;
-        box-shadow: 0 0 .15rem .015rem rgba( 0, 0, 0, .15 );
-        letter-spacing: 1px;
-        border-left: color(nav-main) solid 5px;
-        display: inline-block;
-        width: 80%;
-        background-color: color(white);
-        margin: $small-gut/2 auto;
-        padding: $small-gut $small-gut/2;
-        color: color(main-grey);
+	.qual-rec {
+		font-family: $secondary-font;
+		box-shadow: 0 0 .15rem .015rem rgba( 0, 0, 0, .15 );
+		letter-spacing: 1px;
+		border-left: color(nav-main) solid 5px;
+		display: inline-block;
+		width: 80%;
+		background-color: color(white);
+		margin: $small-gut/2 auto;
+		padding: $small-gut $small-gut/2;
+		color: color(main-grey);
 
-        @include desktop {
-            width: 88%;
-            text-align: left;
-            padding: $small-gut;
-            font-size: 1.25em;
-        }
-    }
+		@include desktop {
+			width: 88%;
+			text-align: left;
+			padding: $small-gut;
+			font-size: 1.25em;
+		}
+	}
 
-    .center {
-        text-align: center;
-    }
+	.center {
+		text-align: center;
+	}
 }
 
 //form
