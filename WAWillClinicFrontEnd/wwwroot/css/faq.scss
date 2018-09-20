@@ -10,6 +10,7 @@
 .card {
 	margin: 0 auto;
 	outline: solid 1px red;
+	//height:20vh;
 	width: 90%;
 	text-align: center;
 
@@ -18,8 +19,7 @@
 	}
 
 	@include desktop {
-		width: calc((100% / 2) - 30px);
-		height: 25vh;
+		width: calc((100%) / 2);
 	}
 
 	&:hover {
@@ -138,24 +138,15 @@
 						transition: all 0.15s ease 0s;
 					}
 				}
-
 				img {
 					width: 100px;
 					height: 100px;
 					object-fit: scale-down;
 				}
+				li{
+					display:inline-block;
+				}
 			}
-			/*@include desktop {
-                width: calc(200% + 30px);
-
-                .card:nth-of-type(2n+2) .card__expander {
-                    margin-left: calc(-100% - 30px);
-                }
-
-                .card:nth-of-type(2n+3) {
-                    clear: left;
-                }
-            }*/
 		}
 
 		&:hover {
@@ -181,21 +172,25 @@
 }
 
 @include desktop {
-    .card:nth-of-type(3n+2) .card__expander {
-        margin-left: calc(-100% - 30px);
-    }
+	//target the 1st and 3rd card
+	.card:nth-of-type(2n-1) .card__expander {
+		width: calc(195%);
+	}
+	//target the 2nd and 4th card
+	.card:nth-of-type(2n) .card__expander {
+		width: calc(195%);
+		margin-left: calc(-100%);
+	}
 
-    .card:nth-of-type(3n+3) .card__expander {
-        margin-left: calc(-200% - 30px);
-    }
+	//target the 5th card
+	.fifthCard {
+		width: calc(195%);
+		margin-left: calc(-50%);
+	}
 
-    .card:nth-of-type(3n+4) {
-        clear: left;
-    }
-
-    .card__expander {
-        width: calc(300% - 30px);
-    }
+	.card__expander {
+		width: calc(300% - 30px);
+	}
 }
 /*$light-gray: #eceef1;
 $gray: darken(#eceef1, 30%);

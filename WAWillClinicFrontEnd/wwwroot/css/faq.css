@@ -125,8 +125,7 @@ main {
     margin-top: 1em; }
   @media (min-width: 1066px) {
     .card {
-      width: calc((100% / 2) - 30px);
-      height: 25vh; } }
+      width: calc((100%) / 2); } }
   .card:hover .card__inner {
     color: #FFFFFF;
     background-color: #007AFF;
@@ -201,18 +200,7 @@ main {
     overflow: visible;
     margin-top: 30px;
     opacity: 1;
-    padding: 1em;
-    /*@include desktop {
-                width: calc(200% + 30px);
-
-                .card:nth-of-type(2n+2) .card__expander {
-                    margin-left: calc(-100% - 30px);
-                }
-
-                .card:nth-of-type(2n+3) {
-                    clear: left;
-                }
-            }*/ }
+    padding: 1em; }
     .card.is-expanded .card__expander .card-text {
       margin: 0 auto; }
       .card.is-expanded .card__expander .card-text a {
@@ -226,6 +214,8 @@ main {
         width: 100px;
         height: 100px;
         object-fit: scale-down; }
+      .card.is-expanded .card__expander .card-text li {
+        display: inline-block; }
   .card.is-expanded:hover .card__inner {
     transform: scale(1); }
   .card.is-inactive .card__inner {
@@ -236,12 +226,14 @@ main {
     transform: scale(1); }
 
 @media (min-width: 1066px) {
-  .card:nth-of-type(3n+2) .card__expander {
-    margin-left: calc(-100% - 30px); }
-  .card:nth-of-type(3n+3) .card__expander {
-    margin-left: calc(-200% - 30px); }
-  .card:nth-of-type(3n+4) {
-    clear: left; }
+  .card:nth-of-type(2n-1) .card__expander {
+    width: calc(195%); }
+  .card:nth-of-type(2n) .card__expander {
+    width: calc(195%);
+    margin-left: calc(-100%); }
+  .fifthCard {
+    width: calc(195%);
+    margin-left: calc(-50%); }
   .card__expander {
     width: calc(300% - 30px); } }
 
