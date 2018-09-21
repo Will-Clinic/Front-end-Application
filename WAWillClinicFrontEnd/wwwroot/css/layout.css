@@ -26,23 +26,24 @@ main {
 #white-head {
   background-color: #FFFFFF;
   position: fixed;
-  width: 100%; }
+  width: 100%;
+  z-index: 1; }
   #white-head h1 {
     font-size: 1.5em;
     padding: 2vh 4.25vw;
     float: left; }
+  #white-head ul {
+    display: none; }
   #white-head a {
     color: #282828;
     text-decoration: none; }
     #white-head a:hover, #white-head a:active {
       color: #007AFF; }
-  @media (max-width: 1066px) {
-    #white-head ul {
-      display: none; } }
   @media (min-width: 1066px) {
     #white-head .fa-bars {
       display: none; }
     #white-head ul {
+      display: block;
       list-style-type: none;
       margin: 0;
       padding: 1em 0 1em 1em;
@@ -71,7 +72,7 @@ main {
   height: 120vh;
   background-color: #007AFF;
   overflow-y: hidden;
-  z-index: 1;
+  z-index: 2;
   font-family: "Source Sans Pro", sans-serif; }
   #blue-head h1 {
     font-size: 2em;
@@ -137,23 +138,24 @@ main {
 #white-head {
   background-color: #FFFFFF;
   position: fixed;
-  width: 100%; }
+  width: 100%;
+  z-index: 1; }
   #white-head h1 {
     font-size: 1.5em;
     padding: 2vh 4.25vw;
     float: left; }
+  #white-head ul {
+    display: none; }
   #white-head a {
     color: #282828;
     text-decoration: none; }
     #white-head a:hover, #white-head a:active {
       color: #007AFF; }
-  @media (max-width: 1066px) {
-    #white-head ul {
-      display: none; } }
   @media (min-width: 1066px) {
     #white-head .fa-bars {
       display: none; }
     #white-head ul {
+      display: block;
       list-style-type: none;
       margin: 0;
       padding: 1em 0 1em 1em;
@@ -182,7 +184,7 @@ main {
   height: 120vh;
   background-color: #007AFF;
   overflow-y: hidden;
-  z-index: 1;
+  z-index: 2;
   font-family: "Source Sans Pro", sans-serif; }
   #blue-head h1 {
     font-size: 2em;

@@ -1,0 +1,187 @@
+﻿@import "../css/theme.scss";
+@import "../css/base.scss";
+
+.cards {
+
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.card {
+	margin: 0 auto;
+	width: 90%;
+	text-align: center;
+
+	.arrow-container {
+		margin-top: $small-gut;
+	}
+
+	@include desktop {
+		width: calc((100%) / 2);
+	}
+
+	&:hover {
+		.card__inner {
+			color: color(white);
+			background-color: color(nav-main);
+			transform: scale(1);
+			border-left: color(white) solid 5px;
+		}
+	}
+
+	&__inner {
+		position: relative;
+		cursor: pointer;
+		background-color: color(white);
+		color: color(primary-dark);
+		font-size: 1.25em;
+		text-align: center;
+		transition: all 0.2s ease-in-out;
+		padding: 1em;
+		box-shadow: 0 0 .15rem .015rem rgba( 0, 0, 0, .15 );
+		border-left: color(nav-main) solid 5px;
+		margin: 1rem .5rem;
+
+		@include desktop {
+			margin: 1.5rem;
+		}
+
+		&:after {
+			transition: all 0.3s ease-in-out;
+		}
+	}
+	//Expander
+	&__expander {
+		transition: all 0.2s ease-in-out;
+		background-color: color(white);
+		position: relative;
+		display: flex;
+		box-shadow: 0 0 .15rem .015rem rgba( 0, 0, 0, .25 );
+		font-family: $main-font;
+		color: color(primary-dark);
+		font-size: 1.111em;
+		line-height: 1.666em;
+
+		@include desktop {
+			width: calc(300%);
+		}
+	}
+
+	&.is-collapsed {
+
+		.card__inner {
+			&:after {
+				content: "";
+				opacity: 0;
+				color: color(nav-main);
+			}
+		}
+
+		.card__expander {
+			max-height: 0;
+			min-height: 0;
+			overflow: hidden;
+			margin-top: 0;
+			opacity: 0;
+		}
+	}
+
+	&.is-expanded {
+
+		.card__inner {
+			background-color: color(nav-main);
+
+			.fa-chevron-down {
+				@include rotate($degrees);
+			}
+
+			&:after {
+				content: "";
+				opacity: 1;
+				display: block;
+				height: 0;
+				width: 0;
+				position: absolute;
+				bottom: -30px;
+				left: calc(50% - 15px);
+				border-left: 15px solid transparent;
+				border-right: 15px solid transparent;
+				border-bottom: 15px solid #333a45;
+			}
+		}
+
+		.card__expander {
+			max-height: 1000px;
+			min-height: 200px;
+			overflow: visible;
+			margin-top: 30px;
+			opacity: 1;
+			padding: 1em;
+
+			.card-text {
+				margin: 0 auto;
+
+				a {
+					text-decoration: none;
+					color: color(nav-main);
+
+					&:hover {
+						color: color(primary-dark);
+						border: color(nav-main);
+						transition: all 0.15s ease 0s;
+					}
+				}
+				img {
+					width: 100px;
+					height: 100px;
+					object-fit: scale-down;
+				}
+				li{
+					display:inline-block;
+				}
+			}
+		}
+
+		&:hover {
+			.card__inner {
+				transform: scale(1);
+			}
+		}
+	}
+
+	&.is-inactive {
+		.card__inner {
+			pointer-events: none;
+			opacity: 0.5;
+		}
+
+		&:hover {
+			.card__inner {
+				background-color: red;
+				transform: scale(1);
+			}
+		}
+	}
+}
+
+@include desktop {
+	//target the 1st and 3rd card
+	.card:nth-of-type(2n-1) .card__expander {
+		width: calc(195%);
+	}
+	//target the 2nd and 4th card
+	.card:nth-of-type(2n) .card__expander {
+		width: calc(195%);
+		margin-left: calc(-100%);
+	}
+
+	//target the 5th card
+	.fifthCard {
+		width: calc(195%);
+		margin-left: calc(-50%);
+	}
+
+	.card__expander {
+		width: calc(300% - 30px);
+	}
+}
