@@ -7,10 +7,13 @@
 <h2>Add user</h2>
 
 <form method="post">
+    <label asp-for="Name">Full Name</label>
     <input type="text" name="Name" required placeholder="Full Name" title="Please input a full name" />
     <br />
+    <label asp-for="Email">Email Address</label>
     <input type="email" name="Email" required placeholder="Email Address" title="Please input an email address" />
     <br />
+    <label asp-for="Phone">Phone Number</label>
     <input type="tel" name="Phone" required placeholder="Phone Number" title="Please input a phone number" />
     <br />
     <input type="submit" value="Add User"/>

@@ -1,4 +1,10 @@
 ﻿<!DOCTYPE html>
+@using Microsoft.AspNetCore.Identity;
+@using System.Security.Claims;
+@using WAWillClinicFrontEnd.Models;
+
+@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
 
 <html>
 <head>
@@ -42,14 +48,32 @@
         </div>
         @*desktop nav*@
         <div id="white-head">
-            <h1 id="title"><a href="/">The <br />Will Clinic</a></h1>
-            <ul class="desktop-nav">
-                <li><a href="/signup">Sign Up</a></li>
-                <li><a href="/volunteer">Volunteer</a></li>
-                <li><a href="/about">Who we are</a></li>
-                <li><a href="/faqs">FAQs</a></li>
-                <li><a href="/contact">Contact Us</a></li>
-            </ul>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <h1 id="title"><a href="/">The <br />Will Clinic</a></h1>
+                <ul class="desktop-nav">
+
+                    <li><a href="/Dashboard">Dashboard</a></li>
+                    <li><a href="/signup">Sign Up</a></li>
+                    <li><a href="/volunteer">Volunteer</a></li>
+                    <li><a href="/about">Who we are</a></li>
+                    <li><a href="/faqs">FAQs</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+                <p id="identity_user">@User.Identity.Name, &nbsp;<span id="logout"><a href="/logout">logout?</a></span></p>
+            }
+            else
+            {
+                <h1 id="title"><a href="/">The <br />Will Clinic</a></h1>
+                <ul class="desktop-nav">
+
+                    <li><a href="/signup">Sign Up</a></li>
+                    <li><a href="/volunteer">Volunteer</a></li>
+                    <li><a href="/about">Who we are</a></li>
+                    <li><a href="/faqs">FAQs</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            }
             <i class="fas fa-bars"></i>
         </div>
     </header>
@@ -65,6 +89,5 @@
 			crossorigin="anonymous"></script>
 	<script src="~/js/app.js"></script>
 	@*<script src="~/js/faq.js"></script>*@
-
 </body>
 </html>

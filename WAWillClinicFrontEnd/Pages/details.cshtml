@@ -9,11 +9,14 @@
 
 <section>
     <form method="post">
+        <label asp-for="Name">Full Name</label>
         <input type="text" name="Name" value="@Model.Name" required title="Please input a name" />
         <br />
+        <label asp-for="Email">Email Address</label>
         <input type="email" name="Email" value="@Model.Email" required title="Please input an email address" />
         <br />
-        <input type="tel" name="Phone" value="@Model.Phone" required  pattern="[0-9]{10}" title="Please input a phone number" />
+        <label asp-for="Phone">Phone Number</label>
+        <input type="tel" name="Phone" value="@Model.Phone" required pattern="[0-9]{10}" title="Please input a phone number" />
         <br />
         <input type="submit" value="Update User" />
     </form>
