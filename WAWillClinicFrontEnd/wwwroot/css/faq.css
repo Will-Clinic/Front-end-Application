@@ -118,7 +118,6 @@ main {
 
 .card {
   margin: 0 auto;
-  outline: solid 1px red;
   width: 90%;
   text-align: center; }
   .card .arrow-container {
