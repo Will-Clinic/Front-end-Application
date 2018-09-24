@@ -10,22 +10,24 @@ body, #white-head {
   min-width: 320px; }
 
 main {
-  padding: 11.5vh 0.25em; }
+  padding: 3em 0.25em; }
   @media (min-width: 885px) {
     main {
-      padding: 11.5vh 1em; } }
+      padding: 3em 1em; } }
   @media (min-width: 1066px) {
     main {
-      padding: 11.5vh 2em; } }
+      padding: 3em 2em; } }
   @media (min-width: 1300px) {
     main {
-      padding: 11.5vh 4em; } }
+      padding: 3em 4em; } }
 
 #white-head {
   background-color: #FFFFFF;
   position: fixed;
   width: 100%;
   z-index: 1; }
+  #white-head #identity_user {
+    margin: 0 0 1vh 1vw; }
   #white-head h1 {
     font-size: 1.5em;
     padding: 2vh 4.25vw;
@@ -111,6 +113,20 @@ main {
     #blue-head div ul > li {
       list-style-type: disc;
       padding-left: .25em; }
+
+table {
+  width: 100%;
+  border: 1px solid black;
+  margin: 0 auto; }
+  table th {
+    padding: 1em;
+    border-bottom: 1px solid black; }
+  table td {
+    border: 1px solid black;
+    padding: .5em; }
+
+#admin-links a {
+  padding: 0 .75em; }
 
 .fa-times {
   font-size: 1em;
