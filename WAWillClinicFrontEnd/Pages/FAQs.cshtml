@@ -5,64 +5,93 @@
 
 <!DOCTYPE html>
 
+@using Microsoft.AspNetCore.Identity;
+@using System.Security.Claims;
+@using WAWillClinicFrontEnd.Models;
+
+@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+
 <html>
 <head>
-	<meta name="viewport" content="width=device-width" />
-	<link rel="stylesheet" href="~/css/reset.css" />
-	<link rel="stylesheet" href="~/css/base.css" />
-	<link rel="stylesheet" href="~/css/layout.css" />
-	<link rel="stylesheet" href="~/css/module.css" />
-	<link rel="stylesheet" href="~/css/faq.css" />
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-	<title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/css/reset.css" />
+    <link rel="stylesheet" href="~/css/base.css" />
+    <link rel="stylesheet" href="~/css/layout.css" />
+    <link rel="stylesheet" href="~/css/module.css" />
+    <link rel="stylesheet" href="~/css/faq.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <title>@ViewBag.Title</title>
 </head>
 
 <body>
-	<header>
-		@*mobile nav*@
-		<div id="blue-head">
-			<nav>
-				<h1><a href="/">The Will Clinic</a><i class="fas fa-times"></i></h1>
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/signup">Sign-up</a></li>
-					<li><a href="/volunteer">Volunteer</a></li>
-					<li><a href="/about">Who We Are</a></li>
-					<li><a href="/FAQs">FAQs</a></li>
-					<li><a href="/contact">Contact us</a></li>
-				</ul>
-			</nav>
-			<p>
-				WA Vets Will Clinic <strong>would like to thank</strong> the following organizations and people
-				for their participation and/or sponsorship:
-			</p>
-			<div>
-				<ul>
-					<li>Etter, McMahon, Lamberson, Clary & Oreskovich, P.C.</li>
-					<li>Garco Construction, Inc.</li>
-					<li>Pepsi Beverages Co.</li>
-					<li>The Wake-Up Call Fine Coffee & Espresso</li>
-					<li>Witherspoon Kelley</li>
-				</ul>
-			</div>
-		</div>
-		@*desktop nav*@
-		<div id="white-head">
-			<h1 id="title"><a href="/">The <br />Will Clinic</a></h1>
-			<ul class="desktop-nav">
-				<li><a href="/signup">Sign Up</a></li>
-				<li><a href="/volunteer">Volunteer</a></li>
-				<li><a href="/about">Who we are</a></li>
-				<li><a href="/faqs">FAQs</a></li>
-				<li><a href="/contact">Contact Us</a></li>
-			</ul>
-			<i class="fas fa-bars"></i>
-		</div>
-	</header>
+    <header>
+        @*mobile nav*@
+        <div id="blue-head">
+            <nav>
+                <h1><a href="/">The Will Clinic</a><i class="fas fa-times"></i></h1>
+                <ul>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <li><a href="/Dashboard">Dashboard</a></li>
+                    }
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/signup">Sign-up</a></li>
+                    <li><a href="/volunteer">Volunteer</a></li>
+                    <li><a href="/about">Who We Are</a></li>
+                    <li><a href="/FAQs">FAQs</a></li>
+                    <li><a href="/contact">Contact us</a></li>
+                </ul>
+            </nav>
+            <p>
+                WA Vets Will Clinic <strong>would like to thank</strong> the following organizations and people
+                for their participation and/or sponsorship:
+            </p>
+            <div>
+                <ul>
+                    <li>Etter, McMahon, Lamberson, Clary & Oreskovich, P.C.</li>
+                    <li>Garco Construction, Inc.</li>
+                    <li>Pepsi Beverages Co.</li>
+                    <li>The Wake-Up Call Fine Coffee & Espresso</li>
+                    <li>Witherspoon Kelley</li>
+                </ul>
+            </div>
+        </div>
+        @*desktop nav*@
+        <div id="white-head">
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <h1 id="title"><a href="/">The <br />Will Clinic</a></h1>
+                <ul class="desktop-nav">
+
+                    <li><a href="/Dashboard">Dashboard</a></li>
+                    <li><a href="/signup">Sign Up</a></li>
+                    <li><a href="/volunteer">Volunteer</a></li>
+                    <li><a href="/about">Who we are</a></li>
+                    <li><a href="/faqs">FAQs</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+                <p id="identity_user">@User.Identity.Name</p>
+            }
+            else
+            {
+                <h1 id="title"><a href="/">The <br />Will Clinic</a></h1>
+                <ul class="desktop-nav">
+
+                    <li><a href="/signup">Sign Up</a></li>
+                    <li><a href="/volunteer">Volunteer</a></li>
+                    <li><a href="/about">Who we are</a></li>
+                    <li><a href="/faqs">FAQs</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            }
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
 
     <main>
-	    <h2>FAQs</h2>
-		<div class="wrapper">
+        <h2>FAQs</h2>
+        <div class="wrapper">
             <div class="cards">
                 <div class=" card [ is-collapsed ] ">
                     <div class="card__inner [ js-expander ]">
@@ -123,9 +152,9 @@
                     </div>
                     <div class="card__expander">
                         <i class="fa fa-close [ js-collapser ]"></i>
-						<div class="card-text">
-							Please consult the <a href="/signup">Sign Up</a> page for current Clinic offerings.
-						</div>
+                        <div class="card-text">
+                            Please consult the <a href="/signup">Sign Up</a> page for current Clinic offerings.
+                        </div>
                     </div>
                 </div>
                 <div class=" card [ is-collapsed ] ">
@@ -138,34 +167,34 @@
                         </div>
                     </div>
                     <div class="card__expander fifthCard">
-						<div class="card-text">
-							<i class="fa fa-close [ js-collapser ]"></i>
-							Below is a list of groups that offer services for veterans. Some of these groups may be present at 
-							future WA Vets Will Clinic events. Although you need to sign up in advance for the WA Vets Will 
-							Clinic, NO APPOINTMENT IS NECESSARY TO COME TO THE CLINIC AND SPEAK WITH THE ORGANIZATIONS ON THIS PAGE.
+                        <div class="card-text">
+                            <i class="fa fa-close [ js-collapser ]"></i>
+                            Below is a list of groups that offer services for veterans. Some of these groups may be present at
+                            future WA Vets Will Clinic events. Although you need to sign up in advance for the WA Vets Will
+                            Clinic, NO APPOINTMENT IS NECESSARY TO COME TO THE CLINIC AND SPEAK WITH THE ORGANIZATIONS ON THIS PAGE.
 
-							Please note that certain groups have eligibility requirements for services. Organizations on this list
-							in no way guarantee service to those that inquire. WA Vets Will Clinic provides the following information
-							as a community service, information provided on the WA Vets Will Clinic webpage is not intended to be 
-							referral or endorsement of any organization.
-							<ul>
-								<li><a href="https://www.myarmyonesource.com"><img src="~/assets/onesource.png" alt="Army One Source"/></a></li>
-								<li><a href="https://redcrossnw.org/"><img src="~/assets/rcnw.jpg" alt="Army One Source"/></a></li>
-								<li><a href="http://www.dva.wa.gov/"><img src="~/assets/wava.jpg" alt="WA State Department of Affairs"/></a></li>
-								<li><a href="https://va.gov/"><img src="~/assets/usva.png" alt="US Department of Veteran Affairs"/></a></li>
-							</ul>
-						</div>
+                            Please note that certain groups have eligibility requirements for services. Organizations on this list
+                            in no way guarantee service to those that inquire. WA Vets Will Clinic provides the following information
+                            as a community service, information provided on the WA Vets Will Clinic webpage is not intended to be
+                            referral or endorsement of any organization.
+                            <ul>
+                                <li><a href="https://www.myarmyonesource.com"><img src="~/assets/onesource.png" alt="Army One Source" /></a></li>
+                                <li><a href="https://redcrossnw.org/"><img src="~/assets/rcnw.jpg" alt="Army One Source" /></a></li>
+                                <li><a href="http://www.dva.wa.gov/"><img src="~/assets/wava.jpg" alt="WA State Department of Affairs" /></a></li>
+                                <li><a href="https://va.gov/"><img src="~/assets/usva.png" alt="US Department of Veteran Affairs" /></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-		</div>
+        </div>
     </main>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.js"
-			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-			crossorigin="anonymous"></script>
-	<script src="~/js/app.js"></script>
-	<script src="~/js/faq.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <script src="~/js/app.js"></script>
+    <script src="~/js/faq.js"></script>
 
 </body>
 </html>

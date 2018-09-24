@@ -6,12 +6,12 @@
 }
 
 <h2>Dashboard</h2>
-
-<section>
-    <a asp-page="/add_user">Add user</a>
-    <a asp-page="/change_password">Change Password</a>
-</section>
-<section>
+<section class="content">
+    <section id="admin-links">
+        <a asp-page="/add_user">Add guest</a>
+        <a asp-page="/change_password">Change Password</a>
+        <a href="/logout">Logout</a>
+    </section>
     <table>
         <tr>
             <th>Full Name</th>
@@ -24,9 +24,9 @@
             <tr>
                 <td>@user.Name</td>
                 <td>@user.Email</td>
-                <td>@user.PhoneNumber</td> 
+                <td>@user.PhoneNumber</td>
                 <td><a asp-page="details" asp-route-id="@user.ID">edit</a></td>
-            </tr>   
+            </tr>
         }
     </table>
 </section>

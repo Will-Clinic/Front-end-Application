@@ -1,64 +1,88 @@
-﻿@import url("https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro:700");
+@import url("https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro:700");
 body, html {
   font-family: "Source Sans Pro", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #EEEEEE; }
+  background-color: #EEEEEE;
+}
 
 body, #white-head {
-  min-width: 320px; }
+  min-width: 320px;
+}
 
 main {
-  padding: 11.5vh 0.25em; }
-  @media (min-width: 885px) {
-    main {
-      padding: 11.5vh 1em; } }
-  @media (min-width: 1066px) {
-    main {
-      padding: 11.5vh 2em; } }
-  @media (min-width: 1300px) {
-    main {
-      padding: 11.5vh 4em; } }
+  padding: 11.5vh 0.25em;
+}
+@media (min-width: 885px) {
+  main {
+    padding: 11.5vh 1em;
+  }
+}
+@media (min-width: 1066px) {
+  main {
+    padding: 11.5vh 2em;
+  }
+}
+@media (min-width: 1300px) {
+  main {
+    padding: 11.5vh 4em;
+  }
+}
 
 #white-head {
   background-color: #FFFFFF;
   position: fixed;
   width: 100%;
-  z-index: 1; }
-  #white-head h1 {
-    font-size: 1.5em;
-    padding: 2vh 4.25vw;
-    float: left; }
+  z-index: 1;
+}
+#white-head #identity_user {
+  margin: 0 0 1vh 1vw;
+}
+#white-head h1 {
+  font-size: 1.5em;
+  padding: 2vh 4.25vw;
+  float: left;
+}
+#white-head ul {
+  display: none;
+}
+#white-head a {
+  color: #282828;
+  text-decoration: none;
+}
+#white-head a:hover, #white-head a:active {
+  color: #007AFF;
+}
+@media (min-width: 1066px) {
+  #white-head .fa-bars {
+    display: none;
+  }
   #white-head ul {
-    display: none; }
-  #white-head a {
+    display: block;
+    list-style-type: none;
+    margin: 0;
+    padding: 1em 0 1em 1em;
+    overflow: hidden;
+  }
+  #white-head ul li {
+    float: left;
+  }
+  #white-head ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Source Sans Pro", sans-serif;
+    display: block;
     color: #282828;
-    text-decoration: none; }
-    #white-head a:hover, #white-head a:active {
-      color: #007AFF; }
-  @media (min-width: 1066px) {
-    #white-head .fa-bars {
-      display: none; }
-    #white-head ul {
-      display: block;
-      list-style-type: none;
-      margin: 0;
-      padding: 1em 0 1em 1em;
-      overflow: hidden; }
-      #white-head ul li {
-        float: left; }
-        #white-head ul li a {
-          text-decoration: none;
-          text-transform: uppercase;
-          font-family: "Source Sans Pro", sans-serif;
-          display: block;
-          color: #282828;
-          text-align: center;
-          font-size: 1em;
-          padding: 2vh 4vh; } }
-      @media (min-width: 1066px) and (min-width: 1300px) {
-        #white-head ul li a {
-          padding: 2vh 7vh; } }
+    text-align: center;
+    font-size: 1em;
+    padding: 2vh 4vh;
+  }
+}
+@media (min-width: 1066px) and (min-width: 1300px) {
+  #white-head ul li a {
+    padding: 2vh 7vh;
+  }
+}
 
 #blue-head {
   display: none;
@@ -70,44 +94,74 @@ main {
   background-color: #007AFF;
   overflow-y: hidden;
   z-index: 2;
-  font-family: "Source Sans Pro", sans-serif; }
-  #blue-head h1 {
-    font-size: 2em;
-    color: #EEEEEE;
-    padding: 2vh 0 5.5vh 8.5vw; }
-  #blue-head a {
-    color: #FFFFFF;
-    text-decoration: none; }
-    #blue-head a:hover, #blue-head a:active {
-      color: #282828; }
-  #blue-head nav ul {
-    text-decoration: none;
-    list-style-type: none;
-    text-transform: uppercase;
-    margin: 0 auto;
-    padding-bottom: 4vh; }
-    #blue-head nav ul li {
-      margin: 1.5rem 0; }
-      #blue-head nav ul li > a {
-        border-left: 5px solid white;
-        padding-left: 4.25vw;
-        padding-top: .5rem;
-        padding-bottom: .5rem; }
-  #blue-head p, #blue-head ul > li {
-    color: #081ABC;
-    text-transform: uppercase;
-    font-family: "Fjalla One", serif;
-    padding-left: 8.5vw;
-    padding-right: 8.5vw;
-    line-height: 1.25em; }
-    #blue-head p strong, #blue-head ul > li strong {
-      color: #FFFFFF; }
-  #blue-head div {
-    border: 0.5px #081ABC solid;
-    margin: 1rem auto;
-    padding: 2rem;
-    width: 70%; }
-    #blue-head div ul > li {
-      list-style-type: disc;
-      padding-left: .25em; }
+  font-family: "Source Sans Pro", sans-serif;
+}
+#blue-head h1 {
+  font-size: 2em;
+  color: #EEEEEE;
+  padding: 2vh 0 5.5vh 8.5vw;
+}
+#blue-head a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+#blue-head a:hover, #blue-head a:active {
+  color: #282828;
+}
+#blue-head nav ul {
+  text-decoration: none;
+  list-style-type: none;
+  text-transform: uppercase;
+  margin: 0 auto;
+  padding-bottom: 4vh;
+}
+#blue-head nav ul li {
+  margin: 1.5rem 0;
+}
+#blue-head nav ul li > a {
+  border-left: 5px solid white;
+  padding-left: 4.25vw;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+#blue-head p, #blue-head ul > li {
+  color: #081ABC;
+  text-transform: uppercase;
+  font-family: "Fjalla One", serif;
+  padding-left: 8.5vw;
+  padding-right: 8.5vw;
+  line-height: 1.25em;
+}
+#blue-head p strong, #blue-head ul > li strong {
+  color: #FFFFFF;
+}
+#blue-head div {
+  border: 0.5px #081ABC solid;
+  margin: 1rem auto;
+  padding: 2rem;
+  width: 70%;
+}
+#blue-head div ul > li {
+  list-style-type: disc;
+  padding-left: 0.25em;
+}
 
+table {
+  width: 100%;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+table th {
+  padding: 1em;
+  border-bottom: 1px solid black;
+}
+table td {
+  border: 1px solid black;
+  padding: 0.5em;
+}
+
+#admin-links a {
+  padding: 0 0.75em;
+}
+
+/*# sourceMappingURL=base.css.map */
