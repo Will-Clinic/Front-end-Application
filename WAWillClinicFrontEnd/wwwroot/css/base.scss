@@ -11,18 +11,18 @@ body, #white-head {
     min-width:320px;
 }
 main {
-    padding: 11.5vh $small-gut/4;
+    padding: $big-gut*1.5 $small-gut/4;
 
     @include tablet {
-        padding: 11.5vh $small-gut;
+        padding: $big-gut*1.5 $small-gut;
     }
 
     @include desktop {
-        padding: 11.5vh $big-gut;
+        padding: $big-gut*1.5 $big-gut;
     }
 
     @include big-desktop {
-        padding: 11.5vh $big-gut*2;
+        padding: $big-gut*1.5 $big-gut*2;
     }
 }
 
