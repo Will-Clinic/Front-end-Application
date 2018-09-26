@@ -1,15 +1,44 @@
 ﻿@import "../css/theme.scss";
+@import "../css/base.scss";
 @import "../css/module.scss";
 
-.content{
-	margin: auto 2em;
-	font-family:$secondary-font;
-	line-height: 1.25em;
-	text-align: center;
-
-	p{
-		margin:$small-gut;
-		text-align:left;
-	}
-
+section {
+    margin: $big-gut*2 auto;
 }
+
+.subsection {
+    margin: $big-gut;
+}    
+
+.content {
+        margin: auto $small-gut;
+        font-family: $secondary-font;
+        line-height: 1.25em;
+        text-align: center;
+
+        @include desktop {
+            margin: auto $big-gut*2;
+        }
+
+        @include big-desktop {
+            margin: auto $big-gut*4;
+        }
+
+        p {
+            margin: $small-gut;
+            text-align: left;
+        }
+
+        img {
+            margin: $small-gut;
+        }
+
+        .subsection {
+            margin: $big-gut auto;
+
+            h3 {
+                font-size: 1.25em;
+                line-height: 1.25em;
+            }
+        }
+    }

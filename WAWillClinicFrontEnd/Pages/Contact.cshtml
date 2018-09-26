@@ -4,40 +4,41 @@
     Layout = "_Layout";
 }
 
-<section>
-    <h2>Contact Us</h2>
-    <h4>
-        If you would like to volunteer for the WA Vets Will Clinic, please navigate to our "Volunteer" page and sign up there.
-    </h4>
-</section>
-<form method="post">
-    <p>Fill out the form below to contact our organization</p>
+<h2>Contact Us</h2>
+<div class="content">
     <p>
-        Please do not submit confidential information. No attorney client privilege is
+        If you would like to volunteer for the WA Vets Will Clinic, please navigate to our "Volunteer" page and sign up there.
+    </p>
+</div>
+
+<form method="post" class="content">
+
+    <p>Fill out the form below to contact our organization. Please do not submit confidential information. No attorney client privilege is
         created by contacting our organization, nor can we guarantee service of any kind.
     </p>
-    <input type="text" name="firstName" required autofocus placeholder="First Name" title="Please enter your first name."/>
-    <br />
-    <input type="text" name="lastName" required autofocus placeholder="Last Name" title="Please enter your last name."/>
-    <br />
-    <input type="text" name="email" required autofocus placeholder="Email Address" title="Please enter a valid email address"/>
-    <br />
-    <input type="tel" name="phone" required autofocus placeholder="Phone Number" pattern="[0-9]{10}" title="Please enter a valid phone number"/>
-    <br />
-    <select name="reason" required title="Please select a reason" asp-items="Html.GetEnumSelectList<WAWillClinicFrontEnd.Models.EmailMessages.ContactType>()">
-    <option value=""></option>
-    </select>
-    <br />
-    <textarea name="additionalRemarks" ></textarea>
-    <br />
-    <input type="submit" />
-    <br />
+
+        <input type="text" name="firstName" required autofocus placeholder="First Name" title="Please enter your first name."/>
+        <br />
+        <input type="text" name="lastName" required autofocus placeholder="Last Name" title="Please enter your last name."/>
+        <br />
+        <input type="text" name="email" required autofocus placeholder="Email Address" title="Please enter a valid email address"/>
+        <br />
+        <input type="tel" name="phone" required autofocus placeholder="Phone Number" pattern="[0-9]{10}" title="Please enter a valid phone number"/>
+        <br />
+        <select name="reason" required title="Please select an option bleow" asp-items="Html.GetEnumSelectList<WAWillClinicFrontEnd.Models.EmailMessages.ContactType>()">
+            <option value="" disabled selected>--- Please choose the purpose of your inquiry ---</option>
+        </select>
+        <br />
+        <textarea name="additionalRemarks" ></textarea>
+        <br />
+        <input type="submit" />
+        <br />
 </form>
-<section>
+<div class="content">
     <p>
         This form and any other contact means provided on this website are provided without guarantee of service of any 
         kind or that you will receive a response to your question(s). No attorney-client relationship is established by use of 
         the above contact information, nor is there any obligation for any of the WA Vets Will Clinic or its affiliates to respond or 
         provide services.
     </p>
-</section>
+</div>

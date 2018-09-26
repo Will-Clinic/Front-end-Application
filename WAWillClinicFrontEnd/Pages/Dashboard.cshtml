@@ -6,18 +6,28 @@
 }
 
 <h2>Dashboard</h2>
-
-<section>
-<a asp-page="/add_user">Add user</a>
-</section>
-<section>
-@foreach(var user in Model.Users)
-{
-    <div>
-        <p>
-            @user.Name @user.Email @user.PhoneNumber <a asp-page="details" asp-route-id="@user.ID">edit</a>
-        </p>
-    </div>
-}
+<section class="content">
+    <section id="admin-links">
+        <a asp-page="/add_user">Add guest</a>
+        <a asp-page="/change_password">Change Password</a>
+        <a href="/logout">Logout</a>
+    </section>
+    <table>
+        <tr>
+            <th>Full Name</th>
+            <th>Email Address</th>
+            <th>Phone Number</th>
+            <th></th>
+        </tr>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+                <td>@user.PhoneNumber</td>
+                <td><a asp-page="details" asp-route-id="@user.ID">edit</a></td>
+            </tr>
+        }
+    </table>
 </section>
 

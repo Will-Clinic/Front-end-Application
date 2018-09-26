@@ -9,28 +9,40 @@ body, #white-head {
   min-width: 320px; }
 
 main {
-  padding-top: 11.5vh; }
+  padding: 3em 0.25em; }
+  @media (min-width: 885px) {
+    main {
+      padding: 3em 1em; } }
+  @media (min-width: 1066px) {
+    main {
+      padding: 3em 2em; } }
+  @media (min-width: 1300px) {
+    main {
+      padding: 3em 4em; } }
 
 #white-head {
   background-color: #FFFFFF;
   position: fixed;
-  width: 100%; }
+  width: 100%;
+  z-index: 1; }
+  #white-head #identity_user {
+    margin: 0 0 1vh 1vw; }
   #white-head h1 {
     font-size: 1.5em;
-    padding: 2.5vh 4.25vw;
+    padding: 2vh 4.25vw;
     float: left; }
+  #white-head ul {
+    display: none; }
   #white-head a {
     color: #282828;
     text-decoration: none; }
     #white-head a:hover, #white-head a:active {
       color: #007AFF; }
-  @media (max-width: 1040px) {
-    #white-head ul {
-      display: none; } }
-  @media (min-width: 1040px) {
+  @media (min-width: 1066px) {
     #white-head .fa-bars {
       display: none; }
     #white-head ul {
+      display: block;
       list-style-type: none;
       margin: 0;
       padding: 1em 0 1em 1em;
@@ -45,26 +57,26 @@ main {
           color: #282828;
           text-align: center;
           font-size: 1em;
-          padding: 2.5vh 5vh; } }
-      @media (min-width: 1040px) and (min-width: 1300px) {
+          padding: 2vh 4vh; } }
+      @media (min-width: 1066px) and (min-width: 1300px) {
         #white-head ul li a {
-          padding: 2.5vh 8.75vh; } }
+          padding: 2vh 7vh; } }
 
 #blue-head {
   display: none;
-  padding-bottom: 12.5vh;
+  padding-bottom: 10vh;
   letter-spacing: 1px;
   position: absolute;
   width: 100%;
   height: 120vh;
   background-color: #007AFF;
   overflow-y: hidden;
-  z-index: 1;
+  z-index: 2;
   font-family: "Source Sans Pro", sans-serif; }
   #blue-head h1 {
     font-size: 2em;
     color: #EEEEEE;
-    padding: 2.5vh 0 5.5vh 8.5vw; }
+    padding: 2vh 0 5.5vh 8.5vw; }
   #blue-head a {
     color: #FFFFFF;
     text-decoration: none; }
@@ -75,7 +87,7 @@ main {
     list-style-type: none;
     text-transform: uppercase;
     margin: 0 auto;
-    padding-bottom: 5vh; }
+    padding-bottom: 4vh; }
     #blue-head nav ul li {
       margin: 1.5rem 0; }
       #blue-head nav ul li > a {
@@ -100,4 +112,18 @@ main {
     #blue-head div ul > li {
       list-style-type: disc;
       padding-left: .25em; }
+
+table {
+  width: 100%;
+  border: 1px solid black;
+  margin: 0 auto; }
+  table th {
+    padding: 1em;
+    border-bottom: 1px solid black; }
+  table td {
+    border: 1px solid black;
+    padding: .5em; }
+
+#admin-links a {
+  padding: 0 .75em; }
 

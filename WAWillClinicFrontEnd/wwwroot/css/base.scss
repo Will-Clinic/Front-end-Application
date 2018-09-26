@@ -1,24 +1,4 @@
 ﻿@import "../css/theme.scss";
-$desktop: 1040px;
-$big-desktop: 1300px;
-
-@mixin big-desktop {
-    @media(min-width:#{$big-desktop}) {
-        @content;
-    }
-}
-
-@mixin desktop {
-    @media(min-width:#{$desktop}) {
-        @content;
-    }
-}
-
-@mixin mobile {
-    @media(max-width:#{$desktop}) {
-        @content;
-    }
-}
 
 body, html {
     font-family: $main-font;
@@ -31,7 +11,19 @@ body, #white-head {
     min-width:320px;
 }
 main {
-    padding-top:11.5vh;
+    padding: $big-gut*1.5 $small-gut/4;
+
+    @include tablet {
+        padding: $big-gut*1.5 $small-gut;
+    }
+
+    @include desktop {
+        padding: $big-gut*1.5 $big-gut;
+    }
+
+    @include big-desktop {
+        padding: $big-gut*1.5 $big-gut*2;
+    }
 }
 
 //add desktop media query
@@ -39,11 +31,19 @@ main {
     background-color: color(white);
     position: fixed;
     width: 100%;
+    z-index: 1;
 
+    #identity_user{
+        margin: 0 0 1vh 1vw;
+    }
     h1 {
         font-size: 1.5em;
         padding: $vert-padding $left-padding/2;
         float: left;
+    }
+
+    ul{
+        display:none;
     }
 
     a {
@@ -55,18 +55,13 @@ main {
         }
     }
 
-    @include mobile {
-        ul {
-            display: none;
-        }
-    }
-
     @include desktop {
         .fa-bars {
             display: none;
         }
 
         ul {
+            display:block;
             list-style-type: none;
             margin: 0;
             padding: 1em 0 1em 1em;
@@ -104,7 +99,7 @@ main {
     height: 120vh;
     background-color: color(nav-main);
     overflow-y: hidden;
-    z-index: 1;
+    z-index: 2;
 	font-family: $main-font;
 
     h1 {
@@ -167,5 +162,25 @@ main {
             list-style-type: disc;
             padding-left: .25em;
         }
+    }
+}
+
+table{
+    width: 100%;
+    border: 1px solid black;
+    margin: 0 auto;
+    th {
+        padding: 1em;
+        border-bottom: 1px solid black;
+    }
+    td {
+        border: 1px solid black;
+        padding: .5em;
+    }
+}
+
+#admin-links{
+    a{
+        padding: 0 .75em;
     }
 }

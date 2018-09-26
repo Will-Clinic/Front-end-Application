@@ -31,182 +31,178 @@
 
 //index title
 main {
-    color: color(primary-dark);
+	color: color(primary-dark);
 
-    .uppercase {
-        text-transform: uppercase;
-    }
+	.uppercase {
+		text-transform: uppercase;
+	}
 
-    h2 {
-        font-family: $main-font;
-        font-size: 2em;
-        text-align: center;
-        margin: $small-gut $big-gut;
-    }
+	h2 {
+		font-family: $main-font;
+		font-size: 2em;
+		text-align: center;
+		margin: $small-gut $big-gut;
+	}
 
-    @include big-desktop {
-        h2 {
-            margin: $small-gut $big-gut*5;
-        }
-    }
+	@include big-desktop {
+		h2 {
+			margin: $small-gut $big-gut*5;
+		}
+	}
 
-    @include desktop {
-        h2 {
-            font-size: 2.666em;
-            margin: $small-gut $big-gut*2;
-        }
-    }
+	@include desktop {
+		h2 {
+			font-size: 2.666em;
+			margin: $small-gut $big-gut*2;
+		}
+	}
 
-    .link-div {
-        text-align: center;
-        margin: $small-gut auto $big-gut*1.35 auto;
+	.link-div {
+		text-align: center;
+		margin: $small-gut auto $big-gut*1.35 auto;
 
-        a {
-            text-decoration: none;
-            outline: 1px solid color(main-grey);
-            font-size: 1.333em;
-            padding: .5em 1.5em;
-            color: color(primary-dark);
-            font-family: $secondary-font;
-
-            &:hover {
-                background-color: color(nav-main);
-                color: color(white);
-                outline: none;
-                transition: all 0.15s ease 0s;
-            }
-
-            &:visited {
-            }
-        }
-    }
-
-
-    .side-lines {
-        h2, h3 {
-            width: 80%;
-            text-align: center;
-            font-family: $secondary-font;
-            border-bottom: .1px solid color(main-grey);
-            line-height: 0.1em;
-            margin: $small-gut*1.25 auto;
-        }
-
-        h2 {
-            font-size: 1.666em;
-        }
-
-        h3 {
-            font-size: 1.333em;
-        }
-
-        .blue {
-            color: color(nav-main);
-            letter-spacing: .5px;
-            margin-top: $big-gut*1.5;
-        }
-
-        span {
-            background: color(primary);
-            padding: 0 2em;
-        }
-
-        .grey {
-            display: none;
-        }
-
-        @include desktop {
-            h3.grey {
-                display: block;
-                font-size: 1.5em;
-                letter-spacing: 4px;
-                padding-top: 1em;
-            }
-
-            h3.grey span {
-                display: inline;
-                padding: 0 2.75em;
-            }
-
-            h3 {
-                width: 50%;
-            }
-        }
-    }
-
-    p#qual-descript {
-        text-transform: none;
-        text-align: center;
-        font-size: 1.35em;
-        padding: $small-gut/2 $big-gut;
-
-        @include desktop {
-            font-size: 1.75em;
-            padding: $small-gut/2 $big-gut*3.5;
-        }
-    }
-
-    section.index {
-        text-align: center;
-        margin-top: $small-gut;
-        margin-bottom: $big-gut;
-
-        @include desktop {
-            display: grid;
-            grid-template-columns: 50% auto;
-            grid-template-areas: "left-qual right-qual";
-            padding: 0 1em;
-        }
-    }
-
-    .qual-rec {
-        font-family: $secondary-font;
-        box-shadow: 0 0 .15rem .015rem rgba( 0, 0, 0, .15 );
-        letter-spacing: 1px;
-        border-left: color(nav-main) solid 5px;
-        display: inline-block;
-        width: 80%;
-        background-color: color(white);
-        margin: $small-gut/2 auto;
-        padding: $small-gut $small-gut/2;
-        color: color(main-grey);
-        /*a {
+		a {
 			text-decoration: none;
+			outline: 1px solid color(main-grey);
+			font-size: 1.333em;
+			padding: .5em 1.5em;
+			color: color(primary-dark);
+			font-family: $secondary-font;
 
-			&:hover, &:active {
+			&:hover {
+				background-color: color(nav-main);
 				color: color(white);
 				outline: none;
 				transition: all 0.15s ease 0s;
-				color: #007AFF;
-				cursor: pointer;
+			}
+		}
+	}
+
+
+	.side-lines {
+		h2, h3 {
+			width: 80%;
+			text-align: center;
+			font-family: $secondary-font;
+			border-bottom: .1px solid color(main-grey);
+			line-height: 0.1em;
+			margin: $small-gut*1.25 auto;
+		}
+
+		h2 {
+			font-size: 1.666em;
+		}
+
+		h3 {
+			font-size: 1.333em;
+		}
+
+		.blue {
+			color: color(nav-main);
+			letter-spacing: .5px;
+			margin-top: $big-gut*1.5;
+		}
+
+		span {
+			background: color(primary);
+			padding: 0 2em;
+		}
+
+		.grey {
+			display: none;
+		}
+
+		@include desktop {
+			h3.grey {
+				display: block;
+				font-size: 1.5em;
+				letter-spacing: 4px;
+				padding-top: 1em;
 			}
 
-			&:visited {
-				color: color(main-grey);
+			h3.grey span {
+				display: inline;
+				padding: 0 2.75em;
 			}
-		}*/
-        @include desktop {
-            width: 88%;
-            text-align: left;
-            padding: $small-gut;
-            font-size: 1.25em;
-        }
-    }
-        /*#left-qual, #right-qual {
-            a {
-                text-decoration: none;
 
-                &:hover, &:active {
-                    color: color(white);
-                    outline: none;
-                    transition: all 0.15s ease 0s;
-                    color: #007AFF;
-                    cursor: pointer;
-                }
+			h3 {
+				width: 50%;
+			}
+		}
+	}
 
-                &:visited {
-                    color: color(main-grey);
-                }
-            }
-        }*/
+	p#qual-descript {
+		text-transform: none;
+		text-align: center;
+		font-size: 1.35em;
+		padding: $small-gut/2 $big-gut;
+
+		@include desktop {
+			font-size: 1.75em;
+			padding: $small-gut/2 $big-gut*3.5;
+		}
+	}
+
+	section.index {
+		text-align: center;
+		margin-top: $small-gut;
+		margin-bottom: $big-gut;
+
+		@include desktop {
+			display: grid;
+			grid-template-columns: 50% auto;
+			grid-template-areas: "left-qual right-qual";
+			padding: 0 1em;
+		}
+	}
+
+	.qual-rec {
+		font-family: $secondary-font;
+		box-shadow: 0 0 .15rem .015rem rgba( 0, 0, 0, .15 );
+		letter-spacing: 1px;
+		border-left: color(nav-main) solid 5px;
+		display: inline-block;
+		width: 80%;
+		background-color: color(white);
+		margin: $small-gut/2 auto;
+		padding: $small-gut $small-gut/2;
+		color: color(main-grey);
+
+		@include desktop {
+			width: 88%;
+			text-align: left;
+			padding: $small-gut;
+			font-size: 1.25em;
+		}
+	}
+
+	.center {
+		text-align: center;
+	}
 }
+
+//form
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: color(nav-main);
+    color: color(white);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &hover, &active {
+        background-color: color(nav-dark);
+    }
+}
+
