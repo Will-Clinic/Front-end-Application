@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -16,9 +17,11 @@ namespace WAWillClinicFrontEnd.Pages
     {
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
-
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Password { get; set; }
+        [Required]
         public string ConfirmPassword { get; set; }
 
         public Change_PasswordModel(UserManager<ApplicationUser> userManager,

@@ -47,8 +47,8 @@ namespace WAWillClinicFrontEnd.Pages
                     {
                         return RedirectToPage("/Dashboard");
                     }
-                    return RedirectToPage("/");
                 }
+                return Page();
             }
             ModelState.AddModelError(string.Empty, "Whoops, looks like something didn't work!");
             return Page();

@@ -20,47 +20,48 @@ namespace FrontEndTests
     public class AdminLoginPageTests
     {
         [Fact]
+        public void AdminLoginEmailGetterAndSetter()
+        {
+            MockStoreContexts mocks = new MockStoreContexts();
+            AdminLoginModel alm = new AdminLoginModel(mocks.UserManager.Object, mocks.SignInManager.Object);
+
+            Assert.Null(alm.Email);
+            alm.Email = "some.email@place.com";
+            Assert.Equal("some.email@place.com", alm.Email);
+        }
+        [Fact]
+        public void AdminLoginPasswordGetterAndSetter()
+        {
+            MockStoreContexts mocks = new MockStoreContexts();
+            AdminLoginModel alm = new AdminLoginModel(mocks.UserManager.Object, mocks.SignInManager.Object);
+
+            Assert.Null(alm.Password);
+            alm.Password = "Abcdefg1!";
+            Assert.Equal("Abcdefg1!", alm.Password);
+        }
+        [Fact]
         public async void TestAdminLoginValidStateAndAdminRole()
         {
-            var mockStore = new Mock<IUserStore<ApplicationUser>>();
-            var mockUserManager = new Mock<UserManager<ApplicationUser>>(mockStore.Object, null, null, null, null, null, null, null, null);
-            var mockHttpContext = new Mock<HttpContext>();
-            var contextAccessor = new Mock<IHttpContextAccessor>();
-            contextAccessor.Setup(mock => mock.HttpContext).Returns(() => mockHttpContext.Object);
-            var mockSignInManager = new Mock<SignInManager<ApplicationUser>>(
-                                    mockUserManager.Object,
-                                    contextAccessor.Object,
-                                    new Mock<IUserClaimsPrincipalFactory<ApplicationUser>>().Object,
-                                    new Mock<IOptions<IdentityOptions>>().Object,
-                                    new Mock<ILogger<SignInManager<ApplicationUser>>>().Object,
-                                    new Mock<IAuthenticationSchemeProvider>().Object);
+            MockStoreContexts mocks = new MockStoreContexts();
 
-            PasswordHasher<ApplicationUser> passwordHasher = new PasswordHasher<ApplicationUser>();
-            ApplicationUser user = new ApplicationUser()
-            {
-                UserName = "test@email.com",
-                Email = "test@email.com",
-            };
-            user.PasswordHash = passwordHasher.HashPassword(user, "Abcdefg1!");
-
-            mockUserManager.Setup(x => x.CreateAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
+            mocks.UserManager.Setup(x => x.CreateAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
                 .ReturnsAsync(IdentityResult.Success);
-            mockUserManager.Setup(x => x.FindByEmailAsync(It.IsAny<string>()))
-                .ReturnsAsync(user);
-            mockUserManager.Setup(x => x.IsInRoleAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
+            mocks.UserManager.Setup(x => x.FindByEmailAsync(It.IsAny<string>()))
+                .ReturnsAsync(mocks.User);
+            mocks.UserManager.Setup(x => x.IsInRoleAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
                 .ReturnsAsync(true);
-            mockUserManager.Setup(x => x.AddToRoleAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
+            mocks.UserManager.Setup(x => x.AddToRoleAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
                 .ReturnsAsync(IdentityResult.Success);
 
-            mockSignInManager.Setup(x => x.PasswordSignInAsync(
+            mocks.SignInManager.Setup(x => x.PasswordSignInAsync(
                                    It.IsAny<string>(), It.IsAny<string>(),
                                    It.IsAny<bool>(), It.IsAny<bool>()))
                                    .ReturnsAsync(Microsoft.AspNetCore.Identity.SignInResult.Success);
 
-            await mockUserManager.Object.CreateAsync(user, "Abcdefg1!");
-            await mockUserManager.Object.AddToRoleAsync(user, ApplicationRoles.Admin);
+            await mocks.UserManager.Object.CreateAsync(mocks.User, "Abcdefg1!");
+            await mocks.UserManager.Object.AddToRoleAsync(mocks.User, ApplicationRoles.Admin);
 
-            AdminLoginModel alm = new AdminLoginModel(mockUserManager.Object, mockSignInManager.Object)
+            AdminLoginModel alm = new AdminLoginModel(mocks.UserManager.Object, mocks.SignInManager.Object)
             {
                 Email = "test@email.com",
                 Password = "Abcdefg1!"
@@ -70,6 +71,70 @@ namespace FrontEndTests
             var result = alm.OnPost().Result;
             RedirectToPageResult check = (RedirectToPageResult)result;
             Assert.Equal("/Dashboard", check.PageName);
+        }
+        [Fact]
+        public async void TestAdminLoginInvalidState()
+        {
+            MockStoreContexts mocks = new MockStoreContexts();
+
+            mocks.UserManager.Setup(x => x.CreateAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
+                .ReturnsAsync(IdentityResult.Success);
+            mocks.UserManager.Setup(x => x.FindByEmailAsync(It.IsAny<string>()))
+                .ReturnsAsync(mocks.User);
+            mocks.UserManager.Setup(x => x.IsInRoleAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
+                .ReturnsAsync(true);
+            mocks.UserManager.Setup(x => x.AddToRoleAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
+                .ReturnsAsync(IdentityResult.Success);
+
+            mocks.SignInManager.Setup(x => x.PasswordSignInAsync(
+                                   It.IsAny<string>(), It.IsAny<string>(),
+                                   It.IsAny<bool>(), It.IsAny<bool>()))
+                                   .ReturnsAsync(Microsoft.AspNetCore.Identity.SignInResult.Success);
+
+            await mocks.UserManager.Object.CreateAsync(mocks.User, "Abcdefg1!");
+            await mocks.UserManager.Object.AddToRoleAsync(mocks.User, ApplicationRoles.Admin);
+
+            AdminLoginModel alm = new AdminLoginModel(mocks.UserManager.Object, mocks.SignInManager.Object)
+            {
+                Email = "test@email.com",
+                Password = ""
+            };
+
+            MockValidation.CheckValidation(alm);
+            var result = alm.OnPost().Result;
+            Assert.IsType<PageResult>(result);
+        }
+        [Fact]
+        public async void TestAdminLoginValidModelStateButNotAnExistingUser()
+        {
+            MockStoreContexts mocks = new MockStoreContexts();
+
+            mocks.UserManager.Setup(x => x.CreateAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
+                .ReturnsAsync(IdentityResult.Success);
+            mocks.UserManager.Setup(x => x.FindByEmailAsync(It.IsAny<string>()))
+                .ReturnsAsync(mocks.User);
+            mocks.UserManager.Setup(x => x.IsInRoleAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
+                .ReturnsAsync(true);
+            mocks.UserManager.Setup(x => x.AddToRoleAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
+                .ReturnsAsync(IdentityResult.Success);
+
+            mocks.SignInManager.Setup(x => x.PasswordSignInAsync(
+                                   It.IsAny<string>(), It.IsAny<string>(),
+                                   It.IsAny<bool>(), It.IsAny<bool>()))
+                                   .ReturnsAsync(Microsoft.AspNetCore.Identity.SignInResult.Failed);
+
+            await mocks.UserManager.Object.CreateAsync(mocks.User, "Abcdefg1!");
+            await mocks.UserManager.Object.AddToRoleAsync(mocks.User, ApplicationRoles.Admin);
+
+            AdminLoginModel alm = new AdminLoginModel(mocks.UserManager.Object, mocks.SignInManager.Object)
+            {
+                Email = "woo@email.com",
+                Password = "AHWDUilf"
+            };
+
+            MockValidation.CheckValidation(alm);
+            var result = alm.OnPost().Result;
+            Assert.IsType<PageResult>(result);
         }
     }
 }
