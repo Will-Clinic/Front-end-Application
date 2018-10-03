@@ -17,12 +17,11 @@ namespace WAWillClinicFrontEnd.Pages
         public string Name { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
-		public string Address { get; set; }
-		public bool IsVeteran { get; set; }
-		public bool HasProofOfService { get; set; }
 		public bool IsWashingtonResident { get; set; }
-		public bool IsNetWorthLowEnough { get; set; }
 		public string PreferredTime { get; set; }
+		public string SpouseName { get; set; }
+		public bool IsCurrentlyPregnant { get; set; }
+		public string MinorChildName { get; set; }
 
 		public SignupModel(UserDbContext context)
         {
@@ -38,11 +37,10 @@ namespace WAWillClinicFrontEnd.Pages
                 Name = Name,
                 Email = Email,
                 PhoneNumber = PhoneNumber,
-				Address = Address,
-				IsVeteran = IsVeteran,
-				HasProofOfService = HasProofOfService,
 				IsWashingtonResident = IsWashingtonResident,
-				IsNetWorthLowEnough = IsNetWorthLowEnough
+				SpouseName = SpouseName,
+				IsCurrentlyPregnant = IsCurrentlyPregnant,
+				MinorChildName = MinorChildName
 			};
 
             await _context.AddAsync(user);
