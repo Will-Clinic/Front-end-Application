@@ -8,29 +8,135 @@
 
 <p class="content">If you would like to join the Will Clinic, please sign up below.</p>
 <br/><br />
-	<form method="post" class="content" style="text-align:left">
-		<label asp-for="Name">Full Legal Name</label>
-		<input type="text" name="Name" required placeholder="Full Name" title="Please input full name." />
-		<br />
-		<label asp-for="Address">Address</label>
-		<input type="text" name="Address" required placeholder="Address" title="Please input an address." />
-		<br />
-		<label asp-for="PhoneNumber">Phone Number</label>
-		<input type="tel" name="Phone" required pattern="[0-9]{10}" placeholder="Phone Number" title="Please input a phone number" />
-		<br />
-		<label asp-for="Email">Email Address</label>
-		<input type="email" name="Email" required placeholder="Email Address" title="Please input an email address" />
-		<br />
-		<div class="form-control">
-			<label asp-for="IsVeteran">Are you, or your spouse, a veteran of the United States Armed Forces?</label>
-			<input type="checkbox" name="Yes" value="True" /> Yes <br />
-			<input type="checkbox" name="No" value="False" /> No <br />
-		</div>
+	 <form method="post" class="content" style="text-align:left">
+	 	<label asp-for="Name">Full Legal Name</label>
+	 	<input type="text" name="Name" required placeholder="Full Name" title="Please input full name." />
+	 	<br />
 
-	 
+	 	<label asp-for="Address">Address</label>
+	 	<input type="text" name="Address" required placeholder="Address" title="Please input an address." />
+	 	<br />
+
+	 	<label asp-for="PhoneNumber">Phone Number</label>
+	 	<input type="tel" name="Phone" required pattern="[0-9]{10}" placeholder="Phone Number" title="Please input a phone number" />
+	 	<br />
+
+	 	<label asp-for="Email">Email Address</label>
+	 	<input type="email" name="Email" required placeholder="Email Address" title="Please input an email address" />
+	 	<br />
+
+	 	<label asp-for="IsVeteran">Are you, or your spouse, a veteran of the United States Armed Forces?</label>
+	 	<input type="checkbox" name="Yes" value="True" /> Yes <br />
+	 	<input type="checkbox" name="No" value="False" /> No <br />
+	 	<br />
+
+	 	<label asp-for="HasProofOfService">Do you have proof of military service?</label>
+	 	<input type="checkbox" name="Yes" value="True" /> Yes <br />
+	 	<input type="checkbox" name="No" value="False" /> No <br />
+	 	<br />
+
+	 	<label asp-for="IsWashingtonResident">Are you a Washington state resident?</label>
+		<input type="checkbox" name="Yes" value="True" /> Yes <br />
+		<input type="checkbox" name="No" value="False" /> No <br />
 		<br />
 
+		<label asp-for="IsNetWorthLowEnough">Is your net worth less than $500,000 ($1,000,000 per married couple)?</label>
+		<input type="checkbox" name="Yes" value="True" /> Yes <br />
+		<input type="checkbox" name="No" value="False" /> No <br />
+		<br />
 
-		<input type="submit" value="Sign up" />
+		<label asp-for="PreferredTime">Please indicate your preferred time to receive service.</label>@*needs work*@
+		<input type="checkbox" name="AM" value="True" /> AM <br />
+		<input type="checkbox" name="PM" value="False" /> PM <br />
+		<br />
 
-	</form>
+		<label asp-for="ChooseMaritalStatus">Marital status?</label>@*change input/asp-for labels, make checkboxes*@
+		<input type="text" name="ChooseMaritalStatus" required placeholder="Marital status" title="Please select marital status." />
+		<br />
+
+	 <label asp-for="SpouseName">Full legal name of your spouse</label>@*change input/asp-for labels, make Yes or No option*@
+	 <input type="text" name="SpouseName" required placeholder="Spouse Name" title="Please enter the full legal name of your spouse." />
+	 <br />
+	 <label asp-for="HasChildren">Do you have any children?</label>@*change input/asp-for labels, make Yes or No option*@
+	 <input type="text" name="HasChildren" required placeholder="Childern" title="Do you have any children?" />
+	 <br />
+	 <label asp-for="IsCurrentlyPregnant">Do you have any minor children?  Or, are you, your spouse, or your partner currently pregnant?</label>@*change input/asp-for labels, make Yes or No option*@
+	 <input type="text" name="IsCurrentlyPregnant" required placeholder="IsCurrentlyPregnant" title="Are you pregnant?" />
+	 <br />
+	 <label asp-for="ChildsParentNotYourSpouse">If have minor children, AND the parent of your minor child is DIFFERENT from your current spouse, please list them below.</label>@*change input/asp-for labels, make Yes or No option*@
+	 <input type="text" name="ChildsParentNotYourSpouse" required placeholder="ChildsParentNotYourSpouse" title="Child's parent is not your spouse." />
+	 <br />
+	 <label asp-for="MinorChildName">Full legal name(s) of your MINOR child(ren).</label>@*change input/asp-for labels*@
+	 <input type="text" name="MinorChildName" required placeholder="MinorChildName" title="Child's name." />
+	 <br />
+	 <label asp-for="HasSpecialRequest">Would you like to make any specific bequests?</label>@*change input/asp-for labels, make Yes or No option*@
+	 <input type="text" name="HasSpecialRequest" required placeholder="Has Special Bequest" title="Has Special Bequest" />
+	 <br />
+	 <label asp-for="SpecialRequest">If you selected yes, please describe further.</label>@*change input/asp-for labels*@
+	 <input type="text" name="SpecialRequest" required placeholder="Special Bequest" title="Special Bequest" />
+	 <br />
+	 <label asp-for="WhoToInheritEstate">Who would you like to inherit your estate when you die? Please check one</label>@*change input/asp-for labels, make checkboxes*@
+	 <input type="text" name="WhoToInheritEstate" required placeholder="Who To Inherit Estate" title="Who To Inherit Estate" />
+	 <br />
+	 <label asp-for="ContRemBeneficiary">If you selected a specific charity, person(s), or other:</label>@*I don't understand this.*@
+	 <input type="text" name="ContRemBeneficiary" required placeholder="Cont Rem Beneficiary" title="Cont Rem Beneficiary" />
+	 <br />
+	 <label asp-for="WantsToDisInherit">Would you like to disinherit someone, other than your spouse?</label>@*change input/asp-for labels, make Yes or No option*@
+	 <input type="text" name="WantsToDisInherit" required placeholder="WantsToDisInherit" title="WantsToDisInherit" />
+	 <br />
+	 <label asp-for="DisinheritPerson">If you have chosen to disinherit someone other than your spouse, please provide their full legal name.</label>@*change input/asp-for labels add text box*@
+	 <input type="text" name="DisinheritPerson" required placeholder="Disinherited Person" title="Disinherited Person" />
+	 <br />
+	 <label asp-for="GuardianName">If you would like to appoint a guardian, please list their name, city and state of residence.</label>@*change input/asp-for labels add text box*@
+	 <input type="text" name="Guardian Name" required placeholder="Guardian Name" title="Guardian Name" />
+	 <br />
+	 <label asp-for="AlternateGuardianName">If you would like to appoint an alternate guardian, in the event the above guardian(s) are unavailable, you may do so by listing their name, city and state of residence.</label>@*change input/asp-for labels add text box*@
+	 <input type="text" name="Alternate Guardian Name" required placeholder="Alternate Guardian Name" title="Alternate Guardian Name" />
+	 <br />
+	 <label asp-for="PersonalRep">Whom do you wish to serve as your personal representative?</label>@*change input/asp-for labels add text box*@
+	 <input type="text" name="Personal Rep" required placeholder="Personal Rep" title="Personal Rep" />
+	 <br />
+	 <label asp-for="BackupRep">Whom do you wish to serve as your personal representative?</label>@*change input/asp-for labels, add dropdown menu*@
+	 <input type="text" name="Backup Rep" required placeholder="Backup Rep" title="Backup Rep" />
+	 <br />
+	 <label asp-for="LikesGenPoA">Would you like a General Power of Attorney?</label>@*change input/asp-for labels, add dropdown menu*@
+	 <input type="text" name="Power of Attorney" required placeholder="Power of Attorney" title="Power of Attorney" />
+	 <br />
+	 <label asp-for="AttorneyInFact">Who would you like to serve as your attorney-in-fact?</label>@*change input/asp-for labels, add dropdown menu*@
+	 <input type="text" name="Attorney In Fact" required placeholder="Attorney In Fact" title="Attorney In Fact" />
+	 <br />
+	 <label asp-for="SuccessorAttorneyInFact">If you would like to name a successor attorney-in-fact, in case your first choice is unable to serve, please list them below:</label>@*change input/asp-for labels, add dropdown menu*@
+	 <input type="text" name="Successor Attorney In Fact" required placeholder="Successor Attorney In Fact" title="Successor Attorney In Fact" />
+	 <br />
+	 <label asp-for="WantHealthCareDirective">Do you want a health care directive?</label>@*change input/asp-for labels, add dropdown menu*@
+	 <input type="text" name="Want Healthcare Directive" required placeholder="Want Healthcare Directive" title="Want Healthcare Directive" />
+	 <br />
+	 <label asp-for="Hydration">Hydration:</label>@*????*@
+	 <input type="text" name="Hydration" required placeholder="Hydration" title="Hydration" />
+	 <br />
+	 <label asp-for="Hydration">Hydration:</label>@*????*@
+	 <input type="text" name="Hydration" required placeholder="Hydration" title="Hydration" />
+	 <br />
+	 <label asp-for="Nutrition">Nutrition:</label>@*????*@
+	 <input type="text" name="Nutrition" required placeholder="Nutrition" title="Nutrition" />
+	 <br />
+	 <label asp-for="CardioAssistance">Cardiopulmonary resuscitation / assisted ventilation:</label>@*????*@
+	 <input type="text" name="CardioAssistance" required placeholder="CardioAssistance" title="CardioAssistance" />
+	 <br />
+	 <label asp-for="PainMeds">Pain / distress medication:</label>@*????*@
+	 <input type="text" name="PainMeds" required placeholder="Pain Meds" title="Pain Meds" />
+	 <br />
+	 <label asp-for="LikesPoA">Would you like a health care power of attorney?</label>@*????*@
+	 <input type="text" name="LikesPoA" required placeholder="Power of attorney" title="Power of attorney" />
+	 <br />
+	 <label asp-for="HealthCareAIF">Who would you like to serve as your attorney-in-fact for health care decisions?</label>@*????*@
+	 <input type="text" name="HealthCareAIF" required placeholder="Healthcare attorney in fact" title="Healthcare attorney in fact" />
+	 <br />
+	 <label asp-for="SuccessorHealthCareAIF">Who would you like to serve as your attorney-in-fact for health care decisions?</label>@*????*@
+	 <input type="text" name="Successor Healthcare AIF" required placeholder="Successor Healthcare AIF" title="Successor Healthcare AIF" />
+	 <br />
+
+
+	 <input type="submit" value="Sign up" />
+
+	 </form>
