@@ -31,18 +31,28 @@
 		<input type="checkbox" name="PM" value="False" /> PM <br />
 		<br />
 
-		 <label asp-for="SpouseName">Full legal name of your spouse</label>
-		 <input type="text" name="SpouseName" required placeholder="Spouse Name" title="Please enter the full legal name of your spouse." />
-		 <br />
+		<label asp-for="SpouseName">Full legal name of your spouse</label>
+		<input type="text" name="SpouseName" required placeholder="Spouse's Name" title="Please enter the full legal name of your spouse." />
+		<br />
 
-		 <label asp-for="IsCurrentlyPregnant">Do you have any minor children?  Or, are you, your spouse, or your partner currently pregnant?</label>
-		 <input type="checkbox" name="Yes" value="True" /> Yes <br />
-		 <input type="checkbox" name="No" value="False" /> No <br />
-		 <br />
+		<label asp-for="IsCurrentlyPregnant">Do you have any minor children?  Or, are you, your spouse, or your partner currently pregnant?</label>
+		<input type="checkbox" name="Yes" value="True" /> Yes <br />
+		<input type="checkbox" name="No" value="False" /> No <br />
+		<br />
 
-		 <label asp-for="MinorChildName">Full legal name(s) of your MINOR child(ren).</label>
-		 <input type="text" name="MinorChildName" required placeholder="Minor Child's Name" title="Child's name." />
-		 <br />
+		<label asp-for="MinorChildName">Full legal name(s) of your MINOR child(ren).</label>
+		<input type="text" name="MinorChildName" required placeholder="Minor Child's Name" title="Child's name." />
+		<br />
+
+
+	 @*Find out how to access choices on an enum
+	 <label asp-for="PersonalRep">Whom do you wish to serve as your personal representative?</label>
+	 <input type="text" name="Personal Rep" required placeholder="Personal Rep" title="Personal Rep" />
+	 <br />
+
+	 <label asp-for="BackupRep">Whom do you wish to serve as your personal representative?</label>
+	 <input type="text" name="Backup Rep" required placeholder="Backup Rep" title="Backup Rep" />
+	 <br />*@
 
 	 <input type="submit" value="Sign up" />
 

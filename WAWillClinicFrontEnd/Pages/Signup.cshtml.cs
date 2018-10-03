@@ -22,6 +22,7 @@ namespace WAWillClinicFrontEnd.Pages
 		public string SpouseName { get; set; }
 		public bool IsCurrentlyPregnant { get; set; }
 		public string MinorChildName { get; set; }
+		//public string PersonalRep { get; set; }
 
 		public SignupModel(UserDbContext context)
         {
@@ -40,7 +41,8 @@ namespace WAWillClinicFrontEnd.Pages
 				IsWashingtonResident = IsWashingtonResident,
 				SpouseName = SpouseName,
 				IsCurrentlyPregnant = IsCurrentlyPregnant,
-				MinorChildName = MinorChildName
+				MinorChildName = MinorChildName,
+				//PersonalRep = PersonalRep
 			};
 
             await _context.AddAsync(user);
