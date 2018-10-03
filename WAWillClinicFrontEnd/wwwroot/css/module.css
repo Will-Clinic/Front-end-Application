@@ -269,3 +269,11 @@ input[type=submit] {
   input[type=submit]hover, input[type=submit]active {
     background-color: #081ABC; }
 
+.form-control {
+  display: flex;
+  /* 2. display flex to the rescue */
+  flex-direction: row; }
+
+label, input {
+  display: block;
+  /* 1. oh noes, my inputs are styled as block... */ }

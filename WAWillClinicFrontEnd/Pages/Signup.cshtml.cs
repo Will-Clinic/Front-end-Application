@@ -16,9 +16,11 @@ namespace WAWillClinicFrontEnd.Pages
 
         public string Name { get; set; }
         public string Email { get; set; }
-        public string Phone { get; set; }
+        public string PhoneNumber { get; set; }
+		public string Address { get; set; }
+		public bool IsVeteran { get; set; }
 
-        public SignupModel(UserDbContext context)
+		public SignupModel(UserDbContext context)
         {
             _context = context;
         }
@@ -31,7 +33,9 @@ namespace WAWillClinicFrontEnd.Pages
             {
                 Name = Name,
                 Email = Email,
-                PhoneNumber = Phone
+                PhoneNumber = PhoneNumber,
+				Address = Address,
+				IsVeteran = IsVeteran
             };
 
             await _context.AddAsync(user);
