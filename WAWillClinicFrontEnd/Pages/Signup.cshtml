@@ -77,7 +77,7 @@
 	<br />
 
 	<label asp-for="PersonalRep">Whom do you wish to serve as your personal representative?</label>
-	<select asp-for="PersonalRep" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()"></select>
+	<select asp-for="PersonalRep" asp-items="Html.GetEnumSelectList<@Model.PersonalRep'>()"></select>
 	<br />
 
 	@*<label asp-for="BackupRep">Whom do you wish to serve as your personal representative?</label>
