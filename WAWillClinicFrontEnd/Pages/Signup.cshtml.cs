@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WAWillClinicFrontEnd.Data;
 using WAWillClinicFrontEnd.Models;
+using static WAWillClinicFrontEnd.Models.RSVPUser;
 
 namespace WAWillClinicFrontEnd.Pages
 {
@@ -32,16 +33,7 @@ namespace WAWillClinicFrontEnd.Pages
             _context = context;
         }
 
-		public enum WhoToInheritEstate
-		{
-			[Display(Name = "My Spouse")] Spouse = 1,
-			[Display(Name = "My then living children, in equal shares")] SplitWithChildren = 2,
-			[Display(Name = "My then living children, but if one or more of my children is" +
-				" deceased when I die, then his/her share unto that deceased child's" +
-				" children (my grandchildren)")]
-			ComplicatedChildren = 3,
-			[Display(Name = "A specific person(s) / other")] OtherPerson = 4
-		}
+		
 
 		public void OnGet() { }
 
@@ -59,8 +51,10 @@ namespace WAWillClinicFrontEnd.Pages
 				HasChildren = HasChildren,
 				IsCurrentlyPregnant = IsCurrentlyPregnant,
 				MinorChildName = MinorChildName,
-				 PersonalRep =  PersonalRep
+				PersonalRep = PersonalRep
 			};
+
+
 
             await _context.AddAsync(user);
             await _context.SaveChangesAsync();
