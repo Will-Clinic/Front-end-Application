@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WAWillClinicFrontEnd.Data;
 
 namespace WAWillClinicFrontEnd.Migrations.UserDb
 {
     [DbContext(typeof(UserDbContext))]
-    partial class UserDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181004223302_addedFields")]
+    partial class addedFields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,6 +55,9 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
 
                     b.Property<bool?>("HasChildren");
 
+                    b.Property<bool?>("HasProofOfService")
+                        .IsRequired();
+
                     b.Property<bool?>("HasSpecialRequest");
 
                     b.Property<string>("HealthCareAIF");
@@ -89,8 +94,6 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired();
-
-                    b.Property<string>("PreferredTime");
 
                     b.Property<string>("SpecialRequest");
 

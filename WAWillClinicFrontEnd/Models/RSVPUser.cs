@@ -35,19 +35,19 @@ namespace WAWillClinicFrontEnd.Models
         public bool? IsVeteran { get; set; }
 
         // 6) Do you have proof of military service? (not required)
-        [Required]
-        public bool? HasProofOfService { get; set; }
+        //[Required]
+        //public bool? HasProofOfService { get; set; }
 
         // 7) Are you a Washington state resident? (pretty please)
         [Required]
         public bool? IsWashingtonResident { get; set; }
 
         // 8) Is your net worth less than $500,000
-        //($1,000,000 per married couple)? (pretty please)
-        [Required]
-        public bool? IsNetWorthLowEnough { get; set; }
+        //($1,000,000 per married couple)? (not required)
+        //public bool? IsNetWorthLowEnough { get; set; }
 
         // 9) Please indicate your preferred time to receive service. (not required)
+        public string PreferredTime { get; set; }
 
         // 19) Marital status (not required) 
         public MaritalStatus ChooseMaritalStatus { get; set; }
@@ -85,6 +85,7 @@ namespace WAWillClinicFrontEnd.Models
 
         //27) Who would you like to inherit your estate when you die? 
         //Please check one: (pretty please)
+        [Required]
         public WhoToInheritEstate PersonToInherit { get; set; }
 
         //30) If you selected a specific charity or person(s) to be your

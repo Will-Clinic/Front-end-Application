@@ -37,6 +37,10 @@ namespace WAWillClinicFrontEnd.Pages
 		public bool IsCurrentlyPregnant { get; set; }
 		[Required]
 		public string MinorChildName { get; set; }
+
+        [Required]
+        public WhoToInheritEstate PersonToInherit { get; set; }
+
 		[Required]
 		public WhoToInheritEstate PersonalRep { get; set; }
 		[Required]
@@ -58,14 +62,16 @@ namespace WAWillClinicFrontEnd.Pages
                 Email = Email,
                 PhoneNumber = PhoneNumber,
 				IsVeteran = IsVeteran,
-				IsWashingtonResident = IsWashingtonResident,
+                PreferredTime = PreferredTime,
+                IsWashingtonResident = IsWashingtonResident,
 				SpouseName = SpouseName,
 				HasChildren = HasChildren,
 				IsCurrentlyPregnant = IsCurrentlyPregnant,
 				MinorChildName = MinorChildName,
-				PersonalRep = PersonalRep,
-				BackupRep = BackupRep
-			};
+                PersonToInherit = PersonToInherit,
+                PersonalRep = PersonalRep,
+				BackupRep = BackupRep,
+            };
 
 			if (PersonalRep == BackupRep)
 			{
