@@ -21,6 +21,7 @@ namespace WAWillClinicFrontEnd.Pages
 		public bool IsWashingtonResident { get; set; }
 		public string PreferredTime { get; set; }
 		public string SpouseName { get; set; }
+		public bool HasChildren { get; set; }
 		public bool IsCurrentlyPregnant { get; set; }
 		public string MinorChildName { get; set; }
 		//public string PersonalRep { get; set; }
@@ -43,6 +44,7 @@ namespace WAWillClinicFrontEnd.Pages
 				IsVeteran = IsVeteran,
 				IsWashingtonResident = IsWashingtonResident,
 				SpouseName = SpouseName,
+				HasChildren = HasChildren,
 				IsCurrentlyPregnant = IsCurrentlyPregnant,
 				MinorChildName = MinorChildName,
 				//PersonalRep = PersonalRep
