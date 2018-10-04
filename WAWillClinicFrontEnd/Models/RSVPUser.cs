@@ -48,7 +48,6 @@ namespace WAWillClinicFrontEnd.Models
         public bool? IsNetWorthLowEnough { get; set; }
 
         // 9) Please indicate your preferred time to receive service. (not required)
-        // ?? Bob Saget. How do we want to deal with checkboxes?
 
         // 19) Marital status (not required) 
         public MaritalStatus ChooseMaritalStatus { get; set; }

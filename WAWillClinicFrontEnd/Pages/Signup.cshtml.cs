@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -24,14 +25,25 @@ namespace WAWillClinicFrontEnd.Pages
 		public bool HasChildren { get; set; }
 		public bool IsCurrentlyPregnant { get; set; }
 		public string MinorChildName { get; set; }
-		//public string PersonalRep { get; set; }
+		public WhoToInheritEstate PersonalRep { get; set; }
 
 		public SignupModel(UserDbContext context)
         {
             _context = context;
         }
 
-        public void OnGet() { }
+		public enum WhoToInheritEstate
+		{
+			[Display(Name = "My Spouse")] Spouse = 1,
+			[Display(Name = "My then living children, in equal shares")] SplitWithChildren = 2,
+			[Display(Name = "My then living children, but if one or more of my children is" +
+				" deceased when I die, then his/her share unto that deceased child's" +
+				" children (my grandchildren)")]
+			ComplicatedChildren = 3,
+			[Display(Name = "A specific person(s) / other")] OtherPerson = 4
+		}
+
+		public void OnGet() { }
 
         public async Task<IActionResult> OnPost()
         {
@@ -47,7 +59,7 @@ namespace WAWillClinicFrontEnd.Pages
 				HasChildren = HasChildren,
 				IsCurrentlyPregnant = IsCurrentlyPregnant,
 				MinorChildName = MinorChildName,
-				//PersonalRep = PersonalRep
+				 PersonalRep =  PersonalRep
 			};
 
             await _context.AddAsync(user);
