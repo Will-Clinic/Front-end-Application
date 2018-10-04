@@ -181,14 +181,15 @@ namespace WAWillClinicFrontEnd.Models
             [Display(Name = "Widowed")] Widowed = 5
         }
 
-        public enum WhoToInheritEstate
-        {
-            [Display(Name = "My Spouse")] Spouse = 1,
-            [Display(Name = "My then living children, in equal shares")] SplitWithChildren = 2,
-            [Display(Name = "My then living children, but if one or more of my children is" +
-                " deceased when I die, then his/her share unto that deceased child's" +
-                " children (my grandchildren)")] ComplicatedChildren = 3,
-            [Display(Name = "A specific person(s) / other")] OtherPerson = 4
-        }
+    }
+
+    public enum WhoToInheritEstate
+    {
+        [Display(Name = "My Spouse")] Spouse = 1,
+        [Display(Name = "My then living children, in equal shares")] SplitWithChildren = 2,
+        [Display(Name = "My then living children, but if one or more of my children is" +
+            " deceased when I die, then his/her share unto that deceased child's" +
+            " children (my grandchildren)")] ComplicatedChildren = 3,
+        [Display(Name = "A specific person(s) / other")] OtherPerson = 4
     }
 }
