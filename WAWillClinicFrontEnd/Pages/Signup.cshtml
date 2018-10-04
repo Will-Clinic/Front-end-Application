@@ -8,51 +8,76 @@
 
 <p class="content">If you would like to join the Will Clinic, please sign up below.</p>
 <br/><br />
-	 <form method="post" class="content" style="text-align:left">
-	 	<label asp-for="Name">Full Legal Name</label>
-	 	<input type="text" name="Name" required placeholder="Full Name" title="Please input full name." />
+	 <form method="post" class="content">
+	 	<label asp-for="Agree">
+	 		I HAVE READ THE WA VETS WILL CLINIC INFORMATION AND INSTRUCTIONS
+	 		AND AGREE TO ITS TERMS.
+	 	</label>
+	 	<br />
+	 	<input type="radio" name="Agree" value="Yes" /> Yes
+	 	<input type="radio" name="Agree" value="No" /> No
 	 	<br />
 
-	 	<label asp-for="PhoneNumber">Phone Number</label>
-	 	<input type="tel" name="Phone" required pattern="[0-9]{10}" placeholder="Phone Number" title="Please input a phone number" />
+	 	<label asp-for="Name">Full Legal Name</label><br />
+	 	<input type="text" name="Name" required placeholder="Full Legal Name" title="Please input full name." />
 	 	<br />
 
-	 	<label asp-for="Email">Email Address</label>
-	 	<input type="email" name="Email" required placeholder="Email Address" title="Please input an email address" />
+	 	<label asp-for="PhoneNumber">Phone Number</label><br />
+	 	<input type="tel" name="Phone" required pattern="[0-9]{10}" placeholder="Phone Number"
+			   title="Please input a phone number" />
 	 	<br />
 
-	 	<label asp-for="IsWashingtonResident">Are you a Washington state resident?</label>
-	 	<input type="checkbox" name="Yes" value="True" /> Yes <br />
-	 	<input type="checkbox" name="No" value="False" /> No <br />
+	 	<label asp-for="Email">Email Address</label><br />
+	 	<input type="email" name="Email" required placeholder="Email Address"
+			   title="Please input an email address" />
 	 	<br />
 
-	 	<label asp-for="PreferredTime">Please indicate your preferred time to receive service.</label>@*needs work.  AM? PM?*@
-		<input type="checkbox" name="AM" value="True" /> AM <br />
-		<input type="checkbox" name="PM" value="False" /> PM <br />
-		<br />
+	 	<label asp-for="IsVeteran">Are you, or your spouse, a veteran of the United States Armed Forces?</label>@*change input/asp-for labels, make Yes or No option*@
+	 <br />
+	 <input type="radio" name="IsVeteran" value="Yes" /> Yes
+	 <input type="radio" name="IsVeteran" value="No" /> No <br />
+	 <br />
 
-		<label asp-for="SpouseName">Full legal name of your spouse</label>
-		<input type="text" name="SpouseName" required placeholder="Spouse's Name" title="Please enter the full legal name of your spouse." />
-		<br />
+	 <label asp-for="IsWashingtonResident">Are you a Washington state resident?</label>
+	 <br />
+	 <input type="radio" name="IsWashingtonResident" value="Yes" /> Yes
+	 <input type="radio" name="IsWashingtonResident" value="No" /> No <br />
+	 <br />
 
-		<label asp-for="IsCurrentlyPregnant">Do you have any minor children?  Or, are you, your spouse, or your partner currently pregnant?</label>
-		<input type="checkbox" name="Yes" value="True" /> Yes <br />
-		<input type="checkbox" name="No" value="False" /> No <br />
-		<br />
+	 <label asp-for="PreferredTime">Please indicate your preferred time to receive service.</label>
+	 <br />
+	 <input type="radio" name="PreferredTime" value="Morning" /> Morning
+	 <input type="radio" name="PreferredTime" value="Afternoon" /> Afternoon <br />
+	 <br />
 
-		<label asp-for="MinorChildName">Full legal name(s) of your MINOR child(ren).</label>
-		<input type="text" name="MinorChildName" required placeholder="Minor Child's Name" title="Child's name." />
-		<br />
+	 <label asp-for="SpouseName">Full legal name of your spouse</label><br />
+	 <input type="text" name="SpouseName" required placeholder="Spouse's Name"
+		   title="Please enter the full legal name of your spouse." />
+	 <br />
+
+	 <label asp-for="IsCurrentlyPregnant">
+	 	Do you have any minor children?
+	 	Or, are you, your spouse, or your partner currently pregnant?
+	 </label>
+	 <br />
+	 <input type="radio" name="IsCurrentlyPregnant" value="Yes" /> Yes
+	 <input type="radio" name="IsCurrentlyPregnant" value="No" /> No <br />
+	 <br />
+
+	 <label asp-for="MinorChildName">Full legal name(s) of your MINOR child(ren).</label><br />
+	 <input type="text" name="MinorChildName" required placeholder="Minor Child's Name"
+		   title="Child's name." />
+	 <br />
 
 
 	 @*Find out how to access choices on an enum
-	 <label asp-for="PersonalRep">Whom do you wish to serve as your personal representative?</label>
-	 <input type="text" name="Personal Rep" required placeholder="Personal Rep" title="Personal Rep" />
-	 <br />
+	<label asp-for="PersonalRep">Whom do you wish to serve as your personal representative?</label>
+	<input type="text" name="Personal Rep" required placeholder="Personal Rep" title="Personal Rep" />
+	<br />
 
-	 <label asp-for="BackupRep">Whom do you wish to serve as your personal representative?</label>
-	 <input type="text" name="Backup Rep" required placeholder="Backup Rep" title="Backup Rep" />
-	 <br />*@
+	<label asp-for="BackupRep">Whom do you wish to serve as your personal representative?</label>
+	<input type="text" name="Backup Rep" required placeholder="Backup Rep" title="Backup Rep" />
+	<br />*@
 
 	 <input type="submit" value="Sign up" />
 

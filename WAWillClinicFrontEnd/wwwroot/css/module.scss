@@ -183,7 +183,7 @@ main {
 
 //form
 input, select, textarea {
-    width: 100%;
+    width: 80%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -192,6 +192,7 @@ input, select, textarea {
     margin-bottom: 16px;
     resize: vertical;
 }
+
 
 input[type=submit] {
     background-color: color(nav-main);
@@ -205,4 +206,3 @@ input[type=submit] {
         background-color: color(nav-dark);
     }
 }
-

@@ -13,10 +13,11 @@ namespace WAWillClinicFrontEnd.Pages
     public class SignupModel : PageModel
     {
         private UserDbContext _context;
-
-        public string Name { get; set; }
+		public bool Agree { get; set; }
+		public string Name { get; set; }
         public string Email { get; set; }
-        public string PhoneNumber { get; set; }
+		public bool IsVeteran { get; set; }
+		public string PhoneNumber { get; set; }
 		public bool IsWashingtonResident { get; set; }
 		public string PreferredTime { get; set; }
 		public string SpouseName { get; set; }
@@ -33,11 +34,13 @@ namespace WAWillClinicFrontEnd.Pages
 
         public async Task<IActionResult> OnPost()
         {
-            RSVPUser user = new RSVPUser()
-            {
+			RSVPUser user = new RSVPUser()
+			{
+				Agree = Agree,
                 Name = Name,
                 Email = Email,
                 PhoneNumber = PhoneNumber,
+				IsVeteran = IsVeteran,
 				IsWashingtonResident = IsWashingtonResident,
 				SpouseName = SpouseName,
 				IsCurrentlyPregnant = IsCurrentlyPregnant,

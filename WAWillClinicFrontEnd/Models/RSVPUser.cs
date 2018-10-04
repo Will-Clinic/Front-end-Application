@@ -10,8 +10,11 @@ namespace WAWillClinicFrontEnd.Models
     {
         public int ID { get; set; }
 
-        // 1) Full legal name (pretty please)
-        [Required]
+		[Required]
+		public bool? Agree { get; set; }
+
+		// 1) Full legal name (pretty please)
+		[Required]
         public string Name { get; set; }
 
         // 2) Address (not required)
