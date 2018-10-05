@@ -408,10 +408,6 @@ form {
   form p {
     color: red; }
 
-select#BackupRep {
-  text-overflow: ellipsis;
-  -webkit-appearance: none; }
-
 section {
   margin: 4em auto; }
 

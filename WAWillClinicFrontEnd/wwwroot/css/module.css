@@ -277,7 +277,3 @@ form {
   text-align: left; }
   form p {
     color: red; }
-
-select#BackupRep {
-  text-overflow: ellipsis;
-  -webkit-appearance: none; }
