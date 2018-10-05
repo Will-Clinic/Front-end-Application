@@ -101,9 +101,11 @@ namespace FrontEndTests
             };
 
             mocks.UserManager.Setup(x => x.FindByNameAsync(It.IsAny<string>()))
-                .ReturnsAsync(new ApplicationUser());
+                .ReturnsAsync(new ApplicationUser { PasswordHash = "abcdefg" });
+            //mocks.UserManager.Setup(x => x.PasswordHasher.HashPassword(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
+            //    .Returns();
             mocks.UserManager.Setup(x => x.UpdateAsync(It.IsAny<ApplicationUser>()))
-                .ReturnsAsync(new IdentityResult());
+                .ReturnsAsync(IdentityResult.Failed());
 
             MockValidation.CheckValidation(cpm);
             var result = cpm.OnPostAsync().Result;
