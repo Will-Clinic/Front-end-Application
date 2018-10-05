@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WAWillClinicFrontEnd.Data;
 
 namespace WAWillClinicFrontEnd.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    partial class UserDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181005202422_ChangeStringToBool")]
+    partial class ChangeStringToBool
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,7 +53,7 @@ namespace WAWillClinicFrontEnd.Migrations
 
                     b.Property<string>("GuardianName");
 
-                    b.Property<bool>("HasChildren");
+                    b.Property<bool?>("HasChildren");
 
                     b.Property<bool?>("HasSpecialRequest");
 
@@ -59,15 +61,17 @@ namespace WAWillClinicFrontEnd.Migrations
 
                     b.Property<string>("Hydration");
 
-                    b.Property<bool>("IsCurrentlyPregnant");
+                    b.Property<bool?>("IsCurrentlyPregnant")
+                        .IsRequired();
 
-                    b.Property<bool>("IsVeteran");
+                    b.Property<bool?>("IsVeteran");
 
-                    b.Property<bool>("IsWashingtonResident");
+                    b.Property<bool?>("IsWashingtonResident")
+                        .IsRequired();
 
-                    b.Property<bool>("LikesGenPoA");
+                    b.Property<bool?>("LikesGenPoA");
 
-                    b.Property<bool>("LikesPoA");
+                    b.Property<bool?>("LikesPoA");
 
                     b.Property<string>("MinorChildName");
 
@@ -85,7 +89,7 @@ namespace WAWillClinicFrontEnd.Migrations
                     b.Property<string>("PhoneNumber")
                         .IsRequired();
 
-                    b.Property<bool>("PreferredTime");
+                    b.Property<bool?>("PreferredTime");
 
                     b.Property<string>("SpecialRequest");
 
@@ -96,9 +100,9 @@ namespace WAWillClinicFrontEnd.Migrations
 
                     b.Property<string>("SuccessorHealthCareAIF");
 
-                    b.Property<bool>("WantHealthCareDirective");
+                    b.Property<bool?>("WantHealthCareDirective");
 
-                    b.Property<bool>("WantsToDisInherit");
+                    b.Property<bool?>("WantsToDisInherit");
 
                     b.HasKey("ID");
 

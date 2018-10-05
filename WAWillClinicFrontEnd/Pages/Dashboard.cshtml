@@ -17,16 +17,23 @@
             <th>Full Name</th>
             <th>Email Address</th>
             <th>Phone Number</th>
-            <th></th>
+            <th>Check-In Status</th>
         </tr>
         @foreach (var user in Model.Users)
         {
-            <tr>
-                <td>@user.Name</td>
-                <td>@user.Email</td>
-                <td>@user.PhoneNumber</td>
-                <td><a asp-page="details" asp-route-id="@user.ID">edit</a></td>
-            </tr>
+        <tr>
+            <td><a asp-page="details" asp-route-id="@user.ID">@user.Name</a></td>
+            <td>@user.Email</td>
+            <td>@user.PhoneNumber</td>
+            @if (user.CheckedIn)
+            {
+                <td><input type="checkbox" checked disabled/></td>
+            }
+            else
+            {
+                <td><input type="checkbox" disabled/></td>
+            }
+        </tr>
         }
     </table>
 </section>

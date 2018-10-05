@@ -32,7 +32,7 @@ namespace WAWillClinicFrontEnd.Models
         // the United States Armed Forces? (not required)
         // NOTE: could make this either enum or bool
         // (Andrew used public bool? VeteranStatus for this)
-        public bool? IsVeteran { get; set; }
+        public bool IsVeteran { get; set; }
 
         // 6) Do you have proof of military service? (not required)
         //[Required]
@@ -40,14 +40,14 @@ namespace WAWillClinicFrontEnd.Models
 
         // 7) Are you a Washington state resident? (pretty please)
         [Required]
-        public bool? IsWashingtonResident { get; set; }
+        public bool IsWashingtonResident { get; set; }
 
         // 8) Is your net worth less than $500,000
         //($1,000,000 per married couple)? (not required)
         //public bool? IsNetWorthLowEnough { get; set; }
 
         // 9) Please indicate your preferred time to receive service. (not required)
-        public string PreferredTime { get; set; }
+        public bool PreferredTime { get; set; }
 
         // 19) Marital status (not required) 
 		[Required]
@@ -59,13 +59,13 @@ namespace WAWillClinicFrontEnd.Models
         public string SpouseName { get; set; }
 
         // 21) Do you have any children? (not required)
-        public bool? HasChildren { get; set; }
+        public bool HasChildren { get; set; }
 
         // 22) Do you have any minor children? Or 
         // are you, your spouse, or your partner currently
         // pregnant? (pretty please)
         [Required]
-        public bool? IsCurrentlyPregnant { get; set; }
+        public bool IsCurrentlyPregnant { get; set; }
 
         //23) If you have minor children, AND the parent of
         //your minor child is DIFFERENT from your current
@@ -99,7 +99,7 @@ namespace WAWillClinicFrontEnd.Models
 
         // 31) Would you like to disinherit someone, other than your spouse?
         // (not required)
-        public bool? WantsToDisInherit { get; set; }
+        public bool WantsToDisInherit { get; set; }
 
         // 32) If you have chosen to disinherit someone, other than your spouse,
         //    please provide their full legal name and relationship to you.
@@ -129,7 +129,7 @@ namespace WAWillClinicFrontEnd.Models
         //public WhoToInheritEstate BackupRep { get; set; }
 
         // 37) Would you like a General Power of Attorney? (not required)
-        public bool? LikesGenPoA { get; set; }
+        public bool LikesGenPoA { get; set; }
 
         // 38) Who would you like to serve as your attorney-in-fact? (not required)
         public string AttorneyInFact { get; set; }
@@ -139,7 +139,7 @@ namespace WAWillClinicFrontEnd.Models
         public string SuccessorAttorneyInFact { get; set; }
 
         // 40) Do you want a health care directive? (not required)
-        public bool? WantHealthCareDirective { get; set; }
+        public bool WantHealthCareDirective { get; set; }
 
         // 41) Hydration: (not required)
         public string Hydration { get; set; }
@@ -154,7 +154,7 @@ namespace WAWillClinicFrontEnd.Models
         public string PainMeds { get; set; }
 
         // 45) Would you like a health care power of attorney? (not required)
-        public bool? LikesPoA { get; set; }
+        public bool LikesPoA { get; set; }
 
         // 46) Who would you like to serve as your attorney-in-fact for health
         // care decisions? (not required)
