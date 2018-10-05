@@ -28,9 +28,17 @@ namespace WAWillClinicFrontEnd.Models
         {
             StringBuilder message = new StringBuilder();
 
-            message.Append($"<p>Thanks for reaching out to us {contact.FirstName} {contact.LastName}</p>");
+            message.Append($"<p>Dear {contact.FirstName} {contact.LastName}</p>");
             message.Append("<br />");
-            message.Append("<p>We will be in touch with you soon!</p>");
+            message.Append("<p>The WA Vets Wills Clinic thanks you for your service, and this email is to confirm that you have signed up</p>");
+            message.Append("<p> to receive an appointment on [date of event]. We will be sending a confirmation of your appointment time a week prior to the clinic.</p>");
+            message.Append("<p> That email will include logistical matters such as directions, parking, and access.</p>");
+            message.Append("<br />");
+            message.Append("<p>Please email any questions to seattle@wavetswillclinic.com.</p>");
+            message.Append("<br />");
+            message.Append("<p>Sincerely,</p>");
+            message.Append("<p>Clinic Chairs</p>");
+
 
             return message.ToString();
         }
