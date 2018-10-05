@@ -28,8 +28,6 @@ namespace WAWillClinicFrontEnd.Pages
         [Required]
         public bool IsVeteran { get; set; }
         [Required]
-        public string PhoneNumber { get; set; }
-        [Required]
         public bool IsWashingtonResident { get; set; }
         [Required]
         public bool PreferredTime { get; set; }

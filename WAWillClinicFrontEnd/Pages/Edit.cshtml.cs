@@ -27,8 +27,6 @@ namespace WAWillClinicFrontEnd.Pages
         [Required]
         public bool IsVeteran { get; set; }
         [Required]
-        public string PhoneNumber { get; set; }
-        [Required]
         public bool IsWashingtonResident { get; set; }
         [Required]
         public bool PreferredTime { get; set; }
@@ -96,6 +94,17 @@ namespace WAWillClinicFrontEnd.Pages
                 user.Name = Name;
                 user.PhoneNumber = Phone;
                 user.Email = Email;
+                user.IsVeteran = IsVeteran;
+                user.PreferredTime = PreferredTime;
+                user.IsWashingtonResident = IsWashingtonResident;
+                user.ChooseMaritalStatus = ChooseMaritalStatus;
+                user.SpouseName = SpouseName;
+                user.HasChildren = HasChildren;
+                user.IsCurrentlyPregnant = IsCurrentlyPregnant;
+                user.MinorChildName = MinorChildName;
+                user.ContRemBeneficiary = ContRemBeneficiary;
+                user.PersonToInherit = PersonToInherit;
+                user.PersonalRep = PersonalRep;
 
                 _context.Users.Update(user);
                 await _context.SaveChangesAsync();

@@ -183,13 +183,8 @@
 
         }
     </form>
-    @*<form method="post" asp-page-handler="edit">
-        <input type="hidden" name="Email" value="@Model.Email" />
+    <form method="get" asp-page="Edit">
+        <input type="hidden" asp-for="ID" value="@Model.ID" />
         <input type="submit" value="Edit User" />
-    </form>*@
-    @*<form method="get" asp-page="Edit">
-        @*<input type="hidden" value="@Model.ID" />*@
-        @*<input type="submit" value="Edit User" asp-route-id="@Model.ID"/>
-    </form>*@
-    <a href="/Edit?id=@Model.ID">Edit User</a>
+    </form>
 </section>
