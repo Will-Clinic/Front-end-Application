@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WAWillClinicFrontEnd.Data;
 
-namespace WAWillClinicFrontEnd.Migrations.UserDb
+namespace WAWillClinicFrontEnd.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20181004223302_addedFields")]
-    partial class addedFields
+    partial class UserDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,15 +34,15 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
 
                     b.Property<string>("AttorneyInFact");
 
-                    b.Property<int>("BackupRep");
-
                     b.Property<string>("CardioAssistance");
+
+                    b.Property<bool>("CheckedIn");
 
                     b.Property<string>("ChildsParentNotYourSpouse");
 
                     b.Property<int>("ChooseMaritalStatus");
 
-                    b.Property<string>("ContRemBeneficiary");
+                    b.Property<int>("ContRemBeneficiary");
 
                     b.Property<string>("DisinheritPerson");
 
@@ -55,9 +53,6 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
 
                     b.Property<bool?>("HasChildren");
 
-                    b.Property<bool?>("HasProofOfService")
-                        .IsRequired();
-
                     b.Property<bool?>("HasSpecialRequest");
 
                     b.Property<string>("HealthCareAIF");
@@ -65,9 +60,6 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
                     b.Property<string>("Hydration");
 
                     b.Property<bool?>("IsCurrentlyPregnant")
-                        .IsRequired();
-
-                    b.Property<bool?>("IsNetWorthLowEnough")
                         .IsRequired();
 
                     b.Property<bool?>("IsVeteran");
@@ -94,6 +86,8 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired();
+
+                    b.Property<string>("PreferredTime");
 
                     b.Property<string>("SpecialRequest");
 

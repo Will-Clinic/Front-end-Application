@@ -125,8 +125,8 @@ namespace WAWillClinicFrontEnd.Models
 
         //36) Whom do you wish to serve as an alternate if your
         //    first choice for personal representative is unable to serve? (pretty please)
-        [Required]
-        public WhoToInheritEstate BackupRep { get; set; }
+        //[Required]
+        //public WhoToInheritEstate BackupRep { get; set; }
 
         // 37) Would you like a General Power of Attorney? (not required)
         public bool? LikesGenPoA { get; set; }
@@ -165,18 +165,13 @@ namespace WAWillClinicFrontEnd.Models
         // please list them below: (not required)
         public string SuccessorHealthCareAIF { get; set; }
 
-        public enum YesNoQues
-        {
-            Yes = 1,
-            No = 2
-        }
+        public bool CheckedIn { get; set; }
 
         public enum TimeForService
         {
             Morning = 1,
             Afternoon = 2
         }
-
 
     }
 	public enum MaritalStatus

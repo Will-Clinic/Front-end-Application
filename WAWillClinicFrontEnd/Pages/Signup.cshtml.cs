@@ -45,8 +45,8 @@ namespace WAWillClinicFrontEnd.Pages
         public WhoToInheritEstate PersonToInherit { get; set; }
 		[Required]
 		public WhoToInheritEstate PersonalRep { get; set; }
-		[Required]
-		public WhoToInheritEstate BackupRep { get; set; }
+		//[Required]
+		//public WhoToInheritEstate BackupRep { get; set; }
 
 
 		public SignupModel(UserDbContext context)
@@ -75,14 +75,14 @@ namespace WAWillClinicFrontEnd.Pages
 				ContRemBeneficiary = ContRemBeneficiary,
                 PersonToInherit = PersonToInherit,
                 PersonalRep = PersonalRep,
-				BackupRep = BackupRep,
+				//BackupRep = BackupRep,
             };
 
-			if (PersonalRep == BackupRep)
-			{
-				TempData["Error"] = "Please make sure your Personal Rep is not the same as your Backup Rep."; 
-				return Page();
-			}
+			//if (PersonalRep == BackupRep)
+			//{
+			//	TempData["Error"] = "Please make sure your Personal Rep is not the same as your Backup Rep."; 
+			//	return Page();
+			//}
             await _context.AddAsync(user);
             await _context.SaveChangesAsync();
 

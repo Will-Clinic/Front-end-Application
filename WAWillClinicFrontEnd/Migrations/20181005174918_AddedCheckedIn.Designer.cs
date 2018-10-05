@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WAWillClinicFrontEnd.Data;
 
-namespace WAWillClinicFrontEnd.Migrations.UserDb
+namespace WAWillClinicFrontEnd.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20181005165509_updateMaritalStatusEnum")]
-    partial class updateMaritalStatusEnum
+    [Migration("20181005174918_AddedCheckedIn")]
+    partial class AddedCheckedIn
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,6 +39,8 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
                     b.Property<int>("BackupRep");
 
                     b.Property<string>("CardioAssistance");
+
+                    b.Property<bool>("CheckedIn");
 
                     b.Property<string>("ChildsParentNotYourSpouse");
 
@@ -89,7 +91,7 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
                     b.Property<string>("PhoneNumber")
                         .IsRequired();
 
-                    b.Property<int>("PreferredTime");
+                    b.Property<string>("PreferredTime");
 
                     b.Property<string>("SpecialRequest");
 

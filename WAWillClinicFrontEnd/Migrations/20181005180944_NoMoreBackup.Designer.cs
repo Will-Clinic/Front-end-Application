@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WAWillClinicFrontEnd.Data;
 
-namespace WAWillClinicFrontEnd.Migrations.UserDb
+namespace WAWillClinicFrontEnd.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20181005050127_add ContRemBeneficiary")]
-    partial class addContRemBeneficiary
+    [Migration("20181005180944_NoMoreBackup")]
+    partial class NoMoreBackup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,9 +36,9 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
 
                     b.Property<string>("AttorneyInFact");
 
-                    b.Property<int>("BackupRep");
-
                     b.Property<string>("CardioAssistance");
+
+                    b.Property<bool>("CheckedIn");
 
                     b.Property<string>("ChildsParentNotYourSpouse");
 

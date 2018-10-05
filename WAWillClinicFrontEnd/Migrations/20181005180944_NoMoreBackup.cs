@@ -1,23 +1,23 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace WAWillClinicFrontEnd.Migrations.UserDb
+namespace WAWillClinicFrontEnd.Migrations
 {
-    public partial class removedProofOfService : Migration
+    public partial class NoMoreBackup : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "HasProofOfService",
+                name: "BackupRep",
                 table: "Users");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<bool>(
-                name: "HasProofOfService",
+            migrationBuilder.AddColumn<int>(
+                name: "BackupRep",
                 table: "Users",
                 nullable: false,
-                defaultValue: false);
+                defaultValue: 0);
         }
     }
 }
