@@ -28,7 +28,6 @@
 	}
 }
 
-
 //index title
 main {
 	color: color(primary-dark);
@@ -183,7 +182,7 @@ main {
 
 //form
 input, select, textarea {
-    width: 100%;
+	width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -191,6 +190,7 @@ input, select, textarea {
     margin-top: 6px;
     margin-bottom: 16px;
     resize: vertical;
+	text-align: center;
 }
 
 input[type=submit] {
@@ -206,3 +206,14 @@ input[type=submit] {
     }
 }
 
+.radioButton {
+	width:5%;
+}
+
+form {
+	text-align: left;
+
+	p {
+		color: red;
+	}
+}

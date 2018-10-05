@@ -257,7 +257,8 @@ input, select, textarea {
   box-sizing: border-box;
   margin-top: 6px;
   margin-bottom: 16px;
-  resize: vertical; }
+  resize: vertical;
+  text-align: center; }
 
 input[type=submit] {
   background-color: #007AFF;
@@ -269,3 +270,10 @@ input[type=submit] {
   input[type=submit]hover, input[type=submit]active {
     background-color: #081ABC; }
 
+.radioButton {
+  width: 5%; }
+
+form {
+  text-align: left; }
+  form p {
+    color: red; }

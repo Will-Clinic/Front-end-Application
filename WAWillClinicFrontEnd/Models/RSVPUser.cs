@@ -10,8 +10,11 @@ namespace WAWillClinicFrontEnd.Models
     {
         public int ID { get; set; }
 
-        // 1) Full legal name (pretty please)
-        [Required]
+		[Required]
+		public bool? Agree { get; set; }
+
+		// 1) Full legal name (pretty please)
+		[Required]
         public string Name { get; set; }
 
         // 2) Address (not required)
@@ -32,22 +35,22 @@ namespace WAWillClinicFrontEnd.Models
         public bool? IsVeteran { get; set; }
 
         // 6) Do you have proof of military service? (not required)
-        [Required]
-        public bool? HasProofOfService { get; set; }
+        //[Required]
+        //public bool? HasProofOfService { get; set; }
 
         // 7) Are you a Washington state resident? (pretty please)
         [Required]
         public bool? IsWashingtonResident { get; set; }
 
         // 8) Is your net worth less than $500,000
-        //($1,000,000 per married couple)? (pretty please)
-        [Required]
-        public bool? IsNetWorthLowEnough { get; set; }
+        //($1,000,000 per married couple)? (not required)
+        //public bool? IsNetWorthLowEnough { get; set; }
 
         // 9) Please indicate your preferred time to receive service. (not required)
-        // ?? Bob Saget. How do we want to deal with checkboxes?
+        public string PreferredTime { get; set; }
 
         // 19) Marital status (not required) 
+		[Required]
         public MaritalStatus ChooseMaritalStatus { get; set; }
 
         // 20) Full legal name of your spouse (pretty please)
@@ -83,11 +86,16 @@ namespace WAWillClinicFrontEnd.Models
 
         //27) Who would you like to inherit your estate when you die? 
         //Please check one: (pretty please)
+        [Required]
         public WhoToInheritEstate PersonToInherit { get; set; }
 
-        //30) If you selected a specific charity or person(s) to be your
-        //    Contingent Remainder Beneficiary (not required)
-        public string ContRemBeneficiary { get; set; }
+		//29) Contigent Remainder Beneficiary
+		[Required]
+		public WhoToInheritEstate ContRemBeneficiary { get; set; }
+
+		//30) If you selected a specific charity or person(s) to be your
+		//    
+		//public string ContRemBeneficiary { get; set; }
 
         // 31) Would you like to disinherit someone, other than your spouse?
         // (not required)
@@ -117,8 +125,8 @@ namespace WAWillClinicFrontEnd.Models
 
         //36) Whom do you wish to serve as an alternate if your
         //    first choice for personal representative is unable to serve? (pretty please)
-        [Required]
-        public WhoToInheritEstate BackupRep { get; set; }
+        //[Required]
+        //public WhoToInheritEstate BackupRep { get; set; }
 
         // 37) Would you like a General Power of Attorney? (not required)
         public bool? LikesGenPoA { get; set; }
@@ -157,11 +165,7 @@ namespace WAWillClinicFrontEnd.Models
         // please list them below: (not required)
         public string SuccessorHealthCareAIF { get; set; }
 
-        public enum YesNoQues
-        {
-            Yes = 1,
-            No = 2
-        }
+        public bool CheckedIn { get; set; }
 
         public enum TimeForService
         {
@@ -169,24 +173,24 @@ namespace WAWillClinicFrontEnd.Models
             Afternoon = 2
         }
 
-        public enum MaritalStatus
-        {
-            [Display(Name = "Single (divorced)")] SingleAndDivorced = 1,
-            [Display(Name = "Single (divorced)")] SingleAndNeverDivorced = 2,
-            [Display(Name = "Presently married, and had a prior marriage " +
-                "(previous spouse is deceased or legally divorced)")] SecondMarriage = 3,
-            [Display(Name = "Married and my spouse is alive. No previous marriage.")] FirstMarriage = 4,
-            [Display(Name = "Widowed")] Widowed = 5
-        }
+    }
+	public enum MaritalStatus
+	{
+		[Display(Name = "Single (divorced)")] SingleAndDivorced = 1,
+		[Display(Name = "Single (never divorced)")] SingleAndNeverDivorced = 2,
+		[Display(Name = "Presently married, and had a prior marriage " +
+			"(previous spouse is deceased or legally divorced)")] SecondMarriage = 3,
+		[Display(Name = "Married and my spouse is alive. No previous marriage.")] FirstMarriage = 4,
+		[Display(Name = "Widowed")] Widowed = 5
+	}
 
-        public enum WhoToInheritEstate
-        {
-            [Display(Name = "My Spouse")] Spouse = 1,
-            [Display(Name = "My then living children, in equal shares")] SplitWithChildren = 2,
-            [Display(Name = "My then living children, but if one or more of my children is" +
-                " deceased when I die, then his/her share unto that deceased child's" +
-                " children (my grandchildren)")] ComplicatedChildren = 3,
-            [Display(Name = "A specific person(s) / other")] OtherPerson = 4
-        }
+    public enum WhoToInheritEstate
+    {
+        [Display(Name = "My Spouse")] Spouse = 1,
+        [Display(Name = "My then living children, in equal shares")] SplitWithChildren = 2,
+        [Display(Name = "My then living children, but if one or more of my children is" +
+            " deceased when I die, then his/her share unto that deceased child's" +
+            " children (my grandchildren)")] ComplicatedChildren = 3,
+        [Display(Name = "A specific person(s) / other")] OtherPerson = 4
     }
 }
