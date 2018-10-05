@@ -380,6 +380,7 @@ main {
     text-align: center; }
 
 input, select, textarea {
+  width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -397,6 +398,9 @@ input[type=submit] {
   cursor: pointer; }
   input[type=submit]hover, input[type=submit]active {
     background-color: #081ABC; }
+
+select {
+  width: 100%; }
 
 section {
   margin: 4em auto; }

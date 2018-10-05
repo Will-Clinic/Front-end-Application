@@ -182,6 +182,7 @@ main {
 
 //form
 input, select, textarea {
+	width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -203,4 +204,8 @@ input[type=submit] {
     &hover, &active {
         background-color: color(nav-dark);
     }
+}
+
+select {
+	width:100%;
 }

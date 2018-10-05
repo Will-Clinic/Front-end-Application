@@ -50,6 +50,7 @@ namespace WAWillClinicFrontEnd.Models
         public string PreferredTime { get; set; }
 
         // 19) Marital status (not required) 
+		[Required]
         public MaritalStatus ChooseMaritalStatus { get; set; }
 
         // 20) Full legal name of your spouse (pretty please)
@@ -88,9 +89,13 @@ namespace WAWillClinicFrontEnd.Models
         [Required]
         public WhoToInheritEstate PersonToInherit { get; set; }
 
-        //30) If you selected a specific charity or person(s) to be your
-        //    Contingent Remainder Beneficiary (not required)
-        public string ContRemBeneficiary { get; set; }
+		//29) Contigent Remainder Beneficiary
+		[Required]
+		public WhoToInheritEstate ContRemBeneficiary { get; set; }
+
+		//30) If you selected a specific charity or person(s) to be your
+		//    
+		//public string ContRemBeneficiary { get; set; }
 
         // 31) Would you like to disinherit someone, other than your spouse?
         // (not required)
@@ -172,17 +177,17 @@ namespace WAWillClinicFrontEnd.Models
             Afternoon = 2
         }
 
-        public enum MaritalStatus
-        {
-            [Display(Name = "Single (divorced)")] SingleAndDivorced = 1,
-            [Display(Name = "Single (divorced)")] SingleAndNeverDivorced = 2,
-            [Display(Name = "Presently married, and had a prior marriage " +
-                "(previous spouse is deceased or legally divorced)")] SecondMarriage = 3,
-            [Display(Name = "Married and my spouse is alive. No previous marriage.")] FirstMarriage = 4,
-            [Display(Name = "Widowed")] Widowed = 5
-        }
 
     }
+	public enum MaritalStatus
+	{
+		[Display(Name = "Single (divorced)")] SingleAndDivorced = 1,
+		[Display(Name = "Single (divorced)")] SingleAndNeverDivorced = 2,
+		[Display(Name = "Presently married, and had a prior marriage " +
+			"(previous spouse is deceased or legally divorced)")] SecondMarriage = 3,
+		[Display(Name = "Married and my spouse is alive. No previous marriage.")] FirstMarriage = 4,
+		[Display(Name = "Widowed")] Widowed = 5
+	}
 
     public enum WhoToInheritEstate
     {

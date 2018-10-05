@@ -30,6 +30,8 @@ namespace WAWillClinicFrontEnd.Pages
 		[Required]
 		public string PreferredTime { get; set; }
 		[Required]
+		public MaritalStatus ChooseMaritalStatus { get; set; }
+		[Required]
 		public string SpouseName { get; set; }
 		[Required]
 		public bool HasChildren { get; set; }
@@ -37,14 +39,15 @@ namespace WAWillClinicFrontEnd.Pages
 		public bool IsCurrentlyPregnant { get; set; }
 		[Required]
 		public string MinorChildName { get; set; }
-
-        [Required]
+		[Required]
+		public WhoToInheritEstate ContRemBeneficiary { get; set; }
+		[Required]
         public WhoToInheritEstate PersonToInherit { get; set; }
-
 		[Required]
 		public WhoToInheritEstate PersonalRep { get; set; }
 		[Required]
 		public WhoToInheritEstate BackupRep { get; set; }
+
 
 		public SignupModel(UserDbContext context)
         {
@@ -58,16 +61,18 @@ namespace WAWillClinicFrontEnd.Pages
 			RSVPUser user = new RSVPUser()
 			{
 				Agree = Agree,
-                Name = Name,
-                Email = Email,
-                PhoneNumber = PhoneNumber,
+				Name = Name,
+				Email = Email,
+				PhoneNumber = PhoneNumber,
 				IsVeteran = IsVeteran,
-                PreferredTime = PreferredTime,
-                IsWashingtonResident = IsWashingtonResident,
+				PreferredTime = PreferredTime,
+				IsWashingtonResident = IsWashingtonResident,
+				ChooseMaritalStatus = ChooseMaritalStatus,
 				SpouseName = SpouseName,
 				HasChildren = HasChildren,
 				IsCurrentlyPregnant = IsCurrentlyPregnant,
 				MinorChildName = MinorChildName,
+				ContRemBeneficiary = ContRemBeneficiary,
                 PersonToInherit = PersonToInherit,
                 PersonalRep = PersonalRep,
 				BackupRep = BackupRep,
