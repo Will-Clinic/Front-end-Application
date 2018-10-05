@@ -403,6 +403,15 @@ input[type=submit] {
 .radioButton {
   width: 5%; }
 
+form {
+  text-align: left; }
+  form p {
+    color: red; }
+
+select#BackupRep {
+  text-overflow: ellipsis;
+  -webkit-appearance: none; }
+
 section {
   margin: 4em auto; }
 
@@ -422,7 +431,7 @@ section {
       margin: auto 8em; } }
   .content p {
     margin: 1em;
-    text-align: left; }
+    text-align: center; }
   .content img {
     margin: 1em; }
   .content .subsection {
