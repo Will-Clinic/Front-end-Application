@@ -1,10 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WAWillClinicFrontEnd.Data;
@@ -14,7 +13,7 @@ namespace WAWillClinicFrontEnd.Pages
 {
     [Authorize(Policy = "Admin")]
     [BindProperties]
-    public class DetailsModel : PageModel
+    public class EditModel : PageModel
     {
         private UserDbContext _context;
 
@@ -49,7 +48,7 @@ namespace WAWillClinicFrontEnd.Pages
         public WhoToInheritEstate PersonToInherit { get; set; }
         [Required]
         public WhoToInheritEstate PersonalRep { get; set; }
-        public DetailsModel(UserDbContext context)
+        public EditModel(UserDbContext context)
         {
             _context = context;
         }
@@ -62,7 +61,7 @@ namespace WAWillClinicFrontEnd.Pages
         /// <returns>Page or Redirect</returns>
         public void OnGet(int? id)
         {
-            if(id.HasValue)
+            if (id.HasValue)
             {
                 var user = _context.Users.FirstOrDefault(i => i.ID == id);
 

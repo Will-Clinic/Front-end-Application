@@ -1,22 +1,26 @@
 ﻿@page
-@model WAWillClinicFrontEnd.Pages.DetailsModel
+@model WAWillClinicFrontEnd.Pages.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
 @{
     Layout = "_Layout";
 }
 <section>
-    <h2>User Details</h2>
+    <h2>Edit user</h2>
 </section>
 
 <section>
     <form method="post">
         <label asp-for="Name">Full Name</label>
-        <input type="text" name="Name" value="@Model.Name" readonly/>
+        <input type="text" name="Name" value="@Model.Name" required title="Please input a name" />
         <br />
         <label asp-for="Email">Email Address</label>
-        <input type="email" name="Email" value="@Model.Email" readonly />
+        <input type="email" name="Email" value="@Model.Email" required title="Please input an email address" />
         <br />
         <label asp-for="Phone">Phone Number</label>
-        <input type="tel" name="Phone" value="@Model.Phone" readonly />
+        <input type="tel" name="Phone" value="@Model.Phone" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Please input a phone number" />
         <br />
 
         <label asp-for="IsVeteran">
@@ -28,19 +32,19 @@
         @if (Model.IsVeteran)
         {
             <span>
-                <input class="radioButton" type="radio" name="IsVeteran" value="true" checked disabled /> Yes
+                <input class="radioButton" type="radio" name="IsVeteran" value="true" checked /> Yes
             </span>
             <span>
-                <input class="radioButton" type="radio" name="IsVeteran" value="IsVeteran" disabled /> No <br />
+                <input class="radioButton" type="radio" name="IsVeteran" value="IsVeteran" /> No <br />
             </span>
         }
         else
         {
             <span>
-                <input class="radioButton" type="radio" name="IsVeteran" value="true" disabled/> Yes
+                <input class="radioButton" type="radio" name="IsVeteran" value="true" /> Yes
             </span>
             <span>
-                <input class="radioButton" type="radio" name="IsVeteran" value="IsVeteran" checked disabled/> No <br />
+                <input class="radioButton" type="radio" name="IsVeteran" value="IsVeteran" checked /> No <br />
             </span>
         }
 
@@ -52,19 +56,19 @@
         @if (Model.IsWashingtonResident)
         {
             <span>
-                <input class="radioButton" type="radio" name="IsWashingtonResident" value="True" checked disabled/> Yes
+                <input class="radioButton" type="radio" name="IsWashingtonResident" value="True" checked /> Yes
             </span>
             <span>
-                <input class="radioButton" type="radio" name="IsWashingtonResident" value="False" disabled /> No <br />
+                <input class="radioButton" type="radio" name="IsWashingtonResident" value="False" /> No <br />
             </span>
         }
         else
         {
             <span>
-                <input class="radioButton" type="radio" name="IsWashingtonResident" value="True" disabled/> Yes
+                <input class="radioButton" type="radio" name="IsWashingtonResident" value="True" /> Yes
             </span>
             <span>
-                <input class="radioButton" type="radio" name="IsWashingtonResident" value="False" checked disabled/> No <br />
+                <input class="radioButton" type="radio" name="IsWashingtonResident" value="False" checked /> No <br />
             </span>
         }
         <br />
@@ -74,25 +78,25 @@
         @if (Model.PreferredTime)
         {
             <span>
-                <input class="radioButton" type="radio" name="PreferredTime" value="True" checked disabled/> Morning
+                <input class="radioButton" type="radio" name="PreferredTime" value="True" checked /> Morning
             </span>
             <span>
-                <input class="radioButton" type="radio" name="PreferredTime" value="False" disabled /> Afternoon
+                <input class="radioButton" type="radio" name="PreferredTime" value="False" /> Afternoon
             </span>
         }
         else
         {
             <span>
-                <input class="radioButton" type="radio" name="PreferredTime" value="True" disabled/> Morning
+                <input class="radioButton" type="radio" name="PreferredTime" value="True" /> Morning
             </span>
             <span>
-                <input class="radioButton" type="radio" name="PreferredTime" value="False" checked disabled/> Afternoon
+                <input class="radioButton" type="radio" name="PreferredTime" value="False" checked /> Afternoon
             </span>
         }
         <br /><br />
 
         <label asp-for="ChooseMaritalStatus">What is your marital status?</label><br />
-        <select asp-for="ChooseMaritalStatus" asp-items="Html.GetEnumSelectList<MaritalStatus>()" disabled></select>
+        <select asp-for="ChooseMaritalStatus" asp-items="Html.GetEnumSelectList<MaritalStatus>()"></select>
         <span asp-validation-for="ChooseMaritalStatus"></span>
         <br />
 
@@ -107,24 +111,26 @@
         @if (Model.HasChildren)
         {
             <span>
-                <input class="radioButton" type="radio" name="HasChildren" value="True" checked disabled/>Yes
+                <input class="radioButton" type="radio" name="HasChildren" value="True" checked />Yes
             </span>
             <span>
-                <input class="radioButton" type="radio" name="HasChildren" value="False" disabled />No
+                <input class="radioButton" type="radio" name="HasChildren" value="False" />No
             </span>
             <br />
         }
         else
         {
             <span>
-                <input class="radioButton" type="radio" name="HasChildren" value="True" disabled/>Yes
+                <input class="radioButton" type="radio" name="HasChildren" value="True" />Yes
             </span>
             <span>
-                <input class="radioButton" type="radio" name="HasChildren" value="False" checked disabled/>No
+                <input class="radioButton" type="radio" name="HasChildren" value="False" checked />No
             </span>
             <br />
         }
-
+        @*<input class="radioButton" type="radio" name="HasChildren" value="True" /> Yes
+            <input class="radioButton" type="radio" name="HasChildren" value="False" /> No <br />
+            <span asp-validation-for="HasChildren"></span>*@
         <br />
 
         <label asp-for="IsCurrentlyPregnant">
@@ -145,13 +151,14 @@
         else
         {
             <span>
-                <input class="radioButton" type="radio" name="IsCurrentlyPregnant" value="True" disabled/> Yes
+                <input class="radioButton" type="radio" name="IsCurrentlyPregnant" value="True" /> Yes
             </span>
             <span>
-                <input class="radioButton" type="radio" name="IsCurrentlyPregnant" value="False" checked disabled /> No
+                <input class="radioButton" type="radio" name="IsCurrentlyPregnant" value="False" checked /> No
             </span>
         }
-        <br /><br />
+        <span asp-validation-for="IsCurrentlyPregnant"></span>
+        <br />
 
         <label asp-for="MinorChildName">Full legal name(s) of your MINOR child(ren).</label><br />
         <input type="text" name="MinorChildName" required value="@Model.MinorChildName" readonly
@@ -160,17 +167,17 @@
         <br />
 
         <label asp-for="ContRemBeneficiary">Contingent remainder beneficiary?</label>
-        <select asp-for="ContRemBeneficiary" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()" disabled></select>
+        <select asp-for="ContRemBeneficiary" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()"></select>
         <span asp-validation-for="ContRemBeneficiary"></span>
         <br />
 
         <label asp-for="PersonToInherit">Who would you like to inherit your estate when you die?</label>
-        <select asp-for="PersonToInherit" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()" disabled></select>
+        <select asp-for="PersonToInherit" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()"></select>
         <span asp-validation-for="PersonToInherit"></span>
         <br />
 
         <label asp-for="PersonalRep">Whom do you wish to serve as your personal representative?</label>
-        <select asp-for="PersonalRep" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()" disabled></select>
+        <select asp-for="PersonalRep" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()"></select>
         <span asp-validation-for="PersonalRep"></span>
         <br />
         <input type="submit" value="Update User" />
