@@ -28,7 +28,7 @@ namespace WAWillClinicFrontEnd.Pages
 		[Required]
 		public bool IsWashingtonResident { get; set; }
 		[Required]
-		public string PreferredTime { get; set; }
+		public bool PreferredTime { get; set; }
 		[Required]
 		public MaritalStatus ChooseMaritalStatus { get; set; }
 		[Required]
