@@ -49,6 +49,9 @@ namespace WAWillClinicFrontEnd.Pages
         public WhoToInheritEstate PersonToInherit { get; set; }
         [Required]
         public WhoToInheritEstate PersonalRep { get; set; }
+        [Required]
+        public bool CheckedIn { get; set; }
+
         public DetailsModel(UserDbContext context)
         {
             _context = context;
@@ -81,6 +84,7 @@ namespace WAWillClinicFrontEnd.Pages
                 ContRemBeneficiary = user.ContRemBeneficiary;
                 PersonToInherit = user.PersonToInherit;
                 PersonalRep = user.PersonalRep;
+                CheckedIn = user.CheckedIn;
             }
             RedirectToPage("/Dashboard");
         }
@@ -94,13 +98,18 @@ namespace WAWillClinicFrontEnd.Pages
             var user = _context.Users.FirstOrDefault(i => i.ID == ID);
             if (ModelState.IsValid)
             {
-                user.Name = Name;
-                user.PhoneNumber = Phone;
-                user.Email = Email;
-
+                if (user.CheckedIn)
+                {
+                    user.CheckedIn = false;
+                    CheckedIn = user.CheckedIn;
+                }
+                else
+                {
+                    user.CheckedIn = true;
+                    CheckedIn = user.CheckedIn;
+                }
                 _context.Users.Update(user);
                 await _context.SaveChangesAsync();
-                return RedirectToPage("/Dashboard");
             }
             return Page();
         }
