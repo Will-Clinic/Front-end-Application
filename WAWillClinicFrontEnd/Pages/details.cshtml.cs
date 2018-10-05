@@ -70,6 +70,7 @@ namespace WAWillClinicFrontEnd.Pages
                 var user = _context.Users.FirstOrDefault(i => i.ID == id);
 
                 if (user == null) RedirectToPage("/Dashboard");
+                ID = user.ID;
                 Name = user.Name;
                 Phone = user.PhoneNumber;
                 Email = user.Email;
@@ -117,7 +118,7 @@ namespace WAWillClinicFrontEnd.Pages
         /// Action to delete the specific user
         /// </summary>
         /// <returns>Page</returns>
-        public async Task<IActionResult> OnPostDeleteAsync()
+        public async Task<IActionResult> OnPostEditAsync()
         {
             var user = _context.Users.FirstOrDefault(e => e.Email == Email);
             if (user != null)
