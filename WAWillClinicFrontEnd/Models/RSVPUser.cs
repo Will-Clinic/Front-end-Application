@@ -182,7 +182,7 @@ namespace WAWillClinicFrontEnd.Models
 	public enum MaritalStatus
 	{
 		[Display(Name = "Single (divorced)")] SingleAndDivorced = 1,
-		[Display(Name = "Single (divorced)")] SingleAndNeverDivorced = 2,
+		[Display(Name = "Single (never divorced)")] SingleAndNeverDivorced = 2,
 		[Display(Name = "Presently married, and had a prior marriage " +
 			"(previous spouse is deceased or legally divorced)")] SecondMarriage = 3,
 		[Display(Name = "Married and my spouse is alive. No previous marriage.")] FirstMarriage = 4,
