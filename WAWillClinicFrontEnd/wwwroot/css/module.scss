@@ -190,8 +190,8 @@ input, select, textarea {
     margin-top: 6px;
     margin-bottom: 16px;
     resize: vertical;
+	text-align: center;
 }
-
 
 input[type=submit] {
     background-color: color(nav-main);
@@ -206,6 +206,6 @@ input[type=submit] {
     }
 }
 
-select {
-	width:100%;
+.radioButton {
+	width:5%;
 }
