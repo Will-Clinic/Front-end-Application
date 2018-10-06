@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -16,10 +17,36 @@ namespace WAWillClinicFrontEnd.Pages
     public class Add_UserModel : PageModel
     {
         private UserDbContext _context;
-
+        [Required]
+        public bool Agree { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Email { get; set; }
-        public string Phone { get; set; }
+        [Required]
+        public bool IsVeteran { get; set; }
+        [Required]
+        public string PhoneNumber { get; set; }
+        [Required]
+        public bool IsWashingtonResident { get; set; }
+        [Required]
+        public bool PreferredTime { get; set; }
+        [Required]
+        public MaritalStatus ChooseMaritalStatus { get; set; }
+        [Required]
+        public string SpouseName { get; set; }
+        [Required]
+        public bool HasChildren { get; set; }
+        [Required]
+        public bool IsCurrentlyPregnant { get; set; }
+        [Required]
+        public string MinorChildName { get; set; }
+        [Required]
+        public WhoToInheritEstate ContRemBeneficiary { get; set; }
+        [Required]
+        public WhoToInheritEstate PersonToInherit { get; set; }
+        [Required]
+        public WhoToInheritEstate PersonalRep { get; set; }
 
         public Add_UserModel(UserDbContext context)
         {
@@ -35,9 +62,21 @@ namespace WAWillClinicFrontEnd.Pages
 
                 RSVPUser user = new RSVPUser()
                 {
+                    Agree = Agree,
                     Name = Name,
                     Email = Email,
-                    PhoneNumber = Phone
+                    PhoneNumber = PhoneNumber,
+                    IsVeteran = IsVeteran,
+                    PreferredTime = PreferredTime,
+                    IsWashingtonResident = IsWashingtonResident,
+                    ChooseMaritalStatus = ChooseMaritalStatus,
+                    SpouseName = SpouseName,
+                    HasChildren = HasChildren,
+                    IsCurrentlyPregnant = IsCurrentlyPregnant,
+                    MinorChildName = MinorChildName,
+                    ContRemBeneficiary = ContRemBeneficiary,
+                    PersonToInherit = PersonToInherit,
+                    PersonalRep = PersonalRep,
                 };
 
                 await _context.Users.AddAsync(user);
