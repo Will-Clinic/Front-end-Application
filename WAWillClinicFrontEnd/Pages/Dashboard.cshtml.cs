@@ -18,6 +18,8 @@ namespace WAWillClinicFrontEnd.Pages
     {
         private UserDbContext _context;
         public List<RSVPUser> Users { get; set; } = new List<RSVPUser>();
+        public string SearchString { get; set; }
+
         public DashboardModel(UserDbContext context)
         {
             _context = context;
@@ -39,7 +41,9 @@ namespace WAWillClinicFrontEnd.Pages
             {
                 users = _context.Users.
                     Where(u => u.Name.ToLower().Contains(searchString.ToLower()));
+                SearchString = searchString;
             }
+
 
             // formats query (or default list) into a list format to display on the page
             Users = await users.ToListAsync();
