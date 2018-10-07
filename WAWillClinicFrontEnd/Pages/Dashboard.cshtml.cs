@@ -19,8 +19,10 @@ namespace WAWillClinicFrontEnd.Pages
         private UserDbContext _context;
         public List<RSVPUser> Users { get; set; } = new List<RSVPUser>();
         public string SearchString { get; set; }
+		public int TotalCheckedIn { get; set; }
+		public int TotalSignUp { get; set; }
 
-        public DashboardModel(UserDbContext context)
+		public DashboardModel(UserDbContext context)
         {
             _context = context;
         }
@@ -44,9 +46,12 @@ namespace WAWillClinicFrontEnd.Pages
                 SearchString = searchString;
             }
 
-
             // formats query (or default list) into a list format to display on the page
             Users = await users.ToListAsync();
+
+			//total count
+			TotalSignUp = Users.Count();
+			TotalCheckedIn = Users.Where(c => c.CheckedIn == true).Count();
         }
     }
 }
