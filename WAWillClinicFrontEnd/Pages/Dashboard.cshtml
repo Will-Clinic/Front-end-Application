@@ -11,6 +11,17 @@
         <a asp-page="/add_user">Add guest</a>
         <a asp-page="/change_password">Change Password</a>
         <a href="/logout">Logout</a>
+        <br/><br />
+        <form method="get">
+            <input type="text" name="searchString" placeholder="Search Users" value="@Model.SearchString" />
+            <input type="submit" value="Search User(s)" />
+        </form>
+        @if (!String.IsNullOrEmpty(Model.SearchString))
+        {
+        <form method="get" asp-page="Dashboard">
+            <input type="submit" value="Reset"/>
+        </form>
+        }
     </section>
     <table>
         <tr>
