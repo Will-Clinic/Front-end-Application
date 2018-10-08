@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace WAWillClinicFrontEnd.Migrations
+namespace WAWillClinicFrontEnd.Migrations.ApplicationDb
 {
-    public partial class Initial : Migration
+    public partial class prodMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

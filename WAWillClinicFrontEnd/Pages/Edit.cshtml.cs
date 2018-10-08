@@ -1,10 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WAWillClinicFrontEnd.Data;
@@ -14,7 +13,7 @@ namespace WAWillClinicFrontEnd.Pages
 {
     [Authorize(Policy = "Admin")]
     [BindProperties]
-    public class DetailsModel : PageModel
+    public class EditModel : PageModel
     {
         private UserDbContext _context;
 
@@ -47,10 +46,7 @@ namespace WAWillClinicFrontEnd.Pages
         public WhoToInheritEstate PersonToInherit { get; set; }
         [Required]
         public WhoToInheritEstate PersonalRep { get; set; }
-        [Required]
-        public bool CheckedIn { get; set; }
-
-        public DetailsModel(UserDbContext context)
+        public EditModel(UserDbContext context)
         {
             _context = context;
         }
@@ -63,12 +59,11 @@ namespace WAWillClinicFrontEnd.Pages
         /// <returns>Page or Redirect</returns>
         public void OnGet(int? id)
         {
-            if(id.HasValue)
+            if (id.HasValue)
             {
                 var user = _context.Users.FirstOrDefault(i => i.ID == id);
 
                 if (user == null) RedirectToPage("/Dashboard");
-                ID = user.ID;
                 Name = user.Name;
                 Phone = user.PhoneNumber;
                 Email = user.Email;
@@ -83,7 +78,6 @@ namespace WAWillClinicFrontEnd.Pages
                 ContRemBeneficiary = user.ContRemBeneficiary;
                 PersonToInherit = user.PersonToInherit;
                 PersonalRep = user.PersonalRep;
-                CheckedIn = user.CheckedIn;
             }
             RedirectToPage("/Dashboard");
         }
@@ -97,18 +91,24 @@ namespace WAWillClinicFrontEnd.Pages
             var user = _context.Users.FirstOrDefault(i => i.ID == ID);
             if (ModelState.IsValid)
             {
-                if (user.CheckedIn)
-                {
-                    user.CheckedIn = false;
-                    CheckedIn = user.CheckedIn;
-                }
-                else
-                {
-                    user.CheckedIn = true;
-                    CheckedIn = user.CheckedIn;
-                }
+                user.Name = Name;
+                user.PhoneNumber = Phone;
+                user.Email = Email;
+                user.IsVeteran = IsVeteran;
+                user.PreferredTime = PreferredTime;
+                user.IsWashingtonResident = IsWashingtonResident;
+                user.ChooseMaritalStatus = ChooseMaritalStatus;
+                user.SpouseName = SpouseName;
+                user.HasChildren = HasChildren;
+                user.IsCurrentlyPregnant = IsCurrentlyPregnant;
+                user.MinorChildName = MinorChildName;
+                user.ContRemBeneficiary = ContRemBeneficiary;
+                user.PersonToInherit = PersonToInherit;
+                user.PersonalRep = PersonalRep;
+
                 _context.Users.Update(user);
                 await _context.SaveChangesAsync();
+                return RedirectToPage("/Dashboard");
             }
             return Page();
         }
@@ -116,7 +116,7 @@ namespace WAWillClinicFrontEnd.Pages
         /// Action to delete the specific user
         /// </summary>
         /// <returns>Page</returns>
-        public async Task<IActionResult> OnPostEditAsync()
+        public async Task<IActionResult> OnPostDeleteAsync()
         {
             var user = _context.Users.FirstOrDefault(e => e.Email == Email);
             if (user != null)

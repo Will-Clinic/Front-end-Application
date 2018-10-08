@@ -23,7 +23,7 @@ namespace WAWillClinicFrontEnd.Models
             var client = new SendGridClient(_configuration["SendGridAPI"]);
             var msg = new SendGridMessage();
 
-            msg.SetFrom("test@email.com", "WA Vets Will Clinic");
+            msg.SetFrom("noreply@wavetswillclinic.com", "WA Vets Will Clinic");
             msg.AddTo(email);
             msg.SetSubject(subject);
             msg.AddContent(MimeType.Html, htmlMessage);

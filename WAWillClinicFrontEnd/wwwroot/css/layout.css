@@ -12,37 +12,40 @@ body, #white-head {
   min-width: 320px; }
 
 main {
-  padding: 11.5vh 0.25em; }
+  padding: 3em 0.25em; }
   @media (min-width: 885px) {
     main {
-      padding: 11.5vh 1em; } }
+      padding: 3em 1em; } }
   @media (min-width: 1066px) {
     main {
-      padding: 11.5vh 2em; } }
+      padding: 3em 2em; } }
   @media (min-width: 1300px) {
     main {
-      padding: 11.5vh 4em; } }
+      padding: 3em 4em; } }
 
 #white-head {
   background-color: #FFFFFF;
   position: fixed;
-  width: 100%; }
+  width: 100%;
+  z-index: 1; }
+  #white-head #identity_user {
+    margin: 0 0 1vh 1vw; }
   #white-head h1 {
     font-size: 1.5em;
     padding: 2vh 4.25vw;
     float: left; }
+  #white-head ul {
+    display: none; }
   #white-head a {
     color: #282828;
     text-decoration: none; }
     #white-head a:hover, #white-head a:active {
       color: #007AFF; }
-  @media (max-width: 1066px) {
-    #white-head ul {
-      display: none; } }
   @media (min-width: 1066px) {
     #white-head .fa-bars {
       display: none; }
     #white-head ul {
+      display: block;
       list-style-type: none;
       margin: 0;
       padding: 1em 0 1em 1em;
@@ -71,7 +74,7 @@ main {
   height: 120vh;
   background-color: #007AFF;
   overflow-y: hidden;
-  z-index: 1;
+  z-index: 2;
   font-family: "Source Sans Pro", sans-serif; }
   #blue-head h1 {
     font-size: 2em;
@@ -112,6 +115,20 @@ main {
     #blue-head div ul > li {
       list-style-type: disc;
       padding-left: .25em; }
+
+table {
+  width: 100%;
+  border: 1px solid black;
+  margin: 0 auto; }
+  table th {
+    padding: 1em;
+    border-bottom: 1px solid black; }
+  table td {
+    border: 1px solid black;
+    padding: .5em; }
+
+#admin-links a {
+  padding: 0 .75em; }
 
 body, html {
   font-family: "Source Sans Pro", sans-serif;
@@ -123,37 +140,40 @@ body, #white-head {
   min-width: 320px; }
 
 main {
-  padding: 11.5vh 0.25em; }
+  padding: 3em 0.25em; }
   @media (min-width: 885px) {
     main {
-      padding: 11.5vh 1em; } }
+      padding: 3em 1em; } }
   @media (min-width: 1066px) {
     main {
-      padding: 11.5vh 2em; } }
+      padding: 3em 2em; } }
   @media (min-width: 1300px) {
     main {
-      padding: 11.5vh 4em; } }
+      padding: 3em 4em; } }
 
 #white-head {
   background-color: #FFFFFF;
   position: fixed;
-  width: 100%; }
+  width: 100%;
+  z-index: 1; }
+  #white-head #identity_user {
+    margin: 0 0 1vh 1vw; }
   #white-head h1 {
     font-size: 1.5em;
     padding: 2vh 4.25vw;
     float: left; }
+  #white-head ul {
+    display: none; }
   #white-head a {
     color: #282828;
     text-decoration: none; }
     #white-head a:hover, #white-head a:active {
       color: #007AFF; }
-  @media (max-width: 1066px) {
-    #white-head ul {
-      display: none; } }
   @media (min-width: 1066px) {
     #white-head .fa-bars {
       display: none; }
     #white-head ul {
+      display: block;
       list-style-type: none;
       margin: 0;
       padding: 1em 0 1em 1em;
@@ -182,7 +202,7 @@ main {
   height: 120vh;
   background-color: #007AFF;
   overflow-y: hidden;
-  z-index: 1;
+  z-index: 2;
   font-family: "Source Sans Pro", sans-serif; }
   #blue-head h1 {
     font-size: 2em;
@@ -223,6 +243,20 @@ main {
     #blue-head div ul > li {
       list-style-type: disc;
       padding-left: .25em; }
+
+table {
+  width: 100%;
+  border: 1px solid black;
+  margin: 0 auto; }
+  table th {
+    padding: 1em;
+    border-bottom: 1px solid black; }
+  table td {
+    border: 1px solid black;
+    padding: .5em; }
+
+#admin-links a {
+  padding: 0 .75em; }
 
 .fa-times {
   font-size: 1em;
@@ -353,7 +387,8 @@ input, select, textarea {
   box-sizing: border-box;
   margin-top: 6px;
   margin-bottom: 16px;
-  resize: vertical; }
+  resize: vertical;
+  text-align: center; }
 
 input[type=submit] {
   background-color: #007AFF;
@@ -364,6 +399,14 @@ input[type=submit] {
   cursor: pointer; }
   input[type=submit]hover, input[type=submit]active {
     background-color: #081ABC; }
+
+.radioButton {
+  width: 5%; }
+
+form {
+  text-align: left; }
+  form p {
+    color: red; }
 
 section {
   margin: 4em auto; }
@@ -384,7 +427,7 @@ section {
       margin: auto 8em; } }
   .content p {
     margin: 1em;
-    text-align: left; }
+    text-align: center; }
   .content img {
     margin: 1em; }
   .content .subsection {
@@ -392,4 +435,3 @@ section {
     .content .subsection h3 {
       font-size: 1.25em;
       line-height: 1.25em; }
-
