@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Moq;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FrontEndTests
 {
@@ -102,14 +103,34 @@ namespace FrontEndTests
 
             mocks.UserManager.Setup(x => x.FindByNameAsync(It.IsAny<string>()))
                 .ReturnsAsync(new ApplicationUser { PasswordHash = "abcdefg" });
-            //mocks.UserManager.Setup(x => x.PasswordHasher.HashPassword(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
-            //    .Returns();
             mocks.UserManager.Setup(x => x.UpdateAsync(It.IsAny<ApplicationUser>()))
                 .ReturnsAsync(IdentityResult.Failed());
 
             MockValidation.CheckValidation(cpm);
             var result = cpm.OnPostAsync().Result;
             Assert.IsType<PageResult>(result);
+        }
+        [Fact]
+        public void TestPasswordMatchingAndValidModelStateAndUserAndUpdates()
+        {
+            MockStoreContexts mocks = new MockStoreContexts();
+            Change_PasswordModel cpm = new Change_PasswordModel(mocks.UserManager.Object, mocks.SignInManager.Object)
+            {
+                Name = "some.email@test.com",
+                Password = "Abcdefg1!",
+                ConfirmPassword = "Abcdefg1!"
+            };
+
+            mocks.UserManager.Setup(x => x.FindByNameAsync(It.IsAny<string>()))
+                .ReturnsAsync(new ApplicationUser { PasswordHash = "abcdefg" });
+            mocks.UserManager.Setup(x => x.UpdateAsync(It.IsAny<ApplicationUser>()))
+                .ReturnsAsync(IdentityResult.Success);
+
+            MockValidation.CheckValidation(cpm);
+            var result = cpm.OnPostAsync().Result;
+            RedirectToPageResult check = (RedirectToPageResult)result;
+
+            Assert.Equal("/Dashboard", check.PageName);
         }
     }
 }

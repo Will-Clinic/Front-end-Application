@@ -45,10 +45,10 @@ namespace FrontEndTests
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
                 Add_UserModel aum = new Add_UserModel(context);
-                Assert.Null(aum.Phone);
+                Assert.Null(aum.PhoneNumber);
 
-                aum.Phone = "0123456789";
-                Assert.Equal("0123456789", aum.Phone);
+                aum.PhoneNumber = "0123456789";
+                Assert.Equal("0123456789", aum.PhoneNumber);
             }
         }
         [Fact]
@@ -57,16 +57,29 @@ namespace FrontEndTests
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
                 Add_UserModel aum = new Add_UserModel(context)
-                {
+                {                     
+                    Agree = true,
                     Name = "Test User",
                     Email = "abc@123.com",
-                    Phone = "0123456789"
+                    PhoneNumber = "0123456789",
+                    IsVeteran = true,
+                    PreferredTime = false,
+                    IsWashingtonResident = true,
+                    ChooseMaritalStatus = MaritalStatus.SingleAndNeverDivorced,
+                    SpouseName = "N/A",
+                    HasChildren = false,
+                    IsCurrentlyPregnant = false,
+                    MinorChildName = "N/A",
+                    ContRemBeneficiary = WhoToInheritEstate.OtherPerson,
+                    PersonToInherit = WhoToInheritEstate.OtherPerson,
+                    PersonalRep = WhoToInheritEstate.OtherPerson,
                 };
 
                 //Checking DB is actually empty
                 var result = await context.Users.ToListAsync();
                 Assert.Empty(result);
 
+                MockValidation.CheckValidation(aum);
                 await aum.OnPost();
                 result = await context.Users.ToListAsync();
                 Assert.Single(result);
@@ -80,7 +93,7 @@ namespace FrontEndTests
                 Add_UserModel aum = new Add_UserModel(context)
                 {
                     Name = "Test User",
-                    Phone = "0123456789"
+                    PhoneNumber = "0123456789"
                 };
 
                 //Checking DB is actually empty
