@@ -18,18 +18,12 @@ namespace WAWillClinicFrontEnd.Pages
     {
         private UserDbContext _context;
         [Required]
-<<<<<<< HEAD
-=======
         public bool Agree { get; set; }
         [Required]
->>>>>>> 7b881c05d306dec3080103bcd1da9f09070218b6
         public string Name { get; set; }
         [Required]
         public string Email { get; set; }
         [Required]
-<<<<<<< HEAD
-        public string Phone { get; set; }
-=======
         public bool IsVeteran { get; set; }
         [Required]
         public string PhoneNumber { get; set; }
@@ -53,7 +47,6 @@ namespace WAWillClinicFrontEnd.Pages
         public WhoToInheritEstate PersonToInherit { get; set; }
         [Required]
         public WhoToInheritEstate PersonalRep { get; set; }
->>>>>>> 7b881c05d306dec3080103bcd1da9f09070218b6
 
         public Add_UserModel(UserDbContext context)
         {
