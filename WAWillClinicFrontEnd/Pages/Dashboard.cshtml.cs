@@ -21,6 +21,7 @@ namespace WAWillClinicFrontEnd.Pages
         public string SearchString { get; set; }
 		public int TotalCheckedIn { get; set; }
 		public int TotalSignUp { get; set; }
+		public bool WantsToSeeCheckedIn { get; set; }
 
 		public DashboardModel(UserDbContext context)
         {
@@ -31,7 +32,7 @@ namespace WAWillClinicFrontEnd.Pages
         /// database or a subset of users based on a search for name
         /// </summary>
         /// <returns>Page</returns>
-        public async Task OnGet(string searchString)
+        public async Task OnGet(string searchString, bool isCheckedIn)
         {
             // defines a base query to work with, but does not run it
             // against the db yet
@@ -41,15 +42,27 @@ namespace WAWillClinicFrontEnd.Pages
             // filter if user searches by name
             if (!String.IsNullOrEmpty(searchString))
             {
+				//if (searchString == "checked in" || "check in")
+				//{
+				//}
                 users = _context.Users.
                     Where(u => u.Name.ToLower().Contains(searchString.ToLower()));
                 SearchString = searchString;
+
             }
 
-            // formats query (or default list) into a list format to display on the page
-            Users = await users.ToListAsync();
+			//show only checked in users
+			if (isCheckedIn)
+			{
+				users = _context.Users.Where(u => u.CheckedIn == true);
+			}
 
-			//total count
+			WantsToSeeCheckedIn = isCheckedIn;
+
+			// formats query (or default list) into a list format to display on the page
+			Users = await users.ToListAsync();
+
+			//total count for sign up and checked in query
 			TotalSignUp = Users.Count();
 			TotalCheckedIn = Users.Where(c => c.CheckedIn == true).Count();
         }
