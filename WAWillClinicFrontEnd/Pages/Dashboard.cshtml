@@ -15,20 +15,36 @@
 		<div>
 			<span>
 				Total Checked in: @Model.TotalCheckedIn
-				Total Signed up: @Model.TotalSignUp
+				Total Displayed: @Model.TotalOnDisplay
 			</span>
 		</div>
 		<form method="get">
 			<input type="text" name="searchString" placeholder="Search Users" value="@Model.SearchString" />
-			@if (Model.WantsToSeeCheckedIn)
-			{
-				<input type="checkbox" name="isCheckedIn" value="true" checked />
-			}
-			else
-			{
-				<input type="checkbox" name="isCheckedIn" value="true" />
+			<span>
+				Display checked in guests
+				@if (Model.WantsToSeeCheckedIn)
+				{
+					<input type="checkbox" class="radioButton" name="isCheckedIn" value="true" checked />
+				}
+				else
+				{
+					<input type="checkbox" class="radioButton" name="isCheckedIn" value="true" />
 
-			}
+				}
+			</span>
+			<span>
+				Display guests who haven't arrived
+				@if (Model.WantsToSeeCheckedOut)
+				{
+					<input type="checkbox" class="radioButton" name="isCheckedOut" value="true" checked />
+				}
+				else
+				{
+					<input type="checkbox" class="radioButton" name="isCheckedOut" value="true" />
+
+				}
+			</span>
+
 			<input type="submit" value="Search User(s) by Name" />
 		</form>
 		@if (!String.IsNullOrEmpty(Model.SearchString))

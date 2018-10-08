@@ -20,8 +20,9 @@ namespace WAWillClinicFrontEnd.Pages
 		public List<RSVPUser> Users { get; set; } = new List<RSVPUser>();
 		public string SearchString { get; set; }
 		public int TotalCheckedIn { get; set; }
-		public int TotalSignUp { get; set; }
+		public int TotalOnDisplay { get; set; }
 		public bool WantsToSeeCheckedIn { get; set; }
+		public bool WantsToSeeCheckedOut { get; set; }
 
 		public DashboardModel(UserDbContext context)
 		{
@@ -38,7 +39,6 @@ namespace WAWillClinicFrontEnd.Pages
 			// against the db yet
 			var users = from u in _context.Users
 						select u;
-
 
 			if (!String.IsNullOrEmpty(searchString) && isCheckedIn)
 			{
@@ -65,7 +65,7 @@ namespace WAWillClinicFrontEnd.Pages
 			Users = await users.ToListAsync();
 
 			//total count for sign up and checked in query
-			TotalSignUp = Users.Count();
+			TotalOnDisplay = Users.Count();
 			TotalCheckedIn = Users.Where(c => c.CheckedIn == true).Count();
 		}
 	}
