@@ -7,28 +7,37 @@
 
 <h2>Dashboard</h2>
 <section class="content">
-    <section id="admin-links">
-        <a asp-page="/add_user">Add guest</a>
-        <a asp-page="/change_password">Change Password</a>
-        <a href="/logout">Logout</a>
-        <br/><br />
+	<section id="admin-links">
+		<a asp-page="/add_user">Add guest</a>
+		<a asp-page="/change_password">Change Password</a>
+		<a href="/logout">Logout</a>
+		<br /><br />
 		<div>
 			<span>
 				Total Checked in: @Model.TotalCheckedIn
 				Total Signed up: @Model.TotalSignUp
 			</span>
 		</div>
-        <form method="get">
-            <input type="text" name="searchString" placeholder="Search Users" value="@Model.SearchString" />
-            <input type="submit" value="Search User(s) by Name" />
-        </form>
-        @if (!String.IsNullOrEmpty(Model.SearchString))
-        {
-        <form method="get" asp-page="Dashboard">
-            <input type="submit" value="Reset"/>
-        </form>
-        }
-    </section>
+		<form method="get">
+			<input type="text" name="searchString" placeholder="Search Users" value="@Model.SearchString" />
+			@if (Model.WantsToSeeCheckedIn)
+			{
+				<input type="checkbox" name="isCheckedIn" value="true" checked />
+			}
+			else
+			{
+				<input type="checkbox" name="isCheckedIn" value="true" />
+
+			}
+			<input type="submit" value="Search User(s) by Name" />
+		</form>
+		@if (!String.IsNullOrEmpty(Model.SearchString))
+		{
+			<form method="get" asp-page="Dashboard">
+				<input type="submit" value="Reset" />
+			</form>
+		}
+	</section>
     <table>
         <tr>
             <th>Full Name</th>

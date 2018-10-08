@@ -12,52 +12,54 @@ using WAWillClinicFrontEnd.Models;
 
 namespace WAWillClinicFrontEnd.Pages
 {
-    [Authorize(Policy = "Admin")]
-    [BindProperties]
-    public class DashboardModel : PageModel
-    {
-        private UserDbContext _context;
-        public List<RSVPUser> Users { get; set; } = new List<RSVPUser>();
-        public string SearchString { get; set; }
+	[Authorize(Policy = "Admin")]
+	[BindProperties]
+	public class DashboardModel : PageModel
+	{
+		private UserDbContext _context;
+		public List<RSVPUser> Users { get; set; } = new List<RSVPUser>();
+		public string SearchString { get; set; }
 		public int TotalCheckedIn { get; set; }
 		public int TotalSignUp { get; set; }
 		public bool WantsToSeeCheckedIn { get; set; }
 
 		public DashboardModel(UserDbContext context)
-        {
-            _context = context;
-        }
-        /// <summary>
-        /// Action that grabs all of our registered users within the
-        /// database or a subset of users based on a search for name
-        /// </summary>
-        /// <returns>Page</returns>
-        public async Task OnGet(string searchString, bool isCheckedIn)
-        {
-            // defines a base query to work with, but does not run it
-            // against the db yet
-            var users = from u in _context.Users
-                        select u;
+		{
+			_context = context;
+		}
+		/// <summary>
+		/// Action that grabs all of our registered users within the
+		/// database or a subset of users based on a search for name
+		/// </summary>
+		/// <returns>Page</returns>
+		public async Task OnGet(string searchString, bool isCheckedIn)
+		{
+			// defines a base query to work with, but does not run it
+			// against the db yet
+			var users = from u in _context.Users
+						select u;
 
-            // filter if user searches by name
-            if (!String.IsNullOrEmpty(searchString))
-            {
-				//if (searchString == "checked in" || "check in")
-				//{
-				//}
-                users = _context.Users.
-                    Where(u => u.Name.ToLower().Contains(searchString.ToLower()));
-                SearchString = searchString;
 
-            }
-
+			if (!String.IsNullOrEmpty(searchString) && isCheckedIn)
+			{
+				users = _context.Users.
+					Where(u => u.Name.ToLower().Contains(searchString.ToLower()) && u.CheckedIn == true);
+				SearchString = searchString;
+				WantsToSeeCheckedIn = isCheckedIn;
+			}
+			// filter if user searches by name
+			else if (!String.IsNullOrEmpty(searchString))
+			{
+				users = _context.Users.
+					Where(u => u.Name.ToLower().Contains(searchString.ToLower()));
+				SearchString = searchString;
+			}
 			//show only checked in users
-			if (isCheckedIn)
+			else if (isCheckedIn)
 			{
 				users = _context.Users.Where(u => u.CheckedIn == true);
+				WantsToSeeCheckedIn = isCheckedIn;
 			}
-
-			WantsToSeeCheckedIn = isCheckedIn;
 
 			// formats query (or default list) into a list format to display on the page
 			Users = await users.ToListAsync();
@@ -65,6 +67,6 @@ namespace WAWillClinicFrontEnd.Pages
 			//total count for sign up and checked in query
 			TotalSignUp = Users.Count();
 			TotalCheckedIn = Users.Where(c => c.CheckedIn == true).Count();
-        }
-    }
+		}
+	}
 }
