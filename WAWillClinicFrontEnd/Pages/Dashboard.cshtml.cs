@@ -33,7 +33,7 @@ namespace WAWillClinicFrontEnd.Pages
 		/// database or a subset of users based on a search for name
 		/// </summary>
 		/// <returns>Page</returns>
-		public async Task OnGet(string searchString, bool isCheckedIn)
+		public async Task OnGet(string searchString, bool isCheckedIn, bool isCheckedOut)
 		{
 			// defines a base query to work with, but does not run it
 			// against the db yet
@@ -47,6 +47,17 @@ namespace WAWillClinicFrontEnd.Pages
 				SearchString = searchString;
 				WantsToSeeCheckedIn = isCheckedIn;
 			}
+			if (isCheckedIn && isCheckedOut)
+			{
+				users = _context.Users;
+			}
+			else if (!String.IsNullOrEmpty(searchString) && isCheckedOut)
+			{
+				users = _context.Users.
+					Where(u => u.Name.ToLower().Contains(searchString.ToLower()) && u.CheckedIn == false);
+				SearchString = searchString;
+				WantsToSeeCheckedOut = isCheckedOut;
+			}
 			// filter if user searches by name
 			else if (!String.IsNullOrEmpty(searchString))
 			{
@@ -59,6 +70,11 @@ namespace WAWillClinicFrontEnd.Pages
 			{
 				users = _context.Users.Where(u => u.CheckedIn == true);
 				WantsToSeeCheckedIn = isCheckedIn;
+			}
+			else if (isCheckedOut)
+			{
+				users = _context.Users.Where(u => u.CheckedIn == false);
+				WantsToSeeCheckedOut = isCheckedOut;
 			}
 
 			// formats query (or default list) into a list format to display on the page
