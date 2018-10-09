@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FrontEndTests
 {
-    public class SignUpTests
+    public class SignUpPageTests
     {
         [Fact]
         public void TestSignUpPageGetterAndSetterAgree()

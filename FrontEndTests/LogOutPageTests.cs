@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FrontEndTests
 {
-    public class LogOutTests
+    public class LogOutPageTests
     {
         [Fact]
         public void LogOutFunctionsProperly()
