@@ -20,7 +20,7 @@ namespace FrontEndTests.Utilities
             msg.SetSubject(subject);
             msg.AddContent(MimeType.Html, htmlMessage);
 
-            var response = await client.SendEmailAsync(msg);
+            await Task.CompletedTask;
         }
     }
 }

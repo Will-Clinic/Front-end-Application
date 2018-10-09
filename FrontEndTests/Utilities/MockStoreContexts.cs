@@ -28,7 +28,8 @@ namespace FrontEndTests.Utilities
 
         public MockStoreContexts()
         {
-            UserManager = new Mock<UserManager<ApplicationUser>>(Store.Object, null, null, null, null, null, null, null, null);
+            UserManager = new Mock<UserManager<ApplicationUser>>(Store.Object, null, 
+                                    new Mock<IPasswordHasher<ApplicationUser>>().Object, null, null, null, null, null, null);
             ContextAccessor.Setup(mock => mock.HttpContext).Returns(() => HttpContext.Object);
             SignInManager = new Mock<SignInManager<ApplicationUser>>(
                                     UserManager.Object,
