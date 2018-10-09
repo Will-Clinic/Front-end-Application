@@ -16,6 +16,18 @@ namespace FrontEndTests
     public class AddUserPageTests
     {
         [Fact]
+        public void TestAddUserPageGetterAndSetterAgree()
+        {
+            using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
+            {
+                Add_UserModel aum = new Add_UserModel(context);
+                Assert.False(aum.Agree);
+
+                aum.Agree = true;
+                Assert.True(aum.Agree);
+            }
+        }
+        [Fact]
         public void TestAddUserPageGetterAndSetterName()
         {
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
@@ -52,6 +64,151 @@ namespace FrontEndTests
             }
         }
         [Fact]
+        public void TestAddUserPageGetterAndSetterIsVeteran()
+        {
+            using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
+            {
+                Add_UserModel aum = new Add_UserModel(context);
+                Assert.False(aum.IsVeteran);
+
+                aum.IsVeteran = true;
+                Assert.True(aum.IsVeteran);
+            }
+        }
+        [Fact]
+        public void TestAddUserPageGetterAndSetterIsWashingtonResident()
+        {
+            using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
+            {
+                Add_UserModel aum = new Add_UserModel(context);
+                Assert.False(aum.IsWashingtonResident);
+
+                aum.IsWashingtonResident = true;
+                Assert.True(aum.IsWashingtonResident);
+            }
+        }
+        [Fact]
+        public void TestAddUserPageGetterAndSetterPreferredTime()
+        {
+            using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
+            {
+                Add_UserModel aum = new Add_UserModel(context);
+                Assert.False(aum.PreferredTime);
+
+                aum.PreferredTime = true;
+                Assert.True(aum.PreferredTime);
+            }
+        }
+        [Fact]
+        public void TestAddUserPageGetterAndSetterMaritalStatus()
+        {
+            using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
+            {
+                Add_UserModel aum = new Add_UserModel(context)
+                {
+                    ChooseMaritalStatus = MaritalStatus.FirstMarriage
+                };
+
+                Assert.Equal(MaritalStatus.FirstMarriage, aum.ChooseMaritalStatus);
+                aum.ChooseMaritalStatus = MaritalStatus.SecondMarriage;
+                Assert.Equal(MaritalStatus.SecondMarriage, aum.ChooseMaritalStatus);
+            }
+        }
+        [Fact]
+        public void TestAddUserPageGetterAndSetterSpouseName()
+        {
+            using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
+            {
+                Add_UserModel aum = new Add_UserModel(context);
+                Assert.Null(aum.SpouseName);
+
+                aum.SpouseName = "Test Name";
+                Assert.Equal("Test Name", aum.SpouseName);
+            }
+        }
+        [Fact]
+        public void TestAddUserPageGetterAndSetterHasChildren()
+        {
+            using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
+            {
+                Add_UserModel aum = new Add_UserModel(context);
+                Assert.False(aum.HasChildren);
+
+                aum.HasChildren = true;
+                Assert.True(aum.HasChildren);
+            }
+        }
+        [Fact]
+        public void TestAddUserPageGetterAndSetterCurrentlyPregnant()
+        {
+            using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
+            {
+                Add_UserModel aum = new Add_UserModel(context);
+                Assert.False(aum.IsCurrentlyPregnant);
+
+                aum.IsCurrentlyPregnant = true;
+                Assert.True(aum.IsCurrentlyPregnant);
+            }
+        }
+        [Fact]
+        public void TestAddUserPageGetterAndSetterMinorChildName()
+        {
+            using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
+            {
+                Add_UserModel aum = new Add_UserModel(context);
+                Assert.Null(aum.MinorChildName);
+
+                aum.MinorChildName = "Test Name";
+                Assert.Equal("Test Name", aum.MinorChildName);
+            }
+        }
+        [Fact]
+        public void TestAddUserPageGetterAndSetterContRemBeneficiary()
+        {
+            using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
+            {
+                Add_UserModel aum = new Add_UserModel(context)
+                {
+                    ContRemBeneficiary = WhoToInheritEstate.ComplicatedChildren
+                };
+                Assert.Equal(WhoToInheritEstate.ComplicatedChildren, aum.ContRemBeneficiary);
+
+                aum.ContRemBeneficiary = WhoToInheritEstate.OtherPerson;
+                Assert.Equal(WhoToInheritEstate.OtherPerson, aum.ContRemBeneficiary);
+            }
+        }
+        [Fact]
+        public void TestAddUserPageGetterAndSetterPersonToInherit()
+        {
+            using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
+            {
+                Add_UserModel aum = new Add_UserModel(context)
+                {
+                    PersonToInherit = WhoToInheritEstate.ComplicatedChildren
+                };
+                Assert.Equal(WhoToInheritEstate.ComplicatedChildren, aum.PersonToInherit);
+
+                aum.PersonToInherit = WhoToInheritEstate.OtherPerson;
+                Assert.Equal(WhoToInheritEstate.OtherPerson, aum.PersonToInherit);
+            }
+        }
+        [Fact]
+        public void TestAddUserPageGetterAndSetterPersonalRep()
+        {
+            using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
+            {
+                Add_UserModel aum = new Add_UserModel(context)
+                {
+                    PersonalRep = WhoToInheritEstate.ComplicatedChildren
+                };
+                Assert.Equal(WhoToInheritEstate.ComplicatedChildren, aum.PersonalRep);
+
+                aum.PersonalRep = WhoToInheritEstate.OtherPerson;
+                Assert.Equal(WhoToInheritEstate.OtherPerson, aum.PersonalRep);
+            }
+        }
+
+        [Fact]
         public async void TestAddUserPageAddingAUserWithValidModelState()
         {
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
@@ -80,9 +237,12 @@ namespace FrontEndTests
                 Assert.Empty(result);
 
                 MockValidation.CheckValidation(aum);
-                await aum.OnPost();
+                var page = await aum.OnPost();
+                RedirectToPageResult check = (RedirectToPageResult)page;
                 result = await context.Users.ToListAsync();
+
                 Assert.Single(result);
+                Assert.Equal("/Dashboard", check.PageName);
             }
         }
         [Fact]
