@@ -20,7 +20,8 @@
             </span>
 		</div>
 		<form method="get">
-			<input type="text" name="searchString" placeholder="Search Users" value="@Model.SearchString" />
+            <label asp-for="SearchString">Search:</label>
+			<input type="text" name="searchString"  value="@Model.SearchString" />
 			<span>
 				Display checked in guests
 				@if (Model.WantsToSeeCheckedIn)
