@@ -65,6 +65,7 @@ namespace WAWillClinicFrontEnd.Pages
                 var user = _context.Users.FirstOrDefault(i => i.ID == id);
 
                 if (user == null) RedirectToPage("/Dashboard");
+                ID = user.ID;
                 Name = user.Name;
                 Phone = user.PhoneNumber;
                 Email = user.Email;
