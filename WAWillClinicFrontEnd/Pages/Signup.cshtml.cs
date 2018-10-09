@@ -87,6 +87,11 @@ namespace WAWillClinicFrontEnd.Pages
                 //	TempData["Error"] = "Please make sure your Personal Rep is not the same as your Backup Rep."; 
                 //	return Page();
                 //}
+                if (!Agree)
+                {
+                    TempData["Error"] = "You cannot sign up unless you agree to the terms and conditions.";
+                    return Page();
+                }
                 await _context.AddAsync(user);
                 await _context.SaveChangesAsync();
                 await _emailSender.SendEmailAsync(Email,
