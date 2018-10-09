@@ -68,12 +68,12 @@ namespace WAWillClinicFrontEnd.Pages
 			//show only checked in users
 			else if (isCheckedIn)
 			{
-				users = _context.Users.Where(u => u.CheckedIn == true);
+				users = users.Where(u => u.CheckedIn == true);
 				WantsToSeeCheckedIn = isCheckedIn;
 			}
 			else if (isCheckedOut)
 			{
-				users = _context.Users.Where(u => u.CheckedIn == false);
+				users = users.Where(u => u.CheckedIn == false);
 				WantsToSeeCheckedOut = isCheckedOut;
 			}
 

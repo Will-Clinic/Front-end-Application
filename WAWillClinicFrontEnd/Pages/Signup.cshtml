@@ -9,113 +9,115 @@
 
 <p class="content">If you would like to join the Will Clinic, please sign up below.</p>
 <br /><br />
-<form method="post" class="content">
-@*<p>@TempData["Error"]</p>*@
-	<label asp-for="Agree">
-		I HAVE READ THE WA VETS WILL CLINIC INFORMATION AND INSTRUCTIONS
-		AND AGREE TO ITS TERMS.
-	</label>
-	<br />
-	<input class="radioButton" type="radio" name="Agree" value="True" /> Yes
-	<input class="radioButton" type="radio" name="Agree" value="False" /> No
-	<span asp-validation-for="Agree"></span>
-	<br />
+      <form method="post" class="content">
+          @*<p>@TempData["Error"]</p>*@
+          <label asp-for="Agree">
+              I HAVE READ THE WA VETS WILL CLINIC INFORMATION AND INSTRUCTIONS
+              AND AGREE TO ITS TERMS.
+          </label>
+          <br />
+          <input class="radioButton" type="radio" name="Agree" value="True" required /> Yes
+          <input class="radioButton" type="radio" name="Agree" value="False" required /> No
+          <span asp-validation-for="Agree"></span>
+          <p>@TempData["Error"]</p>
 
-	<label asp-for="Name">Full Legal Name</label><br />
-	<input type="text" name="Name" required placeholder="Full Legal Name" title="Please input full name." />
-	<span asp-validation-for="Name"></span>
-	<br />
+          <br />
 
-	<label asp-for="PhoneNumber">Phone Number</label><br />
-	<input type="tel" name="PhoneNumber" required pattern="[0-9]{10}" placeholder="1234567890"
-			title="Please input a phone number" />
-	<span asp-validation-for="PhoneNumber"></span>
-	<br />
+          <label asp-for="Name">Full Legal Name</label><br />
+          <input type="text" name="Name" required placeholder="Full Legal Name" title="Please input full name." />
+          <span asp-validation-for="Name"></span>
+          <br />
 
-	<label asp-for="Email">Email Address</label><br />
-	<input type="email" name="Email" required placeholder="Email"
-			title="Please input an email address" />
-	<span asp-validation-for="Email"></span>
-	<br />
+          <label asp-for="PhoneNumber">Phone Number</label><br />
+          <input type="tel" name="PhoneNumber" required pattern="[0-9]{10}" placeholder="1234567890"
+                 title="Please input a phone number" />
+          <span asp-validation-for="PhoneNumber"></span>
+          <br />
 
-	<label asp-for="IsVeteran">
-		Are you, or your spouse, a veteran of the United States Armed
-		Forces?
-	</label>
-	<br />
-	<input class="radioButton" type="radio" name="IsVeteran" value="True" /> Yes
-	<input class="radioButton" type="radio" name="IsVeteran" value="False" /> No <br />
-	<span asp-validation-for="IsVeteran"></span>
-	<br />
+          <label asp-for="Email">Email Address</label><br />
+          <input type="email" name="Email" required placeholder="Email"
+                 title="Please input an email address" />
+          <span asp-validation-for="Email"></span>
+          <br />
 
-	<label asp-for="IsWashingtonResident">Are you a Washington state resident?</label>
-	<br />
-	<input class="radioButton" type="radio" name="IsWashingtonResident" value="True" /> Yes
-	<input class="radioButton" type="radio" name="IsWashingtonResident" value="False" /> No <br />
-	<span asp-validation-for="IsWashingtonResident"></span>
-	<br />
+          <label asp-for="IsVeteran">
+              Are you, or your spouse, a veteran of the United States Armed
+              Forces?
+          </label>
+          <br />
+          <input class="radioButton" type="radio" name="IsVeteran" value="True" /> Yes
+          <input class="radioButton" type="radio" name="IsVeteran" value="False" /> No <br />
+          <span asp-validation-for="IsVeteran"></span>
+          <br />
 
-	<label asp-for="PreferredTime">Please indicate your preferred time to receive service.</label>
-	<br />
-	<input class="radioButton" type="radio" name="PreferredTime" value="True" /> Morning
-	<input class="radioButton" type="radio" name="PreferredTime" value="False" /> Afternoon <br />
-	<span asp-validation-for="PreferredTime"></span>
-	<br />
+          <label asp-for="IsWashingtonResident">Are you a Washington state resident?</label>
+          <br />
+          <input class="radioButton" type="radio" name="IsWashingtonResident" value="True" /> Yes
+          <input class="radioButton" type="radio" name="IsWashingtonResident" value="False" /> No <br />
+          <span asp-validation-for="IsWashingtonResident"></span>
+          <br />
 
-	<label asp-for="ChooseMaritalStatus">What is your marital status?</label><br />
-	<select asp-for="ChooseMaritalStatus" asp-items="Html.GetEnumSelectList<MaritalStatus>()"></select>
-	<span asp-validation-for="ChooseMaritalStatus"></span>
-	<br />
+          <label asp-for="PreferredTime">Please indicate your preferred time to receive service.</label>
+          <br />
+          <input class="radioButton" type="radio" name="PreferredTime" value="True" /> Morning
+          <input class="radioButton" type="radio" name="PreferredTime" value="False" /> Afternoon <br />
+          <span asp-validation-for="PreferredTime"></span>
+          <br />
 
-	<label asp-for="SpouseName">Full legal name of your spouse</label><br />
-	<input type="text" name="SpouseName" required placeholder="Spouse's Name"
-			title="Please enter the full legal name of your spouse." />
-	<span asp-validation-for="SpouseName"></span>
-	<br />
+          <label asp-for="ChooseMaritalStatus">What is your marital status?</label><br />
+          <select asp-for="ChooseMaritalStatus" asp-items="Html.GetEnumSelectList<MaritalStatus>()"></select>
+          <span asp-validation-for="ChooseMaritalStatus"></span>
+          <br />
 
-	<label asp-for="HasChildren">Do you have any children?</label>
-	<br />
-	<input class="radioButton" type="radio" name="HasChildren" value="True" /> Yes
-	<input class="radioButton" type="radio" name="HasChildren" value="False" /> No <br />
-	<span asp-validation-for="HasChildren"></span>
-	<br />
+          <label asp-for="SpouseName">Full legal name of your spouse</label><br />
+          <input type="text" name="SpouseName" required placeholder="Spouse's Name"
+                 title="Please enter the full legal name of your spouse." />
+          <span asp-validation-for="SpouseName"></span>
+          <br />
 
-	<label asp-for="IsCurrentlyPregnant">
-		Do you have any minor children?
-		Or, are you, your spouse, or your partner currently pregnant?
-	</label>
-	<br />
-	<input class="radioButton" type="radio" name="IsCurrentlyPregnant" value="True" /> Yes
-	<input class="radioButton" type="radio" name="IsCurrentlyPregnant" value="False" /> No <br />
-	<span asp-validation-for="IsCurrentlyPregnant"></span>
-	<br />
+          <label asp-for="HasChildren">Do you have any children?</label>
+          <br />
+          <input class="radioButton" type="radio" name="HasChildren" value="True" /> Yes
+          <input class="radioButton" type="radio" name="HasChildren" value="False" /> No <br />
+          <span asp-validation-for="HasChildren"></span>
+          <br />
 
-	<label asp-for="MinorChildName">Full legal name(s) of your MINOR child(ren).</label><br />
-	<input type="text" name="MinorChildName" required placeholder="Minor Child's Name"
-			title="Child's name." />
-	<span asp-validation-for="MinorChildName"></span>
-	<br />
+          <label asp-for="IsCurrentlyPregnant">
+              Do you have any minor children?
+              Or, are you, your spouse, or your partner currently pregnant?
+          </label>
+          <br />
+          <input class="radioButton" type="radio" name="IsCurrentlyPregnant" value="True" /> Yes
+          <input class="radioButton" type="radio" name="IsCurrentlyPregnant" value="False" /> No <br />
+          <span asp-validation-for="IsCurrentlyPregnant"></span>
+          <br />
 
-	<label asp-for="ContRemBeneficiary">Contingent remainder beneficiary?</label>
-	<select asp-for="ContRemBeneficiary" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()"></select>
-	<span asp-validation-for="ContRemBeneficiary"></span>
-	<br />
+          <label asp-for="MinorChildName">Full legal name(s) of your MINOR child(ren).</label><br />
+          <input type="text" name="MinorChildName" required placeholder="Minor Child's Name"
+                 title="Child's name." />
+          <span asp-validation-for="MinorChildName"></span>
+          <br />
 
-	<label asp-for="PersonToInherit">Who would you like to inherit your estate when you die?</label>
-	<select asp-for="PersonToInherit" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()"></select>
-	<span asp-validation-for="PersonToInherit"></span>
-	<br />
+          <label asp-for="ContRemBeneficiary">Contingent remainder beneficiary?</label>
+          <select asp-for="ContRemBeneficiary" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()"></select>
+          <span asp-validation-for="ContRemBeneficiary"></span>
+          <br />
 
-	<label asp-for="PersonalRep">Whom do you wish to serve as your personal representative?</label>
-	<select asp-for="PersonalRep" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()"></select>
-	<span asp-validation-for="PersonalRep"></span>
-	<br />
+          <label asp-for="PersonToInherit">Who would you like to inherit your estate when you die?</label>
+          <select asp-for="PersonToInherit" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()"></select>
+          <span asp-validation-for="PersonToInherit"></span>
+          <br />
 
-	@*<label asp-for="BackupRep">Whom do you wish to serve as your backup representative?</label>
-	<select asp-for="BackupRep" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()"></select>
-	<span asp-validation-for="BackupRep"></span>
-	<br />*@
+          <label asp-for="PersonalRep">Whom do you wish to serve as your personal representative?</label>
+          <select asp-for="PersonalRep" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()"></select>
+          <span asp-validation-for="PersonalRep"></span>
+          <br />
 
-	<input type="submit" value="Sign up" />
+          @*<label asp-for="BackupRep">Whom do you wish to serve as your backup representative?</label>
+        <select asp-for="BackupRep" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()"></select>
+        <span asp-validation-for="BackupRep"></span>
+        <br />*@
 
-</form>
+          <input type="submit" value="Sign up" />
+
+      </form>

@@ -33,12 +33,16 @@ main {
     float: left; }
   #white-head ul {
     display: none; }
+  #white-head p {
+    display: none; }
   #white-head a {
     color: #282828;
     text-decoration: none; }
     #white-head a:hover, #white-head a:active {
       color: #007AFF; }
   @media (min-width: 1066px) {
+    #white-head p {
+      display: block; }
     #white-head .fa-bars {
       display: none; }
     #white-head ul {
@@ -126,4 +130,3 @@ table {
 
 #admin-links a {
   padding: 0 .75em; }
-

@@ -23,6 +23,10 @@
         <div id="blue-head">
             <nav>
                 <h1><a href="/">The Will Clinic</a><i class="fas fa-times"></i></h1>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <p id="identity_user">@User.Identity.Name</p>
+                }
                 <ul>
                     @if (SignInManager.IsSignedIn(User))
                     {
@@ -85,7 +89,6 @@
     <main>
         <section>
             @RenderBody()
-
         </section>
     </main>
     <script src="https://code.jquery.com/jquery-3.3.1.js"
