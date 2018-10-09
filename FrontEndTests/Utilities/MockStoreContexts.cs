@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
@@ -16,6 +17,7 @@ namespace FrontEndTests.Utilities
     {
         //Creating a helper class to hold our contexts that will be defined
         public Mock<IUserStore<ApplicationUser>> Store { get; set; } = new Mock<IUserStore<ApplicationUser>>();
+        public Mock<IConfiguration> Configuration { get; set; } = new Mock<IConfiguration>();
         public Mock<UserManager<ApplicationUser>> UserManager { get; set; }
         public Mock<HttpContext> HttpContext { get; set; } = new Mock<HttpContext>();
         public Mock<IHttpContextAccessor> ContextAccessor { get; set; } = new Mock<IHttpContextAccessor>();
