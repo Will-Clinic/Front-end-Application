@@ -113,20 +113,5 @@ namespace WAWillClinicFrontEnd.Pages
             }
             return Page();
         }
-        /// <summary>
-        /// Action to delete the specific user
-        /// </summary>
-        /// <returns>Page</returns>
-        public async Task<IActionResult> OnPostEditAsync()
-        {
-            var user = _context.Users.FirstOrDefault(e => e.Email == Email);
-            if (user != null)
-            {
-                _context.Users.Remove(user);
-                await _context.SaveChangesAsync();
-                return RedirectToPage("/Dashboard");
-            }
-            return Page();
-        }
     }
 }
