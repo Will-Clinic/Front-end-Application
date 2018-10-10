@@ -132,6 +132,7 @@ table {
 #admin-links a {
   padding: 0 .75em; }
 
+/*@import "../css/layout.scss";*/
 .fa-times {
   font-size: 1em;
   color: #FFFFFF;
@@ -263,6 +264,13 @@ input, select, textarea {
   margin-bottom: 16px;
   resize: vertical;
   text-align: center; }
+  @media (min-width: 1066px) {
+    input, select, textarea {
+      width: 80%;
+      text-align: left; } }
+  @media (min-width: 1300px) {
+    input, select, textarea {
+      width: 60%; } }
 
 input[type=submit] {
   background-color: #007AFF;
@@ -281,3 +289,26 @@ form {
   text-align: left; }
   form p {
     color: red; }
+  form input {
+    text-align: center; }
+
+/*.center {
+    text-align: center;
+}*/
+.form-border {
+  background: white;
+  margin: 0.25em;
+  padding: 0.5em;
+  padding-bottom: 2em;
+  /*h2:first-of-type {
+        padding-top: $small-gut/2;
+    }*/ }
+  @media (min-width: 1066px) {
+    .form-border {
+      margin: 2em;
+      /*h2:first-of-type {
+            padding-top: $small-gut;
+        }*/ } }
+  .form-border textarea {
+    text-align: left;
+    height: 150px; }

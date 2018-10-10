@@ -1,6 +1,6 @@
 ﻿@import "../css/theme.scss";
 @import "../css/base.scss";
-@import "../css/module.scss";
+/*@import "../css/module.scss";*/
 
 section {
     margin: $big-gut*2 auto;
@@ -10,6 +10,10 @@ section {
     margin: $big-gut;
 }    
 
+.sub-small {
+    margin: $small-gut;
+}
+
 .content {
         margin: auto $small-gut;
         font-family: $secondary-font;
@@ -18,6 +22,7 @@ section {
 
         @include desktop {
             margin: auto $big-gut*2;
+            text-align:left;
         }
 
         @include big-desktop {

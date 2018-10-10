@@ -8,48 +8,51 @@
 <h2>Dashboard</h2>
 <section class="content">
 	<section id="admin-links">
-		<a asp-page="/add_user">Add guest</a>
-		<a asp-page="/change_password">Change Password</a>
-		<a href="/logout">Logout</a>
-		<br /><br />
-		<div>
+        <div class="center">
+		    <a asp-page="/add_user">Add guest</a>
+		    <a asp-page="/change_password">Change Password</a>
+		    <a href="/logout">Logout</a>
+        </div>
+        <div class="sub-small center">
             <span>
                 Total Checked in: @Model.TotalCheckedIn
                 <br/>
                 Total Displayed: @Model.TotalOnDisplay
             </span>
 		</div>
-		<form method="get">
+        <form method="get">
             <label asp-for="SearchString">Search:</label>
-			<input type="text" name="searchString"  value="@Model.SearchString" />
-			<span>
-				Display checked in guests
-				@if (Model.WantsToSeeCheckedIn)
-				{
-					<input type="checkbox" class="radioButton" name="isCheckedIn" value="true" checked />
-				}
-				else
-				{
-					<input type="checkbox" class="radioButton" name="isCheckedIn" value="true" />
+            <br />
+            <input type="text" name="searchString" value="@Model.SearchString" />
+            <br />
+            <span>
+                Display checked in guests
+                @if (Model.WantsToSeeCheckedIn)
+                {
+                    <input type="checkbox" class="radioButton" name="isCheckedIn" value="true" checked />
+                }
+                else
+                {
+                    <input type="checkbox" class="radioButton" name="isCheckedIn" value="true" />
 
-				}
-			</span>
-			<span>
-				Display guests who haven't arrived
-				@if (Model.WantsToSeeCheckedOut)
-				{
-					<input type="checkbox" class="radioButton" name="isCheckedOut" value="true" checked />
-				}
-				else
-				{
-					<input type="checkbox" class="radioButton" name="isCheckedOut" value="true" />
+                }
+            </span>
+            <span>
+                Display guests who haven't arrived
+                @if (Model.WantsToSeeCheckedOut)
+                {
+                    <input type="checkbox" class="radioButton" name="isCheckedOut" value="true" checked />
+                }
+                else
+                {
+                    <input type="checkbox" class="radioButton" name="isCheckedOut" value="true" />
 
-				}
-			</span>
+                }
+            </span>
 
-			<input type="submit" value="Search User(s) by Name" />
-		</form>
-		@if (!String.IsNullOrEmpty(Model.SearchString))
+            <input type="submit" value="Search User(s) by Name" />
+        </form>
+		@if (!String.IsNullOrEmpty(Model.SearchString) || Model.WantsToSeeCheckedIn || Model.WantsToSeeCheckedOut)
 		{
 			<form method="get" asp-page="Dashboard">
 				<input type="submit" value="Reset" />

@@ -28,7 +28,7 @@ namespace WAWillClinicFrontEnd.Models
         {
             StringBuilder message = new StringBuilder();
 
-            message.Append($"<p>Dear {contact.FirstName} {contact.LastName}</p>");
+            message.Append($"<p>Dear {contact.FirstName}</p>");
             message.Append("<br />");
             message.Append("<p>This email is to confirm that you have requested information</p>");
             message.Append("<p>We will be in touch soon!</p>");
@@ -68,7 +68,7 @@ namespace WAWillClinicFrontEnd.Models
 
             message.Append("<h3>The following information has been requested: </h3>");
             message.Append($"<p>&nbsp;Reason: {contact.Reason}</p>");
-            message.Append($"<p>&nbsp;Name: {contact.FirstName} {contact.LastName}</p>");
+            message.Append($"<p>&nbsp;Name: {contact.FirstName}</p>");
             message.Append($"<p>&nbsp;Email: {contact.Email}</p>");
             message.Append($"<p>&nbsp;Phone Number: {contact.Phone}</p>");
             message.Append("<br />");
