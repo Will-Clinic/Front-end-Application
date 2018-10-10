@@ -5,18 +5,21 @@
     Layout = "_Layout";
 }
 <section>
-    <h2>User Details</h2>
 </section>
 
-<section>
+<section class="form-border">
+    <h2>User Details</h2>
     <form method="post">
         <label asp-for="Name">Full Name</label>
+        <br />
         <input type="text" name="Name" value="@Model.Name" readonly />
         <br />
         <label asp-for="Email">Email Address</label>
+        <br />
         <input type="email" name="Email" value="@Model.Email" readonly />
         <br />
         <label asp-for="Phone">Phone Number</label>
+        <br />
         <input type="tel" name="Phone" value="@Model.Phone" readonly />
         <br />
 

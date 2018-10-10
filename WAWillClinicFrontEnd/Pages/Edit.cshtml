@@ -7,19 +7,21 @@
 @{
     Layout = "_Layout";
 }
-<section>
-    <h2>Edit user</h2>
-</section>
 
-<section>
+
+<section class="form-border">
+    <h2>Edit user</h2>
     <form method="post">
         <label asp-for="Name">Full Name</label>
+        <br />
         <input type="text" name="Name" value="@Model.Name" required title="Please input a name" />
         <br />
         <label asp-for="Email">Email Address</label>
+        <br />
         <input type="email" name="Email" value="@Model.Email" required title="Please input an email address" />
         <br />
         <label asp-for="Phone">Phone Number</label>
+        <br />
         <input type="tel" name="Phone" value="@Model.Phone" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Please input a phone number" />
         <br />
 
@@ -129,8 +131,8 @@
             <br />
         }
         @*<input class="radioButton" type="radio" name="HasChildren" value="True" /> Yes
-            <input class="radioButton" type="radio" name="HasChildren" value="False" /> No <br />
-            <span asp-validation-for="HasChildren"></span>*@
+        <input class="radioButton" type="radio" name="HasChildren" value="False" /> No <br />
+        <span asp-validation-for="HasChildren"></span>*@
         <br />
 
         <label asp-for="IsCurrentlyPregnant">

@@ -306,6 +306,7 @@ form {
   @media (min-width: 1066px) {
     .form-border {
       margin: 2em;
+      padding: 0.5em 2em;
       /*h2:first-of-type {
             padding-top: $small-gut;
         }*/ } }

@@ -246,13 +246,14 @@ form {
     }*/
     @include desktop {
         margin: $big-gut;
+        padding: $small-gut/2 $big-gut;
         /*h2:first-of-type {
             padding-top: $small-gut;
         }*/
     }
 
     textarea {
-        text-align:left;
-        height:150px;
+        text-align: left;
+        height: 150px;
     }
 }
