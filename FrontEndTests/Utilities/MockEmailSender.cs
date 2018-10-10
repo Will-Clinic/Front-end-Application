@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FrontEndTests.Helpers
+namespace FrontEndTests.Utilities
 {
     class MockEmailSender : IEmailSender
     {
@@ -20,7 +20,7 @@ namespace FrontEndTests.Helpers
             msg.SetSubject(subject);
             msg.AddContent(MimeType.Html, htmlMessage);
 
-            var response = await client.SendEmailAsync(msg);
+            await Task.CompletedTask;
         }
     }
 }

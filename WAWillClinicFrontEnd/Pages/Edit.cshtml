@@ -1,25 +1,27 @@
 ﻿@page
 @model WAWillClinicFrontEnd.Pages.EditModel
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit User";
 }
 
 @{
     Layout = "_Layout";
 }
-<section>
-    <h2>Edit user</h2>
-</section>
 
-<section>
+
+<section class="form-border">
+    <h2>Edit user</h2>
     <form method="post">
         <label asp-for="Name">Full Name</label>
+        <br />
         <input type="text" name="Name" value="@Model.Name" required title="Please input a name" />
         <br />
         <label asp-for="Email">Email Address</label>
+        <br />
         <input type="email" name="Email" value="@Model.Email" required title="Please input an email address" />
         <br />
         <label asp-for="Phone">Phone Number</label>
+        <br />
         <input type="tel" name="Phone" value="@Model.Phone" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Please input a phone number" />
         <br />
 
@@ -101,7 +103,7 @@
         <br />
 
         <label asp-for="SpouseName">Full legal name of your spouse</label><br />
-        <input type="text" name="SpouseName" required value="@Model.SpouseName" readonly
+        <input type="text" name="SpouseName" required value="@Model.SpouseName"
                title="Please enter the full legal name of your spouse." />
         <span asp-validation-for="SpouseName"></span>
         <br />
@@ -129,8 +131,8 @@
             <br />
         }
         @*<input class="radioButton" type="radio" name="HasChildren" value="True" /> Yes
-            <input class="radioButton" type="radio" name="HasChildren" value="False" /> No <br />
-            <span asp-validation-for="HasChildren"></span>*@
+        <input class="radioButton" type="radio" name="HasChildren" value="False" /> No <br />
+        <span asp-validation-for="HasChildren"></span>*@
         <br />
 
         <label asp-for="IsCurrentlyPregnant">
@@ -161,7 +163,7 @@
         <br />
 
         <label asp-for="MinorChildName">Full legal name(s) of your MINOR child(ren).</label><br />
-        <input type="text" name="MinorChildName" required value="@Model.MinorChildName" readonly
+        <input type="text" name="MinorChildName" required value="@Model.MinorChildName"
                title="Child's name." />
         <span asp-validation-for="MinorChildName"></span>
         <br />
@@ -182,8 +184,13 @@
         <br />
         <input type="submit" value="Update User" />
     </form>
-    <form method="post" asp-page-handler="delete">
+    @*<form method="post" asp-page-handler="delete">
         <input type="hidden" name="Email" value="@Model.Email" />
         <input type="submit" value="Delete User" />
+    </form>*@
+
+    <form method="get" asp-page="DeleteConfirm">
+        <input type="hidden" asp-for="ID" value="@Model.ID" />
+        <input type="submit" value="Delete User" style="background-color:red"/>
     </form>
 </section>

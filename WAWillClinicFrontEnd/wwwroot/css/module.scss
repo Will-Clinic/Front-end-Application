@@ -1,5 +1,6 @@
 ﻿@import "../css/theme.scss";
 @import "../css/base.scss";
+/*@import "../css/layout.scss";*/
 
 //Close Nav bar
 .fa-times {
@@ -182,7 +183,7 @@ main {
 
 //form
 input, select, textarea {
-	width: 100%;
+    width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -190,7 +191,16 @@ input, select, textarea {
     margin-top: 6px;
     margin-bottom: 16px;
     resize: vertical;
-	text-align: center;
+    text-align: center;
+
+    @include desktop {
+        width: 80%;
+        text-align:left;
+    }
+
+    @include big-desktop {
+        width: 60%;
+    }
 }
 
 input[type=submit] {
@@ -216,4 +226,34 @@ form {
 	p {
 		color: red;
 	}
+
+    input {
+        text-align:center;
+    }
+}
+
+/*.center {
+    text-align: center;
+}*/
+
+.form-border {
+    background: white;
+    margin: $small-gut/4;
+    padding: $small-gut/2;
+    padding-bottom: $big-gut;
+    /*h2:first-of-type {
+        padding-top: $small-gut/2;
+    }*/
+    @include desktop {
+        margin: $big-gut;
+        padding: $small-gut/2 $big-gut;
+        /*h2:first-of-type {
+            padding-top: $small-gut;
+        }*/
+    }
+
+    textarea {
+        text-align: left;
+        height: 150px;
+    }
 }

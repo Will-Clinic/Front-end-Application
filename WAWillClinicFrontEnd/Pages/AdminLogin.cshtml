@@ -4,18 +4,21 @@
     Layout = "_Layout";
 }
 
-<section>
-    <h2>AdminLogin</h2>
+<section class="form-border">
+    <h2>Admin Login</h2>
     <p>Unauthorized access is strictly prohibited.</p>
+    <br/>
+    <form method="post">
+        <label asp-for="Email">Email Address</label>
+        <br />
+        <input type="text" name="email" required placeholder="Email Address" title="Please enter an email address" />
+        <br />
+        <label asp-for="Password">Password</label>
+        <br />
+        <input type="password" name="password" required placeholder="Password"
+               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!#$%^&*(),.?:{}|<>]).{6,}"
+               title="Please enter a password with atleast one of: number, one upper case, one lowercase, special character and at least 6 characters long" />
+        <br />
+        <input type="submit" />
+    </form>
 </section>
-<form method="post">
-    <label asp-for="Email">Email Address</label>
-    <input type="text" name="email" required placeholder="Email Address" title="Please enter an email address" />
-    <br />
-    <label asp-for="Password">Password</label>
-    <input type="password" name="password" required placeholder="Password"
-           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!#$%^&*(),.?:{}|<>]).{6,}"
-           title="Please enter a password with atleast one of: number, one upper case, one lowercase, special character and at least 6 characters long" />
-    <br />
-    <input type="submit" />
-</form>

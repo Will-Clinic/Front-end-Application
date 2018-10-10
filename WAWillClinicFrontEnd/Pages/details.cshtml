@@ -1,21 +1,25 @@
 ﻿@page
 @model WAWillClinicFrontEnd.Pages.DetailsModel
 @{
+    ViewData["Title"] = "User Details";
     Layout = "_Layout";
 }
 <section>
-    <h2>User Details</h2>
 </section>
 
-<section>
+<section class="form-border">
+    <h2>User Details</h2>
     <form method="post">
         <label asp-for="Name">Full Name</label>
+        <br />
         <input type="text" name="Name" value="@Model.Name" readonly />
         <br />
         <label asp-for="Email">Email Address</label>
+        <br />
         <input type="email" name="Email" value="@Model.Email" readonly />
         <br />
         <label asp-for="Phone">Phone Number</label>
+        <br />
         <input type="tel" name="Phone" value="@Model.Phone" readonly />
         <br />
 
@@ -183,13 +187,8 @@
 
         }
     </form>
-    @*<form method="post" asp-page-handler="edit">
-        <input type="hidden" name="Email" value="@Model.Email" />
+    <form method="get" asp-page="Edit">
+        <input type="hidden" asp-for="ID" value="@Model.ID" />
         <input type="submit" value="Edit User" />
-    </form>*@
-    @*<form method="get" asp-page="Edit">
-        @*<input type="hidden" value="@Model.ID" />*@
-        @*<input type="submit" value="Edit User" asp-route-id="@Model.ID"/>
-    </form>*@
-    <a href="/Edit?id=@Model.ID">Edit User</a>
+    </form>
 </section>

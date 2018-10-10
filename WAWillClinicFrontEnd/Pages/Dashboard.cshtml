@@ -5,13 +5,60 @@
     Layout = "_Layout";
 }
 
-<h2>Dashboard</h2>
-<section class="content">
-    <section id="admin-links">
-        <a asp-page="/add_user">Add guest</a>
-        <a asp-page="/change_password">Change Password</a>
-        <a href="/logout">Logout</a>
-    </section>
+<section class="content form-border">
+    <h2>Dashboard</h2>
+	<section id="admin-links">
+        <div class="center">
+		    <a asp-page="/add_user">Add guest</a>
+		    <a asp-page="/change_password">Change Password</a>
+		    <a href="/logout">Logout</a>
+        </div>
+        <div class="sub-small center">
+            <span>
+                Total Checked in: @Model.TotalCheckedIn
+                <br/>
+                Total Displayed: @Model.TotalOnDisplay
+            </span>
+		</div>
+        <form method="get">
+            <label asp-for="SearchString">Search:</label>
+            <br />
+            <input type="text" name="searchString" value="@Model.SearchString" />
+            <br />
+            <span>
+                Display checked in guests
+                @if (Model.WantsToSeeCheckedIn)
+                {
+                    <input type="checkbox" class="radioButton" name="isCheckedIn" value="true" checked />
+                }
+                else
+                {
+                    <input type="checkbox" class="radioButton" name="isCheckedIn" value="true" />
+
+                }
+            </span>
+            <span>
+                Display guests who haven't arrived
+                @if (Model.WantsToSeeCheckedOut)
+                {
+                    <input type="checkbox" class="radioButton" name="isCheckedOut" value="true" checked />
+                }
+                else
+                {
+                    <input type="checkbox" class="radioButton" name="isCheckedOut" value="true" />
+
+                }
+            </span>
+
+            <input type="submit" value="Search User(s) by Name" />
+        </form>
+		@if (!String.IsNullOrEmpty(Model.SearchString) || Model.WantsToSeeCheckedIn || Model.WantsToSeeCheckedOut)
+		{
+			<form method="get" asp-page="Dashboard">
+				<input type="submit" value="Reset" />
+			</form>
+		}
+	</section>
     <table>
         <tr>
             <th>Full Name</th>
@@ -27,14 +74,15 @@
             <td>@user.PhoneNumber</td>
             @if (user.CheckedIn)
             {
-                <td><input type="checkbox" checked disabled/></td>
+                <td>Yes</td>
             }
             else
             {
-                <td><input type="checkbox" disabled/></td>
+                <td>No</td>
             }
         </tr>
         }
     </table>
+    <br/>
 </section>
 

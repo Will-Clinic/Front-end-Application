@@ -1,0 +1,30 @@
+﻿@page
+@model WAWillClinicFrontEnd.Pages.DeleteConfirmModel
+@{
+    ViewData["Title"] = "Confirm Delete";
+    Layout = "_Layout";
+}
+
+<section class="form-border">
+    <h2>Confirm Delete</h2>
+    <table>
+        <tr>
+            <th>Full Name</th>
+            <th>Email Address</th>
+        </tr>
+        <tr>
+            <td><a asp-page="details" asp-route-id="@Model.ID">@Model.Name</a></td>
+            <td>@Model.Email</td>
+        </tr>
+    </table>
+    <div class="subsection center">
+        <form method="post" asp-page-handler="delete">
+            <input type="hidden" name="ID" value="@Model.ID" />
+            <input type="submit" value="Delete User" style="background-color:red" />
+        </form>
+        <br />
+        <form method="get" asp-page="Dashboard">
+            <input type="submit" value="Return to Dashboard" />
+        </form>
+    </div>
+</section>

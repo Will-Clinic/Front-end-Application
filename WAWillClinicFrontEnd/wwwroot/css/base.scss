@@ -46,6 +46,10 @@ main {
         display:none;
     }
 
+    p {
+        display:none;
+    }
+
     a {
         color: color(primary-dark);
         text-decoration: none;
@@ -56,6 +60,10 @@ main {
     }
 
     @include desktop {
+        p {
+            display: block;
+        }
+
         .fa-bars {
             display: none;
         }

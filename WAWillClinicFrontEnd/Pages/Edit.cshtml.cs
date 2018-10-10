@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using WAWillClinicFrontEnd.Data;
 using WAWillClinicFrontEnd.Models;
 
@@ -26,8 +27,6 @@ namespace WAWillClinicFrontEnd.Pages
         public string Phone { get; set; }
         [Required]
         public bool IsVeteran { get; set; }
-        [Required]
-        public string PhoneNumber { get; set; }
         [Required]
         public bool IsWashingtonResident { get; set; }
         [Required]
@@ -66,6 +65,7 @@ namespace WAWillClinicFrontEnd.Pages
                 var user = _context.Users.FirstOrDefault(i => i.ID == id);
 
                 if (user == null) RedirectToPage("/Dashboard");
+                ID = user.ID;
                 Name = user.Name;
                 Phone = user.PhoneNumber;
                 Email = user.Email;
@@ -96,6 +96,17 @@ namespace WAWillClinicFrontEnd.Pages
                 user.Name = Name;
                 user.PhoneNumber = Phone;
                 user.Email = Email;
+                user.IsVeteran = IsVeteran;
+                user.PreferredTime = PreferredTime;
+                user.IsWashingtonResident = IsWashingtonResident;
+                user.ChooseMaritalStatus = ChooseMaritalStatus;
+                user.SpouseName = SpouseName;
+                user.HasChildren = HasChildren;
+                user.IsCurrentlyPregnant = IsCurrentlyPregnant;
+                user.MinorChildName = MinorChildName;
+                user.ContRemBeneficiary = ContRemBeneficiary;
+                user.PersonToInherit = PersonToInherit;
+                user.PersonalRep = PersonalRep;
 
                 _context.Users.Update(user);
                 await _context.SaveChangesAsync();
@@ -109,12 +120,10 @@ namespace WAWillClinicFrontEnd.Pages
         /// <returns>Page</returns>
         public async Task<IActionResult> OnPostDeleteAsync()
         {
-            var user = _context.Users.FirstOrDefault(e => e.Email == Email);
+            var user = await _context.Users.FirstOrDefaultAsync(e => e.Email == Email);
             if (user != null)
             {
-                _context.Users.Remove(user);
-                await _context.SaveChangesAsync();
-                return RedirectToPage("/Dashboard");
+                return RedirectToPage("/DeleteConfirm", user.ID);
             }
             return Page();
         }

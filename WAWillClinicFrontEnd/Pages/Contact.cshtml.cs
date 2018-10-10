@@ -15,10 +15,18 @@ namespace WAWillClinicFrontEnd.Pages
     [BindProperties]
     public class ContactModel : PageModel
     {
+        [Required]
+        [Display(Name="Name")]
         public string FirstName { get; set; }
-        public string LastName { get; set; }
+        //[Required]
+        //public string LastName { get; set; }
+        [Required]
+        [Display(Name="Email Address")]
         public string Email { get; set; }
+        [Required]
+        [Display(Name = "Phone Number")]
         public long Phone { get; set; }
+        [Required]
         public EmailMessages.ContactType Reason { get; set; }
         public string AdditionalRemarks { get; set; }
 
