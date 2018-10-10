@@ -299,17 +299,11 @@ form {
   background: white;
   margin: 0.25em;
   padding: 0.5em;
-  padding-bottom: 2em;
-  /*h2:first-of-type {
-        padding-top: $small-gut/2;
-    }*/ }
+  padding-bottom: 2em; }
   @media (min-width: 1066px) {
     .form-border {
       margin: 2em;
-      padding: 0.5em 2em;
-      /*h2:first-of-type {
-            padding-top: $small-gut;
-        }*/ } }
+      padding: 0.5em 2em; } }
   .form-border textarea {
     text-align: left;
     height: 150px; }
