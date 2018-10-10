@@ -24,19 +24,6 @@ namespace FrontEndTests
             Assert.Equal("Test", contact.FirstName);
         }
         [Fact]
-        public void ContactModelGetterAndSetterTestLastName()
-        {
-            var EmailSender = new MockEmailSender();
-
-            ContactModel contact = new ContactModel(EmailSender);
-
-            Assert.Null(contact.LastName);
-
-            contact.LastName = "Test";
-
-            Assert.Equal("Test", contact.LastName);
-        }
-        [Fact]
         public void ContactModelGetterAndSetterTestEmail()
         {
             var EmailSender = new MockEmailSender();
@@ -95,8 +82,7 @@ namespace FrontEndTests
 
             ContactModel contact = new ContactModel(EmailSender)
             {
-                FirstName = "Test",
-                LastName = "Name",
+                FirstName = "Test Name",
                 Email = "abc@123.com",
                 Phone = 1234567890,
                 Reason = EmailMessages.ContactType.Donate,
@@ -117,8 +103,7 @@ namespace FrontEndTests
 
             ContactModel contact = new ContactModel(EmailSender)
             {
-                FirstName = "Test",
-                LastName = "Name",
+                FirstName = "Test Name",
                 Phone = 1234567890,
                 Reason = EmailMessages.ContactType.Donate,
                 AdditionalRemarks = "Additional Remarks"

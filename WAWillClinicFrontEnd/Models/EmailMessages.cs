@@ -46,7 +46,7 @@ namespace WAWillClinicFrontEnd.Models
             message.Append($"<p>Dear {user.Name}</p>");
             message.Append("<br />");
             message.Append("<p>The WA Vets Wills Clinic thanks you for your service, and this email is to confirm that you have signed up</p>");
-            message.Append("<p> to receive an appointment on [date of event]. We will be sending a confirmation of your appointment time a week prior to the clinic.</p>");
+            message.Append("<p> to receive an appointment in November. We will be sending a confirmation of your appointment time a week prior to the clinic.</p>");
             message.Append("<p> That email will include logistical matters such as directions, parking, and access.</p>");
             message.Append("<br />");
             message.Append("<p>Please email any questions to seattle@wavetswillclinic.com.</p>");
