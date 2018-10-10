@@ -61,13 +61,13 @@ namespace WAWillClinicFrontEnd.Pages
         /// </summary>
         /// <param name="id">Identity id</param>
         /// <returns>Page or Redirect</returns>
-        public void OnGet(int? id)
+        public IActionResult OnGet(int? id)
         {
             if(id.HasValue)
             {
                 var user = _context.Users.FirstOrDefault(i => i.ID == id);
 
-                if (user == null) RedirectToPage("/Dashboard");
+                if (user == null) return RedirectToPage("/Dashboard");
                 ID = user.ID;
                 Name = user.Name;
                 Phone = user.PhoneNumber;
@@ -84,8 +84,9 @@ namespace WAWillClinicFrontEnd.Pages
                 PersonToInherit = user.PersonToInherit;
                 PersonalRep = user.PersonalRep;
                 CheckedIn = user.CheckedIn;
+                return Page();
             }
-            RedirectToPage("/Dashboard");
+            return RedirectToPage("/Dashboard");
         }
         /// <summary>
         /// Our Action that allows admins to update the specific
