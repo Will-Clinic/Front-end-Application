@@ -12,8 +12,8 @@ using WAWillClinicFrontEnd.Models;
 
 namespace WAWillClinicFrontEnd.Pages
 {
-	[Authorize(Policy = "Admin")]
-	[BindProperties]
+   
+    
 	public class DashboardModel : PageModel
 	{
 		private UserDbContext _context;
@@ -28,12 +28,14 @@ namespace WAWillClinicFrontEnd.Pages
 		{
 			_context = context;
 		}
-		/// <summary>
-		/// Action that grabs all of our registered users within the
-		/// database or a subset of users based on a search for name
-		/// </summary>
-		/// <returns>Page</returns>
-		public async Task OnGet(string searchString, bool isCheckedIn, bool isCheckedOut)
+
+        
+        /// <summary>
+        /// Action that grabs all of our registered users within the
+        /// database or a subset of users based on a search for name
+        /// </summary>
+        /// <returns>Page</returns>
+        public async Task OnGet(string searchString, bool isCheckedIn, bool isCheckedOut)
 		{
 			// defines a base query to work with, but does not run it
 			// against the db yet

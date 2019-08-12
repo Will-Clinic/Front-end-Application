@@ -30,6 +30,7 @@ namespace WAWillClinicFrontEnd
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+                
 
             services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(Configuration["ConnectionStrings:UserDefaultConnection"]));

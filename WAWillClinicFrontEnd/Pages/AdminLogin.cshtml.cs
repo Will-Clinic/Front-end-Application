@@ -12,7 +12,7 @@ using WAWillClinicFrontEnd.Models;
 
 namespace WAWillClinicFrontEnd.Pages
 {
-    [Authorize]
+
     [AllowAnonymous]
     [BindProperties]
     public class AdminLoginModel : PageModel
@@ -47,7 +47,17 @@ namespace WAWillClinicFrontEnd.Pages
             {
                 var defaultPass = _configuration;
                 var result = await _signInManager.PasswordSignInAsync(Email, Password, false, true);
-                if(result.Succeeded)
+
+                //ApplicationUser AdminUser = new ApplicationUser
+                //{
+                //    FirstName = "AdminNumber2",
+                //    LastName = "Development",
+                //    Email = Email,
+                //    UserName = Email,
+                //};
+                //await RegisterAdmin(AdminUser, Password);
+
+                if (result.Succeeded)
                 {
                     if(Password == _configuration["DFP"])
                     {
@@ -64,6 +74,18 @@ namespace WAWillClinicFrontEnd.Pages
             }
             ModelState.AddModelError(string.Empty, "Whoops, looks like something didn't work!");
             return Page();
+        }
+
+        /// <summary>
+        /// Registers admin 
+        /// </summary>
+        private  async Task RegisterAdmin(ApplicationUser AdminUser, string password)
+        {
+            await _userManager.CreateAsync(AdminUser, password);
+            if(AdminUser.Email.ToLower() == "admin@admin.com")
+            {
+                await _userManager.AddToRoleAsync(AdminUser, ApplicationRoles.Admin);
+            }
         }
     }
 }
