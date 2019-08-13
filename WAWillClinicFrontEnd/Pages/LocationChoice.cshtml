@@ -1,0 +1,21 @@
+﻿@page
+@model WAWillClinicFrontEnd.Pages.LocationChoiceModel
+@{
+    ViewData["Title"] = "Location Choice";
+    Layout = "_Layout";
+
+}
+<h1>Choose a location to attend a clinic at</h1>
+
+<div class="container">
+    <form method="post">
+    <div>
+        <label asp-for="LocationChoice">Location</label>
+        <select class="form-control" asp-for="LocationChoice" asp-items="@Html.GetEnumSelectList(typeof(WAWillClinicFrontEnd.Pages.LocationChoiceModel.Location))"></select>
+        <span asp-validation-for="LocationChoice"></span>
+
+    </div>
+        <button type="submit">Choose Location</button>
+        <a asp-page="/contact">More Information</a>
+    </form>
+</div>
