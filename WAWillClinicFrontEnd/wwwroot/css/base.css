@@ -173,6 +173,10 @@ table td {
 .container .form-row {
   margin: 0.75em;
 }
+.container p {
+  color: black;
+  font-size: 0.8em;
+}
 .container label {
   font-size: 1.5em;
   font: bold;

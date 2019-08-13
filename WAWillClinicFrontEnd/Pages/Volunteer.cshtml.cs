@@ -18,9 +18,9 @@ namespace WAWillClinicFrontEnd.Pages
         {
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
-
+            return Page();
         }
     }
 }
