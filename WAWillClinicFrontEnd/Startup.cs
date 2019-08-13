@@ -18,9 +18,11 @@ namespace WAWillClinicFrontEnd
     public class Startup
     {
         public IConfiguration Configuration { get; }
+        public IHostingEnvironment Environment { get; }
 
-        public Startup(IConfiguration configuration)
+        public Startup(IHostingEnvironment environment)
         {
+            Environment = environment;
             var builder = new ConfigurationBuilder().AddEnvironmentVariables();
             builder.AddUserSecrets<Startup>();
             // For production.
@@ -31,11 +33,19 @@ namespace WAWillClinicFrontEnd
         {
             services.AddMvc();
 
+            string ConnectionString = Environment.IsDevelopment()
+                ? Configuration.GetConnectionString("ProductionConnection")
+                : Configuration.GetConnectionString("ProductionConnection");
+
+            string UserConnectionString = Environment.IsDevelopment()
+                ? Configuration.GetConnectionString("UserProductionConnection")
+                : Configuration.GetConnectionString("UserProductionConnection");
+
             services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlServer(Configuration["ConnectionStrings:UserDefaultConnection"]));
+                    options.UseSqlServer(UserConnectionString));
 
             services.AddDbContext<UserDbContext>(options =>
-                    options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+                    options.UseSqlServer(ConnectionString));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                     .AddEntityFrameworkStores<ApplicationDbContext>()

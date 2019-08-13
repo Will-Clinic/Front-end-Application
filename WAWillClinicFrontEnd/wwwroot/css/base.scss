@@ -192,3 +192,59 @@ table{
         padding: 0 .75em;
     }
 }
+
+//Volunteer Form
+
+.container {
+    .form-row {
+        margin: .75em;
+    }
+
+    p {
+        color: black;
+        font-size: .8em;
+    }
+
+    label {
+        font-size: 1.5em;
+        font: bold;
+    }
+
+    input:focus {
+        background-color: hsla(244, 100%, 49%, 0.57);
+    }
+
+    input {
+        width: 75%;
+        -webkit-box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.75);
+        box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.75);
+    }
+
+    select {
+        width: 25%;
+        -webkit-box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.75);
+        box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.75);
+    }
+
+    select:focus {
+        border: double;
+    }
+
+    #select_profession { 
+        width: 25%;
+    }
+    
+    #comments_area {
+        -webkit-box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.75);
+        box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.75);
+        width: 50%;
+        height: 12em;
+    }
+
+    #volunteer_submit {
+        margin:.75em;
+    }
+}
