@@ -16,6 +16,6 @@ namespace WAWillClinicFrontEnd.Data
 
         public DbSet<RSVPUser> Users { get; set; }
         public DbSet<Resource> Resources { get; set; }
-        
+        public DbSet<Volunteer> Volunteers { get; set; }
     }
 }
