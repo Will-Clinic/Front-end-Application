@@ -8,20 +8,28 @@ namespace WAWillClinicFrontEnd.Models.ViewModels
 {
     public class VolunteerViewModel
     {
+        [Required(ErrorMessage ="Location is Required")]
         public City VolunteerCity { get; set; }
 
+        [Required(ErrorMessage ="First Name is Required")]
         public string FirstName { get; set; }
 
+        [Required(ErrorMessage = "Last Name is Required")]
         public string LastName { get; set; }
 
+        [Required(ErrorMessage = "Email is Required")]
         public string Email { get; set; }
 
+        [Required(ErrorMessage = "Phone Number is Required")]
         public string PhoneNumber { get; set; }
 
+        [Required(ErrorMessage = "Please Indicate Your Profession")]
         public Profession VolunteerProfession { get; set; }
 
+        [Required(ErrorMessage = "Please Indicate Your Availability")]
         public string Time { get; set; }
 
+        [Required(ErrorMessage = "Please Indicate Your Pairing Needs")]
         public string Pairing { get; set; }
 
         public string Comments { get; set; }

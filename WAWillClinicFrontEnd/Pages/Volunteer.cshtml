@@ -23,49 +23,48 @@
         <div class="card-deck row" id="volunteer_deck">
             <div class="card mx-auto" id="volunteer_card">
                 <form method="post">
-                    <div class="form-group col-lg-10">
+                    <div class="form-group col-md">
                         <label asp-for="Input.VolunteerCity">City</label>
                         <select class="form-control" asp-for="Input.VolunteerCity" asp-items="@Html.GetEnumSelectList(typeof(WAWillClinicFrontEnd.Models.ViewModels.VolunteerViewModel.City))"></select>
                         <span asp-validation-for="Input.VolunteerCity"></span>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
+                    <div class="form-row" id="name_input">
+                        <div class="form-group col-md">
                             <label asp-for="Input.FirstName">First Name</label>
-                            <input asp-for="Input.FirstName" class="form-control" type="text" placeholder="First Name" /> 
+                            <input asp-for="Input.FirstName" id="first_name_input" class="form-control" type="text" /> 
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md">
                             <label asp-for="Input.LastName">Last Name</label>
-                            <input asp-for="Input.LastName" class="form-control" type="text" placeholder="Last Name" />
+                            <input asp-for="Input.LastName" id="last_name_input" class="form-control" type="text"/>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-lg-10">
+                        <div class="form-group col-lg">
                             <label asp-for="Input.Email">Email</label>
-                            @*<p>Email is our preferred method of communication</p>*@
-                            <input asp-for="Input.Email" class="form-control" type="text" placeholder="YourEmail@email.com" />
+                            <p>Email is our preferred method of communication</p>
+                            <input asp-for="Input.Email" id="email_input" class="form-control" type="text"/>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md">
                             <label asp-for="Input.PhoneNumber">Phone Number</label>
-                            <input asp-for="Input.PhoneNumber" class="form-control" type="text" />
+                            <input asp-for="Input.PhoneNumber" id="phone_number_input" class="form-control" type="text" />
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md">
                             <label asp-for="Input.VolunteerProfession">Volunteer Type/Profession</label>
-                            @*<p>Please indicate if you are an attorney, law student, notary public, or community member / other. Please note: the WA Vets Will Clinic WILL be providing malpractice / errors & omission coverage for attorney volunteers.</p>*@
-                            <select class="form-control" asp-for="Input.VolunteerProfession" asp-items="@Html.GetEnumSelectList(typeof(WAWillClinicFrontEnd.Models.ViewModels.VolunteerViewModel.Profession))"></select>
+                            <p>Please indicate if you are an attorney, law student, notary public, or community member / other. Please note: the WA Vets Will Clinic WILL be providing malpractice / errors & omission coverage for attorney volunteers.</p>
+                            <select id="select_profession" class="form-control" asp-for="Input.VolunteerProfession" asp-items="@Html.GetEnumSelectList(typeof(WAWillClinicFrontEnd.Models.ViewModels.VolunteerViewModel.Profession))"></select>
                             <span asp-validation-for="Input.VolunteerProfession"></span>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md">
                             <label asp-for="Input.Time">Volunteer Time</label>
-                            @*<p>
+                            <p>
                                 Please indicate what time you are available to volunteer. Check BOTH boxes if you can volunteer all day. (Note: actual Clinic times will vary)
-                                Morning (8am - noon)
-                            </p>*@
+                            </p>
                             <div class="custom-control custom-checkbox">
                                 <input asp-for="Input.Time" type="checkbox" class="custom-control-input" />
                                 <label class="custom-control-label">Morning (8am - noon)</label>
@@ -79,7 +78,7 @@
                     <div class="form-row">
                         <div class="form-group col-md">
                             <label asp-for="Input.Pairing">Attorney Pairing</label>
-                            @*<p>Please indicate if you need to be paired with a WSBA member / experienced attorney</p>*@
+                            <p>Please indicate if you need to be paired with a WSBA member / experienced attorney</p>
                             <div class="custom-control custom-checkbox">
                                 <input asp-for="Input.Time" type="checkbox" class="custom-control-input" />
                                 <label class="custom-control-label">I am a non-Washington licensed attorney and need to be paired with a WSBA member</label>
@@ -97,10 +96,10 @@
                     <div class="form-row">
                         <div class="form-group col-lg">
                             <label asp-for="Input.Comments">Additional Comments</label>
-                            <textarea class="form-control"></textarea>
+                            <textarea id="comments_area" class="form-control"></textarea>
                         </div>
                     </div>
-                    <button type="submit">Submit</button>
+                    <button id="volunteer_submit" type="submit">Submit</button>
                 </form>
             </div>
         </div>

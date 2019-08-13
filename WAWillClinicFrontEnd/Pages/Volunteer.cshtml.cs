@@ -17,5 +17,10 @@ namespace WAWillClinicFrontEnd.Pages
         public void OnGet()
         {
         }
+
+        public void OnPost()
+        {
+
+        }
     }
 }
