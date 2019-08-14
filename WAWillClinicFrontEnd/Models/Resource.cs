@@ -18,15 +18,16 @@ namespace WAWillClinicFrontEnd.Models
         [Required]
         public string Description { get; set; }
 
-        public enum ResourceType
-        {
-            [Display(Name = "Health Care")] HealthCare = 1,
-            [Display(Name = "Family")] Family = 2,
-            [Display(Name = "Disability")] Disability = 3,
-            [Display(Name = "Education")] Education = 4,
-            [Display(Name = "Finance")] Finance = 5,
-            [Display(Name = "Other")] Other = 6,
-        }
+        public ResourceType Type { get; set; }
+    }
 
+    public enum ResourceType
+    {
+        [Display(Name = "Disability")] Disability = 1,
+        [Display(Name = "Education")] Education = 2,
+        [Display(Name = "Family")] Family = 3,
+        [Display(Name = "Finance")] Finance = 4,
+        [Display(Name = "Health Care")] HealthCare = 5,
+        [Display(Name = "Other")] Other = 6,
     }
 }
