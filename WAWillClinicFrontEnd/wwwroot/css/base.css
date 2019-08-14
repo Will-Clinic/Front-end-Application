@@ -170,4 +170,47 @@ table td {
   padding: 0 0.75em;
 }
 
+.container .form-row {
+  margin: 0.75em;
+}
+.container p {
+  color: black;
+  font-size: 0.8em;
+}
+.container label {
+  font-size: 1.5em;
+  font: bold;
+}
+.container input:focus {
+  background-color: rgba(17, 0, 250, 0.57);
+}
+.container input {
+  width: 75%;
+  -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.75);
+}
+.container select {
+  width: 25%;
+  -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.75);
+}
+.container select:focus {
+  border: double;
+}
+.container #select_profession {
+  width: 25%;
+}
+.container #comments_area {
+  -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.75);
+  width: 50%;
+  height: 12em;
+}
+.container #volunteer_submit {
+  margin: 0.75em;
+}
+
 /*# sourceMappingURL=base.css.map */
