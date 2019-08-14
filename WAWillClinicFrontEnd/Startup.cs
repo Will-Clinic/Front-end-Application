@@ -38,6 +38,7 @@ namespace WAWillClinicFrontEnd
                 ? Configuration.GetConnectionString("DefaultConnection")
                 : Configuration.GetConnectionString("ProductionConnection");
 
+
             string UserConnectionString = Environment.IsDevelopment()
                 ? Configuration.GetConnectionString("UserDefaultConnection")
                 : Configuration.GetConnectionString("UserProductionConnection");
