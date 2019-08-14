@@ -18,10 +18,5 @@ namespace WAWillClinicFrontEnd.Pages
 
         }
 
-        public IActionResult OnPost()
-        {
-            
-            return RedirectToPage("ResourceType");
-        }
     }
 }
