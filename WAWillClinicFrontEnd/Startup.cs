@@ -34,8 +34,8 @@ namespace WAWillClinicFrontEnd
             services.AddMvc();
 
             string ConnectionString = Environment.IsDevelopment()
-                ? Configuration.GetConnectionString("ProductionConnection")
-                : Configuration.GetConnectionString("ProductionConnection");
+                ? Configuration.GetConnectionString("DefaultConnection")
+                : Configuration.GetConnectionString("DefaultConnection");
 
             string UserConnectionString = Environment.IsDevelopment()
                 ? Configuration.GetConnectionString("UserProductionConnection")
