@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WAWillClinicFrontEnd.Data;
 
 namespace WAWillClinicFrontEnd.Migrations.UserDb
 {
     [DbContext(typeof(UserDbContext))]
-    partial class UserDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190814095053_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,7 +38,6 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
 
                     b.Property<string>("Title")
                         .IsRequired();
-
 
                     b.Property<int>("Type");
 
@@ -167,7 +168,6 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
 
                     b.ToTable("Volunteers");
                 });
-
 #pragma warning restore 612, 618
         }
     }
