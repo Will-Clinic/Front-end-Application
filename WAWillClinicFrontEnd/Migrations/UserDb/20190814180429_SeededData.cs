@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WAWillClinicFrontEnd.Migrations.UserDb
 {
-    public partial class inital : Migration
+    public partial class SeededData : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,8 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
                     Title = table.Column<string>(nullable: false),
                     Link = table.Column<string>(nullable: false),
                     ImageURL = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: false)
+                    Description = table.Column<string>(nullable: false),
+                    Type = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -29,6 +30,7 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Location = table.Column<int>(nullable: false),
                     Agree = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(nullable: false),
                     Address = table.Column<string>(nullable: true),
@@ -69,6 +71,43 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
                 {
                     table.PrimaryKey("PK_Users", x => x.ID);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Volunteers",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    FirstName = table.Column<string>(nullable: false),
+                    LastName = table.Column<string>(nullable: false),
+                    EmailAddress = table.Column<string>(nullable: false),
+                    PhoneNumber = table.Column<string>(nullable: false),
+                    Pairing = table.Column<int>(nullable: false),
+                    VolunteerCity = table.Column<int>(nullable: false),
+                    VolunteerTimeMorning = table.Column<bool>(nullable: false),
+                    VolunteerTimeAfternoon = table.Column<bool>(nullable: false),
+                    Profession = table.Column<int>(nullable: false),
+                    AdditionalComments = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Volunteers", x => x.ID);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Resources",
+                columns: new[] { "ID", "Description", "ImageURL", "Link", "Title", "Type" },
+                values: new object[] { 1, "", "", "https://www.va.gov/health-care/", "VA HealthCare", 5 });
+
+            migrationBuilder.InsertData(
+                table: "Resources",
+                columns: new[] { "ID", "Description", "ImageURL", "Link", "Title", "Type" },
+                values: new object[] { 2, "", "", "https://www.militaryonesource.mil/", "OneSource", 3 });
+
+            migrationBuilder.InsertData(
+                table: "Resources",
+                columns: new[] { "ID", "Description", "ImageURL", "Link", "Title", "Type" },
+                values: new object[] { 3, "", "", "https://www.benefits.va.gov/benefits/services.asp", "VA Services", 4 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -78,6 +117,9 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Volunteers");
         }
     }
 }
