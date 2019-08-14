@@ -20,6 +20,7 @@ namespace WAWillClinicFrontEnd.Data
 
                 new Resource
                 {
+                    ID = 1,
                     Title = "VA HealthCare",
                     Link = "https://www.va.gov/health-care/",
                     ImageURL = "",
@@ -29,6 +30,7 @@ namespace WAWillClinicFrontEnd.Data
 
                 new Resource
                 {
+                    ID = 2,
                     Title = "OneSource",
                     Link = "https://www.militaryonesource.mil/",
                     ImageURL = "",
@@ -38,6 +40,7 @@ namespace WAWillClinicFrontEnd.Data
 
                 new Resource
                 {
+                    ID = 3,
                     Title = "VA Services",
                     Link = "https://www.benefits.va.gov/benefits/services.asp",
                     ImageURL = "",

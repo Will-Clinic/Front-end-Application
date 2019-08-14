@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -12,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WAWillClinicFrontEnd.Data;
 using WAWillClinicFrontEnd.Models;
+using WAWillClinicFrontEnd.Models.Interfaces;
+using WAWillClinicFrontEnd.Models.Services;
 
 namespace WAWillClinicFrontEnd
 {
@@ -34,11 +35,11 @@ namespace WAWillClinicFrontEnd
             services.AddMvc();
 
             string ConnectionString = Environment.IsDevelopment()
-                ? Configuration.GetConnectionString("ProductionConnection")
+                ? Configuration.GetConnectionString("DefaultConnection")
                 : Configuration.GetConnectionString("ProductionConnection");
 
             string UserConnectionString = Environment.IsDevelopment()
-                ? Configuration.GetConnectionString("UserProductionConnection")
+                ? Configuration.GetConnectionString("UserDefaultConnection")
                 : Configuration.GetConnectionString("UserProductionConnection");
 
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -60,6 +61,7 @@ namespace WAWillClinicFrontEnd
             services.ConfigureApplicationCookie(options => options.LoginPath = "/AdminLogin");
 
             services.AddScoped<IEmailSender, EmailSender>();
+            services.AddScoped<IResource, ResourceManager>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

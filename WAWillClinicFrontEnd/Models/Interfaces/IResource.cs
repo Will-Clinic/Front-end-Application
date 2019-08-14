@@ -6,7 +6,7 @@ using static WAWillClinicFrontEnd.Models.Resource;
 
 namespace WAWillClinicFrontEnd.Models.Interfaces
 {
-    interface IResource
+    public interface IResource
     {
         //Create
         Task CreateResource(Resource resource);
