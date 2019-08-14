@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -35,18 +36,23 @@ namespace WAWillClinicFrontEnd.Models.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Task DeleteResource(int id)
+        public async Task DeleteResource(int id)
         {
-            throw new NotImplementedException();
+            Resource resource = await GetResourceById(id);
+            if(resource != null)
+            {
+                _context.Resources.Remove(resource);
+                await _context.SaveChangesAsync();
+            }
         }
 
         /// <summary>
         /// Gets All of the Resources from the Database
         /// </summary>
         /// <returns>Returns a List of all those resources</returns>
-        public Task<List<Resource>> GetAllResources()
+        public async Task<List<Resource>> GetAllResources()
         {
-            throw new NotImplementedException();
+            return await _context.Resources.ToListAsync();
         }
 
         /// <summary>
@@ -54,9 +60,9 @@ namespace WAWillClinicFrontEnd.Models.Services
         /// </summary>
         /// <param name="type"></param>
         /// <returns>Returns a List of all those resources</returns>
-        public Task<List<Resource>> GetAllResourcesByType(ResourceType type)
+        public async Task<List<Resource>> GetAllResourcesByType(ResourceType type)
         {
-            throw new NotImplementedException();
+            return await _context.Resources.Where(reso => reso.Type == type).ToListAsync();
         }
 
         /// <summary>
@@ -64,9 +70,10 @@ namespace WAWillClinicFrontEnd.Models.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Returns the Resource if found</returns>
-        public Task<Resource> GetResourceById(int id)
+        public async Task<Resource> GetResourceById(int id)
         {
-            throw new NotImplementedException();
+            Resource resource = await _context.Resources.FirstOrDefaultAsync(reso => reso.ID == id);
+            return resource;
         }
 
         /// <summary>
@@ -74,9 +81,10 @@ namespace WAWillClinicFrontEnd.Models.Services
         /// </summary>
         /// <param name="resource"></param>
         /// <returns></returns>
-        public Task UpdateResource(Resource resource)
+        public async Task UpdateResource(Resource resource)
         {
-            throw new NotImplementedException();
+            _context.Resources.Update(resource);
+            await _context.SaveChangesAsync();
         }
     }
 }
