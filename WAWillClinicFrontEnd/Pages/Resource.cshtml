@@ -7,14 +7,37 @@
 
 <h2>Resources</h2>
 <!--need to grab all of the resources from the code behind and have a foreach to loop and display all of the resources -->
-@foreach (Resource reso in Model.AllResourcesByType)
+@if (Model.TypeResource == 0)
 {
-    <div class="Resource">
-        <h4></h4>
-        <img src="resource-image" alt="Alternate Text" />
-        <link href="link-to-resource" rel="stylesheet" />
-        <p>Description</p>
+    <div class="container">
+        <form method="post">
+            <label asp-for="TypeResource">Resource Type</label>
+            <select asp-for="TypeResource" class="form-control" style="width:25%" asp-items="@Html.GetEnumSelectList(typeof(WAWillClinicFrontEnd.Models.ResourceType))"></select>
+            <span asp-validation-for="TypeResource"></span>
+            <button type="submit">Choose a Resource</button>
+        </form>
     </div>
+}
+else
+{
+    <div class="container">
+        <form method="post">
+            <label asp-for="TypeResource">Resource Type</label>
+            <select asp-for="TypeResource" class="form-control" style="width:25%" asp-items="@Html.GetEnumSelectList(typeof(WAWillClinicFrontEnd.Models.ResourceType))"></select>
+            <span asp-validation-for="TypeResource"></span>
+            <button type="submit">Choose a Resource</button>
+        </form>
+    </div>
+
+    @foreach (Resource reso in Model.AllResourcesByType)
+    {
+        <div class="Resource" id="@Html.DisplayFor(item => reso.ID)">
+            <h4>@Html.DisplayFor(item => reso.Title)</h4>
+            <img src="@Html.DisplayFor(item => reso.ImageURL)" alt="Alternate Text" />
+            <a href="@Html.DisplayFor(item => reso.Link)">@Html.DisplayFor(item => reso.Link)</a>
+            <p>@Html.DisplayFor(item => reso.Description)</p>
+        </div>
+    }
 }
 
 
