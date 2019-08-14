@@ -28,11 +28,13 @@
                         <select class="form-control" asp-for="Input.VolunteerCity" asp-items="@Html.GetEnumSelectList(typeof(WAWillClinicFrontEnd.Models.ViewModels.VolunteerViewModel.City))"></select>
                         <span asp-validation-for="Input.VolunteerCity"></span>
                     </div>
-                    <div class="form-row" id="name_input">
+                    <div class="form-row">
                         <div class="form-group col-md">
                             <label asp-for="Input.FirstName">First Name</label>
                             <input asp-for="Input.FirstName" id="first_name_input" class="form-control" type="text" /> 
                         </div>
+                    </div>
+                    <div class="form-row">
                         <div class="form-group col-md">
                             <label asp-for="Input.LastName">Last Name</label>
                             <input asp-for="Input.LastName" id="last_name_input" class="form-control" type="text"/>

@@ -170,4 +170,41 @@ table td {
   padding: 0 0.75em;
 }
 
+.container {
+  font-family: "Source Sans Pro", sans-serif;
+}
+.container .form-row {
+  margin: 0.75em;
+}
+.container p {
+  color: black;
+  font-size: 0.8em;
+}
+.container label {
+  font-size: 16px;
+  font-weight: 400;
+}
+.container input:focus {
+  background-color: rgba(17, 0, 250, 0.57);
+}
+.container input {
+  width: 75%;
+}
+.container select {
+  width: 25%;
+}
+.container select:focus {
+  border: double;
+}
+.container #select_profession {
+  width: 25%;
+}
+.container #comments_area {
+  width: 50%;
+  height: 12em;
+}
+.container #volunteer_submit {
+  margin: 0.75em;
+}
+
 /*# sourceMappingURL=base.css.map */
