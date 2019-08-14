@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WAWillClinicFrontEnd.Data;
 
 namespace WAWillClinicFrontEnd.Migrations.UserDb
 {
     [DbContext(typeof(UserDbContext))]
-    partial class UserDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190813224646_inital")]
+    partial class inital
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,9 +38,6 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
 
                     b.Property<string>("Title")
                         .IsRequired();
-
-
-                    b.Property<int>("Type");
 
                     b.HasKey("ID");
 
@@ -95,8 +94,6 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
 
                     b.Property<bool>("LikesPoA");
 
-                    b.Property<int>("Location");
-
                     b.Property<string>("MinorChildName");
 
                     b.Property<string>("Name")
@@ -132,42 +129,6 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
 
                     b.ToTable("Users");
                 });
-
-            modelBuilder.Entity("WAWillClinicFrontEnd.Models.Volunteer", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AdditionalComments");
-
-                    b.Property<string>("EmailAddress")
-                        .IsRequired();
-
-                    b.Property<string>("FirstName")
-                        .IsRequired();
-
-                    b.Property<string>("LastName")
-                        .IsRequired();
-
-                    b.Property<int>("Pairing");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired();
-
-                    b.Property<int>("Profession");
-
-                    b.Property<int>("VolunteerCity");
-
-                    b.Property<bool>("VolunteerTimeAfternoon");
-
-                    b.Property<bool>("VolunteerTimeMorning");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Volunteers");
-                });
-
 #pragma warning restore 612, 618
         }
     }
