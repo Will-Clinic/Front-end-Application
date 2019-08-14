@@ -170,47 +170,48 @@ table td {
   padding: 0 0.75em;
 }
 
-.container .form-row {
+#volunteer_form {
+  font-family: "Source Sans Pro", sans-serif;
+}
+#volunteer_form .form-row {
   margin: 0.75em;
 }
-.container p {
+#volunteer_form p {
   color: black;
   font-size: 0.8em;
 }
-.container label {
-  font-size: 1.5em;
-  font: bold;
+#volunteer_form label {
+  font-size: 16px;
+  font-weight: 400;
 }
-.container input:focus {
+#volunteer_form input:focus {
   background-color: rgba(17, 0, 250, 0.57);
 }
-.container input {
-  width: 75%;
-  -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.75);
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.75);
+#volunteer_form input {
+  width: 50%;
 }
-.container select {
+#volunteer_form .checkbox {
+  width: 10%;
+}
+#volunteer_form select {
   width: 25%;
-  -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.75);
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.75);
 }
-.container select:focus {
+#volunteer_form select:focus {
   border: double;
 }
-.container #select_profession {
+#volunteer_form #select_profession {
   width: 25%;
 }
-.container #comments_area {
-  -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.75);
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.75);
+#volunteer_form #comments_area {
   width: 50%;
   height: 12em;
 }
-.container #volunteer_submit {
+#volunteer_form #volunteer_submit {
   margin: 0.75em;
+}
+
+#signup_form .form-group {
+  width: 75%;
 }
 
 /*# sourceMappingURL=base.css.map */
