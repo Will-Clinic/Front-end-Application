@@ -10,6 +10,9 @@ namespace WAWillClinicFrontEnd.Models
     {
         public int ID { get; set; }
 
+        [Required]
+        public City Location { get; set; }
+
 		[Required]
 		public bool? Agree { get; set; }
 
@@ -174,6 +177,16 @@ namespace WAWillClinicFrontEnd.Models
         }
 
     }
+
+    public enum City 
+    {
+        [Display(Name = "Kitsap/Bremerton")] Kitsap = 1,
+        [Display(Name = "Pasco(Tri-Cities")] Pasco = 2,
+        [Display(Name = "Seattle(North Sound)")] Seattle = 3,
+        [Display(Name = "Spokane")] Spokane = 4,
+        [Display(Name = "Wenatchee")] Wenatchee = 5,
+    }
+
 	public enum MaritalStatus
 	{
 		[Display(Name = "Single (divorced)")] SingleAndDivorced = 1,
