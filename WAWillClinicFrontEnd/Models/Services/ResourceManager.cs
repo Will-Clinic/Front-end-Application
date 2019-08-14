@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WAWillClinicFrontEnd.Data;
 using WAWillClinicFrontEnd.Models.Interfaces;
 using static WAWillClinicFrontEnd.Models.Resource;
 
@@ -9,14 +10,24 @@ namespace WAWillClinicFrontEnd.Models.Services
 {
     public class ResourceManager : IResource
     {
+
+        private UserDbContext _context;
+
+        public ResourceManager(UserDbContext context)
+        {
+            _context = context;
+        }
+
+
         /// <summary>
         /// Creates a Resource and Saves it to the Database
         /// </summary>
         /// <param name="resource"></param>
         /// <returns></returns>
-        public Task CreateResource(Resource resource)
+        public async Task CreateResource(Resource resource)
         {
-            throw new NotImplementedException();
+            _context.Resources.Add(resource);
+            await _context.SaveChangesAsync();
         }
 
         /// <summary>
