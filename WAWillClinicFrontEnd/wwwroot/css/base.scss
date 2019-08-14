@@ -195,7 +195,7 @@ table{
 
 //Volunteer Form
 
-.container {
+#volunteer_form {
     font-family: $main-font;
 
     .form-row {
@@ -217,7 +217,11 @@ table{
     }
 
     input {
-        width: 75%;
+        width: 50%;
+    }
+
+    .checkbox {
+        width: 10%;
     }
 
     select {
@@ -239,5 +243,12 @@ table{
 
     #volunteer_submit {
         margin: .75em;
+    }
+}
+
+//Signup Form
+#signup_form {
+    .form-group {
+        width: 75%;
     }
 }

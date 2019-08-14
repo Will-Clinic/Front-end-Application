@@ -11,20 +11,20 @@
 
     <p class="center content">If you would like to join the Will Clinic, please sign up below.</p>
     <br /><br />
-    <div class="container">
+    <div class="container" id="signup_form">
         <div class="card-deck">
             <div class="card mx-auto">
                 <form method="post" class="content">
                     <div class="form-row">
-                        <div class="form-group">
-                            <label asp-for="Name">Full Legal Name</label>
+                        <div class="form-group" id="legal_name">
+                            <label asp-for="Name">Full Legal Name</label><br />
                             <input type="text" name="Name" required title="Please input full name." />
                             <span asp-validation-for="Name"></span>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label asp-for="PhoneNumber">Phone Number</label>
+                        <div class="form-group" id="signup_phone_number">
+                            <label asp-for="PhoneNumber">Phone Number</label><br />
                             <input type="tel" name="PhoneNumber" required pattern="[0-9]{10}"
                                    title="Please input a phone number" />
                             <span asp-validation-for="PhoneNumber"></span>
@@ -32,7 +32,7 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label asp-for="Email">Email Address</label>
+                            <label asp-for="Email">Email Address</label><br />
                             <input type="email" name="Email" required
                                    title="Please input an email address" />
                             <span asp-validation-for="Email"></span>
@@ -43,7 +43,7 @@
                             <label asp-for="IsVeteran">
                                 Are you, or your spouse, a veteran of the United States Armed
                                 Forces?
-                            </label>
+                            </label><br />
                             <input class="radioButton" type="radio" name="IsVeteran" value="True" /> Yes
                             <input class="radioButton" type="radio" name="IsVeteran" value="False" /> No
                             <span asp-validation-for="IsVeteran"></span>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label asp-for="IsWashingtonResident">Are you a Washington state resident?</label>
+                            <label asp-for="IsWashingtonResident">Are you a Washington state resident?</label><br />
                             <input class="radioButton" type="radio" name="IsWashingtonResident" value="True" /> Yes
                             <input class="radioButton" type="radio" name="IsWashingtonResident" value="False" /> No
                             <span asp-validation-for="IsWashingtonResident"></span>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label asp-for="PreferredTime">Please indicate your preferred time to receive service.</label>
+                            <label asp-for="PreferredTime">Please indicate your preferred time to receive service.</label><br />
                             <input class="radioButton" type="radio" name="PreferredTime" value="True" /> Morning
                             <input class="radioButton" type="radio" name="PreferredTime" value="False" /> Afternoon
                             <span asp-validation-for="PreferredTime"></span>
@@ -74,7 +74,7 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label asp-for="SpouseName">Full legal name of your spouse</label>
+                            <label asp-for="SpouseName">Spouse/Partner's full legal name</label><br />
                             <input type="text" name="SpouseName" required
                                    title="Please enter the full legal name of your spouse." />
                             <span asp-validation-for="SpouseName"></span>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label asp-for="HasChildren">Do you have any children?</label>
+                            <label asp-for="HasChildren">Do you have any children?</label><br />
                             <input class="radioButton" type="radio" name="HasChildren" value="True" /> Yes
                             <input class="radioButton" type="radio" name="HasChildren" value="False" /> No
                             <span asp-validation-for="HasChildren"></span>
@@ -93,7 +93,7 @@
                             <label asp-for="IsCurrentlyPregnant">
                                 Do you have any minor children?
                                 Or, are you, your spouse, or your partner currently pregnant?
-                            </label>
+                            </label><br />
                             <input class="radioButton" type="radio" name="IsCurrentlyPregnant" value="True" /> Yes
                             <input class="radioButton" type="radio" name="IsCurrentlyPregnant" value="False" /> No
                             <span asp-validation-for="IsCurrentlyPregnant"></span>
@@ -133,7 +133,7 @@
                             <label asp-for="Agree">
                                 I HAVE READ THE WA VETS WILL CLINIC INFORMATION AND INSTRUCTIONS
                                 AND AGREE TO ITS TERMS.
-                            </label>
+                            </label><br />
                             <input class="radioButton" type="radio" name="Agree" value="True" required /> Yes
                             <input class="radioButton" type="radio" name="Agree" value="False" required /> No
                             <span asp-validation-for="Agree"></span>
