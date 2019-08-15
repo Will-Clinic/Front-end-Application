@@ -63,6 +63,7 @@ namespace WAWillClinicFrontEnd
 
             services.AddScoped<IEmailSender, EmailSender>();
             services.AddScoped<IResource, ResourceManager>();
+            services.AddScoped<IVolunteer, VolunteerManager>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
