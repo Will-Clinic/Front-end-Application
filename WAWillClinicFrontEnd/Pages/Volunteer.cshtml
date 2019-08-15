@@ -31,20 +31,20 @@
                     <div class="form-row">
                         <div class="form-group col-md">
                             <label asp-for="Input.FirstName">First Name</label>
-                            <input asp-for="Input.FirstName" id="first_name_input" class="form-control" type="text" /> 
+                            <input asp-for="Input.FirstName" id="first_name_input" class="form-control" type="text" />
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md">
                             <label asp-for="Input.LastName">Last Name</label>
-                            <input asp-for="Input.LastName" id="last_name_input" class="form-control" type="text"/>
+                            <input asp-for="Input.LastName" id="last_name_input" class="form-control" type="text" />
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-lg">
-                            <label asp-for="Input.Email">Email</label>
+                            <label asp-for="Input.EmailAddress">Email</label>
                             <p>Email is our preferred method of communication</p>
-                            <input asp-for="Input.Email" id="email_input" class="form-control" type="text"/>
+                            <input asp-for="Input.EmailAddress" id="email_input" class="form-control" type="text" />
                         </div>
                     </div>
                     <div class="form-row">
@@ -55,53 +55,53 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md">
-                            <label asp-for="Input.VolunteerProfession">Volunteer Type/Profession</label>
+                            <label asp-for="Input.Profession">Volunteer Type/Profession</label>
                             <p>Please indicate if you are an attorney, law student, notary public, or community member / other. Please note: the WA Vets Will Clinic WILL be providing malpractice / errors & omission coverage for attorney volunteers.</p>
-                            <select id="select_profession" class="form-control" asp-for="Input.VolunteerProfession" asp-items="@Html.GetEnumSelectList(typeof(WAWillClinicFrontEnd.Models.ViewModels.VolunteerViewModel.Profession))"></select>
-                            <span asp-validation-for="Input.VolunteerProfession"></span>
+                            <select id="select_profession" class="form-control" value="true" asp-for="Input.Profession" asp-items="@Html.GetEnumSelectList(typeof(WAWillClinicFrontEnd.Models.ViewModels.VolunteerViewModel.Profession))"></select>
+                            <span asp-validation-for="Input.Profession"></span>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md">
-                            <label asp-for="Input.Time">Volunteer Time</label>
+                            <label asp-for="Input.VolunteerTimeAfternoon">Volunteer Time</label>
                             <p>
                                 Please indicate what time you are available to volunteer. Check BOTH boxes if you can volunteer all day. (Note: actual Clinic times will vary)
                             </p>
                             <div>
-                                <input class="checkbox" asp-for="Input.Time" type="checkbox" />
-                                <label >Morning (8am - noon)</label>
+                                <input class="checkbox" value="true" asp-for="Input.VolunteerTimeMorning" type="checkbox" />
+                                <label>Morning (8am - noon)</label>
                             </div>
                             <div>
-                                <input class="checkbox" asp-for="Input.Time" type="checkbox"/>
-                                <label >Afternoon (1pm - 5pm)</label>
+                                <input class="checkbox" value="true" asp-for="Input.VolunteerTimeAfternoon" type="checkbox" />
+                                <label>Afternoon (1pm - 5pm)</label>
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md">
-                            <label asp-for="Input.Pairing">Attorney Pairing</label>
+                            <label>Attorney Pairing</label>
                             <p>Please indicate if you need to be paired with a WSBA member / experienced attorney</p>
                             <div>
-                                <input class="checkbox" asp-for="Input.Time" type="checkbox"/>
+                                <input class="checkbox" value="true" asp-for="Input.MemberPair" type="checkbox" />
                                 <label>I am a non-Washington licensed attorney and need to be paired with a WSBA member</label>
                             </div>
                             <div>
-                                <input class="checkbox" asp-for="Input.Time" type="checkbox"/>
+                                <input class="checkbox" value="true" asp-for="Input.MentorPair" type="checkbox" />
                                 <label>I am a new practitioner / new to estate planning and would like to be paired with a mentor</label>
                             </div>
                             <div>
-                                <input class="checkbox" asp-for="Input.Time" type="checkbox"/>
+                                <input class="checkbox" value="true" asp-for="Input.Nopair" type="checkbox" />
                                 <label>Neither of the above options apply</label>
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-lg">
-                            <label asp-for="Input.Comments">Additional Comments</label>
-                            <textarea id="comments_area" class="form-control"></textarea>
+                            <label asp-for="Input.AdditionalComments">Additional Comments</label>
+                            <textarea asp-for="Input.AdditionalComments" id="comments_area" class="form-control"></textarea>
                         </div>
                     </div>
-                    <button id="volunteer_submit" type="submit">Submit</button>
+                    <input type="submit" value="Sign up" />
                 </form>
             </div>
         </div>
