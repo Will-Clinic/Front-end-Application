@@ -31,12 +31,12 @@ else
 
     @foreach (Resource reso in Model.AllResourcesByType)
     {
-        <div class="Resource" id="@Html.DisplayFor(item => reso.ID)">
-            <h4>@Html.DisplayFor(item => reso.Title)</h4>
-            <img src="@Html.DisplayFor(item => reso.ImageURL)" alt="Alternate Text" />
-            <a href="@Html.DisplayFor(item => reso.Link)">@Html.DisplayFor(item => reso.Link)</a>
-            <p>@Html.DisplayFor(item => reso.Description)</p>
-        </div>
+            <div class="resource" id="@Html.DisplayFor(item => reso.ID)">
+                <h4>@Html.DisplayFor(item => reso.Title)</h4>
+                <img src="@Html.DisplayFor(item => reso.ImageURL)" alt="Alternate Text" />
+                <a href="@Html.DisplayFor(item => reso.Link)">@Html.DisplayFor(item => reso.Link)</a>
+                <p>@Html.DisplayFor(item => reso.Description)</p>
+            </div>
     }
 }
 
