@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WAWillClinicFrontEnd.Models;
@@ -14,10 +15,12 @@ namespace WAWillClinicFrontEnd.Pages
     public class VolunteerModel : PageModel
     {
         private readonly IVolunteer _volunteer;
+        private readonly IEmailSender _emailSender;
 
-        public VolunteerModel(IVolunteer volunteer)
+        public VolunteerModel(IVolunteer volunteer, IEmailSender emailSender)
         {
             _volunteer = volunteer;
+            _emailSender = emailSender; 
         }
 
         [BindProperty]
@@ -48,6 +51,7 @@ namespace WAWillClinicFrontEnd.Pages
                 };
 
                 await _volunteer.CreateVolunteer(volunteer);
+                await _emailSender.SendEmailAsync(volunteer.EmailAddress, EmailMessages.Thanks, EmailMessages.VolunteerRepy(volunteer));
             }
 
 
