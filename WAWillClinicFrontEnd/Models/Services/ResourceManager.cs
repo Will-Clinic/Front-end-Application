@@ -84,8 +84,12 @@ namespace WAWillClinicFrontEnd.Models.Services
         /// <returns></returns>
         public async Task UpdateResource(Resource resource)
         {
-            _context.Resources.Update(resource);
-            await _context.SaveChangesAsync();
+            if(await GetResourceById(resource.ID) != null)
+            {
+                _context.Resources.Update(resource);
+                await _context.SaveChangesAsync();
+            }
+            
         }
     }
 }

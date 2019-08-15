@@ -1,0 +1,58 @@
+﻿@page
+@model WAWillClinicFrontEnd.Pages.ResourcesManagerModel
+@{
+    ViewData["Title"] = "ResourcesManager";
+    Layout = "_Layout";
+
+}
+
+<h2>Resources Manager</h2>
+
+@if (Model.TypeResource == 0)
+{
+    <form method="post" asp-page-handler="Create">
+        <button type="submit">Add New Resource</button>
+    </form>
+    <div class="container">
+        <form method="post" asp-page-handler="Type">
+            <label asp-for="TypeResource">Resource Type</label>
+            <select asp-for="TypeResource" class="form-control" style="width:25%" asp-items="@Html.GetEnumSelectList(typeof(WAWillClinicFrontEnd.Models.ResourceType))"></select>
+            <span asp-validation-for="TypeResource"></span>
+            <button type="submit">Choose a Resource</button>
+        </form>
+    </div>
+}
+else
+{
+    <div class="container">
+        <form method="post" asp-page-handler="Type">
+            <label asp-for="TypeResource">Resource Type</label>
+            <select asp-for="TypeResource" class="form-control" style="width:25%" asp-items="@Html.GetEnumSelectList(typeof(WAWillClinicFrontEnd.Models.ResourceType))"></select>
+            <span asp-validation-for="TypeResource"></span>
+            <button type="submit">Choose a Resource</button>
+        </form>
+    </div>
+
+    @foreach(Resource resource in Model.Resources)
+    {
+    <form method="post" asp-page-handler="Update">
+        <input type="hidden" asp-for="@resource.ID" value="@resource.ID" />
+        <label for="name">Name</label>
+        <input type="text" asp-for="@resource.Title" value="@resource.Title"/>
+
+        <label for="link">Link</label>
+        <input type="text" asp-for="@resource.Link" value="@resource.Link"/>
+
+        <label for="image">Image</label>
+        <input type="file" asp-for="@resource.ImageURL" value="@resource.ImageURL" />
+
+        <label for="description">Description</label>
+        <input type="text" asp-for="@resource.Description" value="@resource.Description"/>
+
+        <label for="resourcetype">Name</label>
+        <select asp-for="@resource.Type" asp-items="@Html.GetEnumSelectList(typeof(WAWillClinicFrontEnd.Models.ResourceType))"></select>
+        <button type="submit">Update Resource</button>
+        <button type="submit">Delete</button>
+    </form>
+    }
+}
