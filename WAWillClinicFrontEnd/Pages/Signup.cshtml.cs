@@ -18,7 +18,7 @@ namespace WAWillClinicFrontEnd.Pages
         private UserDbContext _context;
         private IEmailSender _emailSender;
 
-        public City Location { get; set; }
+        public string Location { get; set; }
         [Required]
 		public bool Agree { get; set; }
 		[Required]

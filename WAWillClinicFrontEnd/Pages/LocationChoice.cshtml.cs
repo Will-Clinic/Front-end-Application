@@ -32,9 +32,8 @@ namespace WAWillClinicFrontEnd.Pages
 
         public IActionResult OnPost()
         {
-            TempData["Location"] = LocationChoice;
-
-            return RedirectToPage("Signup");
+            Location choice = LocationChoice;
+            return RedirectToPage("Signup", new { location = $"{choice}"});
         }
     }
 }

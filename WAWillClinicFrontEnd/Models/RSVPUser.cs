@@ -11,7 +11,9 @@ namespace WAWillClinicFrontEnd.Models
         public int ID { get; set; }
 
         [Required]
-        public City Location { get; set; }
+        //public City Location { get; set; }
+
+        public string Location { get; set; }
 
 		[Required]
 		public bool? Agree { get; set; }
