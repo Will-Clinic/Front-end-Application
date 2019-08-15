@@ -16,15 +16,6 @@
             <div class="card mx-auto">
                 <form method="post" class="content">
                     <input type="hidden" value="@RouteData.Values["location"]" asp-for="Location"/>
-                    @*<div class="form-row">
-                        <div class="form-group">
-                            <label asp-for="Location">Please Confirm Your Location Choice</label>
-                            <div class="row">
-                                <select class="form-control" style="width:25%"  asp-for="Location" asp-items="@Html.GetEnumSelectList(typeof(WAWillClinicFrontEnd.Pages.LocationChoiceModel.Location))"></select>
-                                <span asp-validation-for="Location"></span>
-                            </div>
-                        </div>
-                    </div>*@
                     <div class="form-row">
                         <div class="form-group" id="legal_name">
                             <label asp-for="Name">Full Legal Name</label>
