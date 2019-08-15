@@ -17,7 +17,9 @@ namespace WAWillClinicFrontEnd.Pages
     {
         private UserDbContext _context;
         private IEmailSender _emailSender;
-		[Required]
+
+        public City Location { get; set; }
+        [Required]
 		public bool Agree { get; set; }
 		[Required]
 		public string Name { get; set; }
@@ -57,7 +59,9 @@ namespace WAWillClinicFrontEnd.Pages
             _emailSender = emailSender;
         }
 
-		public void OnGet() { }
+		public void OnGet()
+        {
+        }
 
         public async Task<IActionResult> OnPost()
         {
@@ -65,6 +69,7 @@ namespace WAWillClinicFrontEnd.Pages
             {
                 RSVPUser user = new RSVPUser()
                 {
+                    Location = Location,
                     Agree = Agree,
                     Name = Name,
                     Email = Email,
@@ -100,7 +105,7 @@ namespace WAWillClinicFrontEnd.Pages
 
                 return RedirectToPage("SignUpConformation");
             }
-            return RedirectToPage("SignUpConformation");
+            return Page();
         }
     }
 }

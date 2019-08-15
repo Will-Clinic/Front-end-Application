@@ -9,13 +9,20 @@
 
 <div class="container">
     <form method="post">
-    <div>
-        <label asp-for="LocationChoice">Location</label>
-        <select class="form-control" style="width:25%" asp-items="@Html.GetEnumSelectList(typeof(WAWillClinicFrontEnd.Pages.LocationChoiceModel.Location))"></select>
-        <span asp-validation-for="LocationChoice"></span>
-
-    </div>
-        <button type="submit">Choose Location</button>
-        <a asp-page="/contact">More Information</a>
+        <div class="form-group">
+            <div class="row">
+                <label asp-for="LocationChoice">Location</label>
+            </div>
+            <div class="row">
+                <select class="form-control" style="width:25%" asp-route-id="@Model.LocationChoice" asp-for="LocationChoice" asp-items="@Html.GetEnumSelectList(typeof(WAWillClinicFrontEnd.Pages.LocationChoiceModel.Location))"></select>
+                <span asp-validation-for="LocationChoice"></span>
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit">Choose Location</button>
+        </div>
+        <div class="row">
+            <a asp-page="/contact">More Information</a>
+        </div>
     </form>
 </div>
