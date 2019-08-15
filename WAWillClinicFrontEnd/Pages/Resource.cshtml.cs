@@ -9,21 +9,30 @@ using WAWillClinicFrontEnd.Models.Interfaces;
 
 namespace WAWillClinicFrontEnd.Pages
 {
+    
     public class ResourceModel : PageModel
     {
         private IResource _context;
 
         public List<Resource> AllResourcesByType { get; set; }
 
+        [BindProperty]
+        public ResourceType TypeResource { get; set; }
+
+
         public ResourceModel(IResource context)
         {
             _context = context;
         }
 
-        public async Task OnGet()
+        public void OnGet()
         {
-            // on get i need to grab all of the resources from the Db using a interface to that table.
-           AllResourcesByType = await _context.GetAllResources();
+           
+        }
+
+        public async Task OnPost()
+        {
+            AllResourcesByType = await _context.GetAllResourcesByType(TypeResource);
         }
     }
 }
