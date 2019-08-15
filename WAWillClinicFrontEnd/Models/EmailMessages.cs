@@ -56,6 +56,22 @@ namespace WAWillClinicFrontEnd.Models
 
             return message.ToString();
         }
+
+        public static string VolunteerRepy(Volunteer volunteer)
+        {
+            StringBuilder volunteerMessage = new StringBuilder();
+
+            volunteerMessage.Append($"<p>Dear {volunteer.FirstName}</p>");
+            volunteerMessage.Append("<br />");
+            volunteerMessage.Append("<p>The WA Vets Wills Clinic thanks you for your interest and will be in contact as soon as possible</p>");
+            volunteerMessage.Append("<br />");
+            volunteerMessage.Append("<p>Please email any questions to seattle@wavetswillclinic.com.</p>");
+            volunteerMessage.Append("<br />");
+            volunteerMessage.Append("<p>Sincerely,</p>");
+            volunteerMessage.Append("<p>Clinic Chairs</p>");
+
+            return volunteerMessage.ToString();
+        }
         /// <summary>
         /// Message that is sent from the site to inform admins that contact information
         /// has been requested
