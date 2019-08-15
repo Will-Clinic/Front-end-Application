@@ -55,7 +55,7 @@ namespace WAWillClinicFrontEnd.Pages
             }
 
 
-            return Page();
+            return RedirectToPage("VolunteerConformation");
         }
     }
 }

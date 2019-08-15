@@ -43,6 +43,8 @@ namespace WAWillClinicFrontEnd
                 ? Configuration.GetConnectionString("UserDefaultConnection")
                 : Configuration.GetConnectionString("UserProductionConnection");
 
+            string BlobConnection = Configuration.GetConnectionString("BlobConnection");
+
             services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(UserConnectionString));
 
@@ -63,7 +65,9 @@ namespace WAWillClinicFrontEnd
 
             services.AddScoped<IEmailSender, EmailSender>();
             services.AddScoped<IResource, ResourceManager>();
+            services.AddScoped<IBlob, BlobManager>();
             services.AddScoped<IVolunteer, VolunteerManager>();
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
