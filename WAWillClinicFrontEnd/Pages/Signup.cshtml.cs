@@ -98,9 +98,9 @@ namespace WAWillClinicFrontEnd.Pages
                        EmailMessages.Thanks,
                        EmailMessages.SignUpReply(user));
 
-                return RedirectToPage("/");
+                return RedirectToPage("SignUpConformation");
             }
-            return Page();
+            return RedirectToPage("SignUpConformation");
         }
     }
 }
