@@ -20,8 +20,12 @@ namespace WAWillClinicFrontEnd.Models
         [Required]
         public string PhoneNumber { get; set; }
 
-        [Required]
-        public AttorneyPairing Pairing { get; set; }
+
+        public bool MemberPair { get; set; }
+
+        public bool MentorPair { get; set; }
+
+        public bool Nopair { get; set; }
 
         [Required]
         public VolunteerCity VolunteerCity { get; set; }
@@ -38,12 +42,6 @@ namespace WAWillClinicFrontEnd.Models
 
     }
 
-    public enum AttorneyPairing
-    {
-        [Display(Name = "I am a non-Washington licensed attorney and need to be paired with a WSBA member.")] PairWSBAMember = 1,
-        [Display(Name = "I am a new practitioner/new to estate planning and would like to be paired with a mentor.")] PairMentor = 2,
-        [Display(Name = "Neither of the above options apply.")] NeitherApply = 3,
-    }
 
     public enum VolunteerCity
     {
