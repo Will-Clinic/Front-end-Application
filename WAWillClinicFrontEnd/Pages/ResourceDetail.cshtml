@@ -1,7 +1,7 @@
 ﻿@page
 @model WAWillClinicFrontEnd.Pages.ResourceDetailModel
 @{
-
+    Layout = "_Layout";
 }
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -11,28 +11,48 @@
 <body>
     <h1>Resource Detail</h1>
 
-    <div>
-        <form method="post" enctype="multipart/form-data">
-            <input type="hidden" asp-for="Resource.ID" value="@Model.Resource.ID" />
+    <div class="container">
+        <div class="card-deck">
+            <div class="card mx-auto">
+                <form method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="Resource.ID" value="@Model.Resource.ID" />
+                    <div class="form-row">
+                        <div class="form-group col-md">
+                            <label for="title">Name</label>
+                            <input class="form-control" type="text" asp-for="Resource.Title" value="@Model.Resource.Title" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md">
+                            <label for="type">Resource Type</label>
+                            <select class="form-control" asp-for="Resource.Type" asp-items="Html.GetEnumSelectList<ResourceType>()"></select>
+                            </div>
+                        </div>
+                    <div class="form-row">
+                        <div class="form-group col-md">
+                            <label for="link">Resource Link</label>
+                            <input class="form-control" type="url" asp-for="Resource.Link" value="@Model.Resource.Link" />
+                            </div>
+                        </div>
+                    <div class="form-row">
+                        <div class="form-group col-md">
+                            <label asp-for="Image">Upload Image</label>
+                            <input class="form-control" type="file" asp-for="Image" />
+                            </div>
+                        </div>
+                    <div class="form-row">
+                        <div class="form-group col-md">
+                            <label for="description">Description</label>
+                            <input class="form-control" type="text" asp-for="Resource.Description" value="@Model.Resource.Description" />
+                        </div>
+                    </div>
+                        <a asp-page="ResourcesManager">Cancel</a>
+                        <button type="submit">Save Resource</button>
+</form>
 
-            <label for="title">Name</label>
-            <input type="text" asp-for="Resource.Title" value="@Model.Resource.Title" />
+            </div>
 
-            <label for="type">Resource Type</label>
-            <select asp-for="Resource.Type" asp-items="Html.GetEnumSelectList<ResourceType>()"></select>
-
-            <label for="link">Resource Link</label>
-            <input type="url" asp-for="Resource.Link" value="@Model.Resource.Link" />
-
-            <label asp-for="Image">Upload Image</label>
-            <input type="file" asp-for="Image" />
-
-            <label for="description">Description</label>
-            <input type="text" asp-for="Resource.Description" value="@Model.Resource.Description" />
-
-            <a asp-page="ResourcesManager">Cancel</a>
-            <button type="submit">Save Resource</button>
-        </form>
+        </div>
     </div>
 </body>
 </html>
