@@ -47,7 +47,7 @@ namespace WAWillClinicFrontEnd.Pages
             resource.ImageURL = Resource.ImageURL;
             resource.Description = Resource.Description;
 
-            if(ID != null)
+            if (ID != null)
             {
                 var filePath = Path.GetTempFileName();
 
@@ -63,7 +63,7 @@ namespace WAWillClinicFrontEnd.Pages
                 resource.ImageURL = blobURI.ToString();
                 resource.ImageName = Image.FileName;
 
-                await _context.UpdateResource(resource);     
+                await _context.UpdateResource(resource);
             }
             else
             {
