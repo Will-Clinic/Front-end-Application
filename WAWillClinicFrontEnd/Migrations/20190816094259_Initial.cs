@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace WAWillClinicFrontEnd.Migrations.UserDb
+namespace WAWillClinicFrontEnd.Migrations
 {
     public partial class Initial : Migration
     {
@@ -15,6 +15,7 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Title = table.Column<string>(nullable: false),
                     Link = table.Column<string>(nullable: false),
+                    ImageName = table.Column<string>(nullable: false),
                     ImageURL = table.Column<string>(nullable: false),
                     Description = table.Column<string>(nullable: false),
                     Type = table.Column<int>(nullable: false)
@@ -95,21 +96,6 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
                 {
                     table.PrimaryKey("PK_Volunteers", x => x.ID);
                 });
-
-            migrationBuilder.InsertData(
-                table: "Resources",
-                columns: new[] { "ID", "Description", "ImageURL", "Link", "Title", "Type" },
-                values: new object[] { 1, "", "", "https://www.va.gov/health-care/", "VA HealthCare", 5 });
-
-            migrationBuilder.InsertData(
-                table: "Resources",
-                columns: new[] { "ID", "Description", "ImageURL", "Link", "Title", "Type" },
-                values: new object[] { 2, "", "", "https://www.militaryonesource.mil/", "OneSource", 3 });
-
-            migrationBuilder.InsertData(
-                table: "Resources",
-                columns: new[] { "ID", "Description", "ImageURL", "Link", "Title", "Type" },
-                values: new object[] { 3, "", "", "https://www.benefits.va.gov/benefits/services.asp", "VA Services", 4 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

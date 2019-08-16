@@ -14,6 +14,8 @@ namespace WAWillClinicFrontEnd.Models
         [Required]
         public string Link { get; set; }
         [Required]
+        public string ImageName { get; set; }
+        [Required]
         public string ImageURL { get; set; }
         [Required]
         public string Description { get; set; }

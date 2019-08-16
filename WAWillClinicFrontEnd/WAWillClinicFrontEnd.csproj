@@ -6,23 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\**" />
-    <Content Remove="Migrations\**" />
-    <EmbeddedResource Remove="Migrations\**" />
-    <None Remove="Migrations\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Remove="compilerconfig.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Migrations\20190816021735_Initial.cs" />
-    <Compile Include="Migrations\20190816021735_Initial.Designer.cs" />
-    <Compile Include="Migrations\ApplicationDbContextModelSnapshot.cs" />
-    <Compile Include="Migrations\UserDb\20190816021821_Initial.cs" />
-    <Compile Include="Migrations\UserDb\20190816021821_Initial.Designer.cs" />
-    <Compile Include="Migrations\UserDb\UserDbContextModelSnapshot.cs" />
   </ItemGroup>
 
   <ItemGroup>

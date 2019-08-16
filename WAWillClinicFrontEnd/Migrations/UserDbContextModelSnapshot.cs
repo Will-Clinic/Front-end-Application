@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WAWillClinicFrontEnd.Data;
 
-namespace WAWillClinicFrontEnd.Migrations.UserDb
+namespace WAWillClinicFrontEnd.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20190816021821_Initial")]
-    partial class Initial
+    partial class UserDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,6 +28,9 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
                     b.Property<string>("Description")
                         .IsRequired();
 
+                    b.Property<string>("ImageName")
+                        .IsRequired();
+
                     b.Property<string>("ImageURL")
                         .IsRequired();
 
@@ -44,12 +45,6 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
                     b.HasKey("ID");
 
                     b.ToTable("Resources");
-
-                    b.HasData(
-                        new { ID = 1, Description = "", ImageURL = "", Link = "https://www.va.gov/health-care/", Title = "VA HealthCare", Type = 5 },
-                        new { ID = 2, Description = "", ImageURL = "", Link = "https://www.militaryonesource.mil/", Title = "OneSource", Type = 3 },
-                        new { ID = 3, Description = "", ImageURL = "", Link = "https://www.benefits.va.gov/benefits/services.asp", Title = "VA Services", Type = 4 }
-                    );
                 });
 
             modelBuilder.Entity("WAWillClinicFrontEnd.Models.RSVPUser", b =>

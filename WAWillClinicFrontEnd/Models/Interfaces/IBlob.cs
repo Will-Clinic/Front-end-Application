@@ -14,6 +14,6 @@ namespace WAWillClinicFrontEnd.Models.Interfaces
 
         Task<CloudBlob> UploadFromFileAsync(string imageName, string filePath);
 
-        Task<bool> DeleteAsync(string blobName);
+        Task<bool> DeleteAsync(string imageName);
     }
 }

@@ -9,30 +9,23 @@ using WAWillClinicFrontEnd.Models.Interfaces;
 
 namespace WAWillClinicFrontEnd.Pages
 {
-    
+
     public class ResourceModel : PageModel
     {
         private IResource _context;
-        private IBlob _blob;
 
-        public ResourceModel(IResource context, IBlob blob)
-        {
-            _context = context;
-            _blob = blob;
-        }
+        public List<Resource> AllResourcesByType { get; set; }
 
-        [BindProperty]
         public List<Resource> AllResources { get; set; }
 
         [BindProperty]
-        public List<Resource> AllResourcesByType { get; set; }
-
-        [BindProperty]
-        public Resource ResourceItem { get; set; }
-        
-
-        [BindProperty]
         public ResourceType TypeResource { get; set; }
+
+
+        public ResourceModel(IResource context)
+        {
+            _context = context;
+        }
 
         public async Task OnGet()
         {
@@ -42,23 +35,6 @@ namespace WAWillClinicFrontEnd.Pages
         public async Task OnPost()
         {
             AllResourcesByType = await _context.GetAllResourcesByType(TypeResource);
-        }
-
-        public async Task<IActionResult> OnPostDelete()
-        {
-            var idResource = Request.Form["id"];
-            int id = Convert.ToInt32(idResource);
-
-            Resource resource = await _context.GetResourceById(id);
-
-            if(resource != null)
-            {
-                await _blob.GetBlob(resource.ImageURL);
-                await _blob.DeleteAsync(resource.ImageURL);
-                await _context.DeleteResource(id);
-            }
-
-            return RedirectToPage();
         }
     }
 }

@@ -11,50 +11,53 @@ namespace WAWillClinicFrontEnd.Pages
 {
     public class ResourcesManagerModel : PageModel
     {
-        private IResource _resource;
+        private IResource _context;
+        private IBlob _blob;
+
+        public ResourcesManagerModel(IResource context, IBlob blob)
+        {
+            _context = context;
+            _blob = blob;
+        }
+
+        [BindProperty]
+        public List<Resource> AllResources { get; set; }
+
+        [BindProperty]
+        public List<Resource> AllResourcesByType { get; set; }
+
+        [BindProperty]
+        public Resource ResourceItem { get; set; }
+
 
         [BindProperty]
         public ResourceType TypeResource { get; set; }
 
-        public List<Resource> Resources { get; set; }
-
-        public ResourcesManagerModel(IResource resource)
+        public async Task OnGet()
         {
-            _resource = resource;
+            AllResources = await _context.GetAllResources();
         }
 
-        public void OnGet()
+        public async Task OnPost()
         {
-
+            AllResourcesByType = await _context.GetAllResourcesByType(TypeResource);
         }
 
-        public async Task OnPostType()
+        public async Task<IActionResult> OnPostDelete()
         {
-            Resources = await _resource.GetAllResourcesByType(TypeResource);
-        }
+            var idResource = Request.Form["id"];
+            int id = Convert.ToInt32(idResource);
 
-        public async Task OnPostUpdate()
-        {
-            var id = Request.Form["resource.ID"];
-            int resourceID = Convert.ToInt32(id);
-            var name = Request.Form["resource.Title"];
-            var link = Request.Form["resource.Link"];
-            var image = Request.Form["resource.ImageURL"];
-            var description = Request.Form["resource.Description"];
-            var type = Request.Form["resource.Type"];
-            int resourceType = Convert.ToInt32(type);
+            Resource resource = await _context.GetResourceById(id);
 
-            Resource newResource = new Resource
+            if (resource != null)
             {
-                ID = resourceID,
-                Title = name,
-                Link = link,
-                ImageURL = image,
-                Description = description,
-                //need to find a way to convert to the type 
-            };
+                await _blob.GetBlob(resource.ImageName);
+                await _blob.DeleteAsync(resource.ImageName);
+                await _context.DeleteResource(id);
+            }
 
-            await _resource.UpdateResource(newResource);
+            return RedirectToPage();
         }
 
     }
