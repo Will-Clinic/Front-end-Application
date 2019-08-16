@@ -40,7 +40,7 @@ namespace WAWillClinicFrontEnd.Models.Services
         public async Task DeleteResource(int id)
         {
             Resource resource = await GetResourceById(id);
-            if(resource != null)
+            if (resource != null)
             {
                 _context.Resources.Remove(resource);
                 await _context.SaveChangesAsync();
@@ -85,12 +85,12 @@ namespace WAWillClinicFrontEnd.Models.Services
         /// <returns></returns>
         public async Task UpdateResource(Resource resource)
         {
-            if(await GetResourceById(resource.ID) != null)
+            if (await GetResourceById(resource.ID) != null)
             {
                 _context.Resources.Update(resource);
                 await _context.SaveChangesAsync();
             }
-            
+
         }
     }
 }
