@@ -1,0 +1,38 @@
+﻿@page
+@model WAWillClinicFrontEnd.Pages.ResourceDetailModel
+@{
+
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ResourceDetail</title>
+</head>
+<body>
+    <h1>Resource Detail</h1>
+
+    <div>
+        <form method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Resource.ID" value="@Model.Resource.ID" />
+
+            <label for="title">Name</label>
+            <input type="text" asp-for="Resource.Title" value="@Model.Resource.Title" />
+
+            <label for="type">Resource Type</label>
+            <select asp-for="Resource.Type" asp-items="Html.GetEnumSelectList<ResourceType>()"></select>
+
+            <label for="link">Resource Link</label>
+            <input type="url" asp-for="Resource.Link" value="@Model.Resource.Link" />
+
+            <label asp-for="Image">Upload Image</label>
+            <input type="file" asp-for="Image" />
+
+            <label for="description">Description</label>
+            <input type="text" asp-for="Resource.Description" value="@Model.Resource.Description" />
+
+            <a asp-page="ResourcesManager">Cancel</a>
+            <button type="submit">Save Resource</button>
+        </form>
+    </div>
+</body>
+</html>

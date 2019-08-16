@@ -24,10 +24,10 @@ namespace WAWillClinicFrontEnd.Models.Services
             BlobStorage = StorageAccount.CreateCloudBlobClient();
         }
 
-        public async Task<bool> DeleteAsync(string blobName)
+        public async Task<bool> DeleteAsync(string imageName)
         {
             CloudBlobContainer container = await GetContainerAsync();
-            var blob = container.GetBlobReference(blobName);
+            var blob = container.GetBlobReference(imageName);
             bool result = blob.DeleteIfExists();
             return result;
         }

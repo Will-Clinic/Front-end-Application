@@ -10,8 +10,8 @@ using WAWillClinicFrontEnd.Data;
 namespace WAWillClinicFrontEnd.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190813224542_inital")]
-    partial class inital
+    [Migration("20190816125821_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

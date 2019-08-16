@@ -10,8 +10,8 @@ using WAWillClinicFrontEnd.Data;
 namespace WAWillClinicFrontEnd.Migrations.UserDb
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20190814235755_dataadd")]
-    partial class dataadd
+    [Migration("20190816125839_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,6 +30,9 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
                     b.Property<string>("Description")
                         .IsRequired();
 
+                    b.Property<string>("ImageName")
+                        .IsRequired();
+
                     b.Property<string>("ImageURL")
                         .IsRequired();
 
@@ -44,12 +47,6 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
                     b.HasKey("ID");
 
                     b.ToTable("Resources");
-
-                    b.HasData(
-                        new { ID = 1, Description = "", ImageURL = "", Link = "https://www.va.gov/health-care/", Title = "VA HealthCare", Type = 5 },
-                        new { ID = 2, Description = "", ImageURL = "", Link = "https://www.militaryonesource.mil/", Title = "OneSource", Type = 3 },
-                        new { ID = 3, Description = "", ImageURL = "", Link = "https://www.benefits.va.gov/benefits/services.asp", Title = "VA Services", Type = 4 }
-                    );
                 });
 
             modelBuilder.Entity("WAWillClinicFrontEnd.Models.RSVPUser", b =>

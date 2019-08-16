@@ -9,12 +9,14 @@ using WAWillClinicFrontEnd.Models.Interfaces;
 
 namespace WAWillClinicFrontEnd.Pages
 {
-    
+
     public class ResourceModel : PageModel
     {
         private IResource _context;
 
         public List<Resource> AllResourcesByType { get; set; }
+
+        public List<Resource> AllResources { get; set; }
 
         [BindProperty]
         public ResourceType TypeResource { get; set; }
@@ -25,9 +27,9 @@ namespace WAWillClinicFrontEnd.Pages
             _context = context;
         }
 
-        public void OnGet()
+        public async Task OnGet()
         {
-           
+            AllResources = await _context.GetAllResources();
         }
 
         public async Task OnPost()

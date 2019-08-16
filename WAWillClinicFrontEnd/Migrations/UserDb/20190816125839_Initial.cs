@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WAWillClinicFrontEnd.Migrations.UserDb
 {
-    public partial class SeededData : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,6 +15,7 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Title = table.Column<string>(nullable: false),
                     Link = table.Column<string>(nullable: false),
+                    ImageName = table.Column<string>(nullable: false),
                     ImageURL = table.Column<string>(nullable: false),
                     Description = table.Column<string>(nullable: false),
                     Type = table.Column<int>(nullable: false)
@@ -82,7 +83,9 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
                     LastName = table.Column<string>(nullable: false),
                     EmailAddress = table.Column<string>(nullable: false),
                     PhoneNumber = table.Column<string>(nullable: false),
-                    Pairing = table.Column<int>(nullable: false),
+                    MemberPair = table.Column<bool>(nullable: false),
+                    MentorPair = table.Column<bool>(nullable: false),
+                    Nopair = table.Column<bool>(nullable: false),
                     VolunteerCity = table.Column<int>(nullable: false),
                     VolunteerTimeMorning = table.Column<bool>(nullable: false),
                     VolunteerTimeAfternoon = table.Column<bool>(nullable: false),
@@ -93,21 +96,6 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
                 {
                     table.PrimaryKey("PK_Volunteers", x => x.ID);
                 });
-
-            migrationBuilder.InsertData(
-                table: "Resources",
-                columns: new[] { "ID", "Description", "ImageURL", "Link", "Title", "Type" },
-                values: new object[] { 1, "", "", "https://www.va.gov/health-care/", "VA HealthCare", 5 });
-
-            migrationBuilder.InsertData(
-                table: "Resources",
-                columns: new[] { "ID", "Description", "ImageURL", "Link", "Title", "Type" },
-                values: new object[] { 2, "", "", "https://www.militaryonesource.mil/", "OneSource", 3 });
-
-            migrationBuilder.InsertData(
-                table: "Resources",
-                columns: new[] { "ID", "Description", "ImageURL", "Link", "Title", "Type" },
-                values: new object[] { 3, "", "", "https://www.benefits.va.gov/benefits/services.asp", "VA Services", 4 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
