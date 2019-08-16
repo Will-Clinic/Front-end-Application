@@ -20,7 +20,7 @@ namespace WAWillClinicFrontEnd.Models.Services
         {
             Configuration = configuration;
 
-            StorageAccount = CloudStorageAccount.Parse(Configuration["BlobConnection"]);
+            StorageAccount = CloudStorageAccount.Parse(Configuration["AzureBlobConnString"]);
             BlobStorage = StorageAccount.CreateCloudBlobClient();
         }
 

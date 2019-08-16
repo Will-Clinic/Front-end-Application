@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WAWillClinicFrontEnd.Migrations.UserDb
 {
-    public partial class Initial : Migration
+    public partial class dataaa : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,7 +31,7 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Location = table.Column<int>(nullable: false),
+                    Location = table.Column<string>(nullable: false),
                     Agree = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(nullable: false),
                     Address = table.Column<string>(nullable: true),

@@ -10,8 +10,8 @@ using WAWillClinicFrontEnd.Data;
 namespace WAWillClinicFrontEnd.Migrations.UserDb
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20190816125839_Initial")]
-    partial class Initial
+    [Migration("20190816164935_dataaa")]
+    partial class dataaa
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -99,7 +99,8 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
 
                     b.Property<bool>("LikesPoA");
 
-                    b.Property<int>("Location");
+                    b.Property<string>("Location")
+                        .IsRequired();
 
                     b.Property<string>("MinorChildName");
 
