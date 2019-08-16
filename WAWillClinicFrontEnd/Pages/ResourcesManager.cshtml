@@ -28,13 +28,15 @@
             @foreach (Resource resource in Model.AllResources)
             {
                 <div class="resource">
-                    <input type="hidden" asp-for="@resource.ID" value="@resource.ID" name="id" />
-                    <h4>@Html.DisplayFor(item => resource.Title)</h4>
-                    <img src="@Html.DisplayFor(item => resource.ImageURL)" alt="Alternate Text" />
-                    <a href="@Html.DisplayFor(item => resource.Link)">@Html.DisplayFor(item => resource.Link)</a>
-                    <p>@Html.DisplayFor(item => resource.Description)</p>
-                    <a asp-page="ResourceDetail" asp-route-id="@resource.ID">Edit</a>
-                    <button type="submit" asp-page-handler="delete">Delete Resource</button>
+                    <form method="post" asp-page-handler="delete">
+                        <input type="hidden" asp-for="@resource.ID" value="@resource.ID" name="id" />
+                        <h4>@Html.DisplayFor(item => resource.Title)</h4>
+                        <img src="@Html.DisplayFor(item => resource.ImageURL)" alt="Alternate Text" />
+                        <a href="@Html.DisplayFor(item => resource.Link)">@Html.DisplayFor(item => resource.Link)</a>
+                        <p>@Html.DisplayFor(item => resource.Description)</p>
+                        <a asp-page="ResourceDetail" asp-route-id="@resource.ID">Edit</a>
+                        <button type="submit">Delete Resource</button>
+                    </form>
                 </div>
             }
         }
@@ -52,14 +54,14 @@
             @foreach (Resource resource in Model.AllResourcesByType)
             {
                 <div class="resource">
-                    <form method="post">
+                    <form method="post" asp-page-handler="delete">
                         <input type="hidden" asp-for="@resource.ID" value="@resource.ID" name="id" />
                         <h4>@Html.DisplayFor(item => resource.Title)</h4>
                         <img src="@Html.DisplayFor(item => resource.ImageURL)" alt="Alternate Text" />
                         <a href="@Html.DisplayFor(item => resource.Link)">@Html.DisplayFor(item => resource.Link)</a>
                         <p>@Html.DisplayFor(item => resource.Description)</p>
                         <a asp-page="ResourceDetail" asp-route-id="@resource.ID">Edit</a>
-                        <button type="submit" asp-page-handler="delete">Delete Resource</button>
+                        <button type="submit">Delete Resource</button>
                     </form>
                 </div>
             }
