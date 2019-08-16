@@ -15,7 +15,7 @@ namespace WAWillClinicFrontEnd.Pages
 
         public enum Location
         {
-            [Display(Name = "Pasco(Tri-Cities")]
+            [Display(Name = "Pasco(Tri-Cities)")]
             Pasco,
             [Display(Name = "Wenatchee")]
             Wenatchee,
@@ -32,8 +32,8 @@ namespace WAWillClinicFrontEnd.Pages
 
         public IActionResult OnPost()
         {
-            Location location = LocationChoice;
-            return RedirectToPage("Signup", location);
+            Location choice = LocationChoice;
+            return RedirectToPage("Signup", new { location = $"{choice}"});
         }
     }
 }

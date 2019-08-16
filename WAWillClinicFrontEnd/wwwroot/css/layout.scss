@@ -19,6 +19,7 @@ section {
         font-family: $secondary-font;
         line-height: 1.25em;
         text-align: center;
+        padding: 1em;
 
         @include desktop {
             margin: auto $big-gut*2;

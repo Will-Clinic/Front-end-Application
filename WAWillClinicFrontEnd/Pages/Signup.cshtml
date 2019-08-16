@@ -1,8 +1,9 @@
-﻿@page
+﻿@page "{location}"
 @model WAWillClinicFrontEnd.Pages.SignupModel;
 
 @{
     ViewData["Title"] = "Sign Up";
+    ViewData["Location"] = TempData["Location"];
     Layout = "_Layout";
 }
 
@@ -10,32 +11,38 @@
     <h2>Sign Up</h2>
 
     <p class="center content">If you would like to join the Will Clinic, please sign up below.</p>
-    <br /><br />
     <div class="container" id="signup_form">
         <div class="card-deck">
             <div class="card mx-auto">
                 <form method="post" class="content">
+                    <input type="hidden" value="@RouteData.Values["location"]" asp-for="Location"/>
                     <div class="form-row">
                         <div class="form-group" id="legal_name">
-                            <label asp-for="Name">Full Legal Name</label><br />
-                            <input type="text" name="Name" required title="Please input full name." />
-                            <span asp-validation-for="Name"></span>
+                            <label asp-for="Name">Full Legal Name</label>
+                            <div class="row">
+                                <input type="text" name="Name" required title="Please input full name." />
+                                <span asp-validation-for="Name"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group" id="signup_phone_number">
-                            <label asp-for="PhoneNumber">Phone Number</label><br />
-                            <input type="tel" name="PhoneNumber" required pattern="[0-9]{10}"
-                                   title="Please input a phone number" />
-                            <span asp-validation-for="PhoneNumber"></span>
+                            <label asp-for="PhoneNumber">Phone Number</label>
+                            <div class="row">
+                                <input type="tel" name="PhoneNumber" required pattern="[0-9]{10}"
+                                       title="Please input a phone number" />
+                                <span asp-validation-for="PhoneNumber"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label asp-for="Email">Email Address</label><br />
-                            <input type="email" name="Email" required
-                                   title="Please input an email address" />
-                            <span asp-validation-for="Email"></span>
+                            <label asp-for="Email">Email Address</label>
+                            <div class="row">
+                                <input type="email" name="Email" required
+                                       title="Please input an email address" />
+                                <span asp-validation-for="Email"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row">
@@ -43,18 +50,22 @@
                             <label asp-for="IsVeteran">
                                 Are you, or your spouse, a veteran of the United States Armed
                                 Forces?
-                            </label><br />
-                            <input class="radioButton" type="radio" name="IsVeteran" value="True" /> Yes
-                            <input class="radioButton" type="radio" name="IsVeteran" value="False" /> No
-                            <span asp-validation-for="IsVeteran"></span>
+                            </label>
+                            <div class="row">
+                                <input class="radioButton" type="radio" name="IsVeteran" value="True" /> Yes
+                                <input class="radioButton" type="radio" name="IsVeteran" value="False" /> No
+                                <span asp-validation-for="IsVeteran"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label asp-for="IsWashingtonResident">Are you a Washington state resident?</label><br />
-                            <input class="radioButton" type="radio" name="IsWashingtonResident" value="True" /> Yes
-                            <input class="radioButton" type="radio" name="IsWashingtonResident" value="False" /> No
-                            <span asp-validation-for="IsWashingtonResident"></span>
+                            <label asp-for="IsWashingtonResident">Are you a Washington state resident?</label>
+                            <div class="row">
+                                <input class="radioButton" type="radio" name="IsWashingtonResident" value="True" /> Yes
+                                <input class="radioButton" type="radio" name="IsWashingtonResident" value="False" /> No
+                                <span asp-validation-for="IsWashingtonResident"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row">
@@ -67,25 +78,31 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label asp-for="ChooseMaritalStatus">What is your marital status?</label><br />
-                            <select asp-for="ChooseMaritalStatus" asp-items="Html.GetEnumSelectList<MaritalStatus>()"></select>
-                            <span asp-validation-for="ChooseMaritalStatus"></span>
+                            <label asp-for="ChooseMaritalStatus">What is your marital status?</label>
+                            <div class="row">
+                                <select asp-for="ChooseMaritalStatus" asp-items="Html.GetEnumSelectList<MaritalStatus>()"></select>
+                                <span asp-validation-for="ChooseMaritalStatus"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label asp-for="SpouseName">Spouse/Partner's full legal name</label><br />
-                            <input type="text" name="SpouseName" required
-                                   title="Please enter the full legal name of your spouse." />
-                            <span asp-validation-for="SpouseName"></span>
+                            <label asp-for="SpouseName">Spouse/Partner's full legal name</label>
+                            <div class="row">
+                                <input type="text" name="SpouseName" required
+                                       title="Please enter the full legal name of your spouse." />
+                                <span asp-validation-for="SpouseName"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label asp-for="HasChildren">Do you have any children?</label><br />
-                            <input class="radioButton" type="radio" name="HasChildren" value="True" /> Yes
-                            <input class="radioButton" type="radio" name="HasChildren" value="False" /> No
-                            <span asp-validation-for="HasChildren"></span>
+                            <label asp-for="HasChildren">Do you have any children?</label>
+                            <div class="row">
+                                <input class="radioButton" type="radio" name="HasChildren" value="True" /> Yes
+                                <input class="radioButton" type="radio" name="HasChildren" value="False" /> No
+                                <span asp-validation-for="HasChildren"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row">
@@ -93,39 +110,49 @@
                             <label asp-for="IsCurrentlyPregnant">
                                 Do you have any minor children?
                                 Or, are you, your spouse, or your partner currently pregnant?
-                            </label><br />
+                            </label>
+                            <div class="row">
                             <input class="radioButton" type="radio" name="IsCurrentlyPregnant" value="True" /> Yes
                             <input class="radioButton" type="radio" name="IsCurrentlyPregnant" value="False" /> No
                             <span asp-validation-for="IsCurrentlyPregnant"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label asp-for="MinorChildName">Full legal name(s) of your MINOR child(ren).</label>
-                            <input type="text" name="MinorChildName" required
-                                   title="Child's name." />
-                            <span asp-validation-for="MinorChildName"></span>
+                            <div class="row">
+                                <input type="text" name="MinorChildName" required
+                                       title="Child's name." />
+                                <span asp-validation-for="MinorChildName"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label asp-for="ContRemBeneficiary">Contingent remainder beneficiary?</label><br />
-                            <select asp-for="ContRemBeneficiary" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()"></select>
-                            <span asp-validation-for="ContRemBeneficiary"></span>
+                            <label asp-for="ContRemBeneficiary">Contingent remainder beneficiary?</label>
+                            <div class="row">
+                                <select asp-for="ContRemBeneficiary" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()"></select>
+                                <span asp-validation-for="ContRemBeneficiary"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label asp-for="PersonToInherit">Who would you like to inherit your estate when you die?</label><br />
-                            <select asp-for="PersonToInherit" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()"></select>
-                            <span asp-validation-for="PersonToInherit"></span>
+                            <label asp-for="PersonToInherit">Who would you like to inherit your estate when you die?</label>
+                            <div class="row">
+                                <select asp-for="PersonToInherit" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()"></select>
+                                <span asp-validation-for="PersonToInherit"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label asp-for="PersonalRep">Whom do you wish to serve as your personal representative?</label><br />
-                            <select asp-for="PersonalRep" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()"></select>
-                            <span asp-validation-for="PersonalRep"></span>
+                            <label asp-for="PersonalRep">Whom do you wish to serve as your personal representative?</label>
+                            <div class="row">
+                                <select asp-for="PersonalRep" asp-items="Html.GetEnumSelectList<WhoToInheritEstate>()"></select>
+                                <span asp-validation-for="PersonalRep"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row">
@@ -133,10 +160,12 @@
                             <label asp-for="Agree">
                                 I HAVE READ THE WA VETS WILL CLINIC INFORMATION AND INSTRUCTIONS
                                 AND AGREE TO ITS TERMS.
-                            </label><br />
-                            <input class="radioButton" type="radio" name="Agree" value="True" required /> Yes
-                            <input class="radioButton" type="radio" name="Agree" value="False" required /> No
-                            <span asp-validation-for="Agree"></span>
+                            </label>
+                            <div class="row">
+                                <input class="radioButton" type="radio" name="Agree" value="True" required /> Yes
+                                <input class="radioButton" type="radio" name="Agree" value="False" required /> No
+                                <span asp-validation-for="Agree"></span>
+                            </div>
                             <p>@TempData["Error"]</p>
                         </div>
                     </div>
