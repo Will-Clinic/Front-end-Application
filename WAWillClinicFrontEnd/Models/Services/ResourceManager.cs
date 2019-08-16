@@ -53,7 +53,8 @@ namespace WAWillClinicFrontEnd.Models.Services
         /// <returns>Returns a List of all those resources</returns>
         public async Task<List<Resource>> GetAllResources()
         {
-            return await _context.Resources.ToListAsync();
+            var results = await _context.Resources.ToListAsync();
+            return results;
         }
 
         /// <summary>

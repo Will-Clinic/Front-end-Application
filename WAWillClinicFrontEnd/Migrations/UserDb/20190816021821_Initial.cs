@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WAWillClinicFrontEnd.Migrations.UserDb
 {
-    public partial class SeededData : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -82,7 +82,9 @@ namespace WAWillClinicFrontEnd.Migrations.UserDb
                     LastName = table.Column<string>(nullable: false),
                     EmailAddress = table.Column<string>(nullable: false),
                     PhoneNumber = table.Column<string>(nullable: false),
-                    Pairing = table.Column<int>(nullable: false),
+                    MemberPair = table.Column<bool>(nullable: false),
+                    MentorPair = table.Column<bool>(nullable: false),
+                    Nopair = table.Column<bool>(nullable: false),
                     VolunteerCity = table.Column<int>(nullable: false),
                     VolunteerTimeMorning = table.Column<bool>(nullable: false),
                     VolunteerTimeAfternoon = table.Column<bool>(nullable: false),

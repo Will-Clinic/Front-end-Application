@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WAWillClinicFrontEnd.Models.Interfaces
 {
-    interface IBlob
+    public interface IBlob
     {
         Task<CloudBlobContainer> GetContainerAsync();
 
