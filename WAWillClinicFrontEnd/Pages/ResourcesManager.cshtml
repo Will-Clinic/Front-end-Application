@@ -6,65 +6,65 @@
 
 }
 
-    <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>ResourcesManager</title>
-    </head>
-    <body>
-        <h1>Resources Manager</h1>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ResourcesManager</title>
+</head>
+<body>
+    <h1>Resources Manager</h1>
 
-        <a asp-page="ResourceDetail">Add New Resource</a>
-        @if (Model.TypeResource == 0)
+    <a asp-page="ResourceDetail">Add New Resource</a>
+    @if (Model.TypeResource == 0)
+    {
+        <div class="container">
+            <form method="post">
+                <label asp-for="TypeResource">Resource Type</label>
+                <select asp-for="TypeResource" class="form-control" style="width:25%" asp-items="@Html.GetEnumSelectList(typeof(WAWillClinicFrontEnd.Models.ResourceType))"></select>
+                <span asp-validation-for="TypeResource"></span>
+                <button type="submit">Filter Resources</button>
+            </form>
+        </div>
+
+        @foreach (Resource resource in Model.AllResources)
         {
-            <div class="container">
-                <form method="post">
-                    <label asp-for="TypeResource">Resource Type</label>
-                    <select asp-for="TypeResource" class="form-control" style="width:25%" asp-items="@Html.GetEnumSelectList(typeof(WAWillClinicFrontEnd.Models.ResourceType))"></select>
-                    <span asp-validation-for="TypeResource"></span>
-                    <button type="submit">Filter Resources</button>
+            <div class="resource">
+                <form method="post" asp-page-handler="delete">
+                    <input type="hidden" asp-for="@resource.ID" value="@resource.ID" name="id" />
+                    <h4>@Html.DisplayFor(item => resource.Title)</h4>
+                    <img src="@Html.DisplayFor(item => resource.ImageURL)" alt="Alternate Text" />
+                    <a href="@Html.DisplayFor(item => resource.Link)">@Html.DisplayFor(item => resource.Link)</a>
+                    <p>@Html.DisplayFor(item => resource.Description)</p>
+                    <a asp-page="ResourceDetail" asp-route-id="@resource.ID">Edit</a>
+                    <button type="submit">Delete Resource</button>
                 </form>
             </div>
-
-            @foreach (Resource resource in Model.AllResources)
-            {
-                <div class="resource">
-                    <form method="post" asp-page-handler="delete">
-                        <input type="hidden" asp-for="@resource.ID" value="@resource.ID" name="id" />
-                        <h4>@Html.DisplayFor(item => resource.Title)</h4>
-                        <img src="@Html.DisplayFor(item => resource.ImageURL)" alt="Alternate Text" />
-                        <a href="@Html.DisplayFor(item => resource.Link)">@Html.DisplayFor(item => resource.Link)</a>
-                        <p>@Html.DisplayFor(item => resource.Description)</p>
-                        <a asp-page="ResourceDetail" asp-route-id="@resource.ID">Edit</a>
-                        <button type="submit">Delete Resource</button>
-                    </form>
-                </div>
-            }
         }
-        else
+    }
+    else
+    {
+        <div class="container">
+            <form method="post">
+                <label asp-for="TypeResource">Resource Type</label>
+                <select asp-for="TypeResource" class="form-control" style="width:25%" asp-items="@Html.GetEnumSelectList(typeof(WAWillClinicFrontEnd.Models.ResourceType))"></select>
+                <span asp-validation-for="TypeResource"></span>
+                <button type="submit">Filter Resources</button>
+            </form>
+        </div>
+
+        @foreach (Resource resource in Model.AllResourcesByType)
         {
-            <div class="container">
-                <form method="post">
-                    <label asp-for="TypeResource">Resource Type</label>
-                    <select asp-for="TypeResource" class="form-control" style="width:25%" asp-items="@Html.GetEnumSelectList(typeof(WAWillClinicFrontEnd.Models.ResourceType))"></select>
-                    <span asp-validation-for="TypeResource"></span>
-                    <button type="submit">Filter Resources</button>
+            <div class="resource">
+                <form method="post" asp-page-handler="delete">
+                    <input type="hidden" asp-for="@resource.ID" value="@resource.ID" name="id" />
+                    <h4>@Html.DisplayFor(item => resource.Title)</h4>
+                    <img src="@Html.DisplayFor(item => resource.ImageURL)" alt="Alternate Text" />
+                    <a href="@Html.DisplayFor(item => resource.Link)">@Html.DisplayFor(item => resource.Link)</a>
+                    <p>@Html.DisplayFor(item => resource.Description)</p>
+                    <a asp-page="ResourceDetail" asp-route-id="@resource.ID">Edit</a>
+                    <button type="submit">Delete Resource</button>
                 </form>
             </div>
-
-            @foreach (Resource resource in Model.AllResourcesByType)
-            {
-                <div class="resource">
-                    <form method="post" asp-page-handler="delete">
-                        <input type="hidden" asp-for="@resource.ID" value="@resource.ID" name="id" />
-                        <h4>@Html.DisplayFor(item => resource.Title)</h4>
-                        <img src="@Html.DisplayFor(item => resource.ImageURL)" alt="Alternate Text" />
-                        <a href="@Html.DisplayFor(item => resource.Link)">@Html.DisplayFor(item => resource.Link)</a>
-                        <p>@Html.DisplayFor(item => resource.Description)</p>
-                        <a asp-page="ResourceDetail" asp-route-id="@resource.ID">Edit</a>
-                        <button type="submit">Delete Resource</button>
-                    </form>
-                </div>
-            }
         }
-    </body>
-    </html>
+    }
+</body>
+</html>
