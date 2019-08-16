@@ -257,3 +257,18 @@ table{
 .resource {
     margin-top: 2em;
 }
+
+//Resource Detail
+#resource_detail_card {
+    .form-row {
+        margin: .75em;
+    }
+
+    input {
+        width: 50%;
+    }
+
+    select {
+        width: 25%;
+    }
+}
