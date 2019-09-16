@@ -12,7 +12,7 @@ using WAWillClinicFrontEnd.Models;
 
 namespace WAWillClinicFrontEnd.Pages
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Policy = "Admin")]
     [BindProperties]
 	public class DashboardModel : PageModel
 	{
