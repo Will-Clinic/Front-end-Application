@@ -28,24 +28,24 @@
                 {
                     <p id="identity_user">@User.Identity.Name</p>
                 }
-            <ul>
-                @if (SignInManager.IsSignedIn(User))
-                {
-                    <li><a href="/Dashboard">Dashboard</a></li>
-                    <li><a href="/Admin/AdminManager">Admin Manager</a></li>
-                    <li><a href="/ResourcesManager">Resources Manager</a></li>
-                }
-                <li><a href="/">Home</a></li>
-                <li><a href="/locationchoice">Attend a Clinic</a></li>
-                <li><a href="/volunteer">Volunteer</a></li>
-                <li><a href="/about">Who We Are</a></li>
-                <li><a href="/FAQs">FAQs</a></li>
-                <li><a href="/contact">Contact us</a></li>
-                @if (SignInManager.IsSignedIn(User))
-                {
-                    <li><a href="/logout">Logout</a></li>
-                }
-            </ul>
+                <ul>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <li><a href="/Dashboard">Dashboard</a></li>
+                        <li><a href="/Admin/AdminManager">Admin Manager</a></li>
+                        <li><a href="/ResourcesManager">Resources Manager</a></li>
+                    }
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/locationchoice">Attend a Clinic</a></li>
+                    <li><a href="/volunteer">Volunteer</a></li>
+                    <li><a href="/about">Who We Are</a></li>
+                    <li><a href="/FAQs">FAQs</a></li>
+                    <li><a href="/contact">Contact us</a></li>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <li><a href="/logout">Logout</a></li>
+                    }
+                </ul>
             </nav>
             <p>
                 WA Vets Will Clinic <strong>would like to thank</strong> the following organizations and people
@@ -79,6 +79,7 @@
                     <li><a href="/logout">Logout</a></li>
                 </ul>
                 <p id="identity_user">@User.Identity.Name</p>
+                @*<p>@User.Claims.FirstOrDefault(greet => greet.Type == "FullName").Value</p>*@
             }
             else
             {

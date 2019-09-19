@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WAWillClinicFrontEnd.Models.Interfaces
 {
-    interface IAdmin
+    public interface IAdmin
     {
         Task CreateAdmin(ApplicationUser admin);
 

@@ -56,10 +56,12 @@ namespace WAWillClinicFrontEnd.Pages.Admin
 
                 if (result.Succeeded)
                 {
+                    Claim fullNameClaim = new Claim("Full Name", $"{admin.FirstName} {admin.LastName}");
                     Claim emailClaim = new Claim(ClaimTypes.Email, admin.Email, ClaimValueTypes.Email);
 
                     List<Claim> adminClaims = new List<Claim>
                     {
+                        fullNameClaim,
                         emailClaim
                     };
 
@@ -69,7 +71,7 @@ namespace WAWillClinicFrontEnd.Pages.Admin
                     claimsPrincipal.AddIdentity(claimsIdentity);
                     await _userManager.AddClaimsAsync(admin, adminClaims);
 
-                    if (admin.Email.ToLower() == "admin@admin.com")
+                    if (admin.Email.ToLower().Contains("@admin.com"))
                     {
                         await _userManager.AddToRoleAsync(admin, ApplicationRoles.Admin);
                     }
