@@ -18,6 +18,16 @@ namespace WAWillClinicFrontEnd.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            //Seeds an Admin into Db to allow login to Dashboard
+            builder.Entity<ApplicationUser>().HasData(
+                new ApplicationUser
+                {
+                    FirstName = "Admin",
+                    LastName = "Test",
+                    Email = "admin@admin.com"
+
+                });
         }
     }
 }

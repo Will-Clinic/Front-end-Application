@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -12,6 +13,7 @@ using WAWillClinicFrontEnd.Models.Interfaces;
 
 namespace WAWillClinicFrontEnd.Pages
 {
+    [Authorize(Policy = "Admin")]
     public class ResourceDetailModel : PageModel
     {
         private IResource _context;

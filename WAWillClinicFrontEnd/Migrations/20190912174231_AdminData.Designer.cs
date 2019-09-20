@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WAWillClinicFrontEnd.Data;
 
-namespace WAWillClinicFrontEnd.Migrations
+namespace WAWillClinicFrontEnd.Migrations.ApplicationDb
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190912174231_AdminData")]
+    partial class AdminData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -184,7 +186,7 @@ namespace WAWillClinicFrontEnd.Migrations
                     b.ToTable("AspNetUsers");
 
                     b.HasData(
-                        new { Id = "f4fac013-47c9-49e9-b00f-0ec15a3dbf26", AccessFailedCount = 0, ConcurrencyStamp = "a19602d9-7713-4a0f-ac62-a2e31e0568a7", Email = "admin@admin.com", EmailConfirmed = false, FirstName = "Admin", LastName = "Test", LockoutEnabled = false, PhoneNumberConfirmed = false, TwoFactorEnabled = false }
+                        new { Id = "fd4a5b5f-c287-4d60-8671-1d9bc923aee1", AccessFailedCount = 0, ConcurrencyStamp = "e08c48d4-2788-4071-97ec-6105b2e90179", Email = "admin@admin.com", EmailConfirmed = false, FirstName = "Admin", LastName = "Test", LockoutEnabled = false, PhoneNumberConfirmed = false, TwoFactorEnabled = false }
                     );
                 });
 

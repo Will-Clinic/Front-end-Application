@@ -12,8 +12,8 @@ using WAWillClinicFrontEnd.Models;
 
 namespace WAWillClinicFrontEnd.Pages
 {
-	[Authorize(Policy = "Admin")]
-	[BindProperties]
+    [Authorize(Policy = "Admin")]
+    [BindProperties]
 	public class DashboardModel : PageModel
 	{
 		private UserDbContext _context;
