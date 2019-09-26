@@ -33,7 +33,7 @@ namespace WAWillClinicFrontEnd.Pages
         public IActionResult OnPost()
         {
             Location choice = LocationChoice;
-            return RedirectToPage("Signup", new { location = $"{choice}"});
+            return RedirectToPage("/User/Signup", new { location = $"{choice}"});
         }
     }
 }
