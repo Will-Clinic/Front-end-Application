@@ -47,7 +47,7 @@ namespace WAWillClinicFrontEnd.Pages
                 {
                     user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, ConfirmPassword);
                     var result = await _userManager.UpdateAsync(user);
-                    if (result.Succeeded) return RedirectToPage("/Dashboard");
+                    if (result.Succeeded) return RedirectToPage("/Admin/Dashboard");
                     return Page();
                 }
                 return Page();

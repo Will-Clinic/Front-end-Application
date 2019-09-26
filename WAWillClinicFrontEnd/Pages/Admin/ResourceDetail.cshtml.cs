@@ -84,7 +84,7 @@ namespace WAWillClinicFrontEnd.Pages
                 await _context.CreateResource(resource);
             }
 
-            return RedirectToPage("ResourcesManager");
+            return RedirectToPage("/Admin/ResourcesManager");
         }
     }
 }

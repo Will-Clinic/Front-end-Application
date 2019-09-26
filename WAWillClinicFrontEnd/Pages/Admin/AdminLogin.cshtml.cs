@@ -51,13 +51,13 @@ namespace WAWillClinicFrontEnd.Pages
                 {
                     if(Password == _configuration["DFP"])
                     {
-                        return RedirectToPage("/Change_Password");
+                        return RedirectToPage("/Admin/Change_Password");
                     }
 
                     var user = await _userManager.FindByEmailAsync(Email);
                     if(await _userManager.IsInRoleAsync(user, ApplicationRoles.Admin))
                     {
-                        return RedirectToPage("/Dashboard");
+                        return RedirectToPage("/Admin/Dashboard");
                     }
                 }
                 return Page();

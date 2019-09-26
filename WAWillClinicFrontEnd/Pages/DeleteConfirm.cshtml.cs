@@ -38,7 +38,7 @@ namespace WAWillClinicFrontEnd.Pages
                 Name = user.Name;
             }
 
-            RedirectToPage("/Dashboard");
+            RedirectToPage("/Admin/Dashboard");
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace WAWillClinicFrontEnd.Pages
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("/Dashboard");
+            return RedirectToPage("/Admin/Dashboard");
         }
     }
 }

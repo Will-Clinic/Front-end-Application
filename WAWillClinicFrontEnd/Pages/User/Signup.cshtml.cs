@@ -103,7 +103,7 @@ namespace WAWillClinicFrontEnd.Pages
                        EmailMessages.Thanks,
                        EmailMessages.SignUpReply(user));
 
-                return RedirectToPage("SignUpConformation");
+                return RedirectToPage("/User/SignUpConformation");
             }
             return Page();
         }
