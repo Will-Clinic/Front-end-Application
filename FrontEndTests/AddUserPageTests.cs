@@ -10,6 +10,7 @@ using WAWillClinicFrontEnd.Data;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace FrontEndTests
 {
@@ -18,9 +19,11 @@ namespace FrontEndTests
         [Fact]
         public void TestAddUserPageGetterAndSetterAgree()
         {
-            using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
+            using (var context = new UserDbContext
+                (MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
-                Add_UserModel aum = new Add_UserModel(context);
+                SignupModel aum = new SignupModel(context, //Need IEmailSender Param//
+                    );
                 Assert.False(aum.Agree);
 
                 aum.Agree = true;
@@ -32,7 +35,7 @@ namespace FrontEndTests
         {
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
-                Add_UserModel aum = new Add_UserModel(context);
+                SignupModel aum = new SignupModel(context);
                 Assert.Null(aum.Name);
 
                 aum.Name = "Test Name";
@@ -44,7 +47,7 @@ namespace FrontEndTests
         {
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
-                Add_UserModel aum = new Add_UserModel(context);
+                SignupModel aum = new SignupModel(context);
                 Assert.Null(aum.Email);
 
                 aum.Email = "abc@123.com";
@@ -56,7 +59,7 @@ namespace FrontEndTests
         {
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
-                Add_UserModel aum = new Add_UserModel(context);
+                SignupModel aum = new SignupModel(context);
                 Assert.Null(aum.PhoneNumber);
 
                 aum.PhoneNumber = "0123456789";
@@ -68,7 +71,7 @@ namespace FrontEndTests
         {
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
-                Add_UserModel aum = new Add_UserModel(context);
+                SignupModel aum = new SignupModel(context);
                 Assert.False(aum.IsVeteran);
 
                 aum.IsVeteran = true;
@@ -80,7 +83,7 @@ namespace FrontEndTests
         {
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
-                Add_UserModel aum = new Add_UserModel(context);
+                SignupModel aum = new SignupModel(context);
                 Assert.False(aum.IsWashingtonResident);
 
                 aum.IsWashingtonResident = true;
@@ -92,7 +95,7 @@ namespace FrontEndTests
         {
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
-                Add_UserModel aum = new Add_UserModel(context);
+                SignupModel aum = new SignupModel(context);
                 Assert.False(aum.PreferredTime);
 
                 aum.PreferredTime = true;
@@ -104,7 +107,7 @@ namespace FrontEndTests
         {
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
-                Add_UserModel aum = new Add_UserModel(context)
+                SignupModel aum = new SignupModel(context)
                 {
                     ChooseMaritalStatus = MaritalStatus.FirstMarriage
                 };
@@ -119,7 +122,7 @@ namespace FrontEndTests
         {
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
-                Add_UserModel aum = new Add_UserModel(context);
+                SignupModel aum = new SignupModel(context);
                 Assert.Null(aum.SpouseName);
 
                 aum.SpouseName = "Test Name";
@@ -131,7 +134,7 @@ namespace FrontEndTests
         {
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
-                Add_UserModel aum = new Add_UserModel(context);
+                SignupModel aum = new SignupModel(context);
                 Assert.False(aum.HasChildren);
 
                 aum.HasChildren = true;
@@ -143,7 +146,7 @@ namespace FrontEndTests
         {
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
-                Add_UserModel aum = new Add_UserModel(context);
+                SignupModel aum = new SignupModel(context);
                 Assert.False(aum.IsCurrentlyPregnant);
 
                 aum.IsCurrentlyPregnant = true;
@@ -155,7 +158,7 @@ namespace FrontEndTests
         {
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
-                Add_UserModel aum = new Add_UserModel(context);
+                SignupModel aum = new SignupModel(context);
                 Assert.Null(aum.MinorChildName);
 
                 aum.MinorChildName = "Test Name";
@@ -167,7 +170,7 @@ namespace FrontEndTests
         {
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
-                Add_UserModel aum = new Add_UserModel(context)
+                SignupModel aum = new SignupModel(context)
                 {
                     ContRemBeneficiary = WhoToInheritEstate.ComplicatedChildren
                 };
@@ -182,7 +185,7 @@ namespace FrontEndTests
         {
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
-                Add_UserModel aum = new Add_UserModel(context)
+                SignupModel aum = new SignupModel(context)
                 {
                     PersonToInherit = WhoToInheritEstate.ComplicatedChildren
                 };
@@ -197,7 +200,7 @@ namespace FrontEndTests
         {
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
-                Add_UserModel aum = new Add_UserModel(context)
+                SignupModel aum = new SignupModel(context)
                 {
                     PersonalRep = WhoToInheritEstate.ComplicatedChildren
                 };
@@ -213,7 +216,7 @@ namespace FrontEndTests
         {
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
-                Add_UserModel aum = new Add_UserModel(context)
+                SignupModel aum = new SignupModel(context)
                 {                     
                     Agree = true,
                     Name = "Test User",
@@ -250,7 +253,7 @@ namespace FrontEndTests
         {
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
-                Add_UserModel aum = new Add_UserModel(context)
+                SignupModel aum = new SignupModel(context)
                 {
                     Name = "Test User",
                     PhoneNumber = "0123456789"

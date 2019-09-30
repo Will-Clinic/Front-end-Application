@@ -111,7 +111,7 @@ namespace WAWillClinicFrontEnd.Pages
                 _context.Users.Update(user);
                 await _context.SaveChangesAsync();
             }
-            return RedirectToPage("/Admin/Dashboard");
+            return Page();
         }
     }
 }
