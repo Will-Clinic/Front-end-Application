@@ -130,7 +130,7 @@ namespace FrontEndTests
             var result = cpm.OnPostAsync().Result;
             RedirectToPageResult check = (RedirectToPageResult)result;
 
-            Assert.Equal("/Dashboard", check.PageName);
+            Assert.Equal("/Admin/Dashboard", check.PageName);
         }
     }
 }

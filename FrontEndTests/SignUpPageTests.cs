@@ -279,7 +279,7 @@ namespace FrontEndTests
                 result = await context.Users.ToListAsync();
 
                 Assert.Single(result);
-                Assert.Equal("SignUpConformation", check.PageName);
+                Assert.Equal("/User/SignUpConformation", check.PageName);
             }
         }
     }

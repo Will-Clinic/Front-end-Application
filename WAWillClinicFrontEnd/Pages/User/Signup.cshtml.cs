@@ -59,7 +59,13 @@ namespace WAWillClinicFrontEnd.Pages
             _emailSender = emailSender;
         }
 
-		public void OnGet()
+        public SignupModel(UserDbContext context)
+        {
+            _context = context;
+        }
+
+
+        public void OnGet()
         {
         }
 

@@ -22,8 +22,7 @@ namespace FrontEndTests
             using (var context = new UserDbContext
                 (MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
-                SignupModel aum = new SignupModel(context, //Need IEmailSender Param//
-                    );
+                SignupModel aum = new SignupModel(context);
                 Assert.False(aum.Agree);
 
                 aum.Agree = true;
@@ -217,7 +216,8 @@ namespace FrontEndTests
             using (var context = new UserDbContext(MockRSVPUserDb.TestRSVPDbContextOptions()))
             {
                 SignupModel aum = new SignupModel(context)
-                {                     
+                {    
+                    Location = "Seattle",
                     Agree = true,
                     Name = "Test User",
                     Email = "abc@123.com",
@@ -245,7 +245,7 @@ namespace FrontEndTests
                 result = await context.Users.ToListAsync();
 
                 Assert.Single(result);
-                Assert.Equal("/Dashboard", check.PageName);
+                Assert.Equal("/Admin/Dashboard", check.PageName);
             }
         }
         [Fact]

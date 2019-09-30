@@ -76,7 +76,7 @@ namespace FrontEndTests
             MockValidation.CheckValidation(alm);
             var result = alm.OnPost().Result;
             RedirectToPageResult check = (RedirectToPageResult)result;
-            Assert.Equal("/Dashboard", check.PageName);
+            Assert.Equal("/Admin/Dashboard", check.PageName);
         }
         [Fact]
         public async void TestAdminLoginValidStateAndAdminUsesDefaultPassword()
@@ -113,7 +113,7 @@ namespace FrontEndTests
             MockValidation.CheckValidation(alm);
             var result = alm.OnPost().Result;
             RedirectToPageResult check = (RedirectToPageResult)result;
-            Assert.Equal("/Change_Password", check.PageName);
+            Assert.Equal("/Admin/Change_Password", check.PageName);
         }
         [Fact]
         public async void TestAdminLoginInvalidState()
